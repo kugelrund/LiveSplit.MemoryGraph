@@ -71,7 +71,7 @@ namespace LiveSplit.MemoryGraph
 
     public class Component : IComponent
     {
-        private Settings settings = new Settings();
+        private Settings settings;
 
         public string ComponentName => "MemoryGraph";
 
@@ -80,10 +80,10 @@ namespace LiveSplit.MemoryGraph
         public float PaddingBottom => 0;
         public float PaddingRight => 0;
 
-        public float VerticalHeight { get; private set; }         
-        public float MinimumWidth { get; private set; }
-        public float HorizontalWidth { get; private set; }
-        public float MinimumHeight { get; private set; }
+        public float VerticalHeight => settings.GraphHeight + 2 * settings.VerticalMargins;
+        public float MinimumWidth => settings.GraphWidth + 2 * settings.HorizontalMargins;
+        public float HorizontalWidth => settings.GraphWidth + 2 * settings.HorizontalMargins;
+        public float MinimumHeight => settings.GraphHeight + 2 * settings.VerticalMargins;
 
         public IDictionary<string, Action> ContextMenuControls => null;
 
@@ -110,6 +110,7 @@ namespace LiveSplit.MemoryGraph
 
             graphBrush = Brushes.Transparent;
 
+            settings = new Settings();
             settings.HandleDestroyed += SettingsUpdated;
             SettingsUpdated(null, null);
         }
@@ -126,11 +127,6 @@ namespace LiveSplit.MemoryGraph
                 gBuffer.Clear(Color.Transparent);
                 gBuffer.CompositingMode = CompositingMode.SourceCopy;
             }
-
-            VerticalHeight = graphHeight + 2 * settings.VerticalMargins;
-            MinimumWidth = graphWidth + 2 * settings.HorizontalMargins;
-            HorizontalWidth = graphWidth + 2 * settings.HorizontalMargins;
-            MinimumHeight = graphHeight + 2 * settings.VerticalMargins;
         }
 
         private static Color Blend(Color backColor, Color color, double amount)
@@ -350,7 +346,7 @@ namespace LiveSplit.MemoryGraph
                         currentValue = settings.Pointer.Deref<int>(process);
                         break;
                     case MemoryType.FloatVec2:
-                        currentValue = (float)settings.Pointer.Deref< FloatVec2>(process).Norm;
+                        currentValue = (float)settings.Pointer.Deref<FloatVec2>(process).Norm;
                         break;
                     case MemoryType.FloatVec3:
                         currentValue = (float)settings.Pointer.Deref<FloatVec3>(process).Norm;

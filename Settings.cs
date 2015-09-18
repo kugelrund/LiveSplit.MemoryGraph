@@ -268,7 +268,7 @@ namespace LiveSplit.MemoryGraph
 
         private int CreateSettingsNode(System.Xml.XmlDocument document, System.Xml.XmlElement parent)
         {
-            return SettingsHelper.CreateSetting(document, parent, "Version", "1.0") ^
+            return SettingsHelper.CreateSetting(document, parent, "Version", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor", BackgroundColor) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor2", BackgroundColor2) ^
             SettingsHelper.CreateSetting(document, parent, "GraphColor", GraphColor) ^

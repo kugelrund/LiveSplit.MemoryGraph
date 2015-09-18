@@ -19,6 +19,7 @@ Name of Process: joequake-gl
   - Base: 64F608
   - Offsets: *Empty*
   - Type: FloatVec2 or FloatVec3
+
 ###Quake 2 (Q2PRO)
 Name of Process: q2pro
 - Value: Speed
@@ -26,6 +27,7 @@ Name of Process: q2pro
   - Base: 15574C
   - Offsets: *Empty*
   - Type: FloatVec2 or FloatVec3
+
 ###Star Trek: Voyager - Elite Force
 Name of Process: stvoy
 - Value: Speed

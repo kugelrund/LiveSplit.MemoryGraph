@@ -8,30 +8,8 @@ Download "Components/LiveSplit.MemoryGraph.dll" and place it into the subdirecto
 
 Usage
 -----
-You need to tell the plugin, where in the memory it can find the value that you want to display. You can find that out using for example the free program Cheat Engine. There are also some known pointer paths listed below. If you have the pointer path for a value for your game feel free to add it here via a pull request.
+You need to tell the plugin, where in the memory it can find the value that you want to display. You can find some known memory addresses in the Wiki:
 
-Some Pointer Paths
-------------------
-###Quake (JoeQuake)
-Name of Process: joequake-gl
-- Value: Speed
-  - Module: *Empty*
-  - Base: 64F608
-  - Offsets: *Empty*
-  - Type: FloatVec2 or FloatVec3
+[Known Addresses for some Games](https://github.com/kugelrund/LiveSplit.MemoryGraph/wiki)
 
-###Quake 2 (Q2PRO)
-Name of Process: q2pro
-- Value: Speed
-  - Module: *Empty*
-  - Base: 15574C
-  - Offsets: *Empty*
-  - Type: FloatVec2 or FloatVec3
-
-###Star Trek: Voyager - Elite Force
-Name of Process: stvoy
-- Value: Speed
-  - Module: *Empty*
-  - Base: BB800
-  - Offsets: *Empty*
-  - Type: FloatVec2
+If the address for the value that you want to display is not there, you can find it out yourself using for example the free program Cheat Engine.

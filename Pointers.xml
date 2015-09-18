@@ -2,9 +2,9 @@
 <Pointers>
   <Pointer>
     <Game>Quake (JoeQuake port)</Game>
-    <ProcessName>joequake-gl</ProcessName>
     <Value>Speed</Value>
     <Description>Speed, doesn't include vertical movement, use Type "FloatVec3" to include that</Description>
+    <ProcessName>joequake-gl</ProcessName>
     <Module></Module>
     <Base>64F608</Base>
     <Offsets></Offsets>
@@ -12,9 +12,9 @@
   </Pointer>
   <Pointer>
     <Game>Quake II (Q2PRO port)</Game>
-    <ProcessName>q2pro</ProcessName>
     <Value>Speed</Value>
     <Description>Speed, doesn't include vertical movement, use Type "FloatVec3" to include that</Description>
+    <ProcessName>q2pro</ProcessName>
     <Module></Module>
     <Base>15574C</Base>
     <Offsets></Offsets>

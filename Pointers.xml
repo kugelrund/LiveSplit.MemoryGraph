@@ -28,4 +28,18 @@
       </Pointer>
     </Pointers>
   </Game>
+  <Game>
+    <GameName>Star Trek: Voyager - Elite Force</GameName>
+    <ProcessName>stvoy.exe</ProcessName>
+    <Pointers>
+      <Pointer>
+        <Value>Speed</Value>
+        <Description>Current Speed, doesn't include vertical movement. Use Type "FloatVec3" to include that</Description>
+        <Module></Module>
+        <Base>BB800</Base>
+        <Offsets></Offsets>
+        <Type>FloatVec2</Type>
+      </Pointer>
+    </Pointers>
+  </Game>
 </Games>

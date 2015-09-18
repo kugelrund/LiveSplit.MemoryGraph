@@ -30,7 +30,7 @@
   </Game>
   <Game>
     <GameName>Star Trek: Voyager - Elite Force</GameName>
-    <ProcessName>stvoy.exe</ProcessName>
+    <ProcessName>stvoy</ProcessName>
     <Pointers>
       <Pointer>
         <Value>Speed</Value>

@@ -8,8 +8,6 @@ Download "Components/LiveSplit.MemoryGraph.dll" and place it into the subdirecto
 
 Usage
 -----
-You need to tell the plugin, where in the memory it can find the value that you want to display. You can find some known memory addresses in the Wiki:
-
-[Known Addresses for some Games](https://github.com/kugelrund/LiveSplit.MemoryGraph/wiki)
+You need to tell the plugin, where in the memory it can find the value that you want to display. You can find some known memory addresses in the [Wiki](https://github.com/kugelrund/LiveSplit.MemoryGraph/wiki) or by downloading an XML file inside of the component.
 
 If the address for the value that you want to display is not there, you can find it out yourself using for example the free program Cheat Engine.

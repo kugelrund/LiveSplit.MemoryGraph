@@ -13,7 +13,7 @@ namespace LiveSplit.MemoryGraph
     {
         public bool DownloadNew()
         {
-            string uriToSource = "https://raw.githubusercontent.com/SuiMachine/LiveSplit.MemoryGraph/master/XML/";
+            string uriToSource = "https://raw.githubusercontent.com/kugelrund/LiveSplit.MemoryGraph/master/XML/";
             string xmlFileName = "LiveSplit.MemoryGraphList.xml";
             bool result = false;
             string downloadedFileLocation = "";

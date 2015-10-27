@@ -76,6 +76,7 @@ namespace LiveSplit.MemoryGraph
     partial class Settings : UserControl
     {
         List<string> gamesOnTheList = new List<string>();
+        static string componentsFolder = "Components";
         static string listsFile = "LiveSplit.MemoryGraphList.xml";
 
         public Color BackgroundColor { get; set; }
@@ -117,7 +118,7 @@ namespace LiveSplit.MemoryGraph
         {
             InitializeComponent();
 
-            if (File.Exists(listsFile))
+            if (File.Exists(Path.Combine(componentsFolder, listsFile)))
             {
                 loadXML();
             }
@@ -436,7 +437,7 @@ namespace LiveSplit.MemoryGraph
         {
             gamesOnTheList.Clear();
             XmlDocument XmlGames = new XmlDocument();
-            XmlGames.Load(listsFile);
+            XmlGames.Load(Path.Combine(componentsFolder, listsFile));
             gamesOnTheList.Add("-None-");
             foreach (XmlNode gameNode in XmlGames.DocumentElement)
             {
@@ -456,15 +457,18 @@ namespace LiveSplit.MemoryGraph
             else
             {
                 XmlDocument XmlGames = new XmlDocument();
-                XmlGames.Load(listsFile);
+                XmlGames.Load(Path.Combine(componentsFolder, listsFile));
                 foreach (XmlNode gameNode in XmlGames.DocumentElement)
                 {
                     string name = gameNode.Attributes[0].Value;
                     if (name == (string)ComboBox_ListOfGames.SelectedValue)
-                    {   //It's good that this gets parsed on change :3
+                    {
                         txtProcessName.Text = GetSafeStringValueFromXML(gameNode, "process");
+                        ProcessName = GetSafeStringValueFromXML(gameNode, "process");
+
                         txtModule.Text = GetSafeStringValueFromXML(gameNode, "module");
-                        txtBase.Text = GetSafeStringValueFromXML(gameNode, "offsets");
+                        txtBase.Text = GetSafeStringValueFromXML(gameNode, "base");
+                        txtOffsets.Text = GetSafeStringValueFromXML(gameNode, "offsets");
                         cmbType.SelectedIndex = GetSafeTypeFromXML(gameNode, "type");
                         txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue");
                         numValueTextDecimals.Value = GetSafeUIntFromXML(gameNode, "decimals");                     

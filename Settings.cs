@@ -77,7 +77,6 @@ namespace LiveSplit.MemoryGraph
     {
         List<string> gamesOnTheList = new List<string>();
         static string listsFile = "LiveSplit.MemoryGraphList.xml";
-        private object gameNode;
 
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }
@@ -453,7 +452,6 @@ namespace LiveSplit.MemoryGraph
         {
             if ((string)ComboBox_ListOfGames.SelectedValue == "-None-")
             {
-                MessageBox.Show("Woop");
             }
             else
             {
@@ -478,7 +476,12 @@ namespace LiveSplit.MemoryGraph
         }
         private void B_UpdateXML_Click(object sender, EventArgs e)
         {
-
+            MonkeyDownloadingXML _downloader = new MonkeyDownloadingXML();
+            bool result = _downloader.DownloadNew();
+            if (result)
+            {
+                loadXML();
+            }
         }
 
         #region GetSafeValuesFunctions

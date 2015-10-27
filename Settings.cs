@@ -1,10 +1,13 @@
 ﻿using LiveSplit.ComponentUtil;
 using LiveSplit.UI;
 using System;
+using System.IO;
+using System.Xml;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace LiveSplit.MemoryGraph
 {
@@ -72,6 +75,10 @@ namespace LiveSplit.MemoryGraph
 
     partial class Settings : UserControl
     {
+        List<string> gamesOnTheList = new List<string>();
+        static string componentsFolder = "Components";
+        static string listsFile = "LiveSplit.MemoryGraphList.xml";
+
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }
         public Color GraphColor { get; set; }
@@ -110,6 +117,17 @@ namespace LiveSplit.MemoryGraph
         public Settings()
         {
             InitializeComponent();
+
+            if (File.Exists(Path.Combine(componentsFolder, listsFile)))
+            {
+                loadXML();
+            }
+            else
+            {
+                ComboBox_ListOfGames.Enabled = false;
+            }
+
+
             HandleDestroyed += UpdatePointer;
 
             BackgroundColor = Color.Transparent;
@@ -410,5 +428,127 @@ namespace LiveSplit.MemoryGraph
                 return int.TryParse(str, NumberStyles.HexNumber, null, out integer);
             }
         }
+
+        //////////////////////////////////////////
+        /////Related to loading XML, list etc.////
+        //////////////////////////////////////////
+        
+        private void loadXML()
+        {
+            gamesOnTheList.Clear();
+            XmlDocument XmlGames = new XmlDocument();
+            XmlGames.Load(Path.Combine(componentsFolder, listsFile));
+            gamesOnTheList.Add("-None-");
+            foreach (XmlNode gameNode in XmlGames.DocumentElement)
+            {
+                string name = gameNode.Attributes[0].Value;
+                gamesOnTheList.Add(name);
+            }
+
+            ComboBox_ListOfGames.DataSource = gamesOnTheList;
+            ComboBox_ListOfGames.Enabled = true;
+        }
+
+        private void ComboBox_ListOfGames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((string)ComboBox_ListOfGames.SelectedValue == "-None-")
+            {
+            }
+            else
+            {
+                XmlDocument XmlGames = new XmlDocument();
+                XmlGames.Load(Path.Combine(componentsFolder, listsFile));
+                foreach (XmlNode gameNode in XmlGames.DocumentElement)
+                {
+                    string name = gameNode.Attributes[0].Value;
+                    if (name == (string)ComboBox_ListOfGames.SelectedValue)
+                    {
+                        txtProcessName.Text = GetSafeStringValueFromXML(gameNode, "process");
+                        ProcessName = GetSafeStringValueFromXML(gameNode, "process");
+
+                        txtModule.Text = GetSafeStringValueFromXML(gameNode, "module");
+                        txtBase.Text = GetSafeStringValueFromXML(gameNode, "base");
+                        txtOffsets.Text = GetSafeStringValueFromXML(gameNode, "offsets");
+                        cmbType.SelectedIndex = GetSafeTypeFromXML(gameNode, "type");
+                        txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue");
+                        numValueTextDecimals.Value = GetSafeUIntFromXML(gameNode, "decimals");                     
+
+                        break;
+                    }
+                }
+            }
+        }
+        private void B_UpdateXML_Click(object sender, EventArgs e)
+        {
+            MonkeyDownloadingXML _downloader = new MonkeyDownloadingXML();
+            bool result = _downloader.DownloadNew();
+            if (result)
+            {
+                loadXML();
+            }
+        }
+
+        #region GetSafeValuesFunctions
+        private string GetSafeStringValueFromXML(XmlNode docNode, string nodeName)
+        {
+            if (docNode.SelectSingleNode(nodeName) != null)
+            {
+                return docNode.SelectSingleNode(nodeName).InnerText; 
+            }
+            else
+                return "";
+        }
+
+        private int GetSafeTypeFromXML(XmlNode docNode, string nodeName)
+        {
+            if(docNode.SelectSingleNode(nodeName) != null)
+            {
+                string typeTemp = docNode.SelectSingleNode(nodeName).InnerText.ToLower();
+                if (typeTemp == "float")
+                {
+                    return (int)MemoryType.Float;
+                }
+                else if (typeTemp == "int")
+                {
+                    return (int)MemoryType.Int;
+                }
+                else if (typeTemp == "floatvec2")
+                {
+                    return (int)MemoryType.FloatVec2;
+                }
+                else if (typeTemp == "floatvec3")
+                {
+                    return (int)MemoryType.FloatVec3;
+                }
+                else if (typeTemp == "intvec2")
+                {
+                    return (int)MemoryType.IntVec2;
+                }
+                else if (typeTemp == "intvec3")
+                {
+                    return (int)MemoryType.IntVec3;
+                }
+                else
+                    return (int)MemoryType.Float;
+            }
+            return (int)MemoryType.Float;
+        }
+
+        private uint GetSafeUIntFromXML(XmlNode docNode, string nodeName)
+        {
+            if (docNode.SelectSingleNode(nodeName) != null)
+            {
+                string text = docNode.SelectSingleNode(nodeName).InnerText;
+                uint value;
+                if (uint.TryParse(text, out value))
+                {
+                    return value;
+                }
+                else
+                    return 0;
+            }
+            return 0;
+        }
+        #endregion
     }
 }

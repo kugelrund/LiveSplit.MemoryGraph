@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<games>
+<game name="Deus Ex: Human Revolution">
+	<process>dxhr</process>
+	<base>015DE1A8</base>
+	<offsets>14,4c,118</offsets>
+	<type>Float</type>
+	<maximumValue>4000</maximumValue>
+	<decimals>1</decimals>
+</game>
+<game name="Hitman: Absolution">
+	<process>HMA</process>
+	<base>00D4E510</base>
+	<offsets>80,1A0</offsets>
+	<type>Float</type>
+</game>
+<game name="Quake (JoeQuake)">
+	<process>joequake-gl</process>
+	<base>64F608</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+</game>
+<game name="Quake II (Q2PRO)">
+	<process>q2pro</process>
+	<base>15574C</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+</game>
+<game name="Star Trek: Voyager Elite Force">
+	<process>stvoy</process>
+	<base>BB800</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+</game>
+<game name="Star Wars Jedi Knight: Jedi Academy">
+	<process>jasp</process>
+	<base>00897B70</base>
+	<offsets>A4,3C</offsets>
+	<type>Float</type>
+</game>
+</games>

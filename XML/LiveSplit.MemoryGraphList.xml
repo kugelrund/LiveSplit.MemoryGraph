@@ -2,6 +2,7 @@
 <games>
 <game name="Deus Ex: Human Revolution">
 	<process>dxhr</process>
+	<module></module>
 	<base>015DE1A8</base>
 	<offsets>14,4c,118</offsets>
 	<type>Float</type>
@@ -10,9 +11,19 @@
 </game>
 <game name="Hitman: Absolution">
 	<process>HMA</process>
+	<module></module>
 	<base>00D4E510</base>
 	<offsets>80,1A0</offsets>
 	<type>Float</type>
+</game>
+<game name="Judge Dredd: Dredd vs. Death">
+	<process>Dredd</process>
+	<module></module>
+	<base>0023BE80</base>
+	<offsets>0,90,50,58</offsets>
+	<type>Float</type>
+	<maximumValue>120</maximumValue>
+	<decimals>0</decimals>
 </game>
 <game name="Quake (JoeQuake)">
 	<process>joequake-gl</process>
@@ -37,5 +48,23 @@
 	<base>00897B70</base>
 	<offsets>A4,3C</offsets>
 	<type>Float</type>
+</game>
+<game name="The Elder Scrolls V: Skyrim">
+	<process>TESV</process>
+	<module></module>
+	<base>00ED3DE4</base>
+	<offsets>148</offsets>
+	<type>FloatVec3</type>
+	<maximumValue>1000</maximumValue>
+	<decimals>0</decimals>
+</game>
+<game name="Wheel of Time">
+	<process>WoT</process>
+	<module>Engine.dll</module>
+	<base>26568C</base>
+	<offsets>80, 30, 100</offsets>
+	<type>FloatVec3</type>
+	<maximumValue>1000</maximumValue>
+	<decimals>0</decimals>
 </game>
 </games>

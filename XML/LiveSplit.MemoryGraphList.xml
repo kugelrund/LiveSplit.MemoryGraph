@@ -70,8 +70,8 @@
 <game name="Wrack">
 	<process>Wrack_steam</process>
 	<module></module>
-	<base>1A00C8</base>
-	<offsets>134, 328, 37c, 595</offsets>
+	<base>1A001C</base>
+	<offsets>595</offsets>
 	<type>FloatVec3</type>
 	<maximumValue>15</maximumValue>
 	<decimals>2</decimals>

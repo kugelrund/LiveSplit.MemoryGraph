@@ -67,4 +67,13 @@
 	<maximumValue>1000</maximumValue>
 	<decimals>0</decimals>
 </game>
+<game name="Wrack">
+	<process>Wrack_steam</process>
+	<module></module>
+	<base>1A00C8</base>
+	<offsets>134, 328, 37c, 595</offsets>
+	<type>FloatVec3</type>
+	<maximumValue>15</maximumValue>
+	<decimals>2</decimals>
+</game>
 </games>

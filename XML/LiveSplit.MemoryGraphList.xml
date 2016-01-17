@@ -37,6 +37,12 @@
 	<offsets></offsets>
 	<type>FloatVec3</type>
 </game>
+<game name="Quake II (Q2PRO_2016-01-12)">
+	<process>q2pro</process>
+	<base>15674C</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+</game>
 <game name="Star Trek: Voyager Elite Force">
 	<process>stvoy</process>
 	<base>BB800</base>

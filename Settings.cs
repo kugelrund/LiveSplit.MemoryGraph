@@ -24,7 +24,11 @@ namespace LiveSplit.MemoryGraph
         [Description("FloatVec3")]
         FloatVec3,
         [Description("IntVec3")]
-        IntVec3
+        IntVec3,
+        [Description("FloatVec2XZY")]
+        FloatVec2XZY,
+        [Description("IntVec2XZY")]
+        IntVec2XZY
     }
 
     enum GraphStyle
@@ -527,6 +531,14 @@ namespace LiveSplit.MemoryGraph
                 else if (typeTemp == "intvec3")
                 {
                     return (int)MemoryType.IntVec3;
+                }
+                else if (typeTemp == "floatvec2XZY")
+                {
+                    return (int)MemoryType.FloatVec2XZY;
+                }
+                else if (typeTemp == "intvec2XZY")
+                {
+                    return (int)MemoryType.IntVec2XZY;
                 }
                 else
                     return (int)MemoryType.Float;

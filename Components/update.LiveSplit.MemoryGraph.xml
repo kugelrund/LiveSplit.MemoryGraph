@@ -1,4 +1,12 @@
 <updates>
+    <update version="1.2">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Support for vectors in XZY format (position, height, depth)</change>
+        </changelog>
+    </update>
     <update version="1.1">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

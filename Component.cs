@@ -23,6 +23,22 @@ namespace LiveSplit.MemoryGraph
         public double Norm => Math.Sqrt(x * x + y * y);
     }
 
+    struct FloatVec2XZY
+    {
+        float x;
+        float y;
+        float z;
+
+        public FloatVec2XZY(float x, float y, float z)
+        {
+            this.x = x;
+            this.y = 1;
+            this.z = z;
+        }
+
+        public double Norm => Math.Sqrt(x * x + z * z);
+    }
+
     struct FloatVec3
     {
         float x;
@@ -51,6 +67,22 @@ namespace LiveSplit.MemoryGraph
         }
 
         public double Norm => Math.Sqrt(x * x + y * y);
+    }
+
+    struct IntVec2XZY
+    {
+        int x;
+        int y;
+        int z;
+
+        public IntVec2XZY(int x, int y, int z)
+        {
+            this.x = x;
+            this.y = 1;
+            this.z = z;
+        }
+
+        public double Norm => Math.Sqrt(x * x + z * z);
     }
 
     struct IntVec3
@@ -356,6 +388,12 @@ namespace LiveSplit.MemoryGraph
                         break;
                     case MemoryType.IntVec3:
                         currentValue = (float)settings.Pointer.Deref<IntVec3>(process).Norm;
+                        break;
+                    case MemoryType.FloatVec2XZY:
+                        currentValue = (float)settings.Pointer.Deref<FloatVec2XZY>(process).Norm;
+                        break;
+                    case MemoryType.IntVec2XZY:
+                        currentValue = (float)settings.Pointer.Deref<IntVec2XZY>(process).Norm;
                         break;
                 }
 

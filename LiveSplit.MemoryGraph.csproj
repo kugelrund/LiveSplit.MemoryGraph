@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Components\</OutputPath>
+    <OutputPath>C:\LiveSplit\Components\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -36,11 +36,11 @@
   <ItemGroup>
     <Reference Include="CustomFontDialog, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Files\Apps\Gaming\LiveSplit\CustomFontDialog.dll</HintPath>
+      <HintPath>C:\LiveSplit\CustomFontDialog.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="LiveSplit.Core">
-      <HintPath>C:\Files\Apps\Gaming\LiveSplit\LiveSplit.Core.dll</HintPath>
+      <HintPath>C:\LiveSplit\LiveSplit.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -53,7 +53,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UpdateManager">
-      <HintPath>C:\Files\Apps\Gaming\LiveSplit\UpdateManager.dll</HintPath>
+      <HintPath>C:\LiveSplit\UpdateManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

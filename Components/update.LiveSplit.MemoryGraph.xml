@@ -1,4 +1,12 @@
 <updates>
+    <update version="1.2.1">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Option to disable Silly colors (related to gradient colors for values over the specified maximum).</change>
+        </changelog>
+    </update>
     <update version="1.2">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

@@ -33,6 +33,7 @@ namespace LiveSplit.MemoryGraph
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grpPointerPath = new System.Windows.Forms.GroupBox();
             this.ComboBox_ListOfGames = new System.Windows.Forms.ComboBox();
@@ -51,15 +52,6 @@ namespace LiveSplit.MemoryGraph
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.grpGraph = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblGraphColor = new System.Windows.Forms.Label();
-            this.btnGraphColor1 = new System.Windows.Forms.Button();
-            this.btnGraphColor2 = new System.Windows.Forms.Button();
-            this.cmbGraphGradientType = new System.Windows.Forms.ComboBox();
-            this.lblBackgroundColor = new System.Windows.Forms.Label();
-            this.cmbBackgroundGradientType = new System.Windows.Forms.ComboBox();
-            this.btnBackgroundColor1 = new System.Windows.Forms.Button();
-            this.btnBackgroundColor2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMaximumValue = new System.Windows.Forms.Label();
             this.txtMaximumValue = new System.Windows.Forms.TextBox();
@@ -84,6 +76,18 @@ namespace LiveSplit.MemoryGraph
             this.cmbValueTextPosition = new System.Windows.Forms.ComboBox();
             this.lblDecimals = new System.Windows.Forms.Label();
             this.numValueTextDecimals = new System.Windows.Forms.NumericUpDown();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblGraphColor = new System.Windows.Forms.Label();
+            this.btnGraphColor1 = new System.Windows.Forms.Button();
+            this.btnGraphColor2 = new System.Windows.Forms.Button();
+            this.cmbGraphGradientType = new System.Windows.Forms.ComboBox();
+            this.lblBackgroundColor = new System.Windows.Forms.Label();
+            this.cmbBackgroundGradientType = new System.Windows.Forms.ComboBox();
+            this.btnBackgroundColor1 = new System.Windows.Forms.Button();
+            this.btnBackgroundColor2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.colorsCBSillyColors = new System.Windows.Forms.CheckBox();
             this.grpDescriptiveText = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.overrideControlDescriptiveText = new LiveSplit.MemoryGraph.TextStyleOverrideControl();
@@ -91,12 +95,12 @@ namespace LiveSplit.MemoryGraph
             this.txtDescriptiveText = new System.Windows.Forms.TextBox();
             this.lblDescriptiveTextPosition = new System.Windows.Forms.Label();
             this.cmbDescriptiveTextPosition = new System.Windows.Forms.ComboBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.grpPointerPath.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.grpGraph.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWidth)).BeginInit();
@@ -107,6 +111,9 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numValueTextDecimals)).BeginInit();
+            this.tableLayoutPanel10.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.grpDescriptiveText.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -124,9 +131,9 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 142F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 313F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 341F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(461, 550);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(461, 577);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // grpPointerPath
@@ -299,7 +306,7 @@ namespace LiveSplit.MemoryGraph
             this.grpGraph.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpGraph.Location = new System.Drawing.Point(3, 145);
             this.grpGraph.Name = "grpGraph";
-            this.grpGraph.Size = new System.Drawing.Size(455, 307);
+            this.grpGraph.Size = new System.Drawing.Size(455, 335);
             this.grpGraph.TabIndex = 1;
             this.grpGraph.TabStop = false;
             this.grpGraph.Text = "Graph";
@@ -308,132 +315,20 @@ namespace LiveSplit.MemoryGraph
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel10, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.grpValueText, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel10, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(449, 288);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(449, 316);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.ColumnCount = 4;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Controls.Add(this.lblGraphColor, 0, 1);
-            this.tableLayoutPanel10.Controls.Add(this.btnGraphColor1, 1, 1);
-            this.tableLayoutPanel10.Controls.Add(this.btnGraphColor2, 2, 1);
-            this.tableLayoutPanel10.Controls.Add(this.cmbGraphGradientType, 3, 1);
-            this.tableLayoutPanel10.Controls.Add(this.lblBackgroundColor, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.cmbBackgroundGradientType, 3, 0);
-            this.tableLayoutPanel10.Controls.Add(this.btnBackgroundColor1, 1, 0);
-            this.tableLayoutPanel10.Controls.Add(this.btnBackgroundColor2, 2, 0);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 135);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 2;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(443, 58);
-            this.tableLayoutPanel10.TabIndex = 1;
-            // 
-            // lblGraphColor
-            // 
-            this.lblGraphColor.AutoSize = true;
-            this.lblGraphColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblGraphColor.Location = new System.Drawing.Point(3, 29);
-            this.lblGraphColor.Name = "lblGraphColor";
-            this.lblGraphColor.Size = new System.Drawing.Size(104, 29);
-            this.lblGraphColor.TabIndex = 7;
-            this.lblGraphColor.Text = "Graph Color:";
-            this.lblGraphColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnGraphColor1
-            // 
-            this.btnGraphColor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGraphColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraphColor1.Location = new System.Drawing.Point(113, 32);
-            this.btnGraphColor1.Name = "btnGraphColor1";
-            this.btnGraphColor1.Size = new System.Drawing.Size(24, 23);
-            this.btnGraphColor1.TabIndex = 6;
-            this.btnGraphColor1.UseVisualStyleBackColor = false;
-            this.btnGraphColor1.Click += new System.EventHandler(this.ColorButtonClick);
-            // 
-            // btnGraphColor2
-            // 
-            this.btnGraphColor2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGraphColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraphColor2.Location = new System.Drawing.Point(143, 32);
-            this.btnGraphColor2.Name = "btnGraphColor2";
-            this.btnGraphColor2.Size = new System.Drawing.Size(24, 23);
-            this.btnGraphColor2.TabIndex = 5;
-            this.btnGraphColor2.UseVisualStyleBackColor = false;
-            this.btnGraphColor2.Click += new System.EventHandler(this.ColorButtonClick);
-            // 
-            // cmbGraphGradientType
-            // 
-            this.cmbGraphGradientType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbGraphGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGraphGradientType.FormattingEnabled = true;
-            this.cmbGraphGradientType.Location = new System.Drawing.Point(173, 32);
-            this.cmbGraphGradientType.Name = "cmbGraphGradientType";
-            this.cmbGraphGradientType.Size = new System.Drawing.Size(267, 21);
-            this.cmbGraphGradientType.TabIndex = 4;
-            this.cmbGraphGradientType.SelectedValueChanged += new System.EventHandler(this.cmbGraphGradientType_SelectedValueChanged);
-            // 
-            // lblBackgroundColor
-            // 
-            this.lblBackgroundColor.AutoSize = true;
-            this.lblBackgroundColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBackgroundColor.Location = new System.Drawing.Point(3, 0);
-            this.lblBackgroundColor.Name = "lblBackgroundColor";
-            this.lblBackgroundColor.Size = new System.Drawing.Size(104, 29);
-            this.lblBackgroundColor.TabIndex = 0;
-            this.lblBackgroundColor.Text = "Background Color:";
-            this.lblBackgroundColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbBackgroundGradientType
-            // 
-            this.cmbBackgroundGradientType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbBackgroundGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBackgroundGradientType.FormattingEnabled = true;
-            this.cmbBackgroundGradientType.Location = new System.Drawing.Point(173, 3);
-            this.cmbBackgroundGradientType.Name = "cmbBackgroundGradientType";
-            this.cmbBackgroundGradientType.Size = new System.Drawing.Size(267, 21);
-            this.cmbBackgroundGradientType.TabIndex = 1;
-            this.cmbBackgroundGradientType.SelectedValueChanged += new System.EventHandler(this.cmbBackgroundGradientType_SelectedValueChanged);
-            // 
-            // btnBackgroundColor1
-            // 
-            this.btnBackgroundColor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBackgroundColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackgroundColor1.Location = new System.Drawing.Point(113, 3);
-            this.btnBackgroundColor1.Name = "btnBackgroundColor1";
-            this.btnBackgroundColor1.Size = new System.Drawing.Size(24, 23);
-            this.btnBackgroundColor1.TabIndex = 2;
-            this.btnBackgroundColor1.UseVisualStyleBackColor = false;
-            this.btnBackgroundColor1.Click += new System.EventHandler(this.ColorButtonClick);
-            // 
-            // btnBackgroundColor2
-            // 
-            this.btnBackgroundColor2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBackgroundColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackgroundColor2.Location = new System.Drawing.Point(143, 3);
-            this.btnBackgroundColor2.Name = "btnBackgroundColor2";
-            this.btnBackgroundColor2.Size = new System.Drawing.Size(24, 23);
-            this.btnBackgroundColor2.TabIndex = 3;
-            this.btnBackgroundColor2.UseVisualStyleBackColor = false;
-            this.btnBackgroundColor2.Click += new System.EventHandler(this.ColorButtonClick);
             // 
             // tableLayoutPanel5
             // 
@@ -642,9 +537,9 @@ namespace LiveSplit.MemoryGraph
             // 
             this.grpValueText.Controls.Add(this.tableLayoutPanel7);
             this.grpValueText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpValueText.Location = new System.Drawing.Point(3, 199);
+            this.grpValueText.Location = new System.Drawing.Point(3, 228);
             this.grpValueText.Name = "grpValueText";
-            this.grpValueText.Size = new System.Drawing.Size(443, 86);
+            this.grpValueText.Size = new System.Drawing.Size(443, 85);
             this.grpValueText.TabIndex = 5;
             this.grpValueText.TabStop = false;
             this.grpValueText.Text = "Value as Text";
@@ -662,7 +557,7 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(437, 67);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(437, 66);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
             // overrideControlValueText
@@ -674,7 +569,7 @@ namespace LiveSplit.MemoryGraph
             this.overrideControlValueText.OverrideFont = false;
             this.overrideControlValueText.OverridingColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.overrideControlValueText.OverridingFont = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.overrideControlValueText.Size = new System.Drawing.Size(431, 28);
+            this.overrideControlValueText.Size = new System.Drawing.Size(431, 27);
             this.overrideControlValueText.TabIndex = 2;
             // 
             // tableLayoutPanel8
@@ -742,13 +637,160 @@ namespace LiveSplit.MemoryGraph
             this.numValueTextDecimals.Size = new System.Drawing.Size(54, 20);
             this.numValueTextDecimals.TabIndex = 3;
             // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 1;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.panel1, 0, 1);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 135);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 2;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(443, 83);
+            this.tableLayoutPanel10.TabIndex = 6;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 4;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.Controls.Add(this.lblGraphColor, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.btnGraphColor1, 1, 1);
+            this.tableLayoutPanel11.Controls.Add(this.btnGraphColor2, 2, 1);
+            this.tableLayoutPanel11.Controls.Add(this.cmbGraphGradientType, 3, 1);
+            this.tableLayoutPanel11.Controls.Add(this.lblBackgroundColor, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.cmbBackgroundGradientType, 3, 0);
+            this.tableLayoutPanel11.Controls.Add(this.btnBackgroundColor1, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.btnBackgroundColor2, 2, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 2;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(437, 49);
+            this.tableLayoutPanel11.TabIndex = 2;
+            // 
+            // lblGraphColor
+            // 
+            this.lblGraphColor.AutoSize = true;
+            this.lblGraphColor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblGraphColor.Location = new System.Drawing.Point(3, 24);
+            this.lblGraphColor.Name = "lblGraphColor";
+            this.lblGraphColor.Size = new System.Drawing.Size(102, 25);
+            this.lblGraphColor.TabIndex = 7;
+            this.lblGraphColor.Text = "Graph Color:";
+            this.lblGraphColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnGraphColor1
+            // 
+            this.btnGraphColor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGraphColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGraphColor1.Location = new System.Drawing.Point(111, 27);
+            this.btnGraphColor1.Name = "btnGraphColor1";
+            this.btnGraphColor1.Size = new System.Drawing.Size(26, 19);
+            this.btnGraphColor1.TabIndex = 6;
+            this.btnGraphColor1.UseVisualStyleBackColor = false;
+            this.btnGraphColor1.Click += new System.EventHandler(this.ColorButtonClick);
+            // 
+            // btnGraphColor2
+            // 
+            this.btnGraphColor2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGraphColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGraphColor2.Location = new System.Drawing.Point(143, 27);
+            this.btnGraphColor2.Name = "btnGraphColor2";
+            this.btnGraphColor2.Size = new System.Drawing.Size(24, 19);
+            this.btnGraphColor2.TabIndex = 5;
+            this.btnGraphColor2.UseVisualStyleBackColor = false;
+            this.btnGraphColor2.Click += new System.EventHandler(this.ColorButtonClick);
+            // 
+            // cmbGraphGradientType
+            // 
+            this.cmbGraphGradientType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbGraphGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGraphGradientType.FormattingEnabled = true;
+            this.cmbGraphGradientType.Location = new System.Drawing.Point(173, 27);
+            this.cmbGraphGradientType.Name = "cmbGraphGradientType";
+            this.cmbGraphGradientType.Size = new System.Drawing.Size(261, 21);
+            this.cmbGraphGradientType.TabIndex = 4;
+            this.cmbGraphGradientType.SelectedValueChanged += new System.EventHandler(this.cmbGraphGradientType_SelectedValueChanged);
+            // 
+            // lblBackgroundColor
+            // 
+            this.lblBackgroundColor.AutoSize = true;
+            this.lblBackgroundColor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBackgroundColor.Location = new System.Drawing.Point(3, 0);
+            this.lblBackgroundColor.Name = "lblBackgroundColor";
+            this.lblBackgroundColor.Size = new System.Drawing.Size(102, 24);
+            this.lblBackgroundColor.TabIndex = 0;
+            this.lblBackgroundColor.Text = "Background Color:";
+            this.lblBackgroundColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cmbBackgroundGradientType
+            // 
+            this.cmbBackgroundGradientType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbBackgroundGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBackgroundGradientType.FormattingEnabled = true;
+            this.cmbBackgroundGradientType.Location = new System.Drawing.Point(173, 3);
+            this.cmbBackgroundGradientType.Name = "cmbBackgroundGradientType";
+            this.cmbBackgroundGradientType.Size = new System.Drawing.Size(261, 21);
+            this.cmbBackgroundGradientType.TabIndex = 1;
+            this.cmbBackgroundGradientType.SelectedValueChanged += new System.EventHandler(this.cmbBackgroundGradientType_SelectedValueChanged);
+            // 
+            // btnBackgroundColor1
+            // 
+            this.btnBackgroundColor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBackgroundColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackgroundColor1.Location = new System.Drawing.Point(111, 3);
+            this.btnBackgroundColor1.Name = "btnBackgroundColor1";
+            this.btnBackgroundColor1.Size = new System.Drawing.Size(26, 18);
+            this.btnBackgroundColor1.TabIndex = 2;
+            this.btnBackgroundColor1.UseVisualStyleBackColor = false;
+            this.btnBackgroundColor1.Click += new System.EventHandler(this.ColorButtonClick);
+            // 
+            // btnBackgroundColor2
+            // 
+            this.btnBackgroundColor2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBackgroundColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackgroundColor2.Location = new System.Drawing.Point(143, 3);
+            this.btnBackgroundColor2.Name = "btnBackgroundColor2";
+            this.btnBackgroundColor2.Size = new System.Drawing.Size(24, 18);
+            this.btnBackgroundColor2.TabIndex = 3;
+            this.btnBackgroundColor2.UseVisualStyleBackColor = false;
+            this.btnBackgroundColor2.Click += new System.EventHandler(this.ColorButtonClick);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.colorsCBSillyColors);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 58);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(437, 22);
+            this.panel1.TabIndex = 3;
+            // 
+            // colorsCBSillyColors
+            // 
+            this.colorsCBSillyColors.AutoSize = true;
+            this.colorsCBSillyColors.Location = new System.Drawing.Point(5, 2);
+            this.colorsCBSillyColors.Name = "colorsCBSillyColors";
+            this.colorsCBSillyColors.Size = new System.Drawing.Size(76, 17);
+            this.colorsCBSillyColors.TabIndex = 0;
+            this.colorsCBSillyColors.Text = "Silly Colors";
+            this.colorsCBSillyColors.UseVisualStyleBackColor = true;
+            this.colorsCBSillyColors.MouseHover += new System.EventHandler(this.colorsCBSillyColors_MouseHover);
+            // 
             // grpDescriptiveText
             // 
             this.grpDescriptiveText.Controls.Add(this.tableLayoutPanel9);
             this.grpDescriptiveText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpDescriptiveText.Location = new System.Drawing.Point(3, 458);
+            this.grpDescriptiveText.Location = new System.Drawing.Point(3, 486);
             this.grpDescriptiveText.Name = "grpDescriptiveText";
-            this.grpDescriptiveText.Size = new System.Drawing.Size(455, 89);
+            this.grpDescriptiveText.Size = new System.Drawing.Size(455, 88);
             this.grpDescriptiveText.TabIndex = 2;
             this.grpDescriptiveText.TabStop = false;
             this.grpDescriptiveText.Text = "Descriptive Text";
@@ -766,7 +808,7 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(449, 70);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(449, 69);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // overrideControlDescriptiveText
@@ -778,7 +820,7 @@ namespace LiveSplit.MemoryGraph
             this.overrideControlDescriptiveText.OverrideFont = false;
             this.overrideControlDescriptiveText.OverridingColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.overrideControlDescriptiveText.OverridingFont = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.overrideControlDescriptiveText.Size = new System.Drawing.Size(443, 31);
+            this.overrideControlDescriptiveText.Size = new System.Drawing.Size(443, 30);
             this.overrideControlDescriptiveText.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -832,7 +874,7 @@ namespace LiveSplit.MemoryGraph
             // 
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Settings";
-            this.Size = new System.Drawing.Size(461, 550);
+            this.Size = new System.Drawing.Size(461, 577);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.grpPointerPath.ResumeLayout(false);
             this.grpPointerPath.PerformLayout();
@@ -840,8 +882,6 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel2.PerformLayout();
             this.grpGraph.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHeight)).EndInit();
@@ -855,6 +895,11 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numValueTextDecimals)).EndInit();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.grpDescriptiveText.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -941,11 +986,6 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.GroupBox grpGraph;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.Label lblBackgroundColor;
-        private System.Windows.Forms.ComboBox cmbBackgroundGradientType;
-        private System.Windows.Forms.Button btnBackgroundColor1;
-        private System.Windows.Forms.Button btnBackgroundColor2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label lblMaximumValue;
         private System.Windows.Forms.TextBox txtMaximumValue;
@@ -954,10 +994,6 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.ComboBox cmbGraphStyle;
         private System.Windows.Forms.Label lblGraphStyle;
         private System.Windows.Forms.TextBox txtMinimumValue;
-        private System.Windows.Forms.Label lblGraphColor;
-        private System.Windows.Forms.Button btnGraphColor1;
-        private System.Windows.Forms.Button btnGraphColor2;
-        private System.Windows.Forms.ComboBox cmbGraphGradientType;
         private System.Windows.Forms.NumericUpDown numHeight;
         private System.Windows.Forms.Label lblHeight;
         private System.Windows.Forms.Label lblWidth;
@@ -986,5 +1022,18 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.Button B_UpdateXML;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ComboBox_ListOfGames;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.Label lblGraphColor;
+        private System.Windows.Forms.Button btnGraphColor1;
+        private System.Windows.Forms.Button btnGraphColor2;
+        private System.Windows.Forms.ComboBox cmbGraphGradientType;
+        private System.Windows.Forms.Label lblBackgroundColor;
+        private System.Windows.Forms.ComboBox cmbBackgroundGradientType;
+        private System.Windows.Forms.Button btnBackgroundColor1;
+        private System.Windows.Forms.Button btnBackgroundColor2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox colorsCBSillyColors;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

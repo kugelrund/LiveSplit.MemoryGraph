@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Diagnostics;
 
 namespace LiveSplit.MemoryGraph
 {
@@ -161,8 +162,13 @@ namespace LiveSplit.MemoryGraph
             }
         }
 
-        private static Color Blend(Color backColor, Color color, double amount)
+        private static Color Blend(Color backColor, Color color, double amount, bool sillyColors)
         {
+            if(!sillyColors)
+            {
+                if (amount > 1)
+                    amount = 1;
+            }
             byte a = (byte)((color.A * amount) + backColor.A * (1 - amount));
             byte r = (byte)((color.R * amount) + backColor.R * (1 - amount));
             byte g = (byte)((color.G * amount) + backColor.G * (1 - amount));
@@ -222,7 +228,7 @@ namespace LiveSplit.MemoryGraph
                 case GraphGradientType.ByValue:
                     graphBrush = new SolidBrush(Blend(settings.GraphColor, 
                                                       settings.GraphColor2,
-                                                      relativeValue));
+                                                      relativeValue, settings.GraphSillyColors));
                     break;
             }
 

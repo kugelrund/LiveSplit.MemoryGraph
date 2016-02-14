@@ -11,6 +11,7 @@ using System.Collections.Generic;
 
 namespace LiveSplit.MemoryGraph
 {
+
     enum MemoryType
     {
         [Description("Float")]
@@ -98,6 +99,7 @@ namespace LiveSplit.MemoryGraph
         public GraphStyle GraphStyle { get; set; }
         public GradientType BackgroundGradient { get; set; }
         public GraphGradientType GraphGradient { get; set; }
+        public bool GraphSillyColors { get; set; }
         public Position ValueTextPosition { get; set; }
         public Position DescriptiveTextPosition { get; set; }
         public MemoryType ValueType { get; set; }
@@ -147,6 +149,7 @@ namespace LiveSplit.MemoryGraph
             GraphStyle = GraphStyle.SingleBar;
             BackgroundGradient = GradientType.Plain;
             GraphGradient = GraphGradientType.Plain;
+            GraphSillyColors = true;
             ValueTextPosition = Position.LeftInGraph;
             DescriptiveTextPosition = Position.Left;
             ValueType = MemoryType.Float;
@@ -172,6 +175,7 @@ namespace LiveSplit.MemoryGraph
             cmbGraphStyle.DataBindings.Add("SelectedValue", this, "GraphStyle", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbBackgroundGradientType.DataBindings.Add("SelectedValue", this, "BackgroundGradient", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbGraphGradientType.DataBindings.Add("SelectedValue", this, "GraphGradient", false, DataSourceUpdateMode.OnPropertyChanged);
+            colorsCBSillyColors.DataBindings.Add("Checked", this, "GraphSillyColors", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbValueTextPosition.DataBindings.Add("SelectedValue", this, "ValueTextPosition", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbDescriptiveTextPosition.DataBindings.Add("SelectedValue", this, "DescriptiveTextPosition", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbType.DataBindings.Add("SelectedValue", this, "ValueType", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -252,6 +256,7 @@ namespace LiveSplit.MemoryGraph
             GraphStyle = SettingsHelper.ParseEnum<GraphStyle>(element["GraphStyle"]);
             BackgroundGradient = SettingsHelper.ParseEnum<GradientType>(element["BackgroundGradient"]);
             GraphGradient = SettingsHelper.ParseEnum<GraphGradientType>(element["GraphGradient"]);
+            GraphSillyColors = SettingsHelper.ParseBool(element["GraphSillyColors"]);
             ValueTextPosition = SettingsHelper.ParseEnum<Position>(element["ValueTextPosition"]);
             DescriptiveTextPosition = SettingsHelper.ParseEnum<Position>(element["DescriptiveTextPosition"]);
             ProcessName = SettingsHelper.ParseString(element["ProcessName"]);
@@ -304,6 +309,7 @@ namespace LiveSplit.MemoryGraph
             SettingsHelper.CreateSetting(document, parent, "GraphStyle", GraphStyle) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundGradient", BackgroundGradient) ^
             SettingsHelper.CreateSetting(document, parent, "GraphGradient", GraphGradient) ^
+            SettingsHelper.CreateSetting(document, parent, "GraphSillyColors", GraphSillyColors) ^
             SettingsHelper.CreateSetting(document, parent, "ValueTextPosition", ValueTextPosition) ^
             SettingsHelper.CreateSetting(document, parent, "DescriptiveTextPosition", DescriptiveTextPosition) ^
             SettingsHelper.CreateSetting(document, parent, "ProcessName", ProcessName) ^
@@ -490,6 +496,12 @@ namespace LiveSplit.MemoryGraph
             {
                 loadXML();
             }
+        }
+
+        private void colorsCBSillyColors_MouseHover(object sender, EventArgs e)
+        {
+            //Displays tooltip
+            toolTip.Show("This options allows the multiplier to exceed '1.0', meaning that if using color grading, the maximum color can be brighter than specified.", colorsCBSillyColors);
         }
 
         #region GetSafeValuesFunctions

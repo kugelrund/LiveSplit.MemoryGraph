@@ -43,7 +43,13 @@
 	<offsets></offsets>
 	<type>FloatVec3</type>
 </game>
-<game name="Star Trek: Voyager Elite Force">
+<game name="Star Trek: Voyager Elite Force (v1.1)">
+	<process>stvoy</process>
+	<base>C6C60</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+</game>
+<game name="Star Trek: Voyager Elite Force (v1.2)">
 	<process>stvoy</process>
 	<base>BB800</base>
 	<offsets></offsets>

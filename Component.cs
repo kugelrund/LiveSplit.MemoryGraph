@@ -274,7 +274,7 @@ namespace LiveSplit.MemoryGraph
                             barRect.Height -= 2 * settings.VerticalMargins;
                         }
 
-                        barRect.Width *= relativeValue;
+                        barRect.Width *= (relativeValue > 1) ? 1 : relativeValue ;
                         g.FillRectangle(graphBrush, barRect);
                     }
                     break;

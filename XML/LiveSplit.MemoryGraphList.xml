@@ -3,10 +3,10 @@
 <game name="Deus Ex: Human Revolution">
 	<process>dxhr</process>
 	<module></module>
-	<base>015DE1A8</base>
-	<offsets>14,4c,118</offsets>
-	<type>Float</type>
-	<maximumValue>4000</maximumValue>
+	<base>14DFA90</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+	<maximumValue>25</maximumValue>
 	<decimals>1</decimals>
 </game>
 <game name="Hitman: Absolution">

@@ -6,7 +6,7 @@
 	<base>14DFA90</base>
 	<offsets></offsets>
 	<type>FloatVec2</type>
-	<maximumValue>25</maximumValue>
+	<maximumValue>50</maximumValue>
 	<decimals>1</decimals>
 </game>
 <game name="Hitman: Absolution">
@@ -69,6 +69,15 @@
 	<type>FloatVec3</type>
 	<maximumValue>1000</maximumValue>
 	<decimals>0</decimals>
+</game>
+<game name="Thief 2: The Metal Age (NewDark 1.24)">
+	<process>thief2</process>
+	<module></module>
+	<base>4C8528</base>
+	<offsets>128</offsets>
+	<type>FloatVec2</type>
+	<maximumValue>40</maximumValue>
+	<decimals>1</decimals>
 </game>
 <game name="Wheel of Time">
 	<process>WoT</process>

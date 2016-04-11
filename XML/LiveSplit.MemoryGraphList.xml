@@ -61,6 +61,14 @@
 	<offsets>A4,3C</offsets>
 	<type>Float</type>
 </game>
+<game name="Star Wars Jedi Knight: Jedi Academy (vectors, no mounts)">
+	<process>jasp</process>
+	<base>43FD48</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+	<maximumValue>800</maximumValue>
+	<decimals>0</decimals>
+</game>
 <game name="The Elder Scrolls V: Skyrim">
 	<process>TESV</process>
 	<module></module>

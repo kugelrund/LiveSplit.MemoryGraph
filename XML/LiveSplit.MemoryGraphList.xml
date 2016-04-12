@@ -61,6 +61,12 @@
 	<offsets>A4,3C</offsets>
 	<type>Float</type>
 </game>
+<game name="Star Wars Jedi Knight: Jedi Outcast">
+	<process>jk2sp</process>
+	<base>41D4B8</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+</game>
 <game name="Star Wars Jedi Knight: Jedi Academy (vectors, no mounts)">
 	<process>jasp</process>
 	<base>43FD48</base>

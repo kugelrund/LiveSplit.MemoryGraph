@@ -66,6 +66,7 @@
 	<base>41D4B8</base>
 	<offsets></offsets>
 	<type>FloatVec3</type>
+	<maximumValue>1000</maximumValue>
 </game>
 <game name="Star Wars Jedi Knight: Jedi Academy (vectors, no mounts)">
 	<process>jasp</process>

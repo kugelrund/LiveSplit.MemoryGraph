@@ -1,4 +1,13 @@
 <updates>
+	<update version="1.2.3">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Added Vector Based graph.</change>
+			<change>Are you Sonic?</change>
+        </changelog>
+    </update>
 	<update version="1.2.2">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

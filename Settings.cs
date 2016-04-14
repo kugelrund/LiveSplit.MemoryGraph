@@ -37,7 +37,13 @@ namespace LiveSplit.MemoryGraph
         [Description("Single Bar")]
         SingleBar,
         [Description("Filled Graph")]
-        FilledGraph
+        FilledGraph,
+        [Description("Polygonal Graph")]
+        Polygonal,
+        [Description("Polygonal Overflowing Graph")]
+        PolygonalOverflow,
+        [Description("Sonic")]
+        Sonic
     }
 
     enum GradientType
@@ -277,6 +283,7 @@ namespace LiveSplit.MemoryGraph
             ValueTextOverrideColor = SettingsHelper.ParseBool(element["ValueTextOverrideColor"]);
             ValueTextOverrideFont = SettingsHelper.ParseBool(element["ValueTextOverrideFont"]);
             ValueTextDecimals = SettingsHelper.ParseInt(element["ValueTextDecimals"]);
+
 
             UpdatePointer(null, null);
         }

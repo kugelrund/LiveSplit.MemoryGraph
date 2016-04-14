@@ -61,9 +61,16 @@
 	<offsets>A4,3C</offsets>
 	<type>Float</type>
 </game>
-<game name="Star Wars Jedi Knight: Jedi Outcast">
+<game name="Star Wars Jedi Knight: Jedi Outcast SP">
 	<process>jk2sp</process>
 	<base>41D4B8</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+	<maximumValue>1000</maximumValue>
+</game>
+<game name="Star Wars Jedi Knight: Jedi Outcast MP">
+	<process>jk2mp</process>
+	<base>4F8F40</base>
 	<offsets></offsets>
 	<type>FloatVec3</type>
 	<maximumValue>1000</maximumValue>

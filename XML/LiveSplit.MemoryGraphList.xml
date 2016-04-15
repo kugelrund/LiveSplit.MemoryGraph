@@ -43,6 +43,15 @@
 	<offsets></offsets>
 	<type>FloatVec3</type>
 </game>
+<game name="Sin Episodes: Emergance">
+	<process>SinEpisodes</process>
+	<module>server.dll</module>
+	<base>527C20</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+	<maximumValue>350</maximumValue>
+	<decimals>0</decimals>
+</game>
 <game name="Star Trek: Voyager Elite Force (v1.1)">
 	<process>stvoy</process>
 	<base>C6C60</base>

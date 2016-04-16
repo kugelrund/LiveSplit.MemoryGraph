@@ -1,4 +1,12 @@
 <updates>
+	<update version="1.2.4">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Added half-speed animation for Sonic.</change>
+        </changelog>
+    </update>
 	<update version="1.2.3">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

@@ -374,16 +374,18 @@ namespace LiveSplit.MemoryGraph
                     {
                         avaragedValue = avaragedValue / 3;
                         gBuffer.Clear(Color.Transparent);
+
+                        if(graphHeight>graphWidth)
+                            gBuffer.DrawImage(sonic.getBitmap(relativeValue), 0, 0, graphWidth, graphWidth*1.27f);
+                        else
+                            gBuffer.DrawImage(sonic.getBitmap(relativeValue), 0, 0, graphHeight/1.27f, graphHeight);
+
                         gBuffer.DrawLine(Pens.White, fake_particles[0] - 10 * avaragedValue, graphHeight * 0.44f, fake_particles[0], graphHeight * 0.44f);
                         gBuffer.DrawLine(Pens.White, fake_particles[1] - 10 * avaragedValue, graphHeight * 0.76f, fake_particles[1], graphHeight * 0.76f);
                         gBuffer.DrawLine(Pens.White, fake_particles[2] - 10 * avaragedValue, graphHeight * 0.67f, fake_particles[2], graphHeight * 0.67f);
                         gBuffer.DrawLine(Pens.White, fake_particles[3] - 10 * avaragedValue, graphHeight * 0.14f, fake_particles[3], graphHeight * 0.14f);
                         gBuffer.DrawLine(Pens.White, fake_particles[4] - 10 * avaragedValue, graphHeight * 0.33f, fake_particles[4], graphHeight * 0.33f);
 
-                        if(graphHeight>graphWidth)
-                            gBuffer.DrawImage(sonic.getBitmap(relativeValue), 0, 0, graphWidth, graphWidth*1.27f);
-                        else
-                            gBuffer.DrawImage(sonic.getBitmap(relativeValue), 0, 0, graphHeight/1.27f, graphHeight);
                         drawCounter = 0;
 
                         for (int i = 0; i < fake_particles.Length; i++)

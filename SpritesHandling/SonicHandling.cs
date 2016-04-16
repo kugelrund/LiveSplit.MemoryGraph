@@ -11,6 +11,7 @@ namespace LiveSplit.MemoryGraph
     {
         public sonicHandlingSizes[] idle;
         public sonicHandlingSizes[] idle_foot;
+        public sonicHandlingSizes[] walking;
         public sonicHandlingSizes[] running;
         public sonicHandlingSizes[] idle_frustrated;
         public sonicHandlingSizes[] sonic_sprint;
@@ -20,6 +21,7 @@ namespace LiveSplit.MemoryGraph
             idle,
             idle_foot,
             idle_frustrated,
+            walking,
             running,
             sprinting
         };
@@ -52,6 +54,12 @@ namespace LiveSplit.MemoryGraph
                 new sonicHandlingSizes(572, 0, 36, 46),
                 new sonicHandlingSizes(572, 0, 36, 46),
             };
+
+            walking = new sonicHandlingSizes[16];
+            for (int i = 0; i < walking.Length; i++)
+            {
+                walking[i] = new sonicHandlingSizes(i/2 * 36 + 680, 0, 36, 46);
+            }
 
             running = new sonicHandlingSizes[8];
             for (int i = 0; i < running.Length; i++)
@@ -100,7 +108,11 @@ namespace LiveSplit.MemoryGraph
 
                 sonic_repetition++;
             }
-            else if(relativeValue>0 && relativeValue < 0.75f)
+            else if (relativeValue > 0 && relativeValue < 0.3f)
+            {
+                sonic_state = (int)sonicStatesIDs.walking;
+            }
+            else if(relativeValue>0.3f && relativeValue < 0.75f)
             {
                 sonic_state = (int)sonicStatesIDs.running;
             }
@@ -109,12 +121,22 @@ namespace LiveSplit.MemoryGraph
                 sonic_state = (int)sonicStatesIDs.sprinting;
             }
 
-            if(previous_sonic_state!= sonic_state)
+            if(previous_sonic_state==(int)sonicStatesIDs.walking && sonic_state==(int)sonicStatesIDs.running)       //this and next one for smoothing out transitions between half speed and full speed running loop
+            {
+                sonic_frame = sonic_frame / 2;
+            }
+            else if(previous_sonic_state==(int)sonicStatesIDs.running && sonic_state==(int)sonicStatesIDs.walking)
+            {
+                sonic_frame = sonic_frame * 2;
+            }
+            else if (previous_sonic_state!= sonic_state)            //for reseting to frame 0 of each loop
             {
                 sonic_frame = 0;
             }
             previous_sonic_state = sonic_state;
 
+
+            //Get a frame from sprite sheet
             if(sonic_state==(int)sonicStatesIDs.idle)
             {
                 if (sonic_frame >= idle.Length)
@@ -132,6 +154,12 @@ namespace LiveSplit.MemoryGraph
                 if (sonic_frame >= idle_frustrated.Length)
                     sonic_frame = 0;
                 return cropBitmap(Properties.Resources.sonic_spirtes, getArray(idle_frustrated, sonic_frame));
+            }
+            else if (sonic_state == (int)sonicStatesIDs.walking)
+            {
+                if (sonic_frame >= walking.Length)
+                    sonic_frame = 0;
+                return cropBitmap(Properties.Resources.sonic_spirtes, getArray(walking, sonic_frame));
             }
             else if (sonic_state == (int)sonicStatesIDs.running)
             {
@@ -156,9 +184,7 @@ namespace LiveSplit.MemoryGraph
 
         private static Bitmap cropBitmap(Bitmap bitmap, int[] array)
         {
-            Bitmap nb = new Bitmap(bitmap);
-
-            return nb.Clone(new Rectangle(array[0], array[1], array[2], array[3]), bitmap.PixelFormat);
+            return bitmap.Clone(new Rectangle(array[0], array[1], array[2], array[3]), bitmap.PixelFormat);
         }
     }
 

@@ -159,6 +159,7 @@ namespace LiveSplit.MemoryGraph
             {
                 if (sonic_frame >= walking.Length)
                     sonic_frame = 0;
+                sonic_repetition = 0;
                 return cropBitmap(Properties.Resources.sonic_spirtes, getArray(walking, sonic_frame));
             }
             else if (sonic_state == (int)sonicStatesIDs.running)

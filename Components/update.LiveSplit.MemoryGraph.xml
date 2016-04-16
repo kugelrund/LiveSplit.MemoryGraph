@@ -1,10 +1,19 @@
 <updates>
+	<update version="1.2.5">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Fixed transitions between walking and idle state.</change>
+        </changelog>
+    </update>
 	<update version="1.2.4">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
         </files>
         <changelog>
             <change>Added half-speed animation for Sonic.</change>
+			<change>Changed frame drawing order to display fake particles in front (due to transparency issues).</change>
         </changelog>
     </update>
 	<update version="1.2.3">

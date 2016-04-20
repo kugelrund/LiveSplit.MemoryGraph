@@ -1,4 +1,12 @@
 <updates>
+	<update version="1.2.6">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Fake particles in Sonic Graph, should now use brush specified in settings.</change>
+        </changelog>
+    </update>
 	<update version="1.2.5">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

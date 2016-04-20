@@ -138,6 +138,7 @@ namespace LiveSplit.MemoryGraph
         private StringFormat valueTextFormat;
         private StringFormat descriptiveTextFormat;
         private PointF[] polygon_points;
+        private Pen graphPen;
 
 
         public Component(LiveSplitState state)
@@ -151,6 +152,7 @@ namespace LiveSplit.MemoryGraph
             graphBrush = Brushes.Transparent;
             polygon_points = new PointF[4] { new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), };  //LB, LU, RU, RB
             fake_particles = new float[5] { 185, 143, 6, 168, 91 };
+            graphPen = new Pen(graphBrush);
 
             settings = new Settings();
             sonic = new SonicHandling();
@@ -227,23 +229,27 @@ namespace LiveSplit.MemoryGraph
             {
                 case GraphGradientType.Plain:
                     graphBrush = new SolidBrush(settings.GraphColor);
+                    graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.Horizontal:
                     graphBrush = new LinearGradientBrush(graphRect,
                                                          settings.GraphColor,
                                                          settings.GraphColor2,
                                                          LinearGradientMode.Horizontal);
+                    graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.Vertical:
                     graphBrush = new LinearGradientBrush(new Point(0, 0),
                                                          new Point(0, graphHeight),
                                                          settings.GraphColor2,
                                                          settings.GraphColor);
+                    graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.ByValue:
                     graphBrush = new SolidBrush(Blend(settings.GraphColor, 
                                                       settings.GraphColor2,
                                                       relativeValue, settings.GraphSillyColors));
+                    graphPen.Brush = graphBrush;
                     break;
             }
 
@@ -380,11 +386,12 @@ namespace LiveSplit.MemoryGraph
                         else
                             gBuffer.DrawImage(sonic.getBitmap(relativeValue), 0, 0, graphHeight/1.27f, graphHeight);
 
-                        gBuffer.DrawLine(Pens.White, fake_particles[0] - 10 * avaragedValue, graphHeight * 0.44f, fake_particles[0], graphHeight * 0.44f);
-                        gBuffer.DrawLine(Pens.White, fake_particles[1] - 10 * avaragedValue, graphHeight * 0.76f, fake_particles[1], graphHeight * 0.76f);
-                        gBuffer.DrawLine(Pens.White, fake_particles[2] - 10 * avaragedValue, graphHeight * 0.67f, fake_particles[2], graphHeight * 0.67f);
-                        gBuffer.DrawLine(Pens.White, fake_particles[3] - 10 * avaragedValue, graphHeight * 0.14f, fake_particles[3], graphHeight * 0.14f);
-                        gBuffer.DrawLine(Pens.White, fake_particles[4] - 10 * avaragedValue, graphHeight * 0.33f, fake_particles[4], graphHeight * 0.33f);
+                        
+                        gBuffer.DrawLine(graphPen, fake_particles[0] - 10 * avaragedValue, graphHeight * 0.44f, fake_particles[0], graphHeight * 0.44f);
+                        gBuffer.DrawLine(graphPen, fake_particles[1] - 10 * avaragedValue, graphHeight * 0.76f, fake_particles[1], graphHeight * 0.76f);
+                        gBuffer.DrawLine(graphPen, fake_particles[2] - 10 * avaragedValue, graphHeight * 0.67f, fake_particles[2], graphHeight * 0.67f);
+                        gBuffer.DrawLine(graphPen, fake_particles[3] - 10 * avaragedValue, graphHeight * 0.14f, fake_particles[3], graphHeight * 0.14f);
+                        gBuffer.DrawLine(graphPen, fake_particles[4] - 10 * avaragedValue, graphHeight * 0.33f, fake_particles[4], graphHeight * 0.33f);
 
                         drawCounter = 0;
 

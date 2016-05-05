@@ -29,19 +29,22 @@
 	<process>joequake-gl</process>
 	<base>64F608</base>
 	<offsets></offsets>
-	<type>FloatVec3</type>
+	<type>FloatVec2</type>
+	<maximumValue>800</maximumValue>
 </game>
-<game name="Quake II (Q2PRO)">
+<game name="Quake II (Q2PRO 2014-12-03)">
 	<process>q2pro</process>
 	<base>15574C</base>
 	<offsets></offsets>
-	<type>FloatVec3</type>
+	<type>FloatVec2</type>
+	<maximumValue>800</maximumValue>
 </game>
-<game name="Quake II (Q2PRO_2016-01-12)">
+<game name="Quake II (Q2PRO 2016-01-12)">
 	<process>q2pro</process>
 	<base>15674C</base>
 	<offsets></offsets>
-	<type>FloatVec3</type>
+	<type>FloatVec2</type>
+	<maximumValue>800</maximumValue>
 </game>
 <game name="Sin Episodes: Emergance">
 	<process>SinEpisodes</process>
@@ -56,33 +59,21 @@
 	<process>stvoy</process>
 	<base>C6C60</base>
 	<offsets></offsets>
-	<type>FloatVec3</type>
+	<type>FloatVec2</type>
+	<maximumValue>600</maximumValue>
 </game>
 <game name="Star Trek: Voyager Elite Force (v1.2)">
 	<process>stvoy</process>
 	<base>BB800</base>
 	<offsets></offsets>
-	<type>FloatVec3</type>
+	<type>FloatVec2</type>
+	<maximumValue>600</maximumValue>
 </game>
 <game name="Star Wars Jedi Knight: Jedi Academy">
 	<process>jasp</process>
 	<base>00897B70</base>
 	<offsets>A4,3C</offsets>
 	<type>Float</type>
-</game>
-<game name="Star Wars Jedi Knight: Jedi Outcast SP">
-	<process>jk2sp</process>
-	<base>41D4B8</base>
-	<offsets></offsets>
-	<type>FloatVec3</type>
-	<maximumValue>1000</maximumValue>
-</game>
-<game name="Star Wars Jedi Knight: Jedi Outcast MP">
-	<process>jk2mp</process>
-	<base>4F8F40</base>
-	<offsets></offsets>
-	<type>FloatVec3</type>
-	<maximumValue>1000</maximumValue>
 </game>
 <game name="Star Wars Jedi Knight: Jedi Academy (vectors, no mounts)">
 	<process>jasp</process>
@@ -91,6 +82,20 @@
 	<type>FloatVec2</type>
 	<maximumValue>800</maximumValue>
 	<decimals>0</decimals>
+</game>
+<game name="Star Wars Jedi Knight: Jedi Outcast SP">
+	<process>jk2sp</process>
+	<base>41D4B8</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+	<maximumValue>1000</maximumValue>
+</game>
+<game name="Star Wars Jedi Knight: Jedi Outcast MP">
+	<process>jk2mp</process>
+	<base>4F8F40</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+	<maximumValue>1000</maximumValue>
 </game>
 <game name="The Elder Scrolls V: Skyrim">
 	<process>TESV</process>

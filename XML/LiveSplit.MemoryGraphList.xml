@@ -43,6 +43,15 @@
 	<offsets></offsets>
 	<type>FloatVec3</type>
 </game>
+<game name="Sin Episodes: Emergance">
+	<process>SinEpisodes</process>
+	<module>server.dll</module>
+	<base>527C20</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+	<maximumValue>350</maximumValue>
+	<decimals>0</decimals>
+</game>
 <game name="Star Trek: Voyager Elite Force (v1.1)">
 	<process>stvoy</process>
 	<base>C6C60</base>
@@ -60,6 +69,28 @@
 	<base>00897B70</base>
 	<offsets>A4,3C</offsets>
 	<type>Float</type>
+</game>
+<game name="Star Wars Jedi Knight: Jedi Outcast SP">
+	<process>jk2sp</process>
+	<base>41D4B8</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+	<maximumValue>1000</maximumValue>
+</game>
+<game name="Star Wars Jedi Knight: Jedi Outcast MP">
+	<process>jk2mp</process>
+	<base>4F8F40</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+	<maximumValue>1000</maximumValue>
+</game>
+<game name="Star Wars Jedi Knight: Jedi Academy (vectors, no mounts)">
+	<process>jasp</process>
+	<base>43FD48</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+	<maximumValue>800</maximumValue>
+	<decimals>0</decimals>
 </game>
 <game name="The Elder Scrolls V: Skyrim">
 	<process>TESV</process>

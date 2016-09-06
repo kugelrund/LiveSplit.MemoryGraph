@@ -452,6 +452,7 @@ namespace LiveSplit.MemoryGraph
         
         private void loadXML()
         {
+            ComboBox_ListOfGames.DataSource = null;
             gamesOnTheList.Clear();
             XmlDocument XmlGames = new XmlDocument();
             XmlGames.Load(Path.Combine(componentsFolder, listsFile));

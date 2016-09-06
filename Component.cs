@@ -256,6 +256,7 @@ namespace LiveSplit.MemoryGraph
             // draw actual graph
             switch (settings.GraphStyle)
             {
+                #region Filled_Graph
                 case GraphStyle.FilledGraph:
                     gBuffer.DrawImageUnscaled(bmpBuffer, -1, 0);
                     gBuffer.FillRectangle(Brushes.Transparent, graphWidth - 1, 0, 1, graphHeight);
@@ -277,7 +278,8 @@ namespace LiveSplit.MemoryGraph
                                     width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
                     }
                     break;
-
+                #endregion
+                #region SingleBar
                 case GraphStyle.SingleBar:
                     if (currentValue > settings.MinimumValue)
                     {
@@ -299,7 +301,8 @@ namespace LiveSplit.MemoryGraph
                         g.FillRectangle(graphBrush, barRect);
                     }
                     break;
-
+                    #endregion
+                #region Polygonal
                 case GraphStyle.Polygonal:
                     gBuffer.DrawImageUnscaled(bmpBuffer, -1, 0);
                     gBuffer.FillRectangle(Brushes.Transparent, graphWidth - 1, 0, 1, graphHeight);
@@ -331,6 +334,7 @@ namespace LiveSplit.MemoryGraph
 
 
 
+
                     if (descriptiveNextToGraph || valueNextToGraph)
                     {
                         g.DrawImageUnscaled(bmpBuffer, (int)graphRect.X, (int)graphRect.Y);
@@ -341,7 +345,8 @@ namespace LiveSplit.MemoryGraph
                                     width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
                     }
                     break;
-
+                    #endregion
+                #region PlygonalOverflow
                 case GraphStyle.PolygonalOverflow:
                     gBuffer.DrawImageUnscaled(bmpBuffer, -1, 0);
                     gBuffer.FillRectangle(Brushes.Transparent, graphWidth - 1, 0, 1, graphHeight);
@@ -372,7 +377,8 @@ namespace LiveSplit.MemoryGraph
                                     width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
                     }
                     break;
-
+                    #endregion
+                #region Sonic_Graph
                 case GraphStyle.Sonic:
                     avaragedValue += relativeValue;
 
@@ -407,8 +413,6 @@ namespace LiveSplit.MemoryGraph
                         drawCounter++;
                     }
 
-
-
                     //LU, LL, RB, RU
                     //X,Y, width, height
 
@@ -422,8 +426,7 @@ namespace LiveSplit.MemoryGraph
                                     width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
                     }
                     break;
-
-
+                    #endregion
             }
 
             // draw descriptive text

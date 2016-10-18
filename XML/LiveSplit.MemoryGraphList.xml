@@ -25,6 +25,14 @@
 	<maximumValue>120</maximumValue>
 	<decimals>0</decimals>
 </game>
+<game name="OpenJK-Speed (no mounts)">
+	<process>openjk_sp.x86</process>
+	<base>407B00</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+	<maximumValue>800</maximumValue>
+	<decimals>0</decimals>
+</game>
 <game name="Quake (JoeQuake)">
 	<process>joequake-gl</process>
 	<base>64F608</base>

@@ -43,7 +43,9 @@ namespace LiveSplit.MemoryGraph
         [Description("Polygonal Overflowing Graph")]
         PolygonalOverflow,
         [Description("Sonic")]
-        Sonic
+        Sonic,
+        [Description("3D Pivot")]
+        Pivot
     }
 
     enum GradientType

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\Program Files %28x86%29\LiveSplit\Components\</OutputPath>
+    <OutputPath>C:\LiveSplit\Components\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -73,6 +73,7 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="SpritesHandling\GDI3D.cs" />
     <Compile Include="SpritesHandling\SonicHandling.cs" />
     <Compile Include="TextStyleOverrideControl.cs">
       <SubType>UserControl</SubType>

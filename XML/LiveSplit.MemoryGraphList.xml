@@ -9,6 +9,13 @@
 	<maximumValue>50</maximumValue>
 	<decimals>1</decimals>
 </game>
+<game name="Crysis 2">
+	<process>Crysis2</process>
+	<module></module>
+	<base>013F3D60</base>
+	<offsets>25C,EC</offsets>
+	<type>FloatVec2</type>
+</game>
 <game name="Hitman: Absolution">
 	<process>HMA</process>
 	<module></module>

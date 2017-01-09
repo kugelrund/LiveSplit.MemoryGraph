@@ -12,8 +12,8 @@ namespace LiveSplit.MemoryGraph
 {
     struct FloatVec2
     {
-        float x;
-        float y;
+        public float x;
+        public float y;
 
         public FloatVec2(float x, float y)
         {
@@ -26,9 +26,9 @@ namespace LiveSplit.MemoryGraph
 
     struct FloatVec2XZY
     {
-        float x;
-        float y;
-        float z;
+        public float x;
+        public float y;
+        public float z;
 
         public FloatVec2XZY(float x, float y, float z)
         {
@@ -42,9 +42,9 @@ namespace LiveSplit.MemoryGraph
 
     struct FloatVec3
     {
-        float x;
-        float y;
-        float z;
+        public float x;
+        public float y;
+        public float z;
 
         public FloatVec3(float x, float y, float z)
         {
@@ -58,8 +58,8 @@ namespace LiveSplit.MemoryGraph
 
     struct IntVec2
     {
-        int x;
-        int y;
+        public int x;
+        public int y;
 
         public IntVec2(int x, int y)
         {
@@ -72,9 +72,9 @@ namespace LiveSplit.MemoryGraph
 
     struct IntVec2XZY
     {
-        int x;
-        int y;
-        int z;
+        public int x;
+        public int y;
+        public int z;
 
         public IntVec2XZY(int x, int y, int z)
         {
@@ -88,9 +88,9 @@ namespace LiveSplit.MemoryGraph
 
     struct IntVec3
     {
-        int x;
-        int y;
-        int z;
+        public int x;
+        public int y;
+        public int z;
 
         public IntVec3(int x, int y, int z)
         {
@@ -104,8 +104,10 @@ namespace LiveSplit.MemoryGraph
 
     public class Component : IComponent
     {
-        SonicHandling sonic;
         private Settings settings;
+
+        SonicHandling sonic;
+        Point drawOrigin;
 
         public string ComponentName => "MemoryGraph";
 
@@ -124,11 +126,15 @@ namespace LiveSplit.MemoryGraph
 
         private int graphHeight;
         private int graphWidth;
+        private int safeSize;                                           //Used to figure out shorter side of bitmap
         private int drawCounter = 0;                                        //For smoothing out
         private float avaragedValue;                                    //For smoothing out
         private float[] fake_particles;
 
         private float currentValue;
+        private float currentValueX;
+        private float currentValueY;
+        private float currentValueZ;
         private System.Diagnostics.Process process;
 
         private Bitmap bmpBuffer;
@@ -139,6 +145,7 @@ namespace LiveSplit.MemoryGraph
         private StringFormat descriptiveTextFormat;
         private PointF[] polygon_points;
         private Pen graphPen;
+        GDI3D.PivotWithValVector ren3D;
 
 
         public Component(LiveSplitState state)
@@ -153,9 +160,9 @@ namespace LiveSplit.MemoryGraph
             polygon_points = new PointF[4] { new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), };  //LB, LU, RU, RB
             fake_particles = new float[5] { 185, 143, 6, 168, 91 };
             graphPen = new Pen(graphBrush);
+            sonic = new SonicHandling();
 
             settings = new Settings();
-            sonic = new SonicHandling();
             settings.HandleDestroyed += SettingsUpdated;
             SettingsUpdated(null, null);
         }
@@ -169,8 +176,32 @@ namespace LiveSplit.MemoryGraph
 
                 bmpBuffer = new Bitmap(graphWidth, graphHeight);
                 gBuffer = Graphics.FromImage(bmpBuffer);
+
                 gBuffer.Clear(Color.Transparent);
                 gBuffer.CompositingMode = CompositingMode.SourceCopy;
+
+            }
+            if(settings.GraphStyle == GraphStyle.Sonic)
+            {
+
+            }
+            else if(settings.GraphStyle == GraphStyle.Pivot)
+            {
+                if (graphWidth > graphHeight)
+                    safeSize = graphHeight;
+                else
+                    safeSize = 200;
+
+                if(safeSize > 200)
+                {
+                    ren3D = new GDI3D.PivotWithValVector((int)(safeSize*0.9f), (int)(safeSize * 0.9f), (int)(safeSize * 0.9f), new Bitmap(safeSize, safeSize));
+                    drawOrigin = new Point((int)(safeSize*1.5f), safeSize / 2);
+                }
+                else
+                {
+                    ren3D = new GDI3D.PivotWithValVector(90, 90, 90, new Bitmap(200, 200));
+                    drawOrigin = new Point((int)(100*1.5f), 20);
+                }
             }
         }
 
@@ -256,6 +287,7 @@ namespace LiveSplit.MemoryGraph
             // draw actual graph
             switch (settings.GraphStyle)
             {
+                #region Filled_Graph
                 case GraphStyle.FilledGraph:
                     gBuffer.DrawImageUnscaled(bmpBuffer, -1, 0);
                     gBuffer.FillRectangle(Brushes.Transparent, graphWidth - 1, 0, 1, graphHeight);
@@ -277,7 +309,8 @@ namespace LiveSplit.MemoryGraph
                                     width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
                     }
                     break;
-
+                #endregion
+                #region SingleBar
                 case GraphStyle.SingleBar:
                     if (currentValue > settings.MinimumValue)
                     {
@@ -299,7 +332,8 @@ namespace LiveSplit.MemoryGraph
                         g.FillRectangle(graphBrush, barRect);
                     }
                     break;
-
+                    #endregion
+                #region Polygonal
                 case GraphStyle.Polygonal:
                     gBuffer.DrawImageUnscaled(bmpBuffer, -1, 0);
                     gBuffer.FillRectangle(Brushes.Transparent, graphWidth - 1, 0, 1, graphHeight);
@@ -331,6 +365,7 @@ namespace LiveSplit.MemoryGraph
 
 
 
+
                     if (descriptiveNextToGraph || valueNextToGraph)
                     {
                         g.DrawImageUnscaled(bmpBuffer, (int)graphRect.X, (int)graphRect.Y);
@@ -341,7 +376,8 @@ namespace LiveSplit.MemoryGraph
                                     width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
                     }
                     break;
-
+                    #endregion
+                #region PolygonalOverflow
                 case GraphStyle.PolygonalOverflow:
                     gBuffer.DrawImageUnscaled(bmpBuffer, -1, 0);
                     gBuffer.FillRectangle(Brushes.Transparent, graphWidth - 1, 0, 1, graphHeight);
@@ -372,7 +408,8 @@ namespace LiveSplit.MemoryGraph
                                     width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
                     }
                     break;
-
+                    #endregion
+                #region Sonic_Graph
                 case GraphStyle.Sonic:
                     avaragedValue += relativeValue;
 
@@ -407,7 +444,34 @@ namespace LiveSplit.MemoryGraph
                         drawCounter++;
                     }
 
+                    //LU, LL, RB, RU
+                    //X,Y, width, height
 
+                    if (descriptiveNextToGraph || valueNextToGraph)
+                    {
+                        g.DrawImageUnscaled(bmpBuffer, (int)graphRect.X, (int)graphRect.Y);
+                    }
+                    else
+                    {
+                        g.DrawImage(bmpBuffer, settings.HorizontalMargins, settings.VerticalMargins,
+                                    width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
+                    }
+                    break;
+                #endregion
+                #region PivotDisplay
+                case GraphStyle.Pivot:
+                    gBuffer.Clear(Color.Transparent);
+
+                    ren3D.updateXYZVectors(currentValueX/settings.MaximumValue, currentValueY/ settings.MaximumValue, currentValueZ/ settings.MaximumValue);
+                    ren3D.RotateX = -55;
+                    ren3D.RotateY = 65;
+                    ren3D.RotateZ = 37;
+
+                    ren3D.DrawPivot(drawOrigin);
+                    if(safeSize > 200)
+                        gBuffer.DrawImage(ren3D.surface, 0, 0, safeSize, safeSize);
+                    else
+                        gBuffer.DrawImage(ren3D.surface, 0, 0, graphHeight, safeSize);
 
                     //LU, LL, RB, RU
                     //X,Y, width, height
@@ -422,8 +486,7 @@ namespace LiveSplit.MemoryGraph
                                     width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
                     }
                     break;
-
-
+                    #endregion
             }
 
             // draw descriptive text
@@ -524,28 +587,76 @@ namespace LiveSplit.MemoryGraph
                 switch (settings.ValueType)
                 {
                     case MemoryType.Float:
-                        currentValue = settings.Pointer.Deref<float>(process);
+                        {
+                            currentValueX = 0;
+                            currentValueY = 0;
+                            currentValueZ = 0;
+                            currentValue = settings.Pointer.Deref<float>(process);
+                        }
                         break;
                     case MemoryType.Int:
-                        currentValue = settings.Pointer.Deref<int>(process);
+                        {
+                            currentValueX = 0;
+                            currentValueY = 0;
+                            currentValueZ = 0;
+                            currentValue = settings.Pointer.Deref<int>(process);
+                        }
                         break;
                     case MemoryType.FloatVec2:
-                        currentValue = (float)settings.Pointer.Deref<FloatVec2>(process).Norm;
+                        {
+                            FloatVec2 vec = settings.Pointer.Deref<FloatVec2>(process);
+                            currentValueX = vec.x;
+                            currentValueY = vec.y;
+                            currentValueZ = 0;
+                            currentValue = (float)vec.Norm;
+                        }
                         break;
                     case MemoryType.FloatVec3:
-                        currentValue = (float)settings.Pointer.Deref<FloatVec3>(process).Norm;
+                        {
+                            FloatVec3 vec = settings.Pointer.Deref<FloatVec3>(process);
+                            currentValueX = vec.x;
+                            currentValueY = vec.y;
+                            currentValueZ = vec.z;
+                            currentValue = (float)vec.Norm;
+                        }
                         break;
                     case MemoryType.IntVec2:
-                        currentValue = (float)settings.Pointer.Deref<IntVec2>(process).Norm;
+                        {
+                            IntVec2 vec = settings.Pointer.Deref<IntVec2>(process);
+                            currentValueX = vec.x;
+                            currentValueY = vec.y;
+                            currentValueZ = 0;
+                            currentValue = (float)vec.Norm;
+                        }
+
                         break;
                     case MemoryType.IntVec3:
-                        currentValue = (float)settings.Pointer.Deref<IntVec3>(process).Norm;
+                        {
+                            IntVec3 vec = settings.Pointer.Deref<IntVec3>(process);
+                            currentValueX = vec.x;
+                            currentValueY = vec.y;
+                            currentValueZ = 0;
+                            currentValue = (float)vec.Norm;
+                        }
+
                         break;
                     case MemoryType.FloatVec2XZY:
-                        currentValue = (float)settings.Pointer.Deref<FloatVec2XZY>(process).Norm;
+                        {
+                            FloatVec2XZY vec = settings.Pointer.Deref<FloatVec2XZY>(process);
+                            currentValueX = vec.x;
+                            currentValueY = vec.y;
+                            currentValueZ = 0;
+                            currentValue = (float)vec.Norm;
+                        }
                         break;
                     case MemoryType.IntVec2XZY:
-                        currentValue = (float)settings.Pointer.Deref<IntVec2XZY>(process).Norm;
+                        {
+                            IntVec2XZY vec = settings.Pointer.Deref<IntVec2XZY>(process);
+                            currentValueX = vec.x;
+                            currentValueY = vec.y;
+                            currentValueZ = 0;
+                            currentValue = (float)vec.Norm;
+                        }
                         break;
                 }
 

@@ -15,6 +15,8 @@
 	<base>013F3D60</base>
 	<offsets>25C,EC</offsets>
 	<type>FloatVec2</type>
+	<maximumValue>20</maximumValue>
+	<decimals>2</decimals>
 </game>
 <game name="Hitman: Absolution">
 	<process>HMA</process>

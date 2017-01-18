@@ -2,6 +2,8 @@ LiveSplit.MemoryGraph
 =====================
 Shows a value of a game's memory in a graph. Probably buggy as hell atm.
 
+![preview.png](/images/preview.png)
+
 Manual Installation
 -------------------
 Download "Components/LiveSplit.MemoryGraph.dll" and place it into the subdirectory "Components" of your LiveSplit folder. You can then add it to your layout (category "Information").

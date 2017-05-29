@@ -12,8 +12,8 @@
 <game name="Crysis 2">
 	<process>Crysis2</process>
 	<module></module>
-	<base>013F3D60</base>
-	<offsets>25C,EC</offsets>
+	<base>01770484</base>
+	<offsets>1b8,28,EC</offsets>
 	<type>FloatVec2</type>
 	<maximumValue>20</maximumValue>
 	<decimals>2</decimals>
@@ -32,6 +32,14 @@
 	<offsets>0,90,50,58</offsets>
 	<type>Float</type>
 	<maximumValue>120</maximumValue>
+	<decimals>0</decimals>
+</game>
+<game name="OpenJK-Speed (no mounts)">
+	<process>openjk_sp.x86</process>
+	<base>407B00</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+	<maximumValue>800</maximumValue>
 	<decimals>0</decimals>
 </game>
 <game name="Quake (JoeQuake)">

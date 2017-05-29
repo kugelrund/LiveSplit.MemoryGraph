@@ -1,4 +1,12 @@
 <updates>
+	<update version="1.3.0">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Added a link label display in graph requires modifying game files.</change>
+        </changelog>
+    </update>
 	<update version="1.2.7">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

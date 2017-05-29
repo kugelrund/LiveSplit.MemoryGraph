@@ -107,7 +107,6 @@ namespace LiveSplit.MemoryGraph
         private Settings settings;
 
         SonicHandling sonic;
-        Point drawOrigin;
 
         public string ComponentName => "MemoryGraph";
 
@@ -126,7 +125,6 @@ namespace LiveSplit.MemoryGraph
 
         private int graphHeight;
         private int graphWidth;
-        private int safeSize;                                           //Used to figure out shorter side of bitmap
         private int drawCounter = 0;                                        //For smoothing out
         private float avaragedValue;                                    //For smoothing out
         private float[] fake_particles;
@@ -145,7 +143,6 @@ namespace LiveSplit.MemoryGraph
         private StringFormat descriptiveTextFormat;
         private PointF[] polygon_points;
         private Pen graphPen;
-        GDI3D.PivotWithValVector ren3D;
 
 
         public Component(LiveSplitState state)
@@ -184,24 +181,6 @@ namespace LiveSplit.MemoryGraph
             if(settings.GraphStyle == GraphStyle.Sonic)
             {
 
-            }
-            else if(settings.GraphStyle == GraphStyle.Pivot)
-            {
-                if (graphWidth > graphHeight)
-                    safeSize = graphHeight;
-                else
-                    safeSize = 200;
-
-                if(safeSize > 200)
-                {
-                    ren3D = new GDI3D.PivotWithValVector((int)(safeSize*0.9f), (int)(safeSize * 0.9f), (int)(safeSize * 0.9f), new Bitmap(safeSize, safeSize));
-                    drawOrigin = new Point((int)(safeSize*1.5f), safeSize / 2);
-                }
-                else
-                {
-                    ren3D = new GDI3D.PivotWithValVector(90, 90, 90, new Bitmap(200, 200));
-                    drawOrigin = new Point((int)(100*1.5f), 20);
-                }
             }
         }
 
@@ -458,35 +437,6 @@ namespace LiveSplit.MemoryGraph
                     }
                     break;
                 #endregion
-                #region PivotDisplay
-                case GraphStyle.Pivot:
-                    gBuffer.Clear(Color.Transparent);
-
-                    ren3D.updateXYZVectors(currentValueX/settings.MaximumValue, currentValueY/ settings.MaximumValue, currentValueZ/ settings.MaximumValue);
-                    ren3D.RotateX = -55;
-                    ren3D.RotateY = 65;
-                    ren3D.RotateZ = 37;
-
-                    ren3D.DrawPivot(drawOrigin);
-                    if(safeSize > 200)
-                        gBuffer.DrawImage(ren3D.surface, 0, 0, safeSize, safeSize);
-                    else
-                        gBuffer.DrawImage(ren3D.surface, 0, 0, graphHeight, safeSize);
-
-                    //LU, LL, RB, RU
-                    //X,Y, width, height
-
-                    if (descriptiveNextToGraph || valueNextToGraph)
-                    {
-                        g.DrawImageUnscaled(bmpBuffer, (int)graphRect.X, (int)graphRect.Y);
-                    }
-                    else
-                    {
-                        g.DrawImage(bmpBuffer, settings.HorizontalMargins, settings.VerticalMargins,
-                                    width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
-                    }
-                    break;
-                    #endregion
             }
 
             // draw descriptive text

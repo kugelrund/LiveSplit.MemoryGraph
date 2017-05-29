@@ -21,7 +21,7 @@
 <game name="El Matador (dll injection required)">
 	<process>pc_matador</process>
 	<module>ElMatadorGraphWrapper.dll</module>
-	<base>1913C</base>
+	<base>301C</base>
 	<offsets></offsets>
 	<type>FloatVec3</type>
 	<maximumValue>400</maximumValue>

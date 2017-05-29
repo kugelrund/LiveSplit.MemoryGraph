@@ -18,6 +18,15 @@
 	<maximumValue>20</maximumValue>
 	<decimals>2</decimals>
 </game>
+<game name="El Matador (dll injection required)">
+	<process>pc_matador</process>
+	<module>ElMatadorGraphWrapper.dll</module>
+	<base>1913C</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+	<maximumValue>400</maximumValue>
+	<decimals>1</decimals>
+</game>
 <game name="Hitman: Absolution">
 	<process>HMA</process>
 	<module></module>

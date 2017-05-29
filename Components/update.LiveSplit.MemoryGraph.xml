@@ -4,7 +4,7 @@
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
         </files>
         <changelog>
-            <change>Added a link label display in graph requires modifying game files.</change>
+            <change>Added a link label display in case modifying game files is required.</change>
         </changelog>
     </update>
 	<update version="1.2.7">

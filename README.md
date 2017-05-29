@@ -18,4 +18,3 @@ Credits
 -----
 * [SphereMJ / kugelrund](https://www.twitch.tv/spheremj)
 * [SuicideMachine](https://www.twitch.tv/suicidemachine)
-* Component uses a modified Math3D class, based on code from [http://www.vcskicks.com/](http://www.vcskicks.com/)

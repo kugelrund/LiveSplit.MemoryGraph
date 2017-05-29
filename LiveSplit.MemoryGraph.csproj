@@ -73,7 +73,6 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="SpritesHandling\GDI3D.cs" />
     <Compile Include="SpritesHandling\SonicHandling.cs" />
     <Compile Include="TextStyleOverrideControl.cs">
       <SubType>UserControl</SubType>

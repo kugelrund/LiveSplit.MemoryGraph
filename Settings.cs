@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace LiveSplit.MemoryGraph
 {
@@ -43,9 +44,7 @@ namespace LiveSplit.MemoryGraph
         [Description("Polygonal Overflowing Graph")]
         PolygonalOverflow,
         [Description("Sonic")]
-        Sonic,
-        [Description("3D Pivot")]
-        Pivot
+        Sonic
     }
 
     enum GradientType
@@ -126,6 +125,8 @@ namespace LiveSplit.MemoryGraph
         public string ProcessName { get; set; }
         public string DescriptiveText { get; set; }
 
+        public string AdditionalRequirement { get; set; }
+
         public DeepPointer Pointer { get; set; }
 
         public Settings()
@@ -164,6 +165,7 @@ namespace LiveSplit.MemoryGraph
             ValueTextDecimals = 0;
             ProcessName = "";
             DescriptiveText = "";
+            AdditionalRequirement = "";
             DescriptiveTextFont = overrideControlDescriptiveText.OverridingFont;
             ValueTextFont = overrideControlValueText.OverridingFont;
 
@@ -190,6 +192,7 @@ namespace LiveSplit.MemoryGraph
 
             txtProcessName.DataBindings.Add("Text", this, "ProcessName");
             txtDescriptiveText.DataBindings.Add("Text", this, "DescriptiveText");
+            linkLabel_AdditionalFiles.DataBindings.Add("Text", this, "AdditionalRequirement");
 
             overrideControlDescriptiveText.DataBindings.Add("OverridingColor", this, "DescriptiveTextColor");
             overrideControlDescriptiveText.DataBindings.Add("OverridingFont", this, "DescriptiveTextFont");
@@ -485,6 +488,7 @@ namespace LiveSplit.MemoryGraph
                     {
                         txtProcessName.Text = GetSafeStringValueFromXML(gameNode, "process");
                         ProcessName = GetSafeStringValueFromXML(gameNode, "process");
+                        AdditionalRequirement = GetSafeStringValueFromXML(gameNode, "additional_requirement_url");
 
                         txtModule.Text = GetSafeStringValueFromXML(gameNode, "module");
                         txtBase.Text = GetSafeStringValueFromXML(gameNode, "base");
@@ -584,5 +588,27 @@ namespace LiveSplit.MemoryGraph
             return 0;
         }
         #endregion
+
+        private void linkLabel_AdditionalFiles_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (linkLabel_AdditionalFiles.Text.StartsWith("http"))
+            {
+                Process.Start(linkLabel_AdditionalFiles.Text);
+            }
+        }
+
+        private void linkLabel_AdditionalFiles_TextChanged(object sender, EventArgs e)
+        {
+            if (!linkLabel_AdditionalFiles.Text.StartsWith("http"))
+            {
+                linkLabel_AdditionalFiles.Text = "";
+                L_Requires.Visible = false;
+            }
+            else
+            {
+                L_Requires.Visible = true;
+                linkLabel_AdditionalFiles.LinkArea = new LinkArea(0, linkLabel_AdditionalFiles.Text.Length);
+            }
+        }
     }
 }

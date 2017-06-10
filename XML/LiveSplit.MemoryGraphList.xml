@@ -5,7 +5,7 @@
 	<module></module>
 	<base>9D160</base>
 	<offsets>270,488</offsets>
-	<type>FloatVec3</type>
+	<type>IntVec3</type>
 	<maximumValue>2200</maximumValue>
 	<decimals>0</decimals>
 </game>

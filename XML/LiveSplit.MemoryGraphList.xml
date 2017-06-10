@@ -3,8 +3,8 @@
 <game name="Arabian Nights (3dfx)">
 	<process>_st_3dfx</process>
 	<module></module>
-	<base>9D160</base>
-	<offsets>270,488</offsets>
+	<base>9CCD8</base>
+	<offsets>460,490</offsets>
 	<type>IntVec3</type>
 	<maximumValue>2200</maximumValue>
 	<decimals>0</decimals>

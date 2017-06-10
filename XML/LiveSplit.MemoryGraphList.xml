@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <games>
+<game name="Arabian Nights (3dfx)">
+	<process>_st_3dfx</process>
+	<module></module>
+	<base>9D160</base>
+	<offsets>270,488</offsets>
+	<type>FloatVec3</type>
+	<maximumValue>2200</maximumValue>
+	<decimals>0</decimals>
+</game>
 <game name="Deus Ex: Human Revolution">
 	<process>dxhr</process>
 	<module></module>

@@ -558,11 +558,11 @@ namespace LiveSplit.MemoryGraph
                 {
                     return (int)MemoryType.IntVec3;
                 }
-                else if (typeTemp == "floatvec2XZY")
+                else if (typeTemp == "floatvec2xzy")
                 {
                     return (int)MemoryType.FloatVec2XZY;
                 }
-                else if (typeTemp == "intvec2XZY")
+                else if (typeTemp == "intvec2xzy")
                 {
                     return (int)MemoryType.IntVec2XZY;
                 }

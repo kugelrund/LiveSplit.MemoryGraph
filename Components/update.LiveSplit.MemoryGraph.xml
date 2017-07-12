@@ -1,4 +1,12 @@
 <updates>
+	<update version="1.3.1">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Fixed bug, which would prevent FloatVec2XZY and IntVec2XZY from being loaded from XML file.</change>
+        </changelog>
+    </update>
 	<update version="1.3.0">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

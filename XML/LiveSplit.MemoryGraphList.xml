@@ -37,6 +37,15 @@
 	<maximumValue>400</maximumValue>
 	<decimals>1</decimals>
 </game>
+<game name="Hellforces">
+	<process>hell</process>
+	<module></module>
+	<base>11E0D2C</base>
+	<offsets></offsets>
+	<type>FloatVec3</type>
+	<maximumValue>100</maximumValue>
+	<decimals>1</decimals>
+</game>
 <game name="Hitman: Absolution">
 	<process>HMA</process>
 	<module></module>

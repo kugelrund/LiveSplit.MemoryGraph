@@ -1,4 +1,12 @@
 <updates>
+	<update version="1.4.1">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Added unit converter value reading from XML database (specify as "unitConverter" float value with period instead of coma as decimal separator).</change>
+        </changelog>
+    </update>
 	<update version="1.4.0">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

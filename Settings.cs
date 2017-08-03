@@ -552,7 +552,7 @@ namespace LiveSplit.MemoryGraph
                         cmbType.SelectedIndex = GetSafeTypeFromXML(gameNode, "type");
                         txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue");
                         numValueTextDecimals.Value = GetSafeUIntFromXML(gameNode, "decimals");
-                        MeterInGameUnits = CultureSafeFloatParse(GetSafeStringValueFromXML(gameNode, "unitConverter"), 1);
+                        tbMeterToGameUnit.Text = GetSafeStringValueFromXML(gameNode, "unitConverter");
 
                         break;
                     }

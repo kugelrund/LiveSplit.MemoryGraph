@@ -30,7 +30,7 @@
 <game name="El Matador (dll injection required)">
 	<process>pc_matador</process>
 	<module>ElMatadorGraphWrapper.dll</module>
-	<additional_requirement_url>https://drive.google.com/open?id=0B8cEbH-3ZPXGajBmMzBxdGRSb3c</additional_requirement_url>
+	<additional_requirement_url>https://github.com/SuiMachine/LiveSplit.ElMatador</additional_requirement_url>
 	<base>301C</base>
 	<offsets></offsets>
 	<type>FloatVec3</type>
@@ -113,6 +113,7 @@
 	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>600</maximumValue>
+	<unitConverter>45.00</unitConverter>
 </game>
 <game name="Star Trek: Voyager Elite Force (v1.2)">
 	<process>stvoy</process>
@@ -120,6 +121,7 @@
 	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>600</maximumValue>
+	<unitConverter>45.00</unitConverter>
 </game>
 <game name="Star Wars Jedi Knight: Jedi Academy">
 	<process>jasp</process>

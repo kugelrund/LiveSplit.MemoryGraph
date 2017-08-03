@@ -1,4 +1,12 @@
 <updates>
+	<update version="1.4.2">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Fixed GUI not updating the Unit Conversion value when a position was chosen from XML file.</change>
+        </changelog>
+    </update>
 	<update version="1.4.1">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

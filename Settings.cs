@@ -12,7 +12,6 @@ using System.Diagnostics;
 
 namespace LiveSplit.MemoryGraph
 {
-
     enum MemoryType
     {
         [Description("Float")]
@@ -85,8 +84,23 @@ namespace LiveSplit.MemoryGraph
         RightInGraph
     }
 
+    enum Units
+    {
+        [Description("Game Units (u)")]
+        None,
+        [Description("Metres per second (m/s)")]
+        MeterPerSecond,
+        [Description("Kilometers per hour (km/h)")]
+        KilometersPerHour,
+        [Description("Miles per hour (mph)")]
+        MilesPerHour,
+        [Description("Feet per second (fps)")]
+        FeetPerSecond,
+    }
+
     partial class Settings : UserControl
     {
+        CultureInfo ci = new CultureInfo(System.Threading.Thread.CurrentThread.CurrentCulture.Name);
         List<string> gamesOnTheList = new List<string>();
         static string componentsFolder = "Components";
         static string listsFile = "LiveSplit.MemoryGraphList.xml";
@@ -110,6 +124,10 @@ namespace LiveSplit.MemoryGraph
         public Position ValueTextPosition { get; set; }
         public Position DescriptiveTextPosition { get; set; }
         public MemoryType ValueType { get; set; }
+        public bool UnitsConversionEnabled { get; set; }
+        public Units UnitsUsed { get; set; }
+        public float MeterInGameUnits { get; set; }
+
 
         public Color DescriptiveTextColor { get; set; }
         public Font DescriptiveTextFont { get; set; }
@@ -161,6 +179,9 @@ namespace LiveSplit.MemoryGraph
             GraphSillyColors = true;
             ValueTextPosition = Position.LeftInGraph;
             DescriptiveTextPosition = Position.Left;
+            UnitsConversionEnabled = false;
+            UnitsUsed = Units.None;
+            MeterInGameUnits = 1.0f;
             ValueType = MemoryType.Float;
             ValueTextDecimals = 0;
             ProcessName = "";
@@ -187,6 +208,11 @@ namespace LiveSplit.MemoryGraph
             cmbGraphGradientType.DataBindings.Add("SelectedValue", this, "GraphGradient", false, DataSourceUpdateMode.OnPropertyChanged);
             colorsCBSillyColors.DataBindings.Add("Checked", this, "GraphSillyColors", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbValueTextPosition.DataBindings.Add("SelectedValue", this, "ValueTextPosition", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            unitConversionCB.DataBindings.Add("Checked", this, "UnitsConversionEnabled", false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbUnitsUsed.DataBindings.Add("SelectedValue", this, "UnitsUsed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbMeterToGameUnit.DataBindings.Add("Text", this, "MeterInGameUnits", true, DataSourceUpdateMode.OnPropertyChanged, null, "f");
+
             cmbDescriptiveTextPosition.DataBindings.Add("SelectedValue", this, "DescriptiveTextPosition", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbType.DataBindings.Add("SelectedValue", this, "ValueType", false, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -288,9 +314,35 @@ namespace LiveSplit.MemoryGraph
             ValueTextOverrideColor = SettingsHelper.ParseBool(element["ValueTextOverrideColor"]);
             ValueTextOverrideFont = SettingsHelper.ParseBool(element["ValueTextOverrideFont"]);
             ValueTextDecimals = SettingsHelper.ParseInt(element["ValueTextDecimals"]);
-
+            UnitsConversionEnabled = SettingsHelper.ParseBool(element["UnitConversionEnabled"]);
+            UnitsUsed = SettingsHelper.ParseEnum<Units>(element["UnitsUsed"]);
+            MeterInGameUnits = CultureSafeFloatParse(SettingsHelper.ParseString(element["MeterInGameUnits"]));
 
             UpdatePointer(null, null);
+        }
+
+        private float CultureSafeFloatParse(string vstr, float def = 1)
+        {
+            //This is due to Floats being really crappy in XMLs. What I mean is they can be stored as:
+            //#1 - 0.5
+            //#2 - 0,5
+            //So this function use it to parse it properly no matter what culture they were stored in.
+            if (vstr != null)
+            {
+                float value = 0;
+                if (!float.TryParse(vstr, System.Globalization.NumberStyles.Any, CultureInfo.CurrentCulture, out value) &&
+                    //Then try in US english
+                    !float.TryParse(vstr, System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out value) &&
+                    //Then in neutral language
+                    !float.TryParse(vstr, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture, out value))
+                {
+                    return def;
+                }
+
+                return value;
+            }
+            else
+                return def;
         }
 
         public System.Xml.XmlNode GetSettings(System.Xml.XmlDocument document)
@@ -340,8 +392,11 @@ namespace LiveSplit.MemoryGraph
             SettingsHelper.CreateSetting(document, parent, "ValueTextColor", ValueTextColor) ^
             SettingsHelper.CreateSetting(document, parent, "ValueTextFont", ValueTextFont) ^
             SettingsHelper.CreateSetting(document, parent, "ValueTextOverrideColor", ValueTextOverrideColor) ^
-            SettingsHelper.CreateSetting(document, parent, "ValueTextOverrideFont", ValueTextOverrideFont) ^ 
-            SettingsHelper.CreateSetting(document, parent, "ValueTextDecimals", ValueTextDecimals);
+            SettingsHelper.CreateSetting(document, parent, "ValueTextOverrideFont", ValueTextOverrideFont) ^
+            SettingsHelper.CreateSetting(document, parent, "ValueTextDecimals", ValueTextDecimals) ^
+            SettingsHelper.CreateSetting(document, parent, "UnitConversionEnabled", UnitsConversionEnabled) ^
+            SettingsHelper.CreateSetting(document, parent, "UnitsUsed", UnitsUsed) ^
+            SettingsHelper.CreateSetting(document, parent, "MeterInGameUnits", MeterInGameUnits);
         }
 
         private void cmbBackgroundGradientType_SelectedValueChanged(object sender, EventArgs e)
@@ -451,10 +506,11 @@ namespace LiveSplit.MemoryGraph
             }
         }
 
+        #region XML database functions
         //////////////////////////////////////////
         /////Related to loading XML, list etc.////
         //////////////////////////////////////////
-        
+
         private void loadXML()
         {
             ComboBox_ListOfGames.DataSource = null;
@@ -510,12 +566,6 @@ namespace LiveSplit.MemoryGraph
             {
                 loadXML();
             }
-        }
-
-        private void colorsCBSillyColors_MouseHover(object sender, EventArgs e)
-        {
-            //Displays tooltip
-            toolTip.Show("This options allows the multiplier to exceed '1.0', meaning that if using color grading, the maximum color can be brighter than specified.", colorsCBSillyColors);
         }
 
         #region GetSafeValuesFunctions
@@ -609,6 +659,21 @@ namespace LiveSplit.MemoryGraph
                 L_Requires.Visible = true;
                 linkLabel_AdditionalFiles.LinkArea = new LinkArea(0, linkLabel_AdditionalFiles.Text.Length);
             }
+        }
+        #endregion
+
+        private void cmbUnitsUsed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbUnitsUsed.SelectedValue == null)
+            {
+                return;
+            }
+        }
+
+        private void colorsCBSillyColors_MouseHover(object sender, EventArgs e)
+        {
+            //Displays tooltip
+            toolTip.Show("This options allows the multiplier to exceed '1.0', meaning that if using color grading, the maximum color can be brighter than specified.", colorsCBSillyColors);
         }
     }
 }

@@ -145,6 +145,7 @@ namespace LiveSplit.MemoryGraph
         private Pen graphPen;
 
 
+
         public Component(LiveSplitState state)
         {
             valueTextFormat = new StringFormat(StringFormatFlags.NoWrap);
@@ -176,10 +177,6 @@ namespace LiveSplit.MemoryGraph
 
                 gBuffer.Clear(Color.Transparent);
                 gBuffer.CompositingMode = CompositingMode.SourceCopy;
-
-            }
-            if(settings.GraphStyle == GraphStyle.Sonic)
-            {
 
             }
         }
@@ -496,9 +493,52 @@ namespace LiveSplit.MemoryGraph
                 RectangleF rect = valueNextToGraph ? g.ClipBounds : graphRect;
                 rect.X += 5;
                 rect.Width -= 10;
-                g.DrawString(currentValue.ToString("n" + settings.ValueTextDecimals),
-                             font, brush, rect, valueTextFormat);
+                if(!settings.UnitsConversionEnabled)
+                {
+                    g.DrawString(currentValue.ToString("n" + settings.ValueTextDecimals), font, brush, rect, valueTextFormat);
+                }
+                else
+                {
+                    g.DrawString(convertUnits(currentValue, settings.ValueTextDecimals), font, brush, rect, valueTextFormat);
+                }
+
             }
+        }
+
+        private string convertUnits(float currentValue, int valueTextDecimals)
+        {
+            float multiplier = settings.MeterInGameUnits;
+            Units unitsSelected = settings.UnitsUsed;
+            switch (unitsSelected)
+            {
+                case Units.None:
+                    {
+                        return currentValue.ToString("n" + valueTextDecimals) + " (u)";
+                    }
+                case Units.MeterPerSecond:
+                    {
+                        float returnValue = currentValue / multiplier;
+                        return returnValue.ToString("n" + valueTextDecimals) + " (m/s)";
+                    }
+                case Units.KilometersPerHour:
+                    {
+                        float returnValue = (currentValue / multiplier)  * 3.6f;
+                        return returnValue.ToString("n" + valueTextDecimals) + " (km/h)";
+                    }
+                case Units.MilesPerHour:
+                    {
+                        float returnValue = (currentValue / multiplier) * 2.23693629f;
+                        return returnValue.ToString("n" + valueTextDecimals) + " (mph)";
+                    }
+                case Units.FeetPerSecond:
+                    {
+                        float returnValue = (currentValue / multiplier) * 196.850394f;
+                        return returnValue.ToString("n" + valueTextDecimals) + " (fps)";
+                    }
+                default:
+                    return currentValue.ToString("n" + valueTextDecimals) + " (u)";
+            }
+
         }
 
         private void DrawBackground(Graphics g, LiveSplitState state, float width, float height)

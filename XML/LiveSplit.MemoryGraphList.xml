@@ -45,6 +45,7 @@
 	<type>FloatVec3</type>
 	<maximumValue>100</maximumValue>
 	<decimals>1</decimals>
+	<unitConverter>1.62</unitConverter>
 </game>
 <game name="Hitman: Absolution">
 	<process>HMA</process>

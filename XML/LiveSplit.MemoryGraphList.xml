@@ -31,11 +31,12 @@
 	<process>pc_matador</process>
 	<module>ElMatadorGraphWrapper.dll</module>
 	<additional_requirement_url>https://github.com/SuiMachine/LiveSplit.ElMatador</additional_requirement_url>
-	<base>301C</base>
+	<base>3024</base>
 	<offsets></offsets>
 	<type>FloatVec3</type>
 	<maximumValue>400</maximumValue>
 	<decimals>1</decimals>
+	<unitConverter>12.22</unitConverter>
 </game>
 <game name="Hellforces">
 	<process>hell</process>

@@ -27,6 +27,15 @@
 	<maximumValue>20</maximumValue>
 	<decimals>2</decimals>
 </game>
+<game name="DUSK">
+	<process>DUSK</process>
+	<module></module>
+	<base>10B8660</base>
+	<offsets>780,50,78</offsets>
+	<type>FloatVec2XZY</type>
+	<maximumValue>50</maximumValue>
+	<decimals>2</decimals>
+</game>
 <game name="El Matador (dll injection required)">
 	<process>pc_matador</process>
 	<module>ElMatadorGraphWrapper.dll</module>

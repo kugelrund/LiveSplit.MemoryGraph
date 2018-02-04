@@ -34,7 +34,19 @@ namespace LiveSplit.MemoryGraph
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.grpDescriptiveText = new System.Windows.Forms.GroupBox();
+            this.overrideControlDescriptiveText = new LiveSplit.MemoryGraph.TextStyleOverrideControl();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtDescriptiveText = new System.Windows.Forms.TextBox();
+            this.lblDescriptiveTextPosition = new System.Windows.Forms.Label();
+            this.cmbDescriptiveTextPosition = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbMeterToGameUnit = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbUnitsUsed = new System.Windows.Forms.ComboBox();
+            this.unitConversionCB = new System.Windows.Forms.CheckBox();
             this.grpPointerPath = new System.Windows.Forms.GroupBox();
             this.L_Requires = new System.Windows.Forms.Label();
             this.linkLabel_AdditionalFiles = new System.Windows.Forms.LinkLabel();
@@ -53,7 +65,18 @@ namespace LiveSplit.MemoryGraph
             this.lblType = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.grpGraph = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.colorsCBSillyColors = new System.Windows.Forms.CheckBox();
+            this.cmbGraphGradientType = new System.Windows.Forms.ComboBox();
+            this.lblGraphStyle = new System.Windows.Forms.Label();
+            this.grpValueText = new System.Windows.Forms.GroupBox();
+            this.numValueTextDecimals = new System.Windows.Forms.NumericUpDown();
+            this.lblDecimals = new System.Windows.Forms.Label();
+            this.overrideControlValueText = new LiveSplit.MemoryGraph.TextStyleOverrideControl();
+            this.cmbValueTextPosition = new System.Windows.Forms.ComboBox();
+            this.lblValueTextPosition = new System.Windows.Forms.Label();
+            this.btnGraphColor2 = new System.Windows.Forms.Button();
+            this.cmbGraphStyle = new System.Windows.Forms.ComboBox();
+            this.btnGraphColor1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMaximumValue = new System.Windows.Forms.Label();
             this.txtMaximumValue = new System.Windows.Forms.TextBox();
@@ -67,89 +90,186 @@ namespace LiveSplit.MemoryGraph
             this.lblVerticalMargins = new System.Windows.Forms.Label();
             this.numVerticalMargins = new System.Windows.Forms.NumericUpDown();
             this.numHorizontalMargins = new System.Windows.Forms.NumericUpDown();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.cmbGraphStyle = new System.Windows.Forms.ComboBox();
-            this.lblGraphStyle = new System.Windows.Forms.Label();
-            this.grpValueText = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.overrideControlValueText = new LiveSplit.MemoryGraph.TextStyleOverrideControl();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblValueTextPosition = new System.Windows.Forms.Label();
-            this.cmbValueTextPosition = new System.Windows.Forms.ComboBox();
-            this.lblDecimals = new System.Windows.Forms.Label();
-            this.numValueTextDecimals = new System.Windows.Forms.NumericUpDown();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbUnitsUsed = new System.Windows.Forms.ComboBox();
-            this.unitConversionCB = new System.Windows.Forms.CheckBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbMeterToGameUnit = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.lblGraphColor = new System.Windows.Forms.Label();
-            this.btnGraphColor1 = new System.Windows.Forms.Button();
-            this.btnGraphColor2 = new System.Windows.Forms.Button();
-            this.cmbGraphGradientType = new System.Windows.Forms.ComboBox();
             this.lblBackgroundColor = new System.Windows.Forms.Label();
-            this.cmbBackgroundGradientType = new System.Windows.Forms.ComboBox();
             this.btnBackgroundColor1 = new System.Windows.Forms.Button();
             this.btnBackgroundColor2 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.colorsCBSillyColors = new System.Windows.Forms.CheckBox();
-            this.grpDescriptiveText = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.overrideControlDescriptiveText = new LiveSplit.MemoryGraph.TextStyleOverrideControl();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtDescriptiveText = new System.Windows.Forms.TextBox();
-            this.lblDescriptiveTextPosition = new System.Windows.Forms.Label();
-            this.cmbDescriptiveTextPosition = new System.Windows.Forms.ComboBox();
+            this.cmbBackgroundGradientType = new System.Windows.Forms.ComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.tableLayoutPanel1.SuspendLayout();
+            this.grpDescriptiveText.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.grpPointerPath.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.grpGraph.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
+            this.grpValueText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numValueTextDecimals)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVerticalMargins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHorizontalMargins)).BeginInit();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.grpValueText.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numValueTextDecimals)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
-            this.tableLayoutPanel11.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.grpDescriptiveText.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // grpDescriptiveText
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.grpPointerPath, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.grpGraph, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.grpDescriptiveText, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 155F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 412F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(461, 660);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.grpDescriptiveText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpDescriptiveText.Controls.Add(this.overrideControlDescriptiveText);
+            this.grpDescriptiveText.Controls.Add(this.tableLayoutPanel4);
+            this.grpDescriptiveText.Location = new System.Drawing.Point(15, 573);
+            this.grpDescriptiveText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpDescriptiveText.Name = "grpDescriptiveText";
+            this.grpDescriptiveText.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpDescriptiveText.Size = new System.Drawing.Size(582, 93);
+            this.grpDescriptiveText.TabIndex = 2;
+            this.grpDescriptiveText.TabStop = false;
+            this.grpDescriptiveText.Text = "Descriptive Text";
+            // 
+            // overrideControlDescriptiveText
+            // 
+            this.overrideControlDescriptiveText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.overrideControlDescriptiveText.Location = new System.Drawing.Point(6, 54);
+            this.overrideControlDescriptiveText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.overrideControlDescriptiveText.Name = "overrideControlDescriptiveText";
+            this.overrideControlDescriptiveText.OverrideColor = false;
+            this.overrideControlDescriptiveText.OverrideFont = false;
+            this.overrideControlDescriptiveText.OverridingColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.overrideControlDescriptiveText.OverridingFont = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.overrideControlDescriptiveText.Size = new System.Drawing.Size(570, 36);
+            this.overrideControlDescriptiveText.TabIndex = 2;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel4.Controls.Add(this.txtDescriptiveText, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lblDescriptiveTextPosition, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cmbDescriptiveTextPosition, 2, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(6, 19);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(570, 29);
+            this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // txtDescriptiveText
+            // 
+            this.txtDescriptiveText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescriptiveText.Location = new System.Drawing.Point(3, 3);
+            this.txtDescriptiveText.Name = "txtDescriptiveText";
+            this.txtDescriptiveText.Size = new System.Drawing.Size(280, 22);
+            this.txtDescriptiveText.TabIndex = 2;
+            // 
+            // lblDescriptiveTextPosition
+            // 
+            this.lblDescriptiveTextPosition.AutoSize = true;
+            this.lblDescriptiveTextPosition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDescriptiveTextPosition.Location = new System.Drawing.Point(299, 0);
+            this.lblDescriptiveTextPosition.Margin = new System.Windows.Forms.Padding(13, 0, 3, 0);
+            this.lblDescriptiveTextPosition.Name = "lblDescriptiveTextPosition";
+            this.lblDescriptiveTextPosition.Size = new System.Drawing.Size(77, 29);
+            this.lblDescriptiveTextPosition.TabIndex = 0;
+            this.lblDescriptiveTextPosition.Text = "Position:";
+            this.lblDescriptiveTextPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbDescriptiveTextPosition
+            // 
+            this.cmbDescriptiveTextPosition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbDescriptiveTextPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDescriptiveTextPosition.FormattingEnabled = true;
+            this.cmbDescriptiveTextPosition.Location = new System.Drawing.Point(382, 2);
+            this.cmbDescriptiveTextPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbDescriptiveTextPosition.Name = "cmbDescriptiveTextPosition";
+            this.cmbDescriptiveTextPosition.Size = new System.Drawing.Size(185, 24);
+            this.cmbDescriptiveTextPosition.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(465, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 17);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "game units (u)";
+            // 
+            // tbMeterToGameUnit
+            // 
+            this.tbMeterToGameUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbMeterToGameUnit.Location = new System.Drawing.Point(182, 126);
+            this.tbMeterToGameUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbMeterToGameUnit.Name = "tbMeterToGameUnit";
+            this.tbMeterToGameUnit.Size = new System.Drawing.Size(277, 22);
+            this.tbMeterToGameUnit.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(6, 128);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 17);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Conversion:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(106, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "1 meter is";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(217, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Units:";
+            // 
+            // cmbUnitsUsed
+            // 
+            this.cmbUnitsUsed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbUnitsUsed.FormattingEnabled = true;
+            this.cmbUnitsUsed.Location = new System.Drawing.Point(267, 98);
+            this.cmbUnitsUsed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbUnitsUsed.Name = "cmbUnitsUsed";
+            this.cmbUnitsUsed.Size = new System.Drawing.Size(297, 24);
+            this.cmbUnitsUsed.TabIndex = 1;
+            this.cmbUnitsUsed.SelectedIndexChanged += new System.EventHandler(this.cmbUnitsUsed_SelectedIndexChanged);
+            // 
+            // unitConversionCB
+            // 
+            this.unitConversionCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.unitConversionCB.AutoSize = true;
+            this.unitConversionCB.Location = new System.Drawing.Point(6, 100);
+            this.unitConversionCB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.unitConversionCB.Name = "unitConversionCB";
+            this.unitConversionCB.Size = new System.Drawing.Size(178, 21);
+            this.unitConversionCB.TabIndex = 0;
+            this.unitConversionCB.Text = "Enable Unit Conversion";
+            this.unitConversionCB.UseVisualStyleBackColor = true;
             // 
             // grpPointerPath
             // 
+            this.grpPointerPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpPointerPath.Controls.Add(this.L_Requires);
             this.grpPointerPath.Controls.Add(this.linkLabel_AdditionalFiles);
             this.grpPointerPath.Controls.Add(this.ComboBox_ListOfGames);
@@ -158,10 +278,11 @@ namespace LiveSplit.MemoryGraph
             this.grpPointerPath.Controls.Add(this.txtProcessName);
             this.grpPointerPath.Controls.Add(this.lblProcessName);
             this.grpPointerPath.Controls.Add(this.tableLayoutPanel2);
-            this.grpPointerPath.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpPointerPath.Location = new System.Drawing.Point(3, 3);
+            this.grpPointerPath.Location = new System.Drawing.Point(15, 13);
+            this.grpPointerPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpPointerPath.Name = "grpPointerPath";
-            this.grpPointerPath.Size = new System.Drawing.Size(455, 148);
+            this.grpPointerPath.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpPointerPath.Size = new System.Drawing.Size(582, 157);
             this.grpPointerPath.TabIndex = 0;
             this.grpPointerPath.TabStop = false;
             this.grpPointerPath.Text = "Pointer path";
@@ -169,9 +290,9 @@ namespace LiveSplit.MemoryGraph
             // L_Requires
             // 
             this.L_Requires.AutoSize = true;
-            this.L_Requires.Location = new System.Drawing.Point(6, 39);
+            this.L_Requires.Location = new System.Drawing.Point(6, 45);
             this.L_Requires.Name = "L_Requires";
-            this.L_Requires.Size = new System.Drawing.Size(52, 13);
+            this.L_Requires.Size = new System.Drawing.Size(69, 17);
             this.L_Requires.TabIndex = 11;
             this.L_Requires.Text = "Requires:";
             // 
@@ -179,9 +300,9 @@ namespace LiveSplit.MemoryGraph
             // 
             this.linkLabel_AdditionalFiles.AutoSize = true;
             this.linkLabel_AdditionalFiles.LinkArea = new System.Windows.Forms.LinkArea(0, 10);
-            this.linkLabel_AdditionalFiles.Location = new System.Drawing.Point(58, 39);
+            this.linkLabel_AdditionalFiles.Location = new System.Drawing.Point(81, 45);
             this.linkLabel_AdditionalFiles.Name = "linkLabel_AdditionalFiles";
-            this.linkLabel_AdditionalFiles.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel_AdditionalFiles.Size = new System.Drawing.Size(72, 17);
             this.linkLabel_AdditionalFiles.TabIndex = 10;
             this.linkLabel_AdditionalFiles.TabStop = true;
             this.linkLabel_AdditionalFiles.Text = "linkLabel1";
@@ -190,18 +311,23 @@ namespace LiveSplit.MemoryGraph
             // 
             // ComboBox_ListOfGames
             // 
+            this.ComboBox_ListOfGames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBox_ListOfGames.FormattingEnabled = true;
-            this.ComboBox_ListOfGames.Location = new System.Drawing.Point(46, 15);
+            this.ComboBox_ListOfGames.Location = new System.Drawing.Point(84, 19);
+            this.ComboBox_ListOfGames.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBox_ListOfGames.Name = "ComboBox_ListOfGames";
-            this.ComboBox_ListOfGames.Size = new System.Drawing.Size(303, 21);
+            this.ComboBox_ListOfGames.Size = new System.Drawing.Size(346, 24);
             this.ComboBox_ListOfGames.TabIndex = 9;
             this.ComboBox_ListOfGames.SelectedIndexChanged += new System.EventHandler(this.ComboBox_ListOfGames_SelectedIndexChanged);
             // 
             // B_UpdateXML
             // 
-            this.B_UpdateXML.Location = new System.Drawing.Point(354, 15);
+            this.B_UpdateXML.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_UpdateXML.Location = new System.Drawing.Point(436, 17);
+            this.B_UpdateXML.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.B_UpdateXML.Name = "B_UpdateXML";
-            this.B_UpdateXML.Size = new System.Drawing.Size(98, 21);
+            this.B_UpdateXML.Size = new System.Drawing.Size(140, 26);
             this.B_UpdateXML.TabIndex = 8;
             this.B_UpdateXML.Text = "Update XML file";
             this.B_UpdateXML.UseVisualStyleBackColor = true;
@@ -210,36 +336,42 @@ namespace LiveSplit.MemoryGraph
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Location = new System.Drawing.Point(6, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(50, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Game:";
             // 
             // txtProcessName
             // 
-            this.txtProcessName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtProcessName.Location = new System.Drawing.Point(121, 116);
+            this.txtProcessName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProcessName.Location = new System.Drawing.Point(132, 128);
+            this.txtProcessName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProcessName.Name = "txtProcessName";
-            this.txtProcessName.Size = new System.Drawing.Size(328, 20);
+            this.txtProcessName.Size = new System.Drawing.Size(444, 22);
             this.txtProcessName.TabIndex = 5;
             // 
             // lblProcessName
             // 
+            this.lblProcessName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblProcessName.AutoSize = true;
-            this.lblProcessName.Location = new System.Drawing.Point(6, 119);
+            this.lblProcessName.Location = new System.Drawing.Point(6, 131);
             this.lblProcessName.Name = "lblProcessName";
-            this.lblProcessName.Size = new System.Drawing.Size(91, 13);
+            this.lblProcessName.Size = new System.Drawing.Size(120, 17);
             this.lblProcessName.TabIndex = 4;
             this.lblProcessName.Text = "Name of Process:";
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
             this.tableLayoutPanel2.Controls.Add(this.lblModule, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtOffsets, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtBase, 1, 1);
@@ -248,12 +380,13 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel2.Controls.Add(this.lblOffsets, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblType, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.cmbType, 3, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 59);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 64);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(449, 50);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(570, 60);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // lblModule
@@ -262,117 +395,270 @@ namespace LiveSplit.MemoryGraph
             this.lblModule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblModule.Location = new System.Drawing.Point(3, 0);
             this.lblModule.Name = "lblModule";
-            this.lblModule.Size = new System.Drawing.Size(86, 20);
+            this.lblModule.Size = new System.Drawing.Size(110, 24);
             this.lblModule.TabIndex = 0;
             this.lblModule.Text = "Module:";
-            this.lblModule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblModule.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // txtOffsets
             // 
             this.txtOffsets.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtOffsets.Location = new System.Drawing.Point(187, 23);
+            this.txtOffsets.Location = new System.Drawing.Point(235, 27);
             this.txtOffsets.Name = "txtOffsets";
-            this.txtOffsets.Size = new System.Drawing.Size(178, 20);
+            this.txtOffsets.Size = new System.Drawing.Size(226, 22);
             this.txtOffsets.TabIndex = 1;
             this.txtOffsets.Validating += new System.ComponentModel.CancelEventHandler(this.txtOffsets_Validating);
             // 
             // txtBase
             // 
             this.txtBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBase.Location = new System.Drawing.Point(95, 23);
+            this.txtBase.Location = new System.Drawing.Point(119, 27);
             this.txtBase.Name = "txtBase";
-            this.txtBase.Size = new System.Drawing.Size(86, 20);
+            this.txtBase.Size = new System.Drawing.Size(110, 22);
             this.txtBase.TabIndex = 1;
             this.txtBase.Validating += new System.ComponentModel.CancelEventHandler(this.txtBase_Validating);
             // 
             // txtModule
             // 
             this.txtModule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtModule.Location = new System.Drawing.Point(3, 23);
+            this.txtModule.Location = new System.Drawing.Point(3, 27);
             this.txtModule.Name = "txtModule";
-            this.txtModule.Size = new System.Drawing.Size(86, 20);
+            this.txtModule.Size = new System.Drawing.Size(110, 22);
             this.txtModule.TabIndex = 1;
             // 
             // lblBase
             // 
             this.lblBase.AutoSize = true;
             this.lblBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBase.Location = new System.Drawing.Point(95, 0);
+            this.lblBase.Location = new System.Drawing.Point(119, 0);
             this.lblBase.Name = "lblBase";
-            this.lblBase.Size = new System.Drawing.Size(86, 20);
+            this.lblBase.Size = new System.Drawing.Size(110, 24);
             this.lblBase.TabIndex = 1;
             this.lblBase.Text = "Base:";
-            this.lblBase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblBase.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblOffsets
             // 
             this.lblOffsets.AutoSize = true;
             this.lblOffsets.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblOffsets.Location = new System.Drawing.Point(187, 0);
+            this.lblOffsets.Location = new System.Drawing.Point(235, 0);
             this.lblOffsets.Name = "lblOffsets";
-            this.lblOffsets.Size = new System.Drawing.Size(178, 20);
+            this.lblOffsets.Size = new System.Drawing.Size(226, 24);
             this.lblOffsets.TabIndex = 2;
             this.lblOffsets.Text = "Offsets (comma seperated):";
-            this.lblOffsets.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblOffsets.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblType
             // 
             this.lblType.AutoSize = true;
             this.lblType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblType.Location = new System.Drawing.Point(371, 0);
+            this.lblType.Location = new System.Drawing.Point(467, 0);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(75, 20);
+            this.lblType.Size = new System.Drawing.Size(100, 24);
             this.lblType.TabIndex = 3;
             this.lblType.Text = "Type:";
-            this.lblType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblType.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // cmbType
             // 
             this.cmbType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(371, 23);
+            this.cmbType.Location = new System.Drawing.Point(467, 26);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(75, 21);
+            this.cmbType.Size = new System.Drawing.Size(100, 24);
             this.cmbType.TabIndex = 4;
             // 
             // grpGraph
             // 
-            this.grpGraph.Controls.Add(this.tableLayoutPanel3);
-            this.grpGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpGraph.Location = new System.Drawing.Point(3, 158);
+            this.grpGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpGraph.Controls.Add(this.colorsCBSillyColors);
+            this.grpGraph.Controls.Add(this.cmbGraphGradientType);
+            this.grpGraph.Controls.Add(this.lblGraphStyle);
+            this.grpGraph.Controls.Add(this.grpValueText);
+            this.grpGraph.Controls.Add(this.btnGraphColor2);
+            this.grpGraph.Controls.Add(this.cmbGraphStyle);
+            this.grpGraph.Controls.Add(this.btnGraphColor1);
+            this.grpGraph.Controls.Add(this.tableLayoutPanel5);
+            this.grpGraph.Controls.Add(this.lblGraphColor);
+            this.grpGraph.Controls.Add(this.lblBackgroundColor);
+            this.grpGraph.Controls.Add(this.btnBackgroundColor1);
+            this.grpGraph.Controls.Add(this.btnBackgroundColor2);
+            this.grpGraph.Controls.Add(this.cmbBackgroundGradientType);
+            this.grpGraph.Location = new System.Drawing.Point(15, 174);
+            this.grpGraph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpGraph.Name = "grpGraph";
-            this.grpGraph.Size = new System.Drawing.Size(455, 406);
+            this.grpGraph.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpGraph.Size = new System.Drawing.Size(582, 395);
             this.grpGraph.TabIndex = 1;
             this.grpGraph.TabStop = false;
             this.grpGraph.Text = "Graph";
             // 
-            // tableLayoutPanel3
+            // colorsCBSillyColors
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.grpValueText, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel10, 0, 2);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 4;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 93F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(449, 387);
-            this.tableLayoutPanel3.TabIndex = 0;
+            this.colorsCBSillyColors.AutoSize = true;
+            this.colorsCBSillyColors.Location = new System.Drawing.Point(9, 204);
+            this.colorsCBSillyColors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.colorsCBSillyColors.Name = "colorsCBSillyColors";
+            this.colorsCBSillyColors.Size = new System.Drawing.Size(99, 21);
+            this.colorsCBSillyColors.TabIndex = 0;
+            this.colorsCBSillyColors.Text = "Silly Colors";
+            this.colorsCBSillyColors.UseVisualStyleBackColor = true;
+            this.colorsCBSillyColors.MouseHover += new System.EventHandler(this.colorsCBSillyColors_MouseHover);
+            // 
+            // cmbGraphGradientType
+            // 
+            this.cmbGraphGradientType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbGraphGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGraphGradientType.FormattingEnabled = true;
+            this.cmbGraphGradientType.Location = new System.Drawing.Point(194, 176);
+            this.cmbGraphGradientType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbGraphGradientType.Name = "cmbGraphGradientType";
+            this.cmbGraphGradientType.Size = new System.Drawing.Size(382, 24);
+            this.cmbGraphGradientType.TabIndex = 4;
+            this.cmbGraphGradientType.SelectedValueChanged += new System.EventHandler(this.cmbGraphGradientType_SelectedValueChanged);
+            // 
+            // lblGraphStyle
+            // 
+            this.lblGraphStyle.AutoSize = true;
+            this.lblGraphStyle.Location = new System.Drawing.Point(6, 23);
+            this.lblGraphStyle.Name = "lblGraphStyle";
+            this.lblGraphStyle.Size = new System.Drawing.Size(87, 17);
+            this.lblGraphStyle.TabIndex = 5;
+            this.lblGraphStyle.Text = "Graph Style:";
+            this.lblGraphStyle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // grpValueText
+            // 
+            this.grpValueText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpValueText.Controls.Add(this.label5);
+            this.grpValueText.Controls.Add(this.cmbUnitsUsed);
+            this.grpValueText.Controls.Add(this.tbMeterToGameUnit);
+            this.grpValueText.Controls.Add(this.label2);
+            this.grpValueText.Controls.Add(this.label3);
+            this.grpValueText.Controls.Add(this.label4);
+            this.grpValueText.Controls.Add(this.numValueTextDecimals);
+            this.grpValueText.Controls.Add(this.lblDecimals);
+            this.grpValueText.Controls.Add(this.unitConversionCB);
+            this.grpValueText.Controls.Add(this.overrideControlValueText);
+            this.grpValueText.Controls.Add(this.cmbValueTextPosition);
+            this.grpValueText.Controls.Add(this.lblValueTextPosition);
+            this.grpValueText.Location = new System.Drawing.Point(6, 234);
+            this.grpValueText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpValueText.Name = "grpValueText";
+            this.grpValueText.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpValueText.Size = new System.Drawing.Size(570, 155);
+            this.grpValueText.TabIndex = 5;
+            this.grpValueText.TabStop = false;
+            this.grpValueText.Text = "Value as Text";
+            // 
+            // numValueTextDecimals
+            // 
+            this.numValueTextDecimals.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numValueTextDecimals.Location = new System.Drawing.Point(510, 22);
+            this.numValueTextDecimals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numValueTextDecimals.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numValueTextDecimals.Name = "numValueTextDecimals";
+            this.numValueTextDecimals.Size = new System.Drawing.Size(54, 22);
+            this.numValueTextDecimals.TabIndex = 3;
+            // 
+            // lblDecimals
+            // 
+            this.lblDecimals.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDecimals.AutoSize = true;
+            this.lblDecimals.Location = new System.Drawing.Point(435, 24);
+            this.lblDecimals.Margin = new System.Windows.Forms.Padding(13, 0, 3, 0);
+            this.lblDecimals.Name = "lblDecimals";
+            this.lblDecimals.Size = new System.Drawing.Size(69, 17);
+            this.lblDecimals.TabIndex = 2;
+            this.lblDecimals.Text = "Decimals:";
+            // 
+            // overrideControlValueText
+            // 
+            this.overrideControlValueText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.overrideControlValueText.Location = new System.Drawing.Point(6, 55);
+            this.overrideControlValueText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.overrideControlValueText.Name = "overrideControlValueText";
+            this.overrideControlValueText.OverrideColor = false;
+            this.overrideControlValueText.OverrideFont = false;
+            this.overrideControlValueText.OverridingColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.overrideControlValueText.OverridingFont = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.overrideControlValueText.Size = new System.Drawing.Size(558, 33);
+            this.overrideControlValueText.TabIndex = 2;
+            // 
+            // cmbValueTextPosition
+            // 
+            this.cmbValueTextPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbValueTextPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbValueTextPosition.FormattingEnabled = true;
+            this.cmbValueTextPosition.Location = new System.Drawing.Point(74, 21);
+            this.cmbValueTextPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbValueTextPosition.Name = "cmbValueTextPosition";
+            this.cmbValueTextPosition.Size = new System.Drawing.Size(345, 24);
+            this.cmbValueTextPosition.TabIndex = 1;
+            // 
+            // lblValueTextPosition
+            // 
+            this.lblValueTextPosition.AutoSize = true;
+            this.lblValueTextPosition.Location = new System.Drawing.Point(6, 24);
+            this.lblValueTextPosition.Name = "lblValueTextPosition";
+            this.lblValueTextPosition.Size = new System.Drawing.Size(62, 17);
+            this.lblValueTextPosition.TabIndex = 0;
+            this.lblValueTextPosition.Text = "Position:";
+            // 
+            // btnGraphColor2
+            // 
+            this.btnGraphColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGraphColor2.Location = new System.Drawing.Point(164, 175);
+            this.btnGraphColor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGraphColor2.Name = "btnGraphColor2";
+            this.btnGraphColor2.Size = new System.Drawing.Size(24, 24);
+            this.btnGraphColor2.TabIndex = 5;
+            this.btnGraphColor2.UseVisualStyleBackColor = false;
+            this.btnGraphColor2.Click += new System.EventHandler(this.ColorButtonClick);
+            // 
+            // cmbGraphStyle
+            // 
+            this.cmbGraphStyle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbGraphStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGraphStyle.FormattingEnabled = true;
+            this.cmbGraphStyle.Location = new System.Drawing.Point(99, 20);
+            this.cmbGraphStyle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbGraphStyle.Name = "cmbGraphStyle";
+            this.cmbGraphStyle.Size = new System.Drawing.Size(477, 24);
+            this.cmbGraphStyle.TabIndex = 6;
+            // 
+            // btnGraphColor1
+            // 
+            this.btnGraphColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGraphColor1.Location = new System.Drawing.Point(134, 175);
+            this.btnGraphColor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGraphColor1.Name = "btnGraphColor1";
+            this.btnGraphColor1.Size = new System.Drawing.Size(24, 24);
+            this.btnGraphColor1.TabIndex = 6;
+            this.btnGraphColor1.UseVisualStyleBackColor = false;
+            this.btnGraphColor1.Click += new System.EventHandler(this.ColorButtonClick);
             // 
             // tableLayoutPanel5
             // 
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel5.ColumnCount = 5;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.lblMaximumValue, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.txtMaximumValue, 4, 0);
@@ -386,24 +672,23 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel5.Controls.Add(this.lblVerticalMargins, 3, 2);
             this.tableLayoutPanel5.Controls.Add(this.numVerticalMargins, 4, 2);
             this.tableLayoutPanel5.Controls.Add(this.numHorizontalMargins, 1, 2);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 56);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(443, 79);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(570, 78);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // lblMaximumValue
             // 
             this.lblMaximumValue.AutoSize = true;
             this.lblMaximumValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMaximumValue.Location = new System.Drawing.Point(239, 0);
+            this.lblMaximumValue.Location = new System.Drawing.Point(312, 0);
             this.lblMaximumValue.Name = "lblMaximumValue";
-            this.lblMaximumValue.Size = new System.Drawing.Size(104, 26);
+            this.lblMaximumValue.Size = new System.Drawing.Size(124, 26);
             this.lblMaximumValue.TabIndex = 5;
             this.lblMaximumValue.Text = "Maximum Value:";
             this.lblMaximumValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -411,9 +696,10 @@ namespace LiveSplit.MemoryGraph
             // txtMaximumValue
             // 
             this.txtMaximumValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMaximumValue.Location = new System.Drawing.Point(349, 3);
+            this.txtMaximumValue.Location = new System.Drawing.Point(442, 2);
+            this.txtMaximumValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaximumValue.Name = "txtMaximumValue";
-            this.txtMaximumValue.Size = new System.Drawing.Size(91, 20);
+            this.txtMaximumValue.Size = new System.Drawing.Size(125, 22);
             this.txtMaximumValue.TabIndex = 6;
             this.txtMaximumValue.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaximumValue_Validating);
             // 
@@ -423,7 +709,7 @@ namespace LiveSplit.MemoryGraph
             this.lblMinimumValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMinimumValue.Location = new System.Drawing.Point(3, 0);
             this.lblMinimumValue.Name = "lblMinimumValue";
-            this.lblMinimumValue.Size = new System.Drawing.Size(104, 26);
+            this.lblMinimumValue.Size = new System.Drawing.Size(144, 26);
             this.lblMinimumValue.TabIndex = 5;
             this.lblMinimumValue.Text = "Minimum Value:";
             this.lblMinimumValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -434,7 +720,7 @@ namespace LiveSplit.MemoryGraph
             this.lblHorizontalMargins.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHorizontalMargins.Location = new System.Drawing.Point(3, 52);
             this.lblHorizontalMargins.Name = "lblHorizontalMargins";
-            this.lblHorizontalMargins.Size = new System.Drawing.Size(104, 27);
+            this.lblHorizontalMargins.Size = new System.Drawing.Size(144, 26);
             this.lblHorizontalMargins.TabIndex = 5;
             this.lblHorizontalMargins.Text = "Horizontal Margins:";
             this.lblHorizontalMargins.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -442,32 +728,34 @@ namespace LiveSplit.MemoryGraph
             // txtMinimumValue
             // 
             this.txtMinimumValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMinimumValue.Location = new System.Drawing.Point(113, 3);
+            this.txtMinimumValue.Location = new System.Drawing.Point(153, 2);
+            this.txtMinimumValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMinimumValue.Name = "txtMinimumValue";
-            this.txtMinimumValue.Size = new System.Drawing.Size(90, 20);
+            this.txtMinimumValue.Size = new System.Drawing.Size(124, 22);
             this.txtMinimumValue.TabIndex = 5;
             this.txtMinimumValue.Validating += new System.ComponentModel.CancelEventHandler(this.txtMinimumValue_Validating);
             // 
             // numHeight
             // 
             this.numHeight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numHeight.Location = new System.Drawing.Point(349, 29);
+            this.numHeight.Location = new System.Drawing.Point(442, 28);
+            this.numHeight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numHeight.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.numHeight.Name = "numHeight";
-            this.numHeight.Size = new System.Drawing.Size(91, 20);
+            this.numHeight.Size = new System.Drawing.Size(125, 22);
             this.numHeight.TabIndex = 7;
             // 
             // lblHeight
             // 
             this.lblHeight.AutoSize = true;
             this.lblHeight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblHeight.Location = new System.Drawing.Point(239, 26);
+            this.lblHeight.Location = new System.Drawing.Point(312, 26);
             this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(104, 26);
+            this.lblHeight.Size = new System.Drawing.Size(124, 26);
             this.lblHeight.TabIndex = 8;
             this.lblHeight.Text = "Height:";
             this.lblHeight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -478,7 +766,7 @@ namespace LiveSplit.MemoryGraph
             this.lblWidth.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblWidth.Location = new System.Drawing.Point(3, 26);
             this.lblWidth.Name = "lblWidth";
-            this.lblWidth.Size = new System.Drawing.Size(104, 26);
+            this.lblWidth.Size = new System.Drawing.Size(144, 26);
             this.lblWidth.TabIndex = 9;
             this.lblWidth.Text = "Width:";
             this.lblWidth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -486,23 +774,24 @@ namespace LiveSplit.MemoryGraph
             // numWidth
             // 
             this.numWidth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numWidth.Location = new System.Drawing.Point(113, 29);
+            this.numWidth.Location = new System.Drawing.Point(153, 28);
+            this.numWidth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numWidth.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.numWidth.Name = "numWidth";
-            this.numWidth.Size = new System.Drawing.Size(90, 20);
+            this.numWidth.Size = new System.Drawing.Size(124, 22);
             this.numWidth.TabIndex = 10;
             // 
             // lblVerticalMargins
             // 
             this.lblVerticalMargins.AutoSize = true;
             this.lblVerticalMargins.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblVerticalMargins.Location = new System.Drawing.Point(239, 52);
+            this.lblVerticalMargins.Location = new System.Drawing.Point(312, 52);
             this.lblVerticalMargins.Name = "lblVerticalMargins";
-            this.lblVerticalMargins.Size = new System.Drawing.Size(104, 27);
+            this.lblVerticalMargins.Size = new System.Drawing.Size(124, 26);
             this.lblVerticalMargins.TabIndex = 11;
             this.lblVerticalMargins.Text = "Vertical Margins:";
             this.lblVerticalMargins.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -510,529 +799,115 @@ namespace LiveSplit.MemoryGraph
             // numVerticalMargins
             // 
             this.numVerticalMargins.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numVerticalMargins.Location = new System.Drawing.Point(349, 55);
+            this.numVerticalMargins.Location = new System.Drawing.Point(442, 54);
+            this.numVerticalMargins.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numVerticalMargins.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.numVerticalMargins.Name = "numVerticalMargins";
-            this.numVerticalMargins.Size = new System.Drawing.Size(91, 20);
+            this.numVerticalMargins.Size = new System.Drawing.Size(125, 22);
             this.numVerticalMargins.TabIndex = 12;
             // 
             // numHorizontalMargins
             // 
             this.numHorizontalMargins.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numHorizontalMargins.Location = new System.Drawing.Point(113, 55);
+            this.numHorizontalMargins.Location = new System.Drawing.Point(153, 54);
+            this.numHorizontalMargins.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numHorizontalMargins.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.numHorizontalMargins.Name = "numHorizontalMargins";
-            this.numHorizontalMargins.Size = new System.Drawing.Size(90, 20);
+            this.numHorizontalMargins.Size = new System.Drawing.Size(124, 22);
             this.numHorizontalMargins.TabIndex = 13;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.cmbGraphStyle, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.lblGraphStyle, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(443, 27);
-            this.tableLayoutPanel6.TabIndex = 4;
-            // 
-            // cmbGraphStyle
-            // 
-            this.cmbGraphStyle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbGraphStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGraphStyle.FormattingEnabled = true;
-            this.cmbGraphStyle.Location = new System.Drawing.Point(113, 3);
-            this.cmbGraphStyle.Name = "cmbGraphStyle";
-            this.cmbGraphStyle.Size = new System.Drawing.Size(327, 21);
-            this.cmbGraphStyle.TabIndex = 6;
-            // 
-            // lblGraphStyle
-            // 
-            this.lblGraphStyle.AutoSize = true;
-            this.lblGraphStyle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblGraphStyle.Location = new System.Drawing.Point(3, 0);
-            this.lblGraphStyle.Name = "lblGraphStyle";
-            this.lblGraphStyle.Size = new System.Drawing.Size(104, 27);
-            this.lblGraphStyle.TabIndex = 5;
-            this.lblGraphStyle.Text = "Graph Style:";
-            this.lblGraphStyle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // grpValueText
-            // 
-            this.grpValueText.Controls.Add(this.tableLayoutPanel7);
-            this.grpValueText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpValueText.Location = new System.Drawing.Point(3, 228);
-            this.grpValueText.Name = "grpValueText";
-            this.grpValueText.Size = new System.Drawing.Size(443, 156);
-            this.grpValueText.TabIndex = 5;
-            this.grpValueText.TabStop = false;
-            this.grpValueText.Text = "Value as Text";
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.overrideControlValueText, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.panel2, 0, 2);
-            this.tableLayoutPanel7.Controls.Add(this.panel3, 0, 3);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 4;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(437, 137);
-            this.tableLayoutPanel7.TabIndex = 2;
-            // 
-            // overrideControlValueText
-            // 
-            this.overrideControlValueText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.overrideControlValueText.Location = new System.Drawing.Point(3, 36);
-            this.overrideControlValueText.Name = "overrideControlValueText";
-            this.overrideControlValueText.OverrideColor = false;
-            this.overrideControlValueText.OverrideFont = false;
-            this.overrideControlValueText.OverridingColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.overrideControlValueText.OverridingFont = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.overrideControlValueText.Size = new System.Drawing.Size(431, 28);
-            this.overrideControlValueText.TabIndex = 2;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 4;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel8.Controls.Add(this.lblValueTextPosition, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.cmbValueTextPosition, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.lblDecimals, 2, 0);
-            this.tableLayoutPanel8.Controls.Add(this.numValueTextDecimals, 3, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(431, 27);
-            this.tableLayoutPanel8.TabIndex = 3;
-            // 
-            // lblValueTextPosition
-            // 
-            this.lblValueTextPosition.AutoSize = true;
-            this.lblValueTextPosition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblValueTextPosition.Location = new System.Drawing.Point(3, 0);
-            this.lblValueTextPosition.Name = "lblValueTextPosition";
-            this.lblValueTextPosition.Size = new System.Drawing.Size(59, 27);
-            this.lblValueTextPosition.TabIndex = 0;
-            this.lblValueTextPosition.Text = "Position:";
-            this.lblValueTextPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbValueTextPosition
-            // 
-            this.cmbValueTextPosition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbValueTextPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbValueTextPosition.FormattingEnabled = true;
-            this.cmbValueTextPosition.Location = new System.Drawing.Point(68, 3);
-            this.cmbValueTextPosition.Name = "cmbValueTextPosition";
-            this.cmbValueTextPosition.Size = new System.Drawing.Size(230, 21);
-            this.cmbValueTextPosition.TabIndex = 1;
-            // 
-            // lblDecimals
-            // 
-            this.lblDecimals.AutoSize = true;
-            this.lblDecimals.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDecimals.Location = new System.Drawing.Point(314, 0);
-            this.lblDecimals.Margin = new System.Windows.Forms.Padding(13, 0, 3, 0);
-            this.lblDecimals.Name = "lblDecimals";
-            this.lblDecimals.Size = new System.Drawing.Size(54, 27);
-            this.lblDecimals.TabIndex = 2;
-            this.lblDecimals.Text = "Decimals:";
-            this.lblDecimals.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // numValueTextDecimals
-            // 
-            this.numValueTextDecimals.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numValueTextDecimals.Location = new System.Drawing.Point(374, 3);
-            this.numValueTextDecimals.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numValueTextDecimals.Name = "numValueTextDecimals";
-            this.numValueTextDecimals.Size = new System.Drawing.Size(54, 20);
-            this.numValueTextDecimals.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.cmbUnitsUsed);
-            this.panel2.Controls.Add(this.unitConversionCB);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 70);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(431, 28);
-            this.panel2.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(251, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Units:";
-            // 
-            // cmbUnitsUsed
-            // 
-            this.cmbUnitsUsed.FormattingEnabled = true;
-            this.cmbUnitsUsed.Location = new System.Drawing.Point(290, 3);
-            this.cmbUnitsUsed.Name = "cmbUnitsUsed";
-            this.cmbUnitsUsed.Size = new System.Drawing.Size(138, 21);
-            this.cmbUnitsUsed.TabIndex = 1;
-            this.cmbUnitsUsed.SelectedIndexChanged += new System.EventHandler(this.cmbUnitsUsed_SelectedIndexChanged);
-            // 
-            // unitConversionCB
-            // 
-            this.unitConversionCB.AutoSize = true;
-            this.unitConversionCB.Location = new System.Drawing.Point(3, 5);
-            this.unitConversionCB.Name = "unitConversionCB";
-            this.unitConversionCB.Size = new System.Drawing.Size(137, 17);
-            this.unitConversionCB.TabIndex = 0;
-            this.unitConversionCB.Text = "Enable Unit Conversion";
-            this.unitConversionCB.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.tbMeterToGameUnit);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 104);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(431, 30);
-            this.panel3.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(355, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "game units (u)";
-            // 
-            // tbMeterToGameUnit
-            // 
-            this.tbMeterToGameUnit.Location = new System.Drawing.Point(146, 2);
-            this.tbMeterToGameUnit.Name = "tbMeterToGameUnit";
-            this.tbMeterToGameUnit.Size = new System.Drawing.Size(203, 20);
-            this.tbMeterToGameUnit.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(3, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Conversion:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(88, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "1 meter is";
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.ColumnCount = 1;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 135);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 2;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(443, 83);
-            this.tableLayoutPanel10.TabIndex = 6;
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 4;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Controls.Add(this.lblGraphColor, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.btnGraphColor1, 1, 1);
-            this.tableLayoutPanel11.Controls.Add(this.btnGraphColor2, 2, 1);
-            this.tableLayoutPanel11.Controls.Add(this.cmbGraphGradientType, 3, 1);
-            this.tableLayoutPanel11.Controls.Add(this.lblBackgroundColor, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.cmbBackgroundGradientType, 3, 0);
-            this.tableLayoutPanel11.Controls.Add(this.btnBackgroundColor1, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.btnBackgroundColor2, 2, 0);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 2;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(437, 49);
-            this.tableLayoutPanel11.TabIndex = 2;
             // 
             // lblGraphColor
             // 
             this.lblGraphColor.AutoSize = true;
-            this.lblGraphColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblGraphColor.Location = new System.Drawing.Point(3, 24);
+            this.lblGraphColor.Location = new System.Drawing.Point(6, 179);
             this.lblGraphColor.Name = "lblGraphColor";
-            this.lblGraphColor.Size = new System.Drawing.Size(102, 25);
+            this.lblGraphColor.Size = new System.Drawing.Size(89, 17);
             this.lblGraphColor.TabIndex = 7;
             this.lblGraphColor.Text = "Graph Color:";
             this.lblGraphColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnGraphColor1
-            // 
-            this.btnGraphColor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGraphColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraphColor1.Location = new System.Drawing.Point(111, 27);
-            this.btnGraphColor1.Name = "btnGraphColor1";
-            this.btnGraphColor1.Size = new System.Drawing.Size(26, 19);
-            this.btnGraphColor1.TabIndex = 6;
-            this.btnGraphColor1.UseVisualStyleBackColor = false;
-            this.btnGraphColor1.Click += new System.EventHandler(this.ColorButtonClick);
-            // 
-            // btnGraphColor2
-            // 
-            this.btnGraphColor2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGraphColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraphColor2.Location = new System.Drawing.Point(143, 27);
-            this.btnGraphColor2.Name = "btnGraphColor2";
-            this.btnGraphColor2.Size = new System.Drawing.Size(24, 19);
-            this.btnGraphColor2.TabIndex = 5;
-            this.btnGraphColor2.UseVisualStyleBackColor = false;
-            this.btnGraphColor2.Click += new System.EventHandler(this.ColorButtonClick);
-            // 
-            // cmbGraphGradientType
-            // 
-            this.cmbGraphGradientType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbGraphGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGraphGradientType.FormattingEnabled = true;
-            this.cmbGraphGradientType.Location = new System.Drawing.Point(173, 27);
-            this.cmbGraphGradientType.Name = "cmbGraphGradientType";
-            this.cmbGraphGradientType.Size = new System.Drawing.Size(261, 21);
-            this.cmbGraphGradientType.TabIndex = 4;
-            this.cmbGraphGradientType.SelectedValueChanged += new System.EventHandler(this.cmbGraphGradientType_SelectedValueChanged);
-            // 
             // lblBackgroundColor
             // 
             this.lblBackgroundColor.AutoSize = true;
-            this.lblBackgroundColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBackgroundColor.Location = new System.Drawing.Point(3, 0);
+            this.lblBackgroundColor.Location = new System.Drawing.Point(6, 150);
             this.lblBackgroundColor.Name = "lblBackgroundColor";
-            this.lblBackgroundColor.Size = new System.Drawing.Size(102, 24);
+            this.lblBackgroundColor.Size = new System.Drawing.Size(125, 17);
             this.lblBackgroundColor.TabIndex = 0;
             this.lblBackgroundColor.Text = "Background Color:";
             this.lblBackgroundColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cmbBackgroundGradientType
-            // 
-            this.cmbBackgroundGradientType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbBackgroundGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBackgroundGradientType.FormattingEnabled = true;
-            this.cmbBackgroundGradientType.Location = new System.Drawing.Point(173, 3);
-            this.cmbBackgroundGradientType.Name = "cmbBackgroundGradientType";
-            this.cmbBackgroundGradientType.Size = new System.Drawing.Size(261, 21);
-            this.cmbBackgroundGradientType.TabIndex = 1;
-            this.cmbBackgroundGradientType.SelectedValueChanged += new System.EventHandler(this.cmbBackgroundGradientType_SelectedValueChanged);
-            // 
             // btnBackgroundColor1
             // 
-            this.btnBackgroundColor1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBackgroundColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackgroundColor1.Location = new System.Drawing.Point(111, 3);
+            this.btnBackgroundColor1.Location = new System.Drawing.Point(134, 147);
+            this.btnBackgroundColor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBackgroundColor1.Name = "btnBackgroundColor1";
-            this.btnBackgroundColor1.Size = new System.Drawing.Size(26, 18);
+            this.btnBackgroundColor1.Size = new System.Drawing.Size(24, 24);
             this.btnBackgroundColor1.TabIndex = 2;
             this.btnBackgroundColor1.UseVisualStyleBackColor = false;
             this.btnBackgroundColor1.Click += new System.EventHandler(this.ColorButtonClick);
             // 
             // btnBackgroundColor2
             // 
-            this.btnBackgroundColor2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBackgroundColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackgroundColor2.Location = new System.Drawing.Point(143, 3);
+            this.btnBackgroundColor2.Location = new System.Drawing.Point(164, 147);
+            this.btnBackgroundColor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBackgroundColor2.Name = "btnBackgroundColor2";
-            this.btnBackgroundColor2.Size = new System.Drawing.Size(24, 18);
+            this.btnBackgroundColor2.Size = new System.Drawing.Size(24, 24);
             this.btnBackgroundColor2.TabIndex = 3;
             this.btnBackgroundColor2.UseVisualStyleBackColor = false;
             this.btnBackgroundColor2.Click += new System.EventHandler(this.ColorButtonClick);
             // 
-            // panel1
+            // cmbBackgroundGradientType
             // 
-            this.panel1.Controls.Add(this.colorsCBSillyColors);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 58);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(437, 22);
-            this.panel1.TabIndex = 3;
-            // 
-            // colorsCBSillyColors
-            // 
-            this.colorsCBSillyColors.AutoSize = true;
-            this.colorsCBSillyColors.Location = new System.Drawing.Point(5, 2);
-            this.colorsCBSillyColors.Name = "colorsCBSillyColors";
-            this.colorsCBSillyColors.Size = new System.Drawing.Size(76, 17);
-            this.colorsCBSillyColors.TabIndex = 0;
-            this.colorsCBSillyColors.Text = "Silly Colors";
-            this.colorsCBSillyColors.UseVisualStyleBackColor = true;
-            this.colorsCBSillyColors.MouseHover += new System.EventHandler(this.colorsCBSillyColors_MouseHover);
-            // 
-            // grpDescriptiveText
-            // 
-            this.grpDescriptiveText.Controls.Add(this.tableLayoutPanel9);
-            this.grpDescriptiveText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpDescriptiveText.Location = new System.Drawing.Point(3, 570);
-            this.grpDescriptiveText.Name = "grpDescriptiveText";
-            this.grpDescriptiveText.Size = new System.Drawing.Size(455, 87);
-            this.grpDescriptiveText.TabIndex = 2;
-            this.grpDescriptiveText.TabStop = false;
-            this.grpDescriptiveText.Text = "Descriptive Text";
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 1;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Controls.Add(this.overrideControlDescriptiveText, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(449, 68);
-            this.tableLayoutPanel9.TabIndex = 1;
-            // 
-            // overrideControlDescriptiveText
-            // 
-            this.overrideControlDescriptiveText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.overrideControlDescriptiveText.Location = new System.Drawing.Point(3, 36);
-            this.overrideControlDescriptiveText.Name = "overrideControlDescriptiveText";
-            this.overrideControlDescriptiveText.OverrideColor = false;
-            this.overrideControlDescriptiveText.OverrideFont = false;
-            this.overrideControlDescriptiveText.OverridingColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.overrideControlDescriptiveText.OverridingFont = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.overrideControlDescriptiveText.Size = new System.Drawing.Size(443, 29);
-            this.overrideControlDescriptiveText.TabIndex = 2;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel4.Controls.Add(this.txtDescriptiveText, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.lblDescriptiveTextPosition, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.cmbDescriptiveTextPosition, 2, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(443, 27);
-            this.tableLayoutPanel4.TabIndex = 3;
-            // 
-            // txtDescriptiveText
-            // 
-            this.txtDescriptiveText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDescriptiveText.Location = new System.Drawing.Point(3, 3);
-            this.txtDescriptiveText.Name = "txtDescriptiveText";
-            this.txtDescriptiveText.Size = new System.Drawing.Size(217, 20);
-            this.txtDescriptiveText.TabIndex = 2;
-            // 
-            // lblDescriptiveTextPosition
-            // 
-            this.lblDescriptiveTextPosition.AutoSize = true;
-            this.lblDescriptiveTextPosition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDescriptiveTextPosition.Location = new System.Drawing.Point(236, 0);
-            this.lblDescriptiveTextPosition.Margin = new System.Windows.Forms.Padding(13, 0, 3, 0);
-            this.lblDescriptiveTextPosition.Name = "lblDescriptiveTextPosition";
-            this.lblDescriptiveTextPosition.Size = new System.Drawing.Size(54, 27);
-            this.lblDescriptiveTextPosition.TabIndex = 0;
-            this.lblDescriptiveTextPosition.Text = "Position:";
-            this.lblDescriptiveTextPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbDescriptiveTextPosition
-            // 
-            this.cmbDescriptiveTextPosition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbDescriptiveTextPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDescriptiveTextPosition.FormattingEnabled = true;
-            this.cmbDescriptiveTextPosition.Location = new System.Drawing.Point(296, 3);
-            this.cmbDescriptiveTextPosition.Name = "cmbDescriptiveTextPosition";
-            this.cmbDescriptiveTextPosition.Size = new System.Drawing.Size(144, 21);
-            this.cmbDescriptiveTextPosition.TabIndex = 1;
+            this.cmbBackgroundGradientType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBackgroundGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBackgroundGradientType.FormattingEnabled = true;
+            this.cmbBackgroundGradientType.Location = new System.Drawing.Point(193, 147);
+            this.cmbBackgroundGradientType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbBackgroundGradientType.Name = "cmbBackgroundGradientType";
+            this.cmbBackgroundGradientType.Size = new System.Drawing.Size(383, 24);
+            this.cmbBackgroundGradientType.TabIndex = 1;
+            this.cmbBackgroundGradientType.SelectedValueChanged += new System.EventHandler(this.cmbBackgroundGradientType_SelectedValueChanged);
             // 
             // Settings
             // 
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.grpDescriptiveText);
+            this.Controls.Add(this.grpPointerPath);
+            this.Controls.Add(this.grpGraph);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Settings";
-            this.Size = new System.Drawing.Size(461, 666);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.Size = new System.Drawing.Size(612, 681);
+            this.grpDescriptiveText.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.grpPointerPath.ResumeLayout(false);
             this.grpPointerPath.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.grpGraph.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
+            this.grpGraph.PerformLayout();
+            this.grpValueText.ResumeLayout(false);
+            this.grpValueText.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numValueTextDecimals)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVerticalMargins)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHorizontalMargins)).EndInit();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            this.grpValueText.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numValueTextDecimals)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.grpDescriptiveText.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1111,8 +986,6 @@ namespace LiveSplit.MemoryGraph
                    value
                }).OrderBy(item => item.value).ToList();
         }
-
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox grpPointerPath;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lblModule;
@@ -1124,12 +997,10 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.GroupBox grpGraph;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label lblMaximumValue;
         private System.Windows.Forms.TextBox txtMaximumValue;
         private System.Windows.Forms.Label lblMinimumValue;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.ComboBox cmbGraphStyle;
         private System.Windows.Forms.Label lblGraphStyle;
         private System.Windows.Forms.TextBox txtMinimumValue;
@@ -1145,11 +1016,8 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.TextBox txtProcessName;
         private System.Windows.Forms.Label lblProcessName;
         private System.Windows.Forms.GroupBox grpDescriptiveText;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private TextStyleOverrideControl overrideControlDescriptiveText;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private TextStyleOverrideControl overrideControlValueText;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label lblValueTextPosition;
         private System.Windows.Forms.ComboBox cmbValueTextPosition;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -1161,8 +1029,6 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.Button B_UpdateXML;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ComboBox_ListOfGames;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Label lblGraphColor;
         private System.Windows.Forms.Button btnGraphColor1;
         private System.Windows.Forms.Button btnGraphColor2;
@@ -1171,16 +1037,13 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.ComboBox cmbBackgroundGradientType;
         private System.Windows.Forms.Button btnBackgroundColor1;
         private System.Windows.Forms.Button btnBackgroundColor2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox colorsCBSillyColors;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.LinkLabel linkLabel_AdditionalFiles;
         private System.Windows.Forms.Label L_Requires;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbUnitsUsed;
         private System.Windows.Forms.CheckBox unitConversionCB;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbMeterToGameUnit;
         private System.Windows.Forms.Label label4;

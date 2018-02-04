@@ -1,4 +1,13 @@
 <updates>
+	<update version="1.4.3">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Fix settings layout not scaling properly for high DPI settings.</change>
+            <change>More cleanups for the settings layout.</change>
+        </changelog>
+    </update>
 	<update version="1.4.2">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

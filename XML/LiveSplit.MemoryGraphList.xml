@@ -180,6 +180,15 @@
 	<maximumValue>40</maximumValue>
 	<decimals>1</decimals>
 </game>
+<game name="Valley">
+	<process>Valley</process>
+	<module></module>
+	<base>128D940</base>
+	<offsets>918,18,0,840,C4</offsets>
+	<type>FloatVec2XZY</type>
+	<maximumValue>50</maximumValue>
+	<decimals>0</decimals>
+</game>
 <game name="Wheel of Time">
 	<process>WoT</process>
 	<module>Engine.dll</module>

@@ -116,11 +116,11 @@ namespace LiveSplit.MemoryGraph
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpDescriptiveText.Controls.Add(this.overrideControlDescriptiveText);
             this.grpDescriptiveText.Controls.Add(this.tableLayoutPanel4);
-            this.grpDescriptiveText.Location = new System.Drawing.Point(15, 573);
+            this.grpDescriptiveText.Location = new System.Drawing.Point(15, 574);
             this.grpDescriptiveText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpDescriptiveText.Name = "grpDescriptiveText";
             this.grpDescriptiveText.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpDescriptiveText.Size = new System.Drawing.Size(582, 93);
+            this.grpDescriptiveText.Size = new System.Drawing.Size(581, 94);
             this.grpDescriptiveText.TabIndex = 2;
             this.grpDescriptiveText.TabStop = false;
             this.grpDescriptiveText.Text = "Descriptive Text";
@@ -129,14 +129,14 @@ namespace LiveSplit.MemoryGraph
             // 
             this.overrideControlDescriptiveText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.overrideControlDescriptiveText.Location = new System.Drawing.Point(6, 54);
+            this.overrideControlDescriptiveText.Location = new System.Drawing.Point(5, 54);
             this.overrideControlDescriptiveText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.overrideControlDescriptiveText.Name = "overrideControlDescriptiveText";
             this.overrideControlDescriptiveText.OverrideColor = false;
             this.overrideControlDescriptiveText.OverrideFont = false;
             this.overrideControlDescriptiveText.OverridingColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.overrideControlDescriptiveText.OverridingFont = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.overrideControlDescriptiveText.Size = new System.Drawing.Size(570, 36);
+            this.overrideControlDescriptiveText.Size = new System.Drawing.Size(571, 36);
             this.overrideControlDescriptiveText.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -150,18 +150,19 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel4.Controls.Add(this.txtDescriptiveText, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.lblDescriptiveTextPosition, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.cmbDescriptiveTextPosition, 2, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(6, 19);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(5, 18);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(570, 29);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(571, 30);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // txtDescriptiveText
             // 
             this.txtDescriptiveText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDescriptiveText.Location = new System.Drawing.Point(3, 3);
+            this.txtDescriptiveText.Location = new System.Drawing.Point(3, 2);
+            this.txtDescriptiveText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescriptiveText.Name = "txtDescriptiveText";
             this.txtDescriptiveText.Size = new System.Drawing.Size(280, 22);
             this.txtDescriptiveText.TabIndex = 2;
@@ -173,7 +174,7 @@ namespace LiveSplit.MemoryGraph
             this.lblDescriptiveTextPosition.Location = new System.Drawing.Point(299, 0);
             this.lblDescriptiveTextPosition.Margin = new System.Windows.Forms.Padding(13, 0, 3, 0);
             this.lblDescriptiveTextPosition.Name = "lblDescriptiveTextPosition";
-            this.lblDescriptiveTextPosition.Size = new System.Drawing.Size(77, 29);
+            this.lblDescriptiveTextPosition.Size = new System.Drawing.Size(77, 30);
             this.lblDescriptiveTextPosition.TabIndex = 0;
             this.lblDescriptiveTextPosition.Text = "Position:";
             this.lblDescriptiveTextPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -186,7 +187,7 @@ namespace LiveSplit.MemoryGraph
             this.cmbDescriptiveTextPosition.Location = new System.Drawing.Point(382, 2);
             this.cmbDescriptiveTextPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbDescriptiveTextPosition.Name = "cmbDescriptiveTextPosition";
-            this.cmbDescriptiveTextPosition.Size = new System.Drawing.Size(185, 24);
+            this.cmbDescriptiveTextPosition.Size = new System.Drawing.Size(186, 24);
             this.cmbDescriptiveTextPosition.TabIndex = 1;
             // 
             // label5
@@ -203,7 +204,7 @@ namespace LiveSplit.MemoryGraph
             // 
             this.tbMeterToGameUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbMeterToGameUnit.Location = new System.Drawing.Point(182, 126);
+            this.tbMeterToGameUnit.Location = new System.Drawing.Point(181, 126);
             this.tbMeterToGameUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMeterToGameUnit.Name = "tbMeterToGameUnit";
             this.tbMeterToGameUnit.Size = new System.Drawing.Size(277, 22);
@@ -214,7 +215,7 @@ namespace LiveSplit.MemoryGraph
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(6, 128);
+            this.label4.Location = new System.Drawing.Point(5, 128);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 17);
             this.label4.TabIndex = 1;
@@ -225,7 +226,7 @@ namespace LiveSplit.MemoryGraph
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(106, 129);
+            this.label3.Location = new System.Drawing.Point(107, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 17);
             this.label3.TabIndex = 0;
@@ -258,7 +259,7 @@ namespace LiveSplit.MemoryGraph
             // 
             this.unitConversionCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.unitConversionCB.AutoSize = true;
-            this.unitConversionCB.Location = new System.Drawing.Point(6, 100);
+            this.unitConversionCB.Location = new System.Drawing.Point(5, 100);
             this.unitConversionCB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.unitConversionCB.Name = "unitConversionCB";
             this.unitConversionCB.Size = new System.Drawing.Size(178, 21);
@@ -278,11 +279,11 @@ namespace LiveSplit.MemoryGraph
             this.grpPointerPath.Controls.Add(this.txtProcessName);
             this.grpPointerPath.Controls.Add(this.lblProcessName);
             this.grpPointerPath.Controls.Add(this.tableLayoutPanel2);
-            this.grpPointerPath.Location = new System.Drawing.Point(15, 13);
+            this.grpPointerPath.Location = new System.Drawing.Point(15, 14);
             this.grpPointerPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpPointerPath.Name = "grpPointerPath";
             this.grpPointerPath.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpPointerPath.Size = new System.Drawing.Size(582, 157);
+            this.grpPointerPath.Size = new System.Drawing.Size(581, 158);
             this.grpPointerPath.TabIndex = 0;
             this.grpPointerPath.TabStop = false;
             this.grpPointerPath.Text = "Pointer path";
@@ -290,7 +291,7 @@ namespace LiveSplit.MemoryGraph
             // L_Requires
             // 
             this.L_Requires.AutoSize = true;
-            this.L_Requires.Location = new System.Drawing.Point(6, 45);
+            this.L_Requires.Location = new System.Drawing.Point(5, 46);
             this.L_Requires.Name = "L_Requires";
             this.L_Requires.Size = new System.Drawing.Size(69, 17);
             this.L_Requires.TabIndex = 11;
@@ -300,7 +301,7 @@ namespace LiveSplit.MemoryGraph
             // 
             this.linkLabel_AdditionalFiles.AutoSize = true;
             this.linkLabel_AdditionalFiles.LinkArea = new System.Windows.Forms.LinkArea(0, 10);
-            this.linkLabel_AdditionalFiles.Location = new System.Drawing.Point(81, 45);
+            this.linkLabel_AdditionalFiles.Location = new System.Drawing.Point(81, 46);
             this.linkLabel_AdditionalFiles.Name = "linkLabel_AdditionalFiles";
             this.linkLabel_AdditionalFiles.Size = new System.Drawing.Size(72, 17);
             this.linkLabel_AdditionalFiles.TabIndex = 10;
@@ -314,10 +315,10 @@ namespace LiveSplit.MemoryGraph
             this.ComboBox_ListOfGames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBox_ListOfGames.FormattingEnabled = true;
-            this.ComboBox_ListOfGames.Location = new System.Drawing.Point(84, 19);
+            this.ComboBox_ListOfGames.Location = new System.Drawing.Point(84, 18);
             this.ComboBox_ListOfGames.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBox_ListOfGames.Name = "ComboBox_ListOfGames";
-            this.ComboBox_ListOfGames.Size = new System.Drawing.Size(346, 24);
+            this.ComboBox_ListOfGames.Size = new System.Drawing.Size(345, 24);
             this.ComboBox_ListOfGames.TabIndex = 9;
             this.ComboBox_ListOfGames.SelectedIndexChanged += new System.EventHandler(this.ComboBox_ListOfGames_SelectedIndexChanged);
             // 
@@ -336,7 +337,7 @@ namespace LiveSplit.MemoryGraph
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Location = new System.Drawing.Point(5, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 17);
             this.label1.TabIndex = 7;
@@ -356,7 +357,7 @@ namespace LiveSplit.MemoryGraph
             // 
             this.lblProcessName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblProcessName.AutoSize = true;
-            this.lblProcessName.Location = new System.Drawing.Point(6, 131);
+            this.lblProcessName.Location = new System.Drawing.Point(5, 130);
             this.lblProcessName.Name = "lblProcessName";
             this.lblProcessName.Size = new System.Drawing.Size(120, 17);
             this.lblProcessName.TabIndex = 4;
@@ -371,7 +372,7 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel2.Controls.Add(this.lblModule, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtOffsets, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtBase, 1, 1);
@@ -380,13 +381,13 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel2.Controls.Add(this.lblOffsets, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblType, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.cmbType, 3, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 64);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 64);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(570, 60);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(571, 60);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // lblModule
@@ -395,7 +396,7 @@ namespace LiveSplit.MemoryGraph
             this.lblModule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblModule.Location = new System.Drawing.Point(3, 0);
             this.lblModule.Name = "lblModule";
-            this.lblModule.Size = new System.Drawing.Size(110, 24);
+            this.lblModule.Size = new System.Drawing.Size(106, 24);
             this.lblModule.TabIndex = 0;
             this.lblModule.Text = "Module:";
             this.lblModule.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -403,36 +404,39 @@ namespace LiveSplit.MemoryGraph
             // txtOffsets
             // 
             this.txtOffsets.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtOffsets.Location = new System.Drawing.Point(235, 27);
+            this.txtOffsets.Location = new System.Drawing.Point(227, 26);
+            this.txtOffsets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOffsets.Name = "txtOffsets";
-            this.txtOffsets.Size = new System.Drawing.Size(226, 22);
+            this.txtOffsets.Size = new System.Drawing.Size(218, 22);
             this.txtOffsets.TabIndex = 1;
             this.txtOffsets.Validating += new System.ComponentModel.CancelEventHandler(this.txtOffsets_Validating);
             // 
             // txtBase
             // 
             this.txtBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBase.Location = new System.Drawing.Point(119, 27);
+            this.txtBase.Location = new System.Drawing.Point(115, 26);
+            this.txtBase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBase.Name = "txtBase";
-            this.txtBase.Size = new System.Drawing.Size(110, 22);
+            this.txtBase.Size = new System.Drawing.Size(106, 22);
             this.txtBase.TabIndex = 1;
             this.txtBase.Validating += new System.ComponentModel.CancelEventHandler(this.txtBase_Validating);
             // 
             // txtModule
             // 
             this.txtModule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtModule.Location = new System.Drawing.Point(3, 27);
+            this.txtModule.Location = new System.Drawing.Point(3, 26);
+            this.txtModule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtModule.Name = "txtModule";
-            this.txtModule.Size = new System.Drawing.Size(110, 22);
+            this.txtModule.Size = new System.Drawing.Size(106, 22);
             this.txtModule.TabIndex = 1;
             // 
             // lblBase
             // 
             this.lblBase.AutoSize = true;
             this.lblBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblBase.Location = new System.Drawing.Point(119, 0);
+            this.lblBase.Location = new System.Drawing.Point(115, 0);
             this.lblBase.Name = "lblBase";
-            this.lblBase.Size = new System.Drawing.Size(110, 24);
+            this.lblBase.Size = new System.Drawing.Size(106, 24);
             this.lblBase.TabIndex = 1;
             this.lblBase.Text = "Base:";
             this.lblBase.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -441,9 +445,9 @@ namespace LiveSplit.MemoryGraph
             // 
             this.lblOffsets.AutoSize = true;
             this.lblOffsets.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblOffsets.Location = new System.Drawing.Point(235, 0);
+            this.lblOffsets.Location = new System.Drawing.Point(227, 0);
             this.lblOffsets.Name = "lblOffsets";
-            this.lblOffsets.Size = new System.Drawing.Size(226, 24);
+            this.lblOffsets.Size = new System.Drawing.Size(218, 24);
             this.lblOffsets.TabIndex = 2;
             this.lblOffsets.Text = "Offsets (comma seperated):";
             this.lblOffsets.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -452,9 +456,9 @@ namespace LiveSplit.MemoryGraph
             // 
             this.lblType.AutoSize = true;
             this.lblType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblType.Location = new System.Drawing.Point(467, 0);
+            this.lblType.Location = new System.Drawing.Point(451, 0);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(100, 24);
+            this.lblType.Size = new System.Drawing.Size(117, 24);
             this.lblType.TabIndex = 3;
             this.lblType.Text = "Type:";
             this.lblType.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -464,10 +468,10 @@ namespace LiveSplit.MemoryGraph
             this.cmbType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(467, 26);
+            this.cmbType.Location = new System.Drawing.Point(451, 26);
             this.cmbType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(100, 24);
+            this.cmbType.Size = new System.Drawing.Size(117, 24);
             this.cmbType.TabIndex = 4;
             // 
             // grpGraph
@@ -491,7 +495,7 @@ namespace LiveSplit.MemoryGraph
             this.grpGraph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpGraph.Name = "grpGraph";
             this.grpGraph.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpGraph.Size = new System.Drawing.Size(582, 395);
+            this.grpGraph.Size = new System.Drawing.Size(581, 395);
             this.grpGraph.TabIndex = 1;
             this.grpGraph.TabStop = false;
             this.grpGraph.Text = "Graph";
@@ -514,17 +518,17 @@ namespace LiveSplit.MemoryGraph
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbGraphGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGraphGradientType.FormattingEnabled = true;
-            this.cmbGraphGradientType.Location = new System.Drawing.Point(194, 176);
+            this.cmbGraphGradientType.Location = new System.Drawing.Point(193, 176);
             this.cmbGraphGradientType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbGraphGradientType.Name = "cmbGraphGradientType";
-            this.cmbGraphGradientType.Size = new System.Drawing.Size(382, 24);
+            this.cmbGraphGradientType.Size = new System.Drawing.Size(383, 24);
             this.cmbGraphGradientType.TabIndex = 4;
             this.cmbGraphGradientType.SelectedValueChanged += new System.EventHandler(this.cmbGraphGradientType_SelectedValueChanged);
             // 
             // lblGraphStyle
             // 
             this.lblGraphStyle.AutoSize = true;
-            this.lblGraphStyle.Location = new System.Drawing.Point(6, 23);
+            this.lblGraphStyle.Location = new System.Drawing.Point(5, 23);
             this.lblGraphStyle.Name = "lblGraphStyle";
             this.lblGraphStyle.Size = new System.Drawing.Size(87, 17);
             this.lblGraphStyle.TabIndex = 5;
@@ -548,11 +552,11 @@ namespace LiveSplit.MemoryGraph
             this.grpValueText.Controls.Add(this.overrideControlValueText);
             this.grpValueText.Controls.Add(this.cmbValueTextPosition);
             this.grpValueText.Controls.Add(this.lblValueTextPosition);
-            this.grpValueText.Location = new System.Drawing.Point(6, 234);
+            this.grpValueText.Location = new System.Drawing.Point(5, 234);
             this.grpValueText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpValueText.Name = "grpValueText";
             this.grpValueText.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpValueText.Size = new System.Drawing.Size(570, 155);
+            this.grpValueText.Size = new System.Drawing.Size(571, 155);
             this.grpValueText.TabIndex = 5;
             this.grpValueText.TabStop = false;
             this.grpValueText.Text = "Value as Text";
@@ -560,7 +564,7 @@ namespace LiveSplit.MemoryGraph
             // numValueTextDecimals
             // 
             this.numValueTextDecimals.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numValueTextDecimals.Location = new System.Drawing.Point(510, 22);
+            this.numValueTextDecimals.Location = new System.Drawing.Point(509, 22);
             this.numValueTextDecimals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numValueTextDecimals.Maximum = new decimal(new int[] {
             20,
@@ -568,14 +572,14 @@ namespace LiveSplit.MemoryGraph
             0,
             0});
             this.numValueTextDecimals.Name = "numValueTextDecimals";
-            this.numValueTextDecimals.Size = new System.Drawing.Size(54, 22);
+            this.numValueTextDecimals.Size = new System.Drawing.Size(53, 22);
             this.numValueTextDecimals.TabIndex = 3;
             // 
             // lblDecimals
             // 
             this.lblDecimals.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDecimals.AutoSize = true;
-            this.lblDecimals.Location = new System.Drawing.Point(435, 24);
+            this.lblDecimals.Location = new System.Drawing.Point(435, 25);
             this.lblDecimals.Margin = new System.Windows.Forms.Padding(13, 0, 3, 0);
             this.lblDecimals.Name = "lblDecimals";
             this.lblDecimals.Size = new System.Drawing.Size(69, 17);
@@ -585,14 +589,14 @@ namespace LiveSplit.MemoryGraph
             // overrideControlValueText
             // 
             this.overrideControlValueText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.overrideControlValueText.Location = new System.Drawing.Point(6, 55);
+            this.overrideControlValueText.Location = new System.Drawing.Point(5, 55);
             this.overrideControlValueText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.overrideControlValueText.Name = "overrideControlValueText";
             this.overrideControlValueText.OverrideColor = false;
             this.overrideControlValueText.OverrideFont = false;
             this.overrideControlValueText.OverridingColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.overrideControlValueText.OverridingFont = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.overrideControlValueText.Size = new System.Drawing.Size(558, 33);
+            this.overrideControlValueText.Size = new System.Drawing.Size(557, 33);
             this.overrideControlValueText.TabIndex = 2;
             // 
             // cmbValueTextPosition
@@ -601,7 +605,7 @@ namespace LiveSplit.MemoryGraph
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbValueTextPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbValueTextPosition.FormattingEnabled = true;
-            this.cmbValueTextPosition.Location = new System.Drawing.Point(74, 21);
+            this.cmbValueTextPosition.Location = new System.Drawing.Point(75, 21);
             this.cmbValueTextPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbValueTextPosition.Name = "cmbValueTextPosition";
             this.cmbValueTextPosition.Size = new System.Drawing.Size(345, 24);
@@ -610,7 +614,7 @@ namespace LiveSplit.MemoryGraph
             // lblValueTextPosition
             // 
             this.lblValueTextPosition.AutoSize = true;
-            this.lblValueTextPosition.Location = new System.Drawing.Point(6, 24);
+            this.lblValueTextPosition.Location = new System.Drawing.Point(5, 25);
             this.lblValueTextPosition.Name = "lblValueTextPosition";
             this.lblValueTextPosition.Size = new System.Drawing.Size(62, 17);
             this.lblValueTextPosition.TabIndex = 0;
@@ -622,7 +626,7 @@ namespace LiveSplit.MemoryGraph
             this.btnGraphColor2.Location = new System.Drawing.Point(164, 175);
             this.btnGraphColor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGraphColor2.Name = "btnGraphColor2";
-            this.btnGraphColor2.Size = new System.Drawing.Size(24, 24);
+            this.btnGraphColor2.Size = new System.Drawing.Size(24, 25);
             this.btnGraphColor2.TabIndex = 5;
             this.btnGraphColor2.UseVisualStyleBackColor = false;
             this.btnGraphColor2.Click += new System.EventHandler(this.ColorButtonClick);
@@ -642,10 +646,10 @@ namespace LiveSplit.MemoryGraph
             // btnGraphColor1
             // 
             this.btnGraphColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraphColor1.Location = new System.Drawing.Point(134, 175);
+            this.btnGraphColor1.Location = new System.Drawing.Point(133, 175);
             this.btnGraphColor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGraphColor1.Name = "btnGraphColor1";
-            this.btnGraphColor1.Size = new System.Drawing.Size(24, 24);
+            this.btnGraphColor1.Size = new System.Drawing.Size(24, 25);
             this.btnGraphColor1.TabIndex = 6;
             this.btnGraphColor1.UseVisualStyleBackColor = false;
             this.btnGraphColor1.Click += new System.EventHandler(this.ColorButtonClick);
@@ -655,10 +659,10 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel5.ColumnCount = 5;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.lblMaximumValue, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.txtMaximumValue, 4, 0);
@@ -672,14 +676,14 @@ namespace LiveSplit.MemoryGraph
             this.tableLayoutPanel5.Controls.Add(this.lblVerticalMargins, 3, 2);
             this.tableLayoutPanel5.Controls.Add(this.numVerticalMargins, 4, 2);
             this.tableLayoutPanel5.Controls.Add(this.numHorizontalMargins, 1, 2);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 56);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(5, 53);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(570, 78);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(571, 86);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // lblMaximumValue
@@ -688,7 +692,7 @@ namespace LiveSplit.MemoryGraph
             this.lblMaximumValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMaximumValue.Location = new System.Drawing.Point(312, 0);
             this.lblMaximumValue.Name = "lblMaximumValue";
-            this.lblMaximumValue.Size = new System.Drawing.Size(124, 26);
+            this.lblMaximumValue.Size = new System.Drawing.Size(125, 28);
             this.lblMaximumValue.TabIndex = 5;
             this.lblMaximumValue.Text = "Maximum Value:";
             this.lblMaximumValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -696,7 +700,7 @@ namespace LiveSplit.MemoryGraph
             // txtMaximumValue
             // 
             this.txtMaximumValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMaximumValue.Location = new System.Drawing.Point(442, 2);
+            this.txtMaximumValue.Location = new System.Drawing.Point(443, 2);
             this.txtMaximumValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaximumValue.Name = "txtMaximumValue";
             this.txtMaximumValue.Size = new System.Drawing.Size(125, 22);
@@ -709,7 +713,7 @@ namespace LiveSplit.MemoryGraph
             this.lblMinimumValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMinimumValue.Location = new System.Drawing.Point(3, 0);
             this.lblMinimumValue.Name = "lblMinimumValue";
-            this.lblMinimumValue.Size = new System.Drawing.Size(144, 26);
+            this.lblMinimumValue.Size = new System.Drawing.Size(143, 28);
             this.lblMinimumValue.TabIndex = 5;
             this.lblMinimumValue.Text = "Minimum Value:";
             this.lblMinimumValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -718,9 +722,9 @@ namespace LiveSplit.MemoryGraph
             // 
             this.lblHorizontalMargins.AutoSize = true;
             this.lblHorizontalMargins.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblHorizontalMargins.Location = new System.Drawing.Point(3, 52);
+            this.lblHorizontalMargins.Location = new System.Drawing.Point(3, 56);
             this.lblHorizontalMargins.Name = "lblHorizontalMargins";
-            this.lblHorizontalMargins.Size = new System.Drawing.Size(144, 26);
+            this.lblHorizontalMargins.Size = new System.Drawing.Size(143, 30);
             this.lblHorizontalMargins.TabIndex = 5;
             this.lblHorizontalMargins.Text = "Horizontal Margins:";
             this.lblHorizontalMargins.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -728,17 +732,17 @@ namespace LiveSplit.MemoryGraph
             // txtMinimumValue
             // 
             this.txtMinimumValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMinimumValue.Location = new System.Drawing.Point(153, 2);
+            this.txtMinimumValue.Location = new System.Drawing.Point(152, 2);
             this.txtMinimumValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMinimumValue.Name = "txtMinimumValue";
-            this.txtMinimumValue.Size = new System.Drawing.Size(124, 22);
+            this.txtMinimumValue.Size = new System.Drawing.Size(125, 22);
             this.txtMinimumValue.TabIndex = 5;
             this.txtMinimumValue.Validating += new System.ComponentModel.CancelEventHandler(this.txtMinimumValue_Validating);
             // 
             // numHeight
             // 
             this.numHeight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numHeight.Location = new System.Drawing.Point(442, 28);
+            this.numHeight.Location = new System.Drawing.Point(443, 30);
             this.numHeight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numHeight.Maximum = new decimal(new int[] {
             100000,
@@ -753,9 +757,9 @@ namespace LiveSplit.MemoryGraph
             // 
             this.lblHeight.AutoSize = true;
             this.lblHeight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblHeight.Location = new System.Drawing.Point(312, 26);
+            this.lblHeight.Location = new System.Drawing.Point(312, 28);
             this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(124, 26);
+            this.lblHeight.Size = new System.Drawing.Size(125, 28);
             this.lblHeight.TabIndex = 8;
             this.lblHeight.Text = "Height:";
             this.lblHeight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -764,9 +768,9 @@ namespace LiveSplit.MemoryGraph
             // 
             this.lblWidth.AutoSize = true;
             this.lblWidth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblWidth.Location = new System.Drawing.Point(3, 26);
+            this.lblWidth.Location = new System.Drawing.Point(3, 28);
             this.lblWidth.Name = "lblWidth";
-            this.lblWidth.Size = new System.Drawing.Size(144, 26);
+            this.lblWidth.Size = new System.Drawing.Size(143, 28);
             this.lblWidth.TabIndex = 9;
             this.lblWidth.Text = "Width:";
             this.lblWidth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -774,7 +778,7 @@ namespace LiveSplit.MemoryGraph
             // numWidth
             // 
             this.numWidth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numWidth.Location = new System.Drawing.Point(153, 28);
+            this.numWidth.Location = new System.Drawing.Point(152, 30);
             this.numWidth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numWidth.Maximum = new decimal(new int[] {
             100000,
@@ -782,16 +786,16 @@ namespace LiveSplit.MemoryGraph
             0,
             0});
             this.numWidth.Name = "numWidth";
-            this.numWidth.Size = new System.Drawing.Size(124, 22);
+            this.numWidth.Size = new System.Drawing.Size(125, 22);
             this.numWidth.TabIndex = 10;
             // 
             // lblVerticalMargins
             // 
             this.lblVerticalMargins.AutoSize = true;
             this.lblVerticalMargins.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblVerticalMargins.Location = new System.Drawing.Point(312, 52);
+            this.lblVerticalMargins.Location = new System.Drawing.Point(312, 56);
             this.lblVerticalMargins.Name = "lblVerticalMargins";
-            this.lblVerticalMargins.Size = new System.Drawing.Size(124, 26);
+            this.lblVerticalMargins.Size = new System.Drawing.Size(125, 30);
             this.lblVerticalMargins.TabIndex = 11;
             this.lblVerticalMargins.Text = "Vertical Margins:";
             this.lblVerticalMargins.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -799,7 +803,7 @@ namespace LiveSplit.MemoryGraph
             // numVerticalMargins
             // 
             this.numVerticalMargins.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numVerticalMargins.Location = new System.Drawing.Point(442, 54);
+            this.numVerticalMargins.Location = new System.Drawing.Point(443, 58);
             this.numVerticalMargins.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numVerticalMargins.Maximum = new decimal(new int[] {
             100000,
@@ -813,7 +817,7 @@ namespace LiveSplit.MemoryGraph
             // numHorizontalMargins
             // 
             this.numHorizontalMargins.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numHorizontalMargins.Location = new System.Drawing.Point(153, 54);
+            this.numHorizontalMargins.Location = new System.Drawing.Point(152, 58);
             this.numHorizontalMargins.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numHorizontalMargins.Maximum = new decimal(new int[] {
             100000,
@@ -821,13 +825,13 @@ namespace LiveSplit.MemoryGraph
             0,
             0});
             this.numHorizontalMargins.Name = "numHorizontalMargins";
-            this.numHorizontalMargins.Size = new System.Drawing.Size(124, 22);
+            this.numHorizontalMargins.Size = new System.Drawing.Size(125, 22);
             this.numHorizontalMargins.TabIndex = 13;
             // 
             // lblGraphColor
             // 
             this.lblGraphColor.AutoSize = true;
-            this.lblGraphColor.Location = new System.Drawing.Point(6, 179);
+            this.lblGraphColor.Location = new System.Drawing.Point(5, 178);
             this.lblGraphColor.Name = "lblGraphColor";
             this.lblGraphColor.Size = new System.Drawing.Size(89, 17);
             this.lblGraphColor.TabIndex = 7;
@@ -837,7 +841,7 @@ namespace LiveSplit.MemoryGraph
             // lblBackgroundColor
             // 
             this.lblBackgroundColor.AutoSize = true;
-            this.lblBackgroundColor.Location = new System.Drawing.Point(6, 150);
+            this.lblBackgroundColor.Location = new System.Drawing.Point(5, 150);
             this.lblBackgroundColor.Name = "lblBackgroundColor";
             this.lblBackgroundColor.Size = new System.Drawing.Size(125, 17);
             this.lblBackgroundColor.TabIndex = 0;
@@ -847,10 +851,10 @@ namespace LiveSplit.MemoryGraph
             // btnBackgroundColor1
             // 
             this.btnBackgroundColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackgroundColor1.Location = new System.Drawing.Point(134, 147);
+            this.btnBackgroundColor1.Location = new System.Drawing.Point(133, 146);
             this.btnBackgroundColor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBackgroundColor1.Name = "btnBackgroundColor1";
-            this.btnBackgroundColor1.Size = new System.Drawing.Size(24, 24);
+            this.btnBackgroundColor1.Size = new System.Drawing.Size(24, 25);
             this.btnBackgroundColor1.TabIndex = 2;
             this.btnBackgroundColor1.UseVisualStyleBackColor = false;
             this.btnBackgroundColor1.Click += new System.EventHandler(this.ColorButtonClick);
@@ -858,10 +862,10 @@ namespace LiveSplit.MemoryGraph
             // btnBackgroundColor2
             // 
             this.btnBackgroundColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackgroundColor2.Location = new System.Drawing.Point(164, 147);
+            this.btnBackgroundColor2.Location = new System.Drawing.Point(164, 146);
             this.btnBackgroundColor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBackgroundColor2.Name = "btnBackgroundColor2";
-            this.btnBackgroundColor2.Size = new System.Drawing.Size(24, 24);
+            this.btnBackgroundColor2.Size = new System.Drawing.Size(24, 25);
             this.btnBackgroundColor2.TabIndex = 3;
             this.btnBackgroundColor2.UseVisualStyleBackColor = false;
             this.btnBackgroundColor2.Click += new System.EventHandler(this.ColorButtonClick);
@@ -872,7 +876,7 @@ namespace LiveSplit.MemoryGraph
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbBackgroundGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBackgroundGradientType.FormattingEnabled = true;
-            this.cmbBackgroundGradientType.Location = new System.Drawing.Point(193, 147);
+            this.cmbBackgroundGradientType.Location = new System.Drawing.Point(193, 146);
             this.cmbBackgroundGradientType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbBackgroundGradientType.Name = "cmbBackgroundGradientType";
             this.cmbBackgroundGradientType.Size = new System.Drawing.Size(383, 24);
@@ -886,7 +890,7 @@ namespace LiveSplit.MemoryGraph
             this.Controls.Add(this.grpDescriptiveText);
             this.Controls.Add(this.grpPointerPath);
             this.Controls.Add(this.grpGraph);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Settings";
             this.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.Size = new System.Drawing.Size(612, 681);

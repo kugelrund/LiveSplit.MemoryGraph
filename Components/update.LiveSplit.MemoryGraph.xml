@@ -1,4 +1,12 @@
 <updates>
+	<update version="1.4.4">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Hotfix for last update.</change>
+        </changelog>
+    </update>
 	<update version="1.4.3">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

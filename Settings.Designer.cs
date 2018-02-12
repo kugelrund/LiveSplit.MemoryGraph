@@ -566,7 +566,7 @@ namespace LiveSplit.MemoryGraph
             // localMaxCB
             // 
             this.localMaxCB.AutoSize = true;
-            this.localMaxCB.Location = new System.Drawing.Point(344, 24);
+            this.localMaxCB.Location = new System.Drawing.Point(325, 23);
             this.localMaxCB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.localMaxCB.Name = "localMaxCB";
             this.localMaxCB.Size = new System.Drawing.Size(75, 17);
@@ -622,7 +622,7 @@ namespace LiveSplit.MemoryGraph
             this.cmbValueTextPosition.Location = new System.Drawing.Point(75, 21);
             this.cmbValueTextPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbValueTextPosition.Name = "cmbValueTextPosition";
-            this.cmbValueTextPosition.Size = new System.Drawing.Size(263, 24);
+            this.cmbValueTextPosition.Size = new System.Drawing.Size(244, 24);
             this.cmbValueTextPosition.TabIndex = 1;
             // 
             // lblValueTextPosition

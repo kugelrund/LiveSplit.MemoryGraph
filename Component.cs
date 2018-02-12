@@ -130,7 +130,7 @@ namespace LiveSplit.MemoryGraph
         private float[] fake_particles;
 
         private Queue<float> pastValues { get; } = new Queue<float>();
-        private float LocalMax => pastValues.Any() ? pastValues.Max() : 1;
+        private float LocalMax => pastValues.Any() ? pastValues.Max() : 0;
         private float _currentValue;
         private float currentValue
         {

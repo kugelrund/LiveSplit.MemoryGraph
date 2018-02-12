@@ -677,5 +677,11 @@ namespace LiveSplit.MemoryGraph
             //Displays tooltip
             toolTip.Show("This options allows the multiplier to exceed '1.0', meaning that if using color grading, the maximum color can be brighter than specified.", colorsCBSillyColors);
         }
+
+        private void localMaxCB_MouseHover(object sender, EventArgs e)
+        {
+            // Displays tooltip
+            toolTip.Show("Shows the largest value which is visible on the graph.", localMaxCB);
+        }
     }
 }

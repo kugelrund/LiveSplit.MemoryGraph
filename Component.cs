@@ -129,7 +129,26 @@ namespace LiveSplit.MemoryGraph
         private float avaragedValue;                                    //For smoothing out
         private float[] fake_particles;
 
-        private float currentValue;
+        private Queue<float> pastValues { get; } = new Queue<float>();
+        private float LocalMax => pastValues.Any() ? pastValues.Max() : 1;
+        private float _currentValue;
+        private float currentValue
+        {
+            get => _currentValue;
+            set
+            {
+                if (settings.LocalMax)
+                {
+                    pastValues.Enqueue(value);
+                    while (pastValues.Count > graphWidth)
+                    {
+                        pastValues.Dequeue();
+                    }
+                }
+
+                _currentValue = value;
+            }
+        }
         private float currentValueX;
         private float currentValueY;
         private float currentValueZ;
@@ -493,15 +512,24 @@ namespace LiveSplit.MemoryGraph
                 RectangleF rect = valueNextToGraph ? g.ClipBounds : graphRect;
                 rect.X += 5;
                 rect.Width -= 10;
-                if(!settings.UnitsConversionEnabled)
+                string str;
+                if (!settings.UnitsConversionEnabled)
                 {
-                    g.DrawString(currentValue.ToString("n" + settings.ValueTextDecimals), font, brush, rect, valueTextFormat);
+                    str = currentValue.ToString("n" + settings.ValueTextDecimals);
+                    if (settings.LocalMax)
+                    {
+                        str += " (" + LocalMax.ToString("n" + settings.ValueTextDecimals) + ")";
+                    }
                 }
                 else
                 {
-                    g.DrawString(convertUnits(currentValue, settings.ValueTextDecimals), font, brush, rect, valueTextFormat);
+                    str = convertUnits(currentValue, settings.ValueTextDecimals);
+                    if (settings.LocalMax)
+                    {
+                        str += " (" + convertUnits(LocalMax, settings.ValueTextDecimals) + ")";
+                    }
                 }
-
+                g.DrawString(str, font, brush, rect, valueTextFormat);
             }
         }
 

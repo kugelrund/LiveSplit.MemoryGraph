@@ -112,6 +112,7 @@ namespace LiveSplit.MemoryGraph
 
         public float MinimumValue { get; set; }
         public float MaximumValue { get; set; }
+        public bool LocalMax { get; set; }
         public int GraphWidth { get; set; }
         public int GraphHeight { get; set; }
         public int HorizontalMargins { get; set; }

@@ -227,7 +227,12 @@ namespace LiveSplit.MemoryGraph
 
         private static Color Blend(IEnumerable<Color> colors, double amount, bool sillyColors)
         {
-            if (amount > 1)
+            if (amount == 0)
+            {
+                return colors.First();
+            }
+
+            if (amount >= 1)
             {
                 if (!sillyColors)
                 {
@@ -238,25 +243,25 @@ namespace LiveSplit.MemoryGraph
                     return BlendTwo(colors.Reverse().Skip(1).First(), colors.Last(), amount);
                 }
             }
-            
+
+            // Stretch the amount to cover then range (0, colors.Count() - 1).
             var floatingIndex = amount * (colors.Count() - 1);
 
+            // Pick the highest index as the above value rounded up: [1, colors.Count() - 1]
             var index = (int)Math.Ceiling(floatingIndex);
-            if (index == 0)
-            {
-                return colors.First();
-            }
             var color1 = colors.Skip(index - 1).First();
             var color2 = colors.Skip(index).First();
+
+            // Blend with the decimal part of the floatingIndex.
             return BlendTwo(color1, color2, floatingIndex - (index - 1));
         }
 
-        private static Color BlendTwo(Color color2, Color color1, double amount)
+        private static Color BlendTwo(Color zeroColor, Color oneColor, double amount)
         {
-            byte a = (byte)((color1.A * amount) + color2.A * (1 - amount));
-            byte r = (byte)((color1.R * amount) + color2.R * (1 - amount));
-            byte g = (byte)((color1.G * amount) + color2.G * (1 - amount));
-            byte b = (byte)((color1.B * amount) + color2.B * (1 - amount));
+            byte a = (byte)((oneColor.A * amount) + zeroColor.A * (1 - amount));
+            byte r = (byte)((oneColor.R * amount) + zeroColor.R * (1 - amount));
+            byte g = (byte)((oneColor.G * amount) + zeroColor.G * (1 - amount));
+            byte b = (byte)((oneColor.B * amount) + zeroColor.B * (1 - amount));
             return Color.FromArgb(a, r, g, b);
         }
 

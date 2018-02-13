@@ -130,7 +130,8 @@ namespace LiveSplit.MemoryGraph
         private float[] fake_particles;
 
         private Queue<float> pastValues { get; } = new Queue<float>();
-        private float LocalMax => pastValues.Any() ? pastValues.Max() : 0;
+        private float? _localMax = 0;
+        private float LocalMax => _localMax ?? (_localMax = pastValues.Max()).Value;
         private float _currentValue;
         private float currentValue
         {
@@ -140,9 +141,33 @@ namespace LiveSplit.MemoryGraph
                 if (settings.LocalMax)
                 {
                     pastValues.Enqueue(value);
-                    while (pastValues.Count > graphWidth)
+
+                    if (!_localMax.HasValue || value == _localMax)
                     {
-                        pastValues.Dequeue();
+                        while (pastValues.Count > graphWidth)
+                        {
+                            pastValues.Dequeue();
+                        }
+                    }
+                    else if (value > _localMax)
+                    {
+                        _localMax = value;
+
+                        while (pastValues.Count > graphWidth)
+                        {
+                            pastValues.Dequeue();
+                        }
+                    }
+                    else
+                    {
+                        while (pastValues.Count > graphWidth)
+                        {
+                            // Don't bother recalculating the Max() until it looks like we've dequeued the Max value().
+                            if (pastValues.Dequeue() == _localMax)
+                            {
+                                _localMax = null;
+                            }
+                        }
                     }
                 }
 

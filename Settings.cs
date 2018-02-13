@@ -109,7 +109,7 @@ namespace LiveSplit.MemoryGraph
         public Color BackgroundColor2 { get; set; }
         public Color GraphColor { get; set; }
         public Color GraphColor2 { get; set; }
-        public List<Color> GraphExtraColors { get; set; } = new List<Color>();
+        public List<Color> GraphExtraColors { get; set; }
 
         public float MinimumValue { get; set; }
         public float MaximumValue { get; set; }
@@ -169,6 +169,7 @@ namespace LiveSplit.MemoryGraph
             BackgroundColor2 = Color.Transparent;
             GraphColor = Color.Red;
             GraphColor2 = Color.Red;
+            GraphExtraColors = new List<Color>();
             MinimumValue = 0;
             MaximumValue = 1000;
             GraphWidth = 200;

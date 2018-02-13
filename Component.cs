@@ -225,17 +225,40 @@ namespace LiveSplit.MemoryGraph
             }
         }
 
-        private static Color Blend(Color backColor, Color color, double amount, bool sillyColors)
+        private static Color Blend(IEnumerable<Color> colors, double amount, bool sillyColors)
         {
-            if(!sillyColors)
+            if (amount > 1)
             {
-                if (amount > 1)
-                    amount = 1;
+                if (!sillyColors)
+                {
+                    return colors.Last();
+                }
+                else
+                {
+                    return BlendTwo(colors.Reverse().Skip(1).First(), colors.Last(), amount);
+                }
             }
-            byte a = (byte)((color.A * amount) + backColor.A * (1 - amount));
-            byte r = (byte)((color.R * amount) + backColor.R * (1 - amount));
-            byte g = (byte)((color.G * amount) + backColor.G * (1 - amount));
-            byte b = (byte)((color.B * amount) + backColor.B * (1 - amount));
+
+            var steps = colors.Count() - 1;
+            var leap = 1.0 / steps;
+
+            var index = (int)Math.Ceiling(amount * steps);
+            if (index == 0)
+            {
+                return colors.First();
+            }
+
+            var color1 = colors.Skip(index - 1).First();
+            var color2 = colors.Skip(index).First();
+            return BlendTwo(color1, color2, (amount - (index - 1) * leap) / leap);
+        }
+
+        private static Color BlendTwo(Color color2, Color color1, double amount)
+        {
+            byte a = (byte)((color1.A * amount) + color2.A * (1 - amount));
+            byte r = (byte)((color1.R * amount) + color2.R * (1 - amount));
+            byte g = (byte)((color1.G * amount) + color2.G * (1 - amount));
+            byte b = (byte)((color1.B * amount) + color2.B * (1 - amount));
             return Color.FromArgb(a, r, g, b);
         }
 
@@ -297,8 +320,9 @@ namespace LiveSplit.MemoryGraph
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.ByValue:
-                    graphBrush = new SolidBrush(Blend(settings.GraphColor, 
-                                                      settings.GraphColor2,
+                    graphBrush = new SolidBrush(Blend(new Color[] { settings.GraphColor,
+                                                      settings.GraphColor2 }.Concat(
+                                                      settings.GraphExtraColors),
                                                       relativeValue, settings.GraphSillyColors));
                     graphPen.Brush = graphBrush;
                     break;

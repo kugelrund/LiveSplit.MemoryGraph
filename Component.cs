@@ -238,19 +238,17 @@ namespace LiveSplit.MemoryGraph
                     return BlendTwo(colors.Reverse().Skip(1).First(), colors.Last(), amount);
                 }
             }
+            
+            var floatingIndex = amount * (colors.Count() - 1);
 
-            var steps = colors.Count() - 1;
-            var leap = 1.0 / steps;
-
-            var index = (int)Math.Ceiling(amount * steps);
+            var index = (int)Math.Ceiling(floatingIndex);
             if (index == 0)
             {
                 return colors.First();
             }
-
             var color1 = colors.Skip(index - 1).First();
             var color2 = colors.Skip(index).First();
-            return BlendTwo(color1, color2, (amount - (index - 1) * leap) / leap);
+            return BlendTwo(color1, color2, floatingIndex - (index - 1));
         }
 
         private static Color BlendTwo(Color color2, Color color1, double amount)

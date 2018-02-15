@@ -81,6 +81,22 @@
 	<maximumValue>800</maximumValue>
 	<decimals>0</decimals>
 </game>
+<game name="Portal 2 (Single Player or Blue)">
+	<process>portal2</process>
+	<module>client.dll</module>
+	<base>09C4B24</base>
+	<offsets>100</offsets>
+	<type>FloatVec2</type>
+	<maximumValue>500</maximumValue>
+</game>
+<game name="Portal 2 (Orange)">
+	<process>portal2</process>
+	<module>client.dll</module>
+	<base>09C4B2C</base>
+	<offsets>100</offsets>
+	<type>FloatVec2</type>
+	<maximumValue>500</maximumValue>
+</game>
 <game name="Quake (JoeQuake)">
 	<process>joequake-gl</process>
 	<base>64F608</base>

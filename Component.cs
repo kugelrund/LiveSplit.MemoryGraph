@@ -323,10 +323,8 @@ namespace LiveSplit.MemoryGraph
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.ByValue:
-                    graphBrush = new SolidBrush(Blend(new Color[] { settings.GraphColor,
-                                                      settings.GraphColor2 }.Concat(
-                                                      settings.GraphExtraColors),
-                                                      relativeValue, settings.GraphSillyColors));
+                    graphBrush = new SolidBrush(Blend(settings.GraphColors.Any() ? settings.GraphColors : new List<Color> { Settings.DefaultGraphColor },
+                                                relativeValue, settings.GraphSillyColors));
                     graphPen.Brush = graphBrush;
                     break;
             }

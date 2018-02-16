@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace LiveSplit.MemoryGraph
 {
@@ -107,9 +108,10 @@ namespace LiveSplit.MemoryGraph
 
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }
-        public Color GraphColor { get; set; }
-        public Color GraphColor2 { get; set; }
-        public List<Color> GraphExtraColors { get; set; }
+        public static Color DefaultGraphColor => Color.Red;
+        public List<Color> GraphColors { get; set; }
+        public Color GraphColor => GraphColors.Any() ? GraphColors.First() : DefaultGraphColor;
+        public Color GraphColor2 => GraphColors.Skip(1).Any() ? GraphColors.Skip(1).First() : DefaultGraphColor;
 
         public float MinimumValue { get; set; }
         public float MaximumValue { get; set; }
@@ -167,9 +169,7 @@ namespace LiveSplit.MemoryGraph
 
             BackgroundColor = Color.Transparent;
             BackgroundColor2 = Color.Transparent;
-            GraphColor = Color.Red;
-            GraphColor2 = Color.Red;
-            GraphExtraColors = new List<Color>();
+            GraphColors = new List<Color>();
             MinimumValue = 0;
             MaximumValue = 1000;
             GraphWidth = 200;
@@ -196,8 +196,6 @@ namespace LiveSplit.MemoryGraph
 
             btnBackgroundColor1.DataBindings.Add("BackColor", this, "BackgroundColor", false, DataSourceUpdateMode.OnPropertyChanged);
             btnBackgroundColor2.DataBindings.Add("BackColor", this, "BackgroundColor2", false, DataSourceUpdateMode.OnPropertyChanged);
-            btnGraphColor1.DataBindings.Add("BackColor", this, "GraphColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            btnGraphColor2.DataBindings.Add("BackColor", this, "GraphColor2", false, DataSourceUpdateMode.OnPropertyChanged);
 
             txtMinimumValue.DataBindings.Add("Text", this, "MinimumValue", false, DataSourceUpdateMode.OnPropertyChanged);
             txtMaximumValue.DataBindings.Add("Text", this, "MaximumValue", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -287,8 +285,21 @@ namespace LiveSplit.MemoryGraph
 
             BackgroundColor = SettingsHelper.ParseColor(element["BackgroundColor"]);
             BackgroundColor2 = SettingsHelper.ParseColor(element["BackgroundColor2"]);
-            GraphColor = SettingsHelper.ParseColor(element["GraphColor"]);
-            GraphColor2 = SettingsHelper.ParseColor(element["GraphColor2"]);
+            GraphColors = new List<Color>();
+            var GraphColor = SettingsHelper.ParseColor(element["GraphColor"]);
+            if (GraphColor != Color.Red)
+            {
+                GraphColors.Add(GraphColor);
+            }
+            var GraphColor2 = SettingsHelper.ParseColor(element["GraphColor2"]);
+            if (GraphColor2 != Color.Red)
+            {
+                GraphColors.Add(GraphColor2);
+            }
+            if (element["GraphColors"] != null)
+            {
+                GraphColors.AddRange(element["GraphColors"].InnerText.Split(',').Select(x => Color.FromArgb(int.Parse(x, NumberStyles.HexNumber))));
+            }
             MinimumValue = SettingsHelper.ParseFloat(element["MinimumValue"]);
             MaximumValue = SettingsHelper.ParseFloat(element["MaximumValue"]);
             GraphWidth = SettingsHelper.ParseInt(element["GraphWidth"]);
@@ -368,8 +379,7 @@ namespace LiveSplit.MemoryGraph
             return SettingsHelper.CreateSetting(document, parent, "Version", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor", BackgroundColor) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor2", BackgroundColor2) ^
-            SettingsHelper.CreateSetting(document, parent, "GraphColor", GraphColor) ^
-            SettingsHelper.CreateSetting(document, parent, "GraphColor2", GraphColor2) ^
+            SettingsHelper.CreateSetting(document, parent, nameof(GraphColors), GraphColors) ^
             SettingsHelper.CreateSetting(document, parent, "MinimumValue", MinimumValue) ^
             SettingsHelper.CreateSetting(document, parent, "MaximumValue", MaximumValue) ^
             SettingsHelper.CreateSetting(document, parent, "GraphWidth", GraphWidth) ^

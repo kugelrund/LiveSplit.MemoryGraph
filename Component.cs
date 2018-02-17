@@ -229,7 +229,7 @@ namespace LiveSplit.MemoryGraph
                                      settings.ValueTextPosition == Position.Right);
 
             // calculate relative value between 0 and 1
-            float relativeValue = (currentValue - settings.MinimumValue) / settings.MaximumValue;
+            float relativeValue = (currentValue - settings.MinimumValue) / (settings.MaximumValue - settings.MinimumValue);
 
             // create brush
             switch (settings.GraphGradient)

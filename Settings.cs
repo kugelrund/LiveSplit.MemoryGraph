@@ -290,9 +290,9 @@ namespace LiveSplit.MemoryGraph
             var newButton = new Button
             {
                 FlatStyle = FlatStyle.Flat,
-                Location = new Point(btnAddColor.Location.X, 199),
-                Margin = new Padding(3, 2, 3, 2),
-                Size = new Size(24, 25),
+                Location = new Point(btnAddColor.Location.X, btnAddColor.Location.Y),
+                Margin = btnAddColor.Margin,
+                Size = btnAddColor.Size,
                 BackColor = GraphColors.Skip(GraphColorButtons.Count).FirstOrDefault(),
                 UseVisualStyleBackColor = false
             };

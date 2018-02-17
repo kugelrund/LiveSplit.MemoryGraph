@@ -306,6 +306,7 @@ namespace LiveSplit.MemoryGraph
 
             grpGraph.Controls.Add(newButton);
             GraphColorButtons.Add(newButton);
+            btnAddColor.Visible = !GraphColorButtons.Skip(12).Any();
             btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
 
             return newButton;
@@ -328,6 +329,7 @@ namespace LiveSplit.MemoryGraph
             {
                 GraphColors.RemoveAt(GraphColors.Count - 1);
             }
+            btnAddColor.Visible = !GraphColorButtons.Skip(12).Any();
             btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
         }
 
@@ -539,7 +541,7 @@ namespace LiveSplit.MemoryGraph
                         AddColorButton();
                     }
 
-                    btnAddColor.Visible = true;
+                    btnAddColor.Visible = !GraphColorButtons.Skip(12).Any();
                     btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
                     break;
             }

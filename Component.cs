@@ -308,35 +308,43 @@ namespace LiveSplit.MemoryGraph
             switch (settings.GraphGradient)
             {
                 case GraphGradientType.Plain:
-                    graphBrush = new SolidBrush(settings.GraphColor);
+                    graphBrush = new SolidBrush(settings.GraphColorsEnumeration.First());
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.Horizontal:
+                    var cb1 = new ColorBlend
+                    {
+                        Colors = settings.GraphColorsEnumeration.Reverse().ToArray()
+                    };
+                    var pos1 = 0;
+                    cb1.Positions = cb1.Colors.Select(x => pos1++ / (cb1.Colors.Length - 1f)).ToArray();
                     graphBrush = new LinearGradientBrush(graphRect,
-                                                         settings.GraphColor,
-                                                         settings.GraphColor2,
-                                                         LinearGradientMode.Horizontal);
+                                                         Color.Black,
+                                                         Color.Black,
+                                                         LinearGradientMode.Horizontal)
+                    {
+                        InterpolationColors = cb1
+                    };
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.Vertical:
-                    var cb = new ColorBlend
+                    var cb2 = new ColorBlend
                     {
-                        Colors = ((IEnumerable<Color>)(settings.GraphColors.Any() ? settings.GraphColors : new List<Color> { Settings.DefaultGraphColor })).Reverse().ToArray()
+                        Colors = settings.GraphColorsEnumeration.Reverse().ToArray()
                     };
-                    var pos = 0;
-                    cb.Positions = cb.Colors.Select(x => pos++ / (cb.Colors.Length - 1f)).ToArray();
+                    var pos2 = 0;
+                    cb2.Positions = cb2.Colors.Select(x => pos2++ / (cb2.Colors.Length - 1f)).ToArray();
                     graphBrush = new LinearGradientBrush(new Point(0, 0),
                                                          new Point(0, graphHeight),
                                                          Color.Black,
                                                          Color.Black)
                     {
-                        InterpolationColors = cb
+                        InterpolationColors = cb2
                     };
-
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.ByValue:
-                    graphBrush = new SolidBrush(Blend(settings.GraphColors.Any() ? settings.GraphColors : new List<Color> { Settings.DefaultGraphColor },
+                    graphBrush = new SolidBrush(Blend(settings.GraphColorsEnumeration,
                                                 relativeValue, settings.GraphSillyColors));
                     graphPen.Brush = graphBrush;
                     break;

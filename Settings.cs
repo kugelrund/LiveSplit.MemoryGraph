@@ -110,8 +110,7 @@ namespace LiveSplit.MemoryGraph
         public Color BackgroundColor2 { get; set; }
         public static Color DefaultGraphColor => Color.Red;
         public List<Color> GraphColors { get; set; } = new List<Color>();
-        public Color GraphColor => GraphColors.Any() ? GraphColors.First() : DefaultGraphColor;
-        public Color GraphColor2 => GraphColors.Skip(1).Any() ? GraphColors.Skip(1).First() : DefaultGraphColor;
+        public IEnumerable<Color> GraphColorsEnumeration => GraphColors.Any() ? GraphColors : new List<Color> { DefaultGraphColor };
 
         public float MinimumValue { get; set; }
         public float MaximumValue { get; set; }
@@ -297,7 +296,7 @@ namespace LiveSplit.MemoryGraph
                 UseVisualStyleBackColor = false
             };
             newButton.Click += new EventHandler(ColorButtonClick);
-            newButton.BackColorChanged += new EventHandler(BackColorChanged);
+            newButton.BackColorChanged += new EventHandler(BackColorChangedEvent);
 
             var delta = btnDeleteColor.Location.X - btnAddColor.Location.X;
             btnAddColor.Location = new Point(btnAddColor.Location.X + delta, btnAddColor.Location.Y);
@@ -330,7 +329,7 @@ namespace LiveSplit.MemoryGraph
             btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
         }
 
-        private void BackColorChanged(object sender, EventArgs e)
+        private void BackColorChangedEvent(object sender, EventArgs e)
         {
             GraphColors.Clear();
             GraphColors.AddRange(GraphColorButtons.Where(b => b.BackColor != default(Color)).Select(b => b.BackColor));
@@ -518,32 +517,27 @@ namespace LiveSplit.MemoryGraph
                 DeleteColorButton(false);
             }
             var ggt = (GraphGradientType)cmbGraphGradientType.SelectedValue;
-            switch (ggt) {
-                case GraphGradientType.Plain:
-                    btnAddColor.Visible = false;
-                    btnDeleteColor.Visible = false;
-
-                    AddColorButton();
-                    break;
-
+            switch (ggt)
+            {
                 default:
-                case GraphGradientType.Horizontal:
+                case GraphGradientType.Plain:
+                    AddColorButton();
+                    // TODO: Doesn't set the color right on first load!
+
                     btnAddColor.Visible = false;
                     btnDeleteColor.Visible = false;
-
-                    AddColorButton();
-                    AddColorButton();
                     break;
 
                 case GraphGradientType.Vertical:
+                case GraphGradientType.Horizontal:
                 case GraphGradientType.ByValue:
-                    btnAddColor.Visible = true;
-                    btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
-
                     foreach (var color in GraphColors)
                     {
                         AddColorButton();
                     }
+
+                    btnAddColor.Visible = true;
+                    btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
                     break;
             }
         }

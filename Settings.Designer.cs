@@ -203,7 +203,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // tbMeterToGameUnit
             // 
-            this.tbMeterToGameUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.tbMeterToGameUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMeterToGameUnit.Location = new System.Drawing.Point(181, 126);
             this.tbMeterToGameUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -224,7 +224,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(107, 129);
@@ -235,7 +235,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(217, 101);
@@ -246,7 +246,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // cmbUnitsUsed
             // 
-            this.cmbUnitsUsed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.cmbUnitsUsed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbUnitsUsed.FormattingEnabled = true;
             this.cmbUnitsUsed.Location = new System.Drawing.Point(267, 98);
@@ -270,7 +270,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // grpPointerPath
             // 
-            this.grpPointerPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.grpPointerPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpPointerPath.Controls.Add(this.L_Requires);
             this.grpPointerPath.Controls.Add(this.linkLabel_AdditionalFiles);
@@ -313,7 +313,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // ComboBox_ListOfGames
             // 
-            this.ComboBox_ListOfGames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.ComboBox_ListOfGames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBox_ListOfGames.FormattingEnabled = true;
             this.ComboBox_ListOfGames.Location = new System.Drawing.Point(84, 18);
@@ -346,7 +346,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // txtProcessName
             // 
-            this.txtProcessName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.txtProcessName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProcessName.Location = new System.Drawing.Point(132, 128);
             this.txtProcessName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -366,8 +366,8 @@ namespace LiveSplit.MemoryGraph
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -477,7 +477,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // grpGraph
             // 
-            this.grpGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.grpGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpGraph.Controls.Add(this.btnDeleteColor);
             this.grpGraph.Controls.Add(this.btnAddColor);
@@ -504,7 +504,7 @@ namespace LiveSplit.MemoryGraph
             // btnDeleteColor
             // 
             this.btnDeleteColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteColor.Location = new System.Drawing.Point(121, 199);
+            this.btnDeleteColor.Location = new System.Drawing.Point(164, 204);
             this.btnDeleteColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteColor.Name = "btnDeleteColor";
             this.btnDeleteColor.Size = new System.Drawing.Size(24, 25);
@@ -516,7 +516,7 @@ namespace LiveSplit.MemoryGraph
             // btnAddColor
             // 
             this.btnAddColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddColor.Location = new System.Drawing.Point(91, 199);
+            this.btnAddColor.Location = new System.Drawing.Point(134, 204);
             this.btnAddColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddColor.Name = "btnAddColor";
             this.btnAddColor.Size = new System.Drawing.Size(24, 25);
@@ -539,7 +539,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // cmbGraphGradientType
             // 
-            this.cmbGraphGradientType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cmbGraphGradientType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbGraphGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGraphGradientType.FormattingEnabled = true;
@@ -645,7 +645,7 @@ namespace LiveSplit.MemoryGraph
             this.cmbValueTextPosition.Location = new System.Drawing.Point(75, 21);
             this.cmbValueTextPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbValueTextPosition.Name = "cmbValueTextPosition";
-            this.cmbValueTextPosition.Size = new System.Drawing.Size(345, 21);
+            this.cmbValueTextPosition.Size = new System.Drawing.Size(244, 21);
             this.cmbValueTextPosition.TabIndex = 1;
             // 
             // lblValueTextPosition
@@ -659,7 +659,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // cmbGraphStyle
             // 
-            this.cmbGraphStyle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cmbGraphStyle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbGraphStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGraphStyle.FormattingEnabled = true;
@@ -671,7 +671,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel5.ColumnCount = 5;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
@@ -887,7 +887,7 @@ namespace LiveSplit.MemoryGraph
             // 
             // cmbBackgroundGradientType
             // 
-            this.cmbBackgroundGradientType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cmbBackgroundGradientType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbBackgroundGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBackgroundGradientType.FormattingEnabled = true;

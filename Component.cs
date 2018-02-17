@@ -225,9 +225,9 @@ namespace LiveSplit.MemoryGraph
             }
         }
 
-        private static Color Blend(IEnumerable<Color> colors, double amount, bool sillyColors)
+        private static Color Blend(IEnumerable<Color> colors, float amount, bool sillyColors)
         {
-            if (amount <= 0 || colors.Count() == 1)
+            if (float.IsNaN(amount) || amount <= 0 || colors.Count() == 1)
             {
                 return colors.First();
             }
@@ -249,11 +249,6 @@ namespace LiveSplit.MemoryGraph
 
             // Pick the highest index as the above value rounded up: [1, colors.Count() - 1]
             var index = (int)Math.Ceiling(floatingIndex);
-            if (index <= 0)
-            {
-                // TODO: This should be impossible.
-                return colors.First();
-            }
             var color1 = colors.Skip(index - 1).First();
             var color2 = colors.Skip(index).First();
 

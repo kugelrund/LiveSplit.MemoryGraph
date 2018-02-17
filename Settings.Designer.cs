@@ -77,9 +77,7 @@ namespace LiveSplit.MemoryGraph
             this.overrideControlValueText = new LiveSplit.MemoryGraph.TextStyleOverrideControl();
             this.cmbValueTextPosition = new System.Windows.Forms.ComboBox();
             this.lblValueTextPosition = new System.Windows.Forms.Label();
-            this.btnGraphColor2 = new System.Windows.Forms.Button();
             this.cmbGraphStyle = new System.Windows.Forms.ComboBox();
-            this.btnGraphColor1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMaximumValue = new System.Windows.Forms.Label();
             this.txtMaximumValue = new System.Windows.Forms.TextBox();
@@ -487,9 +485,7 @@ namespace LiveSplit.MemoryGraph
             this.grpGraph.Controls.Add(this.cmbGraphGradientType);
             this.grpGraph.Controls.Add(this.lblGraphStyle);
             this.grpGraph.Controls.Add(this.grpValueText);
-            this.grpGraph.Controls.Add(this.btnGraphColor2);
             this.grpGraph.Controls.Add(this.cmbGraphStyle);
-            this.grpGraph.Controls.Add(this.btnGraphColor1);
             this.grpGraph.Controls.Add(this.tableLayoutPanel5);
             this.grpGraph.Controls.Add(this.lblGraphColor);
             this.grpGraph.Controls.Add(this.lblBackgroundColor);
@@ -508,7 +504,7 @@ namespace LiveSplit.MemoryGraph
             // btnDeleteColor
             // 
             this.btnDeleteColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteColor.Location = new System.Drawing.Point(181, 199);
+            this.btnDeleteColor.Location = new System.Drawing.Point(121, 199);
             this.btnDeleteColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteColor.Name = "btnDeleteColor";
             this.btnDeleteColor.Size = new System.Drawing.Size(24, 25);
@@ -520,7 +516,7 @@ namespace LiveSplit.MemoryGraph
             // btnAddColor
             // 
             this.btnAddColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddColor.Location = new System.Drawing.Point(151, 199);
+            this.btnAddColor.Location = new System.Drawing.Point(91, 199);
             this.btnAddColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddColor.Name = "btnAddColor";
             this.btnAddColor.Size = new System.Drawing.Size(24, 25);
@@ -661,17 +657,6 @@ namespace LiveSplit.MemoryGraph
             this.lblValueTextPosition.TabIndex = 0;
             this.lblValueTextPosition.Text = "Position:";
             // 
-            // btnGraphColor2
-            // 
-            this.btnGraphColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraphColor2.Location = new System.Drawing.Point(121, 199);
-            this.btnGraphColor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGraphColor2.Name = "btnGraphColor2";
-            this.btnGraphColor2.Size = new System.Drawing.Size(24, 25);
-            this.btnGraphColor2.TabIndex = 5;
-            this.btnGraphColor2.UseVisualStyleBackColor = false;
-            this.btnGraphColor2.Click += new System.EventHandler(this.ColorButtonClick);
-            // 
             // cmbGraphStyle
             // 
             this.cmbGraphStyle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -683,17 +668,6 @@ namespace LiveSplit.MemoryGraph
             this.cmbGraphStyle.Name = "cmbGraphStyle";
             this.cmbGraphStyle.Size = new System.Drawing.Size(477, 21);
             this.cmbGraphStyle.TabIndex = 6;
-            // 
-            // btnGraphColor1
-            // 
-            this.btnGraphColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraphColor1.Location = new System.Drawing.Point(91, 199);
-            this.btnGraphColor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGraphColor1.Name = "btnGraphColor1";
-            this.btnGraphColor1.Size = new System.Drawing.Size(24, 25);
-            this.btnGraphColor1.TabIndex = 6;
-            this.btnGraphColor1.UseVisualStyleBackColor = false;
-            this.btnGraphColor1.Click += new System.EventHandler(this.ColorButtonClick);
             // 
             // tableLayoutPanel5
             // 
@@ -1075,8 +1049,6 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ComboBox_ListOfGames;
         private System.Windows.Forms.Label lblGraphColor;
-        private System.Windows.Forms.Button btnGraphColor1;
-        private System.Windows.Forms.Button btnGraphColor2;
         private System.Windows.Forms.ComboBox cmbGraphGradientType;
         private System.Windows.Forms.Label lblBackgroundColor;
         private System.Windows.Forms.ComboBox cmbBackgroundGradientType;

@@ -109,7 +109,7 @@ namespace LiveSplit.MemoryGraph
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }
         public static Color DefaultGraphColor => Color.Red;
-        public List<Color> GraphColors { get; set; }
+        public List<Color> GraphColors { get; set; } = new List<Color>();
         public Color GraphColor => GraphColors.Any() ? GraphColors.First() : DefaultGraphColor;
         public Color GraphColor2 => GraphColors.Skip(1).Any() ? GraphColors.Skip(1).First() : DefaultGraphColor;
 
@@ -169,7 +169,6 @@ namespace LiveSplit.MemoryGraph
 
             BackgroundColor = Color.Transparent;
             BackgroundColor2 = Color.Transparent;
-            GraphColors = new List<Color>();
             MinimumValue = 0;
             MaximumValue = 1000;
             GraphWidth = 200;
@@ -283,42 +282,58 @@ namespace LiveSplit.MemoryGraph
 
         private void btnAddColor_Click(object sender, EventArgs e)
         {
-            int x;
-            if (GraphColorButtons.Skip(1).Any())
-            {
-                x = 2 * GraphColorButtons.Last().Location.X - ((IEnumerable<Button>)GraphColorButtons).Reverse().Skip(1).First().Location.X;
-            }
-            else if (GraphColorButtons.Any())
-            {
-                x = 2 * GraphColorButtons.First().Location.X - btnGraphColor2.Location.X;
-            }
-            else
-            {
-                x = 2 * btnGraphColor2.Location.X - btnGraphColor1.Location.X;
-            }
+            SettingsHelper.ColorButtonClick(AddColorButton(), this);
+        }
 
+        private Button AddColorButton()
+        {
             var newButton = new Button
             {
                 FlatStyle = FlatStyle.Flat,
-                Location = new Point(x, 199),
+                Location = new Point(btnAddColor.Location.X, 199),
                 Margin = new Padding(3, 2, 3, 2),
                 Size = new Size(24, 25),
+                BackColor = GraphColors.Skip(GraphColorButtons.Count).FirstOrDefault(),
                 UseVisualStyleBackColor = false
             };
             newButton.Click += new EventHandler(ColorButtonClick);
+            newButton.BackColorChanged += new EventHandler(BackColorChanged);
 
-            GraphColorButtons.Add(newButton);
+            var delta = btnDeleteColor.Location.X - btnAddColor.Location.X;
+            btnAddColor.Location = new Point(btnAddColor.Location.X + delta, btnAddColor.Location.Y);
+            btnDeleteColor.Location = new Point(btnDeleteColor.Location.X + delta, btnDeleteColor.Location.Y);
+
             grpGraph.Controls.Add(newButton);
+            GraphColorButtons.Add(newButton);
             btnDeleteColor.Visible = true;
 
-            SettingsHelper.ColorButtonClick(newButton, this);
+            return newButton;
         }
 
         private void btnDeleteColor_Click(object sender, EventArgs e)
         {
+            DeleteColorButton(true);
+        }
+
+        private void DeleteColorButton(bool fromButton)
+        {
+            var delta = btnDeleteColor.Location.X - btnAddColor.Location.X;
+            btnAddColor.Location = new Point(btnAddColor.Location.X - delta, btnAddColor.Location.Y);
+            btnDeleteColor.Location = new Point(btnDeleteColor.Location.X - delta, btnDeleteColor.Location.Y);
+
             grpGraph.Controls.Remove(GraphColorButtons.Last());
             GraphColorButtons.RemoveAt(GraphColorButtons.Count - 1);
-            btnDeleteColor.Visible = GraphColorButtons.Any();
+            if (fromButton)
+            {
+                GraphColors.RemoveAt(GraphColors.Count - 1);
+            }
+            btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
+        }
+
+        private void BackColorChanged(object sender, EventArgs e)
+        {
+            GraphColors.Clear();
+            GraphColors.AddRange(GraphColorButtons.Where(b => b.BackColor != default(Color)).Select(b => b.BackColor));
         }
 
         public void SetSettings(System.Xml.XmlNode node)
@@ -327,14 +342,14 @@ namespace LiveSplit.MemoryGraph
 
             BackgroundColor = SettingsHelper.ParseColor(element["BackgroundColor"]);
             BackgroundColor2 = SettingsHelper.ParseColor(element["BackgroundColor2"]);
-            GraphColors = new List<Color>();
+            GraphColors.Clear();
             var GraphColor = SettingsHelper.ParseColor(element["GraphColor"]);
-            if (GraphColor != Color.Red)
+            if (GraphColor != default(Color))
             {
                 GraphColors.Add(GraphColor);
             }
             var GraphColor2 = SettingsHelper.ParseColor(element["GraphColor2"]);
-            if (GraphColor2 != Color.Red)
+            if (GraphColor2 != default(Color))
             {
                 GraphColors.Add(GraphColor2);
             }
@@ -416,12 +431,23 @@ namespace LiveSplit.MemoryGraph
             return CreateSettingsNode(null, null);
         }
 
+        public static int CreateSetting(XmlDocument document, XmlElement parent, string name, IEnumerable<Color> colors)
+        {
+            if (document != null)
+            {
+                var element = document.CreateElement(name);
+                element.InnerText = String.Join(",", colors.Select(c => c.ToArgb().ToString("X8")));
+                parent.AppendChild(element);
+            }
+            return colors.GetHashCode();
+        }
+
         private int CreateSettingsNode(System.Xml.XmlDocument document, System.Xml.XmlElement parent)
         {
             return SettingsHelper.CreateSetting(document, parent, "Version", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor", BackgroundColor) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor2", BackgroundColor2) ^
-            SettingsHelper.CreateSetting(document, parent, nameof(GraphColors), GraphColors) ^
+            CreateSetting(document, parent, nameof(GraphColors), GraphColors) ^
             SettingsHelper.CreateSetting(document, parent, "MinimumValue", MinimumValue) ^
             SettingsHelper.CreateSetting(document, parent, "MaximumValue", MaximumValue) ^
             SettingsHelper.CreateSetting(document, parent, "GraphWidth", GraphWidth) ^
@@ -485,10 +511,31 @@ namespace LiveSplit.MemoryGraph
                 return;
             }
 
+            while (GraphColorButtons.Any())
+            {
+                DeleteColorButton(false);
+            }
             var ggt = (GraphGradientType)cmbGraphGradientType.SelectedValue;
-            btnGraphColor2.Visible = ggt != GraphGradientType.Plain;
+            switch (ggt) {
+                case GraphGradientType.Plain:
+                    AddColorButton();
+                    break;
+
+                case GraphGradientType.ByValue:
+                    foreach (var color in GraphColors)
+                    {
+                        AddColorButton();
+                    }
+                    break;
+
+                default:
+                    AddColorButton();
+                    AddColorButton();
+                    break;
+            }
+
             btnAddColor.Visible = ggt == GraphGradientType.ByValue;
-            btnDeleteColor.Visible = ggt == GraphGradientType.ByValue && GraphColorButtons.Any();
+            btnDeleteColor.Visible = ggt == GraphGradientType.ByValue && GraphColorButtons.Skip(2).Any();
         }
 
         private void txtBase_Validating(object sender, CancelEventArgs e)

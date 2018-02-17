@@ -520,26 +520,32 @@ namespace LiveSplit.MemoryGraph
             var ggt = (GraphGradientType)cmbGraphGradientType.SelectedValue;
             switch (ggt) {
                 case GraphGradientType.Plain:
+                    btnAddColor.Visible = false;
+                    btnDeleteColor.Visible = false;
+
                     AddColorButton();
                     break;
 
                 default:
-                case GraphGradientType.Vertical:
                 case GraphGradientType.Horizontal:
+                    btnAddColor.Visible = false;
+                    btnDeleteColor.Visible = false;
+
                     AddColorButton();
                     AddColorButton();
                     break;
 
+                case GraphGradientType.Vertical:
                 case GraphGradientType.ByValue:
+                    btnAddColor.Visible = true;
+                    btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
+
                     foreach (var color in GraphColors)
                     {
                         AddColorButton();
                     }
                     break;
             }
-
-            btnAddColor.Visible = ggt == GraphGradientType.ByValue;
-            btnDeleteColor.Visible = ggt == GraphGradientType.ByValue && GraphColorButtons.Skip(2).Any();
         }
 
         private void txtBase_Validating(object sender, CancelEventArgs e)

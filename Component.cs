@@ -319,10 +319,20 @@ namespace LiveSplit.MemoryGraph
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.Vertical:
+                    var cb = new ColorBlend
+                    {
+                        Colors = ((IEnumerable<Color>)(settings.GraphColors.Any() ? settings.GraphColors : new List<Color> { Settings.DefaultGraphColor })).Reverse().ToArray()
+                    };
+                    var pos = 0;
+                    cb.Positions = cb.Colors.Select(x => pos++ / (cb.Colors.Length - 1f)).ToArray();
                     graphBrush = new LinearGradientBrush(new Point(0, 0),
                                                          new Point(0, graphHeight),
-                                                         settings.GraphColor2,
-                                                         settings.GraphColor);
+                                                         Color.Black,
+                                                         Color.Black)
+                    {
+                        InterpolationColors = cb
+                    };
+
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.ByValue:

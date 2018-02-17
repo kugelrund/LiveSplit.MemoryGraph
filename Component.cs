@@ -129,7 +129,51 @@ namespace LiveSplit.MemoryGraph
         private float avaragedValue;                                    //For smoothing out
         private float[] fake_particles;
 
-        private float currentValue;
+        private Queue<float> pastValues { get; } = new Queue<float>();
+        private float? _localMax = 0;
+        private float LocalMax => _localMax ?? (_localMax = pastValues.Max()).Value;
+        private float _currentValue;
+        private float currentValue
+        {
+            get => _currentValue;
+            set
+            {
+                if (settings.LocalMax)
+                {
+                    pastValues.Enqueue(value);
+
+                    if (!_localMax.HasValue || value == _localMax)
+                    {
+                        while (pastValues.Count > graphWidth)
+                        {
+                            pastValues.Dequeue();
+                        }
+                    }
+                    else if (value > _localMax)
+                    {
+                        _localMax = value;
+
+                        while (pastValues.Count > graphWidth)
+                        {
+                            pastValues.Dequeue();
+                        }
+                    }
+                    else
+                    {
+                        while (pastValues.Count > graphWidth)
+                        {
+                            // Don't bother recalculating the Max() until it looks like we've dequeued the Max value().
+                            if (pastValues.Dequeue() == _localMax)
+                            {
+                                _localMax = null;
+                            }
+                        }
+                    }
+                }
+
+                _currentValue = value;
+            }
+        }
         private float currentValueX;
         private float currentValueY;
         private float currentValueZ;
@@ -493,15 +537,24 @@ namespace LiveSplit.MemoryGraph
                 RectangleF rect = valueNextToGraph ? g.ClipBounds : graphRect;
                 rect.X += 5;
                 rect.Width -= 10;
-                if(!settings.UnitsConversionEnabled)
+                string str;
+                if (!settings.UnitsConversionEnabled)
                 {
-                    g.DrawString(currentValue.ToString("n" + settings.ValueTextDecimals), font, brush, rect, valueTextFormat);
+                    str = currentValue.ToString("n" + settings.ValueTextDecimals);
+                    if (settings.LocalMax)
+                    {
+                        str += " (" + LocalMax.ToString("n" + settings.ValueTextDecimals) + ")";
+                    }
                 }
                 else
                 {
-                    g.DrawString(convertUnits(currentValue, settings.ValueTextDecimals), font, brush, rect, valueTextFormat);
+                    str = convertUnits(currentValue, settings.ValueTextDecimals);
+                    if (settings.LocalMax)
+                    {
+                        str += " (" + convertUnits(LocalMax, settings.ValueTextDecimals) + ")";
+                    }
                 }
-
+                g.DrawString(str, font, brush, rect, valueTextFormat);
             }
         }
 

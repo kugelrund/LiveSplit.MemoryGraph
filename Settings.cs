@@ -123,6 +123,7 @@ namespace LiveSplit.MemoryGraph
         public bool GraphSillyColors { get; set; }
         public Position ValueTextPosition { get; set; }
         public Position DescriptiveTextPosition { get; set; }
+        public bool LocalMax { get; set; }
         public MemoryType ValueType { get; set; }
         public bool UnitsConversionEnabled { get; set; }
         public Units UnitsUsed { get; set; }
@@ -179,6 +180,7 @@ namespace LiveSplit.MemoryGraph
             GraphSillyColors = true;
             ValueTextPosition = Position.LeftInGraph;
             DescriptiveTextPosition = Position.Left;
+            LocalMax = false;
             UnitsConversionEnabled = false;
             UnitsUsed = Units.None;
             MeterInGameUnits = 1.0f;
@@ -214,6 +216,7 @@ namespace LiveSplit.MemoryGraph
             tbMeterToGameUnit.DataBindings.Add("Text", this, "MeterInGameUnits", true, DataSourceUpdateMode.OnPropertyChanged, null, "f");
 
             cmbDescriptiveTextPosition.DataBindings.Add("SelectedValue", this, "DescriptiveTextPosition", false, DataSourceUpdateMode.OnPropertyChanged);
+            localMaxCB.DataBindings.Add("Checked", this, "LocalMax", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbType.DataBindings.Add("SelectedValue", this, "ValueType", false, DataSourceUpdateMode.OnPropertyChanged);
 
             txtProcessName.DataBindings.Add("Text", this, "ProcessName");
@@ -296,6 +299,7 @@ namespace LiveSplit.MemoryGraph
             GraphSillyColors = SettingsHelper.ParseBool(element["GraphSillyColors"]);
             ValueTextPosition = SettingsHelper.ParseEnum<Position>(element["ValueTextPosition"]);
             DescriptiveTextPosition = SettingsHelper.ParseEnum<Position>(element["DescriptiveTextPosition"]);
+            LocalMax = SettingsHelper.ParseBool(element["LocalMax"]);
             ProcessName = SettingsHelper.ParseString(element["ProcessName"]);
             DescriptiveText = SettingsHelper.ParseString(element["DescriptiveText"]);
 
@@ -376,6 +380,7 @@ namespace LiveSplit.MemoryGraph
             SettingsHelper.CreateSetting(document, parent, "GraphSillyColors", GraphSillyColors) ^
             SettingsHelper.CreateSetting(document, parent, "ValueTextPosition", ValueTextPosition) ^
             SettingsHelper.CreateSetting(document, parent, "DescriptiveTextPosition", DescriptiveTextPosition) ^
+            SettingsHelper.CreateSetting(document, parent, "LocalMax", LocalMax) ^
             SettingsHelper.CreateSetting(document, parent, "ProcessName", ProcessName) ^
             SettingsHelper.CreateSetting(document, parent, "DescriptiveText", DescriptiveText) ^
 
@@ -675,6 +680,12 @@ namespace LiveSplit.MemoryGraph
         {
             //Displays tooltip
             toolTip.Show("This options allows the multiplier to exceed '1.0', meaning that if using color grading, the maximum color can be brighter than specified.", colorsCBSillyColors);
+        }
+
+        private void localMaxCB_MouseHover(object sender, EventArgs e)
+        {
+            // Displays tooltip
+            toolTip.Show("Shows the largest value which is visible on the graph.", localMaxCB);
         }
     }
 }

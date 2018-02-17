@@ -68,7 +68,7 @@ namespace LiveSplit.MemoryGraph
         [Description("By Value")]
         ByValue
     }
-    
+
     enum Position
     {
         [Description("None")]
@@ -108,9 +108,11 @@ namespace LiveSplit.MemoryGraph
 
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }
-        public static Color DefaultGraphColor => Color.Red;
         public List<Color> GraphColors { get; set; } = new List<Color>();
-        public IEnumerable<Color> GraphColorsEnumeration => GraphColors.Any() ? GraphColors : new List<Color> { DefaultGraphColor };
+        /// <summary>
+        /// Yields the GraphColors. If there are no GraphColors, yields Color.Red.
+        /// </summary>
+        public IEnumerable<Color> GraphColorsEnumeration => GraphColors.Any() ? GraphColors : new List<Color> { Color.Red };
 
         public float MinimumValue { get; set; }
         public float MaximumValue { get; set; }
@@ -118,7 +120,7 @@ namespace LiveSplit.MemoryGraph
         public int GraphHeight { get; set; }
         public int HorizontalMargins { get; set; }
         public int VerticalMargins { get; set; }
-        
+
         public GraphStyle GraphStyle { get; set; }
         public GradientType BackgroundGradient { get; set; }
         public GraphGradientType GraphGradient { get; set; }
@@ -202,7 +204,7 @@ namespace LiveSplit.MemoryGraph
             numHorizontalMargins.DataBindings.Add("Value", this, "HorizontalMargins", false, DataSourceUpdateMode.OnPropertyChanged);
             numVerticalMargins.DataBindings.Add("Value", this, "VerticalMargins", false, DataSourceUpdateMode.OnPropertyChanged);
             numValueTextDecimals.DataBindings.Add("Value", this, "ValueTextDecimals", false, DataSourceUpdateMode.OnPropertyChanged);
-            
+
             cmbGraphStyle.DataBindings.Add("SelectedValue", this, "GraphStyle", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbBackgroundGradientType.DataBindings.Add("SelectedValue", this, "BackgroundGradient", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbGraphGradientType.DataBindings.Add("SelectedValue", this, "GraphGradient", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -277,7 +279,7 @@ namespace LiveSplit.MemoryGraph
             SettingsHelper.ColorButtonClick((Button)sender, this);
         }
 
-        private List<Button> GraphColorButtons = new List<Button>(); 
+        private List<Button> GraphColorButtons = new List<Button>();
 
         private void btnAddColor_Click(object sender, EventArgs e)
         {
@@ -304,7 +306,7 @@ namespace LiveSplit.MemoryGraph
 
             grpGraph.Controls.Add(newButton);
             GraphColorButtons.Add(newButton);
-            btnDeleteColor.Visible = true;
+            btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
 
             return newButton;
         }
@@ -332,12 +334,12 @@ namespace LiveSplit.MemoryGraph
         private void BackColorChangedEvent(object sender, EventArgs e)
         {
             GraphColors.Clear();
-            GraphColors.AddRange(GraphColorButtons.Where(b => b.BackColor != default(Color)).Select(b => b.BackColor));
+            GraphColors.AddRange(GraphColorButtons.Select(b => b.BackColor));
         }
 
         public void SetSettings(System.Xml.XmlNode node)
         {
-            System.Xml.XmlElement element = (System.Xml.XmlElement) node;
+            System.Xml.XmlElement element = (System.Xml.XmlElement)node;
 
             BackgroundColor = SettingsHelper.ParseColor(element["BackgroundColor"]);
             BackgroundColor2 = SettingsHelper.ParseColor(element["BackgroundColor2"]);
@@ -354,10 +356,12 @@ namespace LiveSplit.MemoryGraph
                 GraphColors.Add(GraphColor2);
             }
             // Regular parsing of GraphColors. We can't use a default Parser since it's a list and needs to be comma seperated.
-            if (element["GraphColors"] != null)
+            if (element[nameof(GraphColors)] != null)
             {
-                GraphColors.AddRange(element["GraphColors"].InnerText.Split(',').Select(x => Color.FromArgb(int.Parse(x, NumberStyles.HexNumber))));
+                GraphColors.AddRange(element[nameof(GraphColors)].InnerText.Split(',').Select(x => Color.FromArgb(int.Parse(x, NumberStyles.HexNumber))));
             }
+            // The trigger that occurs when GraphGradientType is Plain fires too early. Redo it!
+            cmbGraphGradientType_SelectedValueChanged(null, null);
             MinimumValue = SettingsHelper.ParseFloat(element["MinimumValue"]);
             MaximumValue = SettingsHelper.ParseFloat(element["MaximumValue"]);
             GraphWidth = SettingsHelper.ParseInt(element["GraphWidth"]);
@@ -492,7 +496,7 @@ namespace LiveSplit.MemoryGraph
                 return;
             }
 
-            btnBackgroundColor1.Visible = ((GradientType) cmbBackgroundGradientType.SelectedValue != GradientType.Plain);
+            btnBackgroundColor1.Visible = ((GradientType)cmbBackgroundGradientType.SelectedValue != GradientType.Plain);
             btnBackgroundColor2.DataBindings.Clear();
             btnBackgroundColor2.DataBindings.Add("BackColor", this, btnBackgroundColor1.Visible ? "BackgroundColor2" : "BackgroundColor", false, DataSourceUpdateMode.OnPropertyChanged);
         }
@@ -522,7 +526,6 @@ namespace LiveSplit.MemoryGraph
                 default:
                 case GraphGradientType.Plain:
                     AddColorButton();
-                    // TODO: Doesn't set the color right on first load!
 
                     btnAddColor.Visible = false;
                     btnDeleteColor.Visible = false;
@@ -685,7 +688,7 @@ namespace LiveSplit.MemoryGraph
         {
             if (docNode.SelectSingleNode(nodeName) != null)
             {
-                return docNode.SelectSingleNode(nodeName).InnerText; 
+                return docNode.SelectSingleNode(nodeName).InnerText;
             }
             else
                 return "";
@@ -693,7 +696,7 @@ namespace LiveSplit.MemoryGraph
 
         private int GetSafeTypeFromXML(XmlNode docNode, string nodeName)
         {
-            if(docNode.SelectSingleNode(nodeName) != null)
+            if (docNode.SelectSingleNode(nodeName) != null)
             {
                 string typeTemp = docNode.SelectSingleNode(nodeName).InnerText.ToLower();
                 if (typeTemp == "float")

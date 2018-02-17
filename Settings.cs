@@ -277,7 +277,49 @@ namespace LiveSplit.MemoryGraph
         private void ColorButtonClick(object sender, EventArgs e)
         {
             SettingsHelper.ColorButtonClick((Button)sender, this);
-        }        
+        }
+
+        private List<Button> GraphColorButtons = new List<Button>(); 
+
+        private void btnAddColor_Click(object sender, EventArgs e)
+        {
+            int x;
+            if (GraphColorButtons.Skip(1).Any())
+            {
+                x = 2 * GraphColorButtons.Last().Location.X - ((IEnumerable<Button>)GraphColorButtons).Reverse().Skip(1).First().Location.X;
+            }
+            else if (GraphColorButtons.Any())
+            {
+                x = 2 * GraphColorButtons.First().Location.X - btnGraphColor2.Location.X;
+            }
+            else
+            {
+                x = 2 * btnGraphColor2.Location.X - btnGraphColor1.Location.X;
+            }
+
+            var newButton = new Button
+            {
+                FlatStyle = FlatStyle.Flat,
+                Location = new Point(x, 199),
+                Margin = new Padding(3, 2, 3, 2),
+                Size = new Size(24, 25),
+                UseVisualStyleBackColor = false
+            };
+            newButton.Click += new EventHandler(ColorButtonClick);
+
+            GraphColorButtons.Add(newButton);
+            grpGraph.Controls.Add(newButton);
+            btnDeleteColor.Visible = true;
+
+            SettingsHelper.ColorButtonClick(newButton, this);
+        }
+
+        private void btnDeleteColor_Click(object sender, EventArgs e)
+        {
+            grpGraph.Controls.Remove(GraphColorButtons.Last());
+            GraphColorButtons.RemoveAt(GraphColorButtons.Count - 1);
+            btnDeleteColor.Visible = GraphColorButtons.Any();
+        }
 
         public void SetSettings(System.Xml.XmlNode node)
         {
@@ -443,9 +485,10 @@ namespace LiveSplit.MemoryGraph
                 return;
             }
 
-            btnGraphColor1.Visible = ((GraphGradientType) cmbGraphGradientType.SelectedValue != GraphGradientType.Plain);
-            btnGraphColor2.DataBindings.Clear();
-            btnGraphColor2.DataBindings.Add("BackColor", this, btnGraphColor1.Visible ? "GraphColor2" : "GraphColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            var ggt = (GraphGradientType)cmbGraphGradientType.SelectedValue;
+            btnGraphColor2.Visible = ggt != GraphGradientType.Plain;
+            btnAddColor.Visible = ggt == GraphGradientType.ByValue;
+            btnDeleteColor.Visible = ggt == GraphGradientType.ByValue && GraphColorButtons.Any();
         }
 
         private void txtBase_Validating(object sender, CancelEventArgs e)

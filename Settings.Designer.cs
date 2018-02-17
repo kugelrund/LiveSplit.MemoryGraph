@@ -65,6 +65,8 @@ namespace LiveSplit.MemoryGraph
             this.lblType = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.grpGraph = new System.Windows.Forms.GroupBox();
+            this.btnDeleteColor = new System.Windows.Forms.Button();
+            this.btnAddColor = new System.Windows.Forms.Button();
             this.colorsCBSillyColors = new System.Windows.Forms.CheckBox();
             this.cmbGraphGradientType = new System.Windows.Forms.ComboBox();
             this.lblGraphStyle = new System.Windows.Forms.Label();
@@ -165,7 +167,7 @@ namespace LiveSplit.MemoryGraph
             this.txtDescriptiveText.Location = new System.Drawing.Point(3, 2);
             this.txtDescriptiveText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescriptiveText.Name = "txtDescriptiveText";
-            this.txtDescriptiveText.Size = new System.Drawing.Size(280, 22);
+            this.txtDescriptiveText.Size = new System.Drawing.Size(280, 20);
             this.txtDescriptiveText.TabIndex = 2;
             // 
             // lblDescriptiveTextPosition
@@ -188,7 +190,7 @@ namespace LiveSplit.MemoryGraph
             this.cmbDescriptiveTextPosition.Location = new System.Drawing.Point(382, 2);
             this.cmbDescriptiveTextPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbDescriptiveTextPosition.Name = "cmbDescriptiveTextPosition";
-            this.cmbDescriptiveTextPosition.Size = new System.Drawing.Size(186, 24);
+            this.cmbDescriptiveTextPosition.Size = new System.Drawing.Size(186, 21);
             this.cmbDescriptiveTextPosition.TabIndex = 1;
             // 
             // label5
@@ -197,7 +199,7 @@ namespace LiveSplit.MemoryGraph
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(465, 129);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 17);
+            this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "game units (u)";
             // 
@@ -208,7 +210,7 @@ namespace LiveSplit.MemoryGraph
             this.tbMeterToGameUnit.Location = new System.Drawing.Point(181, 126);
             this.tbMeterToGameUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMeterToGameUnit.Name = "tbMeterToGameUnit";
-            this.tbMeterToGameUnit.Size = new System.Drawing.Size(277, 22);
+            this.tbMeterToGameUnit.Size = new System.Drawing.Size(277, 20);
             this.tbMeterToGameUnit.TabIndex = 2;
             // 
             // label4
@@ -218,7 +220,7 @@ namespace LiveSplit.MemoryGraph
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.Location = new System.Drawing.Point(5, 128);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 17);
+            this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Conversion:";
             // 
@@ -229,7 +231,7 @@ namespace LiveSplit.MemoryGraph
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(107, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 17);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "1 meter is";
             // 
@@ -240,7 +242,7 @@ namespace LiveSplit.MemoryGraph
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(217, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 17);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Units:";
             // 
@@ -252,7 +254,7 @@ namespace LiveSplit.MemoryGraph
             this.cmbUnitsUsed.Location = new System.Drawing.Point(267, 98);
             this.cmbUnitsUsed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbUnitsUsed.Name = "cmbUnitsUsed";
-            this.cmbUnitsUsed.Size = new System.Drawing.Size(297, 24);
+            this.cmbUnitsUsed.Size = new System.Drawing.Size(297, 21);
             this.cmbUnitsUsed.TabIndex = 1;
             this.cmbUnitsUsed.SelectedIndexChanged += new System.EventHandler(this.cmbUnitsUsed_SelectedIndexChanged);
             // 
@@ -260,10 +262,10 @@ namespace LiveSplit.MemoryGraph
             // 
             this.unitConversionCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.unitConversionCB.AutoSize = true;
-            this.unitConversionCB.Location = new System.Drawing.Point(5, 100);
+            this.unitConversionCB.Location = new System.Drawing.Point(5, 104);
             this.unitConversionCB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.unitConversionCB.Name = "unitConversionCB";
-            this.unitConversionCB.Size = new System.Drawing.Size(178, 21);
+            this.unitConversionCB.Size = new System.Drawing.Size(137, 17);
             this.unitConversionCB.TabIndex = 0;
             this.unitConversionCB.Text = "Enable Unit Conversion";
             this.unitConversionCB.UseVisualStyleBackColor = true;
@@ -294,7 +296,7 @@ namespace LiveSplit.MemoryGraph
             this.L_Requires.AutoSize = true;
             this.L_Requires.Location = new System.Drawing.Point(5, 46);
             this.L_Requires.Name = "L_Requires";
-            this.L_Requires.Size = new System.Drawing.Size(69, 17);
+            this.L_Requires.Size = new System.Drawing.Size(52, 13);
             this.L_Requires.TabIndex = 11;
             this.L_Requires.Text = "Requires:";
             // 
@@ -304,7 +306,7 @@ namespace LiveSplit.MemoryGraph
             this.linkLabel_AdditionalFiles.LinkArea = new System.Windows.Forms.LinkArea(0, 10);
             this.linkLabel_AdditionalFiles.Location = new System.Drawing.Point(81, 46);
             this.linkLabel_AdditionalFiles.Name = "linkLabel_AdditionalFiles";
-            this.linkLabel_AdditionalFiles.Size = new System.Drawing.Size(72, 17);
+            this.linkLabel_AdditionalFiles.Size = new System.Drawing.Size(55, 13);
             this.linkLabel_AdditionalFiles.TabIndex = 10;
             this.linkLabel_AdditionalFiles.TabStop = true;
             this.linkLabel_AdditionalFiles.Text = "linkLabel1";
@@ -319,7 +321,7 @@ namespace LiveSplit.MemoryGraph
             this.ComboBox_ListOfGames.Location = new System.Drawing.Point(84, 18);
             this.ComboBox_ListOfGames.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBox_ListOfGames.Name = "ComboBox_ListOfGames";
-            this.ComboBox_ListOfGames.Size = new System.Drawing.Size(345, 24);
+            this.ComboBox_ListOfGames.Size = new System.Drawing.Size(345, 21);
             this.ComboBox_ListOfGames.TabIndex = 9;
             this.ComboBox_ListOfGames.SelectedIndexChanged += new System.EventHandler(this.ComboBox_ListOfGames_SelectedIndexChanged);
             // 
@@ -340,7 +342,7 @@ namespace LiveSplit.MemoryGraph
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(5, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Game:";
             // 
@@ -351,7 +353,7 @@ namespace LiveSplit.MemoryGraph
             this.txtProcessName.Location = new System.Drawing.Point(132, 128);
             this.txtProcessName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProcessName.Name = "txtProcessName";
-            this.txtProcessName.Size = new System.Drawing.Size(444, 22);
+            this.txtProcessName.Size = new System.Drawing.Size(444, 20);
             this.txtProcessName.TabIndex = 5;
             // 
             // lblProcessName
@@ -360,7 +362,7 @@ namespace LiveSplit.MemoryGraph
             this.lblProcessName.AutoSize = true;
             this.lblProcessName.Location = new System.Drawing.Point(5, 130);
             this.lblProcessName.Name = "lblProcessName";
-            this.lblProcessName.Size = new System.Drawing.Size(120, 17);
+            this.lblProcessName.Size = new System.Drawing.Size(91, 13);
             this.lblProcessName.TabIndex = 4;
             this.lblProcessName.Text = "Name of Process:";
             // 
@@ -408,7 +410,7 @@ namespace LiveSplit.MemoryGraph
             this.txtOffsets.Location = new System.Drawing.Point(227, 26);
             this.txtOffsets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOffsets.Name = "txtOffsets";
-            this.txtOffsets.Size = new System.Drawing.Size(218, 22);
+            this.txtOffsets.Size = new System.Drawing.Size(218, 20);
             this.txtOffsets.TabIndex = 1;
             this.txtOffsets.Validating += new System.ComponentModel.CancelEventHandler(this.txtOffsets_Validating);
             // 
@@ -418,7 +420,7 @@ namespace LiveSplit.MemoryGraph
             this.txtBase.Location = new System.Drawing.Point(115, 26);
             this.txtBase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBase.Name = "txtBase";
-            this.txtBase.Size = new System.Drawing.Size(106, 22);
+            this.txtBase.Size = new System.Drawing.Size(106, 20);
             this.txtBase.TabIndex = 1;
             this.txtBase.Validating += new System.ComponentModel.CancelEventHandler(this.txtBase_Validating);
             // 
@@ -428,7 +430,7 @@ namespace LiveSplit.MemoryGraph
             this.txtModule.Location = new System.Drawing.Point(3, 26);
             this.txtModule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtModule.Name = "txtModule";
-            this.txtModule.Size = new System.Drawing.Size(106, 22);
+            this.txtModule.Size = new System.Drawing.Size(106, 20);
             this.txtModule.TabIndex = 1;
             // 
             // lblBase
@@ -472,13 +474,15 @@ namespace LiveSplit.MemoryGraph
             this.cmbType.Location = new System.Drawing.Point(451, 26);
             this.cmbType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(117, 24);
+            this.cmbType.Size = new System.Drawing.Size(117, 21);
             this.cmbType.TabIndex = 4;
             // 
             // grpGraph
             // 
             this.grpGraph.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpGraph.Controls.Add(this.btnDeleteColor);
+            this.grpGraph.Controls.Add(this.btnAddColor);
             this.grpGraph.Controls.Add(this.colorsCBSillyColors);
             this.grpGraph.Controls.Add(this.cmbGraphGradientType);
             this.grpGraph.Controls.Add(this.lblGraphStyle);
@@ -501,13 +505,37 @@ namespace LiveSplit.MemoryGraph
             this.grpGraph.TabStop = false;
             this.grpGraph.Text = "Graph";
             // 
+            // btnDeleteColor
+            // 
+            this.btnDeleteColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteColor.Location = new System.Drawing.Point(181, 199);
+            this.btnDeleteColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteColor.Name = "btnDeleteColor";
+            this.btnDeleteColor.Size = new System.Drawing.Size(24, 25);
+            this.btnDeleteColor.TabIndex = 9;
+            this.btnDeleteColor.Text = "-";
+            this.btnDeleteColor.UseVisualStyleBackColor = false;
+            this.btnDeleteColor.Click += new System.EventHandler(this.btnDeleteColor_Click);
+            // 
+            // btnAddColor
+            // 
+            this.btnAddColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddColor.Location = new System.Drawing.Point(151, 199);
+            this.btnAddColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddColor.Name = "btnAddColor";
+            this.btnAddColor.Size = new System.Drawing.Size(24, 25);
+            this.btnAddColor.TabIndex = 8;
+            this.btnAddColor.Text = "+";
+            this.btnAddColor.UseVisualStyleBackColor = false;
+            this.btnAddColor.Click += new System.EventHandler(this.btnAddColor_Click);
+            // 
             // colorsCBSillyColors
             // 
             this.colorsCBSillyColors.AutoSize = true;
             this.colorsCBSillyColors.Location = new System.Drawing.Point(9, 204);
             this.colorsCBSillyColors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.colorsCBSillyColors.Name = "colorsCBSillyColors";
-            this.colorsCBSillyColors.Size = new System.Drawing.Size(99, 21);
+            this.colorsCBSillyColors.Size = new System.Drawing.Size(76, 17);
             this.colorsCBSillyColors.TabIndex = 0;
             this.colorsCBSillyColors.Text = "Silly Colors";
             this.colorsCBSillyColors.UseVisualStyleBackColor = true;
@@ -519,10 +547,10 @@ namespace LiveSplit.MemoryGraph
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbGraphGradientType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGraphGradientType.FormattingEnabled = true;
-            this.cmbGraphGradientType.Location = new System.Drawing.Point(193, 176);
+            this.cmbGraphGradientType.Location = new System.Drawing.Point(133, 176);
             this.cmbGraphGradientType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbGraphGradientType.Name = "cmbGraphGradientType";
-            this.cmbGraphGradientType.Size = new System.Drawing.Size(383, 24);
+            this.cmbGraphGradientType.Size = new System.Drawing.Size(443, 21);
             this.cmbGraphGradientType.TabIndex = 4;
             this.cmbGraphGradientType.SelectedValueChanged += new System.EventHandler(this.cmbGraphGradientType_SelectedValueChanged);
             // 
@@ -531,15 +559,14 @@ namespace LiveSplit.MemoryGraph
             this.lblGraphStyle.AutoSize = true;
             this.lblGraphStyle.Location = new System.Drawing.Point(5, 23);
             this.lblGraphStyle.Name = "lblGraphStyle";
-            this.lblGraphStyle.Size = new System.Drawing.Size(87, 17);
+            this.lblGraphStyle.Size = new System.Drawing.Size(65, 13);
             this.lblGraphStyle.TabIndex = 5;
             this.lblGraphStyle.Text = "Graph Style:";
             this.lblGraphStyle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // grpValueText
             // 
-            this.grpValueText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.grpValueText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpValueText.Controls.Add(this.localMaxCB);
             this.grpValueText.Controls.Add(this.label5);
@@ -586,7 +613,7 @@ namespace LiveSplit.MemoryGraph
             0,
             0});
             this.numValueTextDecimals.Name = "numValueTextDecimals";
-            this.numValueTextDecimals.Size = new System.Drawing.Size(53, 22);
+            this.numValueTextDecimals.Size = new System.Drawing.Size(53, 20);
             this.numValueTextDecimals.TabIndex = 3;
             // 
             // lblDecimals
@@ -596,7 +623,7 @@ namespace LiveSplit.MemoryGraph
             this.lblDecimals.Location = new System.Drawing.Point(435, 25);
             this.lblDecimals.Margin = new System.Windows.Forms.Padding(13, 0, 3, 0);
             this.lblDecimals.Name = "lblDecimals";
-            this.lblDecimals.Size = new System.Drawing.Size(69, 17);
+            this.lblDecimals.Size = new System.Drawing.Size(53, 13);
             this.lblDecimals.TabIndex = 2;
             this.lblDecimals.Text = "Decimals:";
             // 
@@ -622,7 +649,7 @@ namespace LiveSplit.MemoryGraph
             this.cmbValueTextPosition.Location = new System.Drawing.Point(75, 21);
             this.cmbValueTextPosition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbValueTextPosition.Name = "cmbValueTextPosition";
-            this.cmbValueTextPosition.Size = new System.Drawing.Size(244, 24);
+            this.cmbValueTextPosition.Size = new System.Drawing.Size(345, 21);
             this.cmbValueTextPosition.TabIndex = 1;
             // 
             // lblValueTextPosition
@@ -630,14 +657,14 @@ namespace LiveSplit.MemoryGraph
             this.lblValueTextPosition.AutoSize = true;
             this.lblValueTextPosition.Location = new System.Drawing.Point(5, 25);
             this.lblValueTextPosition.Name = "lblValueTextPosition";
-            this.lblValueTextPosition.Size = new System.Drawing.Size(62, 17);
+            this.lblValueTextPosition.Size = new System.Drawing.Size(47, 13);
             this.lblValueTextPosition.TabIndex = 0;
             this.lblValueTextPosition.Text = "Position:";
             // 
             // btnGraphColor2
             // 
             this.btnGraphColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraphColor2.Location = new System.Drawing.Point(164, 175);
+            this.btnGraphColor2.Location = new System.Drawing.Point(121, 199);
             this.btnGraphColor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGraphColor2.Name = "btnGraphColor2";
             this.btnGraphColor2.Size = new System.Drawing.Size(24, 25);
@@ -654,13 +681,13 @@ namespace LiveSplit.MemoryGraph
             this.cmbGraphStyle.Location = new System.Drawing.Point(99, 20);
             this.cmbGraphStyle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbGraphStyle.Name = "cmbGraphStyle";
-            this.cmbGraphStyle.Size = new System.Drawing.Size(477, 24);
+            this.cmbGraphStyle.Size = new System.Drawing.Size(477, 21);
             this.cmbGraphStyle.TabIndex = 6;
             // 
             // btnGraphColor1
             // 
             this.btnGraphColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraphColor1.Location = new System.Drawing.Point(133, 175);
+            this.btnGraphColor1.Location = new System.Drawing.Point(91, 199);
             this.btnGraphColor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGraphColor1.Name = "btnGraphColor1";
             this.btnGraphColor1.Size = new System.Drawing.Size(24, 25);
@@ -717,7 +744,7 @@ namespace LiveSplit.MemoryGraph
             this.txtMaximumValue.Location = new System.Drawing.Point(443, 2);
             this.txtMaximumValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaximumValue.Name = "txtMaximumValue";
-            this.txtMaximumValue.Size = new System.Drawing.Size(125, 22);
+            this.txtMaximumValue.Size = new System.Drawing.Size(125, 20);
             this.txtMaximumValue.TabIndex = 6;
             this.txtMaximumValue.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaximumValue_Validating);
             // 
@@ -749,7 +776,7 @@ namespace LiveSplit.MemoryGraph
             this.txtMinimumValue.Location = new System.Drawing.Point(152, 2);
             this.txtMinimumValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMinimumValue.Name = "txtMinimumValue";
-            this.txtMinimumValue.Size = new System.Drawing.Size(125, 22);
+            this.txtMinimumValue.Size = new System.Drawing.Size(125, 20);
             this.txtMinimumValue.TabIndex = 5;
             this.txtMinimumValue.Validating += new System.ComponentModel.CancelEventHandler(this.txtMinimumValue_Validating);
             // 
@@ -764,7 +791,7 @@ namespace LiveSplit.MemoryGraph
             0,
             0});
             this.numHeight.Name = "numHeight";
-            this.numHeight.Size = new System.Drawing.Size(125, 22);
+            this.numHeight.Size = new System.Drawing.Size(125, 20);
             this.numHeight.TabIndex = 7;
             // 
             // lblHeight
@@ -800,7 +827,7 @@ namespace LiveSplit.MemoryGraph
             0,
             0});
             this.numWidth.Name = "numWidth";
-            this.numWidth.Size = new System.Drawing.Size(125, 22);
+            this.numWidth.Size = new System.Drawing.Size(125, 20);
             this.numWidth.TabIndex = 10;
             // 
             // lblVerticalMargins
@@ -825,7 +852,7 @@ namespace LiveSplit.MemoryGraph
             0,
             0});
             this.numVerticalMargins.Name = "numVerticalMargins";
-            this.numVerticalMargins.Size = new System.Drawing.Size(125, 22);
+            this.numVerticalMargins.Size = new System.Drawing.Size(125, 20);
             this.numVerticalMargins.TabIndex = 12;
             // 
             // numHorizontalMargins
@@ -839,7 +866,7 @@ namespace LiveSplit.MemoryGraph
             0,
             0});
             this.numHorizontalMargins.Name = "numHorizontalMargins";
-            this.numHorizontalMargins.Size = new System.Drawing.Size(125, 22);
+            this.numHorizontalMargins.Size = new System.Drawing.Size(125, 20);
             this.numHorizontalMargins.TabIndex = 13;
             // 
             // lblGraphColor
@@ -847,7 +874,7 @@ namespace LiveSplit.MemoryGraph
             this.lblGraphColor.AutoSize = true;
             this.lblGraphColor.Location = new System.Drawing.Point(5, 178);
             this.lblGraphColor.Name = "lblGraphColor";
-            this.lblGraphColor.Size = new System.Drawing.Size(89, 17);
+            this.lblGraphColor.Size = new System.Drawing.Size(66, 13);
             this.lblGraphColor.TabIndex = 7;
             this.lblGraphColor.Text = "Graph Color:";
             this.lblGraphColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -857,7 +884,7 @@ namespace LiveSplit.MemoryGraph
             this.lblBackgroundColor.AutoSize = true;
             this.lblBackgroundColor.Location = new System.Drawing.Point(5, 150);
             this.lblBackgroundColor.Name = "lblBackgroundColor";
-            this.lblBackgroundColor.Size = new System.Drawing.Size(125, 17);
+            this.lblBackgroundColor.Size = new System.Drawing.Size(95, 13);
             this.lblBackgroundColor.TabIndex = 0;
             this.lblBackgroundColor.Text = "Background Color:";
             this.lblBackgroundColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -893,7 +920,7 @@ namespace LiveSplit.MemoryGraph
             this.cmbBackgroundGradientType.Location = new System.Drawing.Point(193, 146);
             this.cmbBackgroundGradientType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbBackgroundGradientType.Name = "cmbBackgroundGradientType";
-            this.cmbBackgroundGradientType.Size = new System.Drawing.Size(383, 24);
+            this.cmbBackgroundGradientType.Size = new System.Drawing.Size(383, 21);
             this.cmbBackgroundGradientType.TabIndex = 1;
             this.cmbBackgroundGradientType.SelectedValueChanged += new System.EventHandler(this.cmbBackgroundGradientType_SelectedValueChanged);
             // 
@@ -904,7 +931,7 @@ namespace LiveSplit.MemoryGraph
             this.Controls.Add(this.grpDescriptiveText);
             this.Controls.Add(this.grpPointerPath);
             this.Controls.Add(this.grpGraph);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Settings";
             this.Padding = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.Size = new System.Drawing.Size(612, 681);
@@ -1067,5 +1094,7 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox localMaxCB;
+        private System.Windows.Forms.Button btnAddColor;
+        private System.Windows.Forms.Button btnDeleteColor;
     }
 }

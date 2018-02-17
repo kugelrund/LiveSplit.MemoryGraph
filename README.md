@@ -18,3 +18,4 @@ Credits
 -----
 * [SphereMJ / kugelrund](https://www.twitch.tv/spheremj)
 * [SuicideMachine](https://www.twitch.tv/suicidemachine)
+* [TravisDaily](https://github.com/TravisDaily)

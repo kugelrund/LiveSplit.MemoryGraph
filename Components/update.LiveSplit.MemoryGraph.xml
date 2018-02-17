@@ -1,4 +1,12 @@
 <updates>
+    <update version="1.4.6">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Add support for more than 2 graph colors (by TravisDaily).</change>
+        </changelog>
+    </update>
     <update version="1.4.5">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

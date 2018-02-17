@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace LiveSplit.MemoryGraph
 {
@@ -67,7 +68,7 @@ namespace LiveSplit.MemoryGraph
         [Description("By Value")]
         ByValue
     }
-    
+
     enum Position
     {
         [Description("None")]
@@ -107,8 +108,11 @@ namespace LiveSplit.MemoryGraph
 
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }
-        public Color GraphColor { get; set; }
-        public Color GraphColor2 { get; set; }
+        public List<Color> GraphColors { get; set; } = new List<Color>();
+        /// <summary>
+        /// Yields the GraphColors. If there are no GraphColors, yields Color.Red.
+        /// </summary>
+        public IEnumerable<Color> GraphColorsEnumeration => GraphColors.Any() ? GraphColors : new List<Color> { Color.Red };
 
         public float MinimumValue { get; set; }
         public float MaximumValue { get; set; }
@@ -116,7 +120,7 @@ namespace LiveSplit.MemoryGraph
         public int GraphHeight { get; set; }
         public int HorizontalMargins { get; set; }
         public int VerticalMargins { get; set; }
-        
+
         public GraphStyle GraphStyle { get; set; }
         public GradientType BackgroundGradient { get; set; }
         public GraphGradientType GraphGradient { get; set; }
@@ -166,8 +170,6 @@ namespace LiveSplit.MemoryGraph
 
             BackgroundColor = Color.Transparent;
             BackgroundColor2 = Color.Transparent;
-            GraphColor = Color.Red;
-            GraphColor2 = Color.Red;
             MinimumValue = 0;
             MaximumValue = 1000;
             GraphWidth = 200;
@@ -194,8 +196,6 @@ namespace LiveSplit.MemoryGraph
 
             btnBackgroundColor1.DataBindings.Add("BackColor", this, "BackgroundColor", false, DataSourceUpdateMode.OnPropertyChanged);
             btnBackgroundColor2.DataBindings.Add("BackColor", this, "BackgroundColor2", false, DataSourceUpdateMode.OnPropertyChanged);
-            btnGraphColor1.DataBindings.Add("BackColor", this, "GraphColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            btnGraphColor2.DataBindings.Add("BackColor", this, "GraphColor2", false, DataSourceUpdateMode.OnPropertyChanged);
 
             txtMinimumValue.DataBindings.Add("Text", this, "MinimumValue", false, DataSourceUpdateMode.OnPropertyChanged);
             txtMaximumValue.DataBindings.Add("Text", this, "MaximumValue", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -204,7 +204,7 @@ namespace LiveSplit.MemoryGraph
             numHorizontalMargins.DataBindings.Add("Value", this, "HorizontalMargins", false, DataSourceUpdateMode.OnPropertyChanged);
             numVerticalMargins.DataBindings.Add("Value", this, "VerticalMargins", false, DataSourceUpdateMode.OnPropertyChanged);
             numValueTextDecimals.DataBindings.Add("Value", this, "ValueTextDecimals", false, DataSourceUpdateMode.OnPropertyChanged);
-            
+
             cmbGraphStyle.DataBindings.Add("SelectedValue", this, "GraphStyle", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbBackgroundGradientType.DataBindings.Add("SelectedValue", this, "BackgroundGradient", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbGraphGradientType.DataBindings.Add("SelectedValue", this, "GraphGradient", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -277,16 +277,93 @@ namespace LiveSplit.MemoryGraph
         private void ColorButtonClick(object sender, EventArgs e)
         {
             SettingsHelper.ColorButtonClick((Button)sender, this);
-        }        
+        }
+
+        private List<Button> GraphColorButtons = new List<Button>();
+
+        private void btnAddColor_Click(object sender, EventArgs e)
+        {
+            SettingsHelper.ColorButtonClick(AddColorButton(), this);
+        }
+
+        private Button AddColorButton()
+        {
+            var newButton = new Button
+            {
+                FlatStyle = FlatStyle.Flat,
+                Location = new Point(btnAddColor.Location.X, btnAddColor.Location.Y),
+                Margin = btnAddColor.Margin,
+                Size = btnAddColor.Size,
+                BackColor = GraphColors.Skip(GraphColorButtons.Count).FirstOrDefault(),
+                UseVisualStyleBackColor = false
+            };
+            newButton.Click += new EventHandler(ColorButtonClick);
+            newButton.BackColorChanged += new EventHandler(BackColorChangedEvent);
+
+            var delta = btnDeleteColor.Location.X - btnAddColor.Location.X;
+            btnAddColor.Location = new Point(btnAddColor.Location.X + delta, btnAddColor.Location.Y);
+            btnDeleteColor.Location = new Point(btnDeleteColor.Location.X + delta, btnDeleteColor.Location.Y);
+
+            grpGraph.Controls.Add(newButton);
+            GraphColorButtons.Add(newButton);
+            btnAddColor.Visible = !GraphColorButtons.Skip(12).Any();
+            btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
+
+            return newButton;
+        }
+
+        private void btnDeleteColor_Click(object sender, EventArgs e)
+        {
+            DeleteColorButton(true);
+        }
+
+        private void DeleteColorButton(bool fromButton)
+        {
+            var delta = btnDeleteColor.Location.X - btnAddColor.Location.X;
+            btnAddColor.Location = new Point(btnAddColor.Location.X - delta, btnAddColor.Location.Y);
+            btnDeleteColor.Location = new Point(btnDeleteColor.Location.X - delta, btnDeleteColor.Location.Y);
+
+            grpGraph.Controls.Remove(GraphColorButtons.Last());
+            GraphColorButtons.RemoveAt(GraphColorButtons.Count - 1);
+            if (fromButton)
+            {
+                GraphColors.RemoveAt(GraphColors.Count - 1);
+            }
+            btnAddColor.Visible = !GraphColorButtons.Skip(12).Any();
+            btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
+        }
+
+        private void BackColorChangedEvent(object sender, EventArgs e)
+        {
+            GraphColors.Clear();
+            GraphColors.AddRange(GraphColorButtons.Select(b => b.BackColor));
+        }
 
         public void SetSettings(System.Xml.XmlNode node)
         {
-            System.Xml.XmlElement element = (System.Xml.XmlElement) node;
+            System.Xml.XmlElement element = (System.Xml.XmlElement)node;
 
             BackgroundColor = SettingsHelper.ParseColor(element["BackgroundColor"]);
             BackgroundColor2 = SettingsHelper.ParseColor(element["BackgroundColor2"]);
-            GraphColor = SettingsHelper.ParseColor(element["GraphColor"]);
-            GraphColor2 = SettingsHelper.ParseColor(element["GraphColor2"]);
+            GraphColors.Clear();
+            // GraphColor and GraphColor2 were the old values used to store the GraphColors. If they exist, add their values to our new list of colors.
+            var GraphColor = SettingsHelper.ParseColor(element["GraphColor"]);
+            if (GraphColor != default(Color))
+            {
+                GraphColors.Add(GraphColor);
+            }
+            var GraphColor2 = SettingsHelper.ParseColor(element["GraphColor2"]);
+            if (GraphColor2 != default(Color))
+            {
+                GraphColors.Add(GraphColor2);
+            }
+            // Regular parsing of GraphColors. We can't use a default Parser since it's a list and needs to be comma seperated.
+            if (element[nameof(GraphColors)] != null)
+            {
+                GraphColors.AddRange(element[nameof(GraphColors)].InnerText.Split(',').Select(x => Color.FromArgb(int.Parse(x, NumberStyles.HexNumber))));
+            }
+            // The trigger that occurs when GraphGradientType is Plain fires too early. Redo it!
+            cmbGraphGradientType_SelectedValueChanged(null, null);
             MinimumValue = SettingsHelper.ParseFloat(element["MinimumValue"]);
             MaximumValue = SettingsHelper.ParseFloat(element["MaximumValue"]);
             GraphWidth = SettingsHelper.ParseInt(element["GraphWidth"]);
@@ -361,13 +438,23 @@ namespace LiveSplit.MemoryGraph
             return CreateSettingsNode(null, null);
         }
 
+        public static int CreateSetting(XmlDocument document, XmlElement parent, string name, IEnumerable<Color> colors)
+        {
+            if (document != null)
+            {
+                var element = document.CreateElement(name);
+                element.InnerText = String.Join(",", colors.Select(c => c.ToArgb().ToString("X8")));
+                parent.AppendChild(element);
+            }
+            return colors.GetHashCode();
+        }
+
         private int CreateSettingsNode(System.Xml.XmlDocument document, System.Xml.XmlElement parent)
         {
             return SettingsHelper.CreateSetting(document, parent, "Version", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor", BackgroundColor) ^
             SettingsHelper.CreateSetting(document, parent, "BackgroundColor2", BackgroundColor2) ^
-            SettingsHelper.CreateSetting(document, parent, "GraphColor", GraphColor) ^
-            SettingsHelper.CreateSetting(document, parent, "GraphColor2", GraphColor2) ^
+            CreateSetting(document, parent, nameof(GraphColors), GraphColors) ^
             SettingsHelper.CreateSetting(document, parent, "MinimumValue", MinimumValue) ^
             SettingsHelper.CreateSetting(document, parent, "MaximumValue", MaximumValue) ^
             SettingsHelper.CreateSetting(document, parent, "GraphWidth", GraphWidth) ^
@@ -411,7 +498,7 @@ namespace LiveSplit.MemoryGraph
                 return;
             }
 
-            btnBackgroundColor1.Visible = ((GradientType) cmbBackgroundGradientType.SelectedValue != GradientType.Plain);
+            btnBackgroundColor1.Visible = ((GradientType)cmbBackgroundGradientType.SelectedValue != GradientType.Plain);
             btnBackgroundColor2.DataBindings.Clear();
             btnBackgroundColor2.DataBindings.Add("BackColor", this, btnBackgroundColor1.Visible ? "BackgroundColor2" : "BackgroundColor", false, DataSourceUpdateMode.OnPropertyChanged);
         }
@@ -431,9 +518,33 @@ namespace LiveSplit.MemoryGraph
                 return;
             }
 
-            btnGraphColor1.Visible = ((GraphGradientType) cmbGraphGradientType.SelectedValue != GraphGradientType.Plain);
-            btnGraphColor2.DataBindings.Clear();
-            btnGraphColor2.DataBindings.Add("BackColor", this, btnGraphColor1.Visible ? "GraphColor2" : "GraphColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            while (GraphColorButtons.Any())
+            {
+                DeleteColorButton(false);
+            }
+            var ggt = (GraphGradientType)cmbGraphGradientType.SelectedValue;
+            switch (ggt)
+            {
+                default:
+                case GraphGradientType.Plain:
+                    AddColorButton();
+
+                    btnAddColor.Visible = false;
+                    btnDeleteColor.Visible = false;
+                    break;
+
+                case GraphGradientType.Vertical:
+                case GraphGradientType.Horizontal:
+                case GraphGradientType.ByValue:
+                    foreach (var color in GraphColors)
+                    {
+                        AddColorButton();
+                    }
+
+                    btnAddColor.Visible = !GraphColorButtons.Skip(12).Any();
+                    btnDeleteColor.Visible = GraphColorButtons.Skip(2).Any();
+                    break;
+            }
         }
 
         private void txtBase_Validating(object sender, CancelEventArgs e)
@@ -579,7 +690,7 @@ namespace LiveSplit.MemoryGraph
         {
             if (docNode.SelectSingleNode(nodeName) != null)
             {
-                return docNode.SelectSingleNode(nodeName).InnerText; 
+                return docNode.SelectSingleNode(nodeName).InnerText;
             }
             else
                 return "";
@@ -587,7 +698,7 @@ namespace LiveSplit.MemoryGraph
 
         private int GetSafeTypeFromXML(XmlNode docNode, string nodeName)
         {
-            if(docNode.SelectSingleNode(nodeName) != null)
+            if (docNode.SelectSingleNode(nodeName) != null)
             {
                 string typeTemp = docNode.SelectSingleNode(nodeName).InnerText.ToLower();
                 if (typeTemp == "float")

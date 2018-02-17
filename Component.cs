@@ -225,17 +225,46 @@ namespace LiveSplit.MemoryGraph
             }
         }
 
-        private static Color Blend(Color backColor, Color color, double amount, bool sillyColors)
+        private static Color Blend(IEnumerable<Color> colors, float amount, bool sillyColors)
         {
-            if(!sillyColors)
+            if (float.IsNaN(amount) || amount <= 0 || colors.Count() == 1)
             {
-                if (amount > 1)
-                    amount = 1;
+                // If the amount is in error, default to the first color.
+                return colors.First();
             }
-            byte a = (byte)((color.A * amount) + backColor.A * (1 - amount));
-            byte r = (byte)((color.R * amount) + backColor.R * (1 - amount));
-            byte g = (byte)((color.G * amount) + backColor.G * (1 - amount));
-            byte b = (byte)((color.B * amount) + backColor.B * (1 - amount));
+
+            if (amount >= 1)
+            {
+                if (!sillyColors)
+                {
+                    // No need to blend: we know the last color will provide 100% of the value.
+                    return colors.Last();
+                }
+                else
+                {
+                    return BlendTwo(colors.Reverse().Skip(1).First(), colors.Last(), amount);
+                }
+            }
+
+            // Stretch the amount to cover then range (0, colors.Count() - 1).
+            var floatingIndex = amount * (colors.Count() - 1);
+
+            // Pick the highest index as the above value rounded up: [1, colors.Count() - 1]
+            var index = (int)Math.Ceiling(floatingIndex);
+
+            var color1 = colors.Skip(index - 1).First();
+            var color2 = colors.Skip(index).First();
+
+            // Blend with the decimal part of the floatingIndex.
+            return BlendTwo(color1, color2, floatingIndex - (index - 1));
+        }
+
+        private static Color BlendTwo(Color zeroColor, Color oneColor, double amount)
+        {
+            byte a = (byte)((oneColor.A * amount) + zeroColor.A * (1 - amount));
+            byte r = (byte)((oneColor.R * amount) + zeroColor.R * (1 - amount));
+            byte g = (byte)((oneColor.G * amount) + zeroColor.G * (1 - amount));
+            byte b = (byte)((oneColor.B * amount) + zeroColor.B * (1 - amount));
             return Color.FromArgb(a, r, g, b);
         }
 
@@ -279,27 +308,44 @@ namespace LiveSplit.MemoryGraph
             switch (settings.GraphGradient)
             {
                 case GraphGradientType.Plain:
-                    graphBrush = new SolidBrush(settings.GraphColor);
+                    graphBrush = new SolidBrush(settings.GraphColorsEnumeration.First());
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.Horizontal:
+                    var cb1 = new ColorBlend
+                    {
+                        Colors = settings.GraphColorsEnumeration.Reverse().ToArray()
+                    };
+                    var pos1 = 0;
+                    cb1.Positions = cb1.Colors.Select(x => pos1++ / (cb1.Colors.Length - 1f)).ToArray();
                     graphBrush = new LinearGradientBrush(graphRect,
-                                                         settings.GraphColor,
-                                                         settings.GraphColor2,
-                                                         LinearGradientMode.Horizontal);
+                                                         Color.Black,
+                                                         Color.Black,
+                                                         LinearGradientMode.Horizontal)
+                    {
+                        InterpolationColors = cb1
+                    };
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.Vertical:
+                    var cb2 = new ColorBlend
+                    {
+                        Colors = settings.GraphColorsEnumeration.Reverse().ToArray()
+                    };
+                    var pos2 = 0;
+                    cb2.Positions = cb2.Colors.Select(x => pos2++ / (cb2.Colors.Length - 1f)).ToArray();
                     graphBrush = new LinearGradientBrush(new Point(0, 0),
                                                          new Point(0, graphHeight),
-                                                         settings.GraphColor2,
-                                                         settings.GraphColor);
+                                                         Color.Black,
+                                                         Color.Black)
+                    {
+                        InterpolationColors = cb2
+                    };
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.ByValue:
-                    graphBrush = new SolidBrush(Blend(settings.GraphColor, 
-                                                      settings.GraphColor2,
-                                                      relativeValue, settings.GraphSillyColors));
+                    graphBrush = new SolidBrush(Blend(settings.GraphColorsEnumeration,
+                                                relativeValue, settings.GraphSillyColors));
                     graphPen.Brush = graphBrush;
                     break;
             }

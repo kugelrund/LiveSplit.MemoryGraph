@@ -229,6 +229,7 @@ namespace LiveSplit.MemoryGraph
         {
             if (float.IsNaN(amount) || amount <= 0 || colors.Count() == 1)
             {
+                // If the amount is in error, default to the first color.
                 return colors.First();
             }
 
@@ -236,6 +237,7 @@ namespace LiveSplit.MemoryGraph
             {
                 if (!sillyColors)
                 {
+                    // No need to blend: we know the last color will provide 100% of the value.
                     return colors.Last();
                 }
                 else
@@ -249,6 +251,7 @@ namespace LiveSplit.MemoryGraph
 
             // Pick the highest index as the above value rounded up: [1, colors.Count() - 1]
             var index = (int)Math.Ceiling(floatingIndex);
+
             var color1 = colors.Skip(index - 1).First();
             var color2 = colors.Skip(index).First();
 

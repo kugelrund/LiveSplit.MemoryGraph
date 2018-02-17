@@ -343,6 +343,7 @@ namespace LiveSplit.MemoryGraph
             BackgroundColor = SettingsHelper.ParseColor(element["BackgroundColor"]);
             BackgroundColor2 = SettingsHelper.ParseColor(element["BackgroundColor2"]);
             GraphColors.Clear();
+            // GraphColor and GraphColor2 were the old values used to store the GraphColors. If they exist, add their values to our new list of colors.
             var GraphColor = SettingsHelper.ParseColor(element["GraphColor"]);
             if (GraphColor != default(Color))
             {
@@ -353,6 +354,7 @@ namespace LiveSplit.MemoryGraph
             {
                 GraphColors.Add(GraphColor2);
             }
+            // Regular parsing of GraphColors. We can't use a default Parser since it's a list and needs to be comma seperated.
             if (element["GraphColors"] != null)
             {
                 GraphColors.AddRange(element["GraphColors"].InnerText.Split(',').Select(x => Color.FromArgb(int.Parse(x, NumberStyles.HexNumber))));
@@ -521,16 +523,18 @@ namespace LiveSplit.MemoryGraph
                     AddColorButton();
                     break;
 
+                default:
+                case GraphGradientType.Vertical:
+                case GraphGradientType.Horizontal:
+                    AddColorButton();
+                    AddColorButton();
+                    break;
+
                 case GraphGradientType.ByValue:
                     foreach (var color in GraphColors)
                     {
                         AddColorButton();
                     }
-                    break;
-
-                default:
-                    AddColorButton();
-                    AddColorButton();
                     break;
             }
 

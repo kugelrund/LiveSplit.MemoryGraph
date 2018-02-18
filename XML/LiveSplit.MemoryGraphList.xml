@@ -73,6 +73,55 @@
 	<maximumValue>120</maximumValue>
 	<decimals>0</decimals>
 </game>
+<game name="Left 4 Dead (v1.0)">
+	<process>left4dead</process>
+	<module>client.dll</module>
+	<base>4F0478</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+</game>
+<game name="Left 4 Dead (Steam Version)">
+	<process>left4dead</process>
+	<module>client.dll</module>
+	<base>512208</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+</game>
+<game name="Left 4 Dead 2 (v2.0.0.0)">
+	<process>left4dead2</process>
+	<module>client.dll</module>
+	<base>626588</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+</game>
+<game name="Left 4 Dead 2 (v2.0.1.2 and v2.0.2.7)">
+	<process>left4dead2</process>
+	<module>client.dll</module>
+	<base>62F850</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+</game>
+<game name="Left 4 Dead 2 (v2.0.4.5)">
+	<process>left4dead2</process>
+	<module>client.dll</module>
+	<base>63FA28</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+</game>
+<game name="Left 4 Dead 2 (v2.0.7.5 and v2.0.9.1)">
+	<process>left4dead2</process>
+	<module>client.dll</module>
+	<base>6419F0</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+</game>
+<game name="Left 4 Dead 2 (v2.1.5.0)">
+	<process>left4dead2</process>
+	<module>client.dll</module>
+	<base>6BADC0</base>
+	<offsets></offsets>
+	<type>FloatVec2</type>
+</game>
 <game name="OpenJK-Speed (no mounts)">
 	<process>openjk_sp.x86</process>
 	<base>407B00</base>

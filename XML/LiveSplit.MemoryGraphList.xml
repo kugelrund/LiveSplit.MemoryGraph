@@ -73,54 +73,42 @@
 	<maximumValue>120</maximumValue>
 	<decimals>0</decimals>
 </game>
-<game name="Left 4 Dead (v1.0)">
+<game name="Left 4 Dead">
 	<process>left4dead</process>
 	<module>client.dll</module>
-	<base>4F0478</base>
 	<offsets></offsets>
 	<type>FloatVec2</type>
+  <versions>
+    <version name="V1.0">
+      <base>4F0478</base>
+    </version>
+    <version name="Steam Version">
+      <base>512208</base>
+    </version>
+  </versions>
 </game>
-<game name="Left 4 Dead (Steam Version)">
-	<process>left4dead</process>
-	<module>client.dll</module>
-	<base>512208</base>
-	<offsets></offsets>
-	<type>FloatVec2</type>
-</game>
-<game name="Left 4 Dead 2 (v2.0.0.0)">
+<game name="Left 4 Dead 2">
 	<process>left4dead2</process>
 	<module>client.dll</module>
-	<base>626588</base>
 	<offsets></offsets>
 	<type>FloatVec2</type>
-</game>
-<game name="Left 4 Dead 2 (v2.0.1.2 and v2.0.2.7)">
-	<process>left4dead2</process>
-	<module>client.dll</module>
-	<base>62F850</base>
-	<offsets></offsets>
-	<type>FloatVec2</type>
-</game>
-<game name="Left 4 Dead 2 (v2.0.4.5)">
-	<process>left4dead2</process>
-	<module>client.dll</module>
-	<base>63FA28</base>
-	<offsets></offsets>
-	<type>FloatVec2</type>
-</game>
-<game name="Left 4 Dead 2 (v2.0.7.5 and v2.0.9.1)">
-	<process>left4dead2</process>
-	<module>client.dll</module>
-	<base>6419F0</base>
-	<offsets></offsets>
-	<type>FloatVec2</type>
-</game>
-<game name="Left 4 Dead 2 (v2.1.5.0)">
-	<process>left4dead2</process>
-	<module>client.dll</module>
-	<base>6BADC0</base>
-	<offsets></offsets>
-	<type>FloatVec2</type>
+  <versions>
+    <version name="v2.0.0.0">
+      <base>626588</base>
+    </version>
+    <version name="v2.0.1.2 and v2.0.2.7">
+      <base>62F850</base>
+    </version>
+    <version name="v2.0.4.5">
+      <base>63FA28</base>
+    </version>
+    <version name="v2.0.7.5 and v2.0.9.1">
+      <base>6419F0</base>
+    </version>
+    <version name="v2.1.5.0">
+      <base>6BADC0</base>
+    </version>
+  </versions>
 </game>
 <game name="Mirror's Edge Catalyst">
 	<process>MirrorsEdgeCatalyst</process>
@@ -161,19 +149,19 @@
 	<type>FloatVec2</type>
 	<maximumValue>800</maximumValue>
 </game>
-<game name="Quake II (Q2PRO 2014-12-03)">
+<game name="Quake II">
 	<process>q2pro</process>
-	<base>15574C</base>
 	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>800</maximumValue>
-</game>
-<game name="Quake II (Q2PRO 2016-01-12)">
-	<process>q2pro</process>
-	<base>15674C</base>
-	<offsets></offsets>
-	<type>FloatVec2</type>
-	<maximumValue>800</maximumValue>
+  <versions>
+    <version name="Q2PRO 2014-12-03">
+      <base>15574C</base>
+    </version>
+    <version name="Q2PRO 2016-01-12">
+      <base>15674C</base>
+    </version>
+  </versions>
 </game>
 <game name="RBDoom3BFG (1.1.0)">
 	<process>RBDoom3BFG</process>
@@ -191,21 +179,21 @@
 	<maximumValue>350</maximumValue>
 	<decimals>0</decimals>
 </game>
-<game name="Star Trek: Voyager Elite Force (v1.1)">
+<game name="Star Trek: Voyager Elite Force">
 	<process>stvoy</process>
 	<base>C6C60</base>
 	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>600</maximumValue>
 	<unitConverter>45.00</unitConverter>
-</game>
-<game name="Star Trek: Voyager Elite Force (v1.2)">
-	<process>stvoy</process>
-	<base>BB800</base>
-	<offsets></offsets>
-	<type>FloatVec2</type>
-	<maximumValue>600</maximumValue>
-	<unitConverter>45.00</unitConverter>
+  <versions>
+    <version name="v1.1">
+      <base>C6C60</base>
+    </version>
+    <version name="v1.2">
+      <base>BB800</base>
+    </version>
+  </versions>
 </game>
 <game name="Star Wars Jedi Knight: Jedi Academy">
 	<process>jasp</process>

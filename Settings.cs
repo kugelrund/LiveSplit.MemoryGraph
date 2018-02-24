@@ -666,45 +666,44 @@ namespace LiveSplit.MemoryGraph
                         txtBase.Text = GetSafeStringValueFromXML(gameNode, "base");
                         txtOffsets.Text = GetSafeStringValueFromXML(gameNode, "offsets");
                         cmbType.SelectedIndex = GetSafeTypeFromXML(gameNode, "type");
-                        txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue");
+                        txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue", txtMaximumValue.Text);
                         numValueTextDecimals.Value = GetSafeDecimalFromXML(gameNode, "decimals");
                         tbMeterToGameUnit.Text = GetSafeStringValueFromXML(gameNode, "unitConverter");
 
-                        var versions = gameNode.SelectSingleNode("versions");
-                        if (versions != null)
+                        var options = gameNode.SelectSingleNode("options");
+                        if (options != null)
                         {
-                            // Update the versions drop down to include the verisons.
-                            var versionNames = new List<string>();
-                            foreach (XmlNode versionNode in versions.ChildNodes)
+                            // Update the options drop down to include the verisons.
+                            var optionNames = new List<string>();
+                            foreach (XmlNode optionNode in options.ChildNodes)
                             {
-                                versionNames.Add(versionNode.Attributes[0].Value);
+                                optionNames.Add(optionNode.Attributes[0].Value);
                             }
-                            var prevSource = ComboBox_GameVersion.DataSource as List<string>;
-                            if (prevSource == null || !prevSource.SequenceEqual(versionNames))
+                            var prevSource = ComboBox_GameOption.DataSource as List<string>;
+                            if (prevSource == null || !prevSource.SequenceEqual(optionNames))
                             {
-                                ComboBox_GameVersion.DataSource = versionNames;
+                                ComboBox_GameOption.DataSource = optionNames;
                             }
-                            ComboBox_GameVersion.Enabled = versionNames.Any();
+                            ComboBox_GameOption.Enabled = optionNames.Any();
 
-                            foreach (XmlNode versionNode in versions.ChildNodes)
+                            foreach (XmlNode optionNode in options.ChildNodes)
                             {
-                                var versionName = versionNode.Attributes[0].Value;
-                                if (versionName == (string)ComboBox_GameVersion.SelectedValue)
+                                if (optionNode.Attributes[0].Value == (string)ComboBox_GameOption.SelectedValue)
                                 {
-                                    ProcessName = GetSafeStringValueFromXML(versionNode, "process", ProcessName);
+                                    ProcessName = GetSafeStringValueFromXML(optionNode, "process", ProcessName);
                                     txtProcessName.Text = ProcessName;
-                                    AdditionalRequirement = GetSafeStringValueFromXML(versionNode, "additional_requirement_url", AdditionalRequirement);
+                                    AdditionalRequirement = GetSafeStringValueFromXML(optionNode, "additional_requirement_url", AdditionalRequirement);
 
-                                    txtModule.Text = GetSafeStringValueFromXML(versionNode, "module", txtModule.Text);
-                                    txtBase.Text = GetSafeStringValueFromXML(versionNode, "base", txtBase.Text);
-                                    txtOffsets.Text = GetSafeStringValueFromXML(versionNode, "offsets", txtOffsets.Text);
-                                    if (versionNode.SelectSingleNode("type") != null)
+                                    txtModule.Text = GetSafeStringValueFromXML(optionNode, "module", txtModule.Text);
+                                    txtBase.Text = GetSafeStringValueFromXML(optionNode, "base", txtBase.Text);
+                                    txtOffsets.Text = GetSafeStringValueFromXML(optionNode, "offsets", txtOffsets.Text);
+                                    if (optionNode.SelectSingleNode("type") != null)
                                     {
-                                        cmbType.SelectedIndex = GetSafeTypeFromXML(versionNode, "type");
+                                        cmbType.SelectedIndex = GetSafeTypeFromXML(optionNode, "type");
                                     }
-                                    txtMaximumValue.Text = GetSafeStringValueFromXML(versionNode, "maximumValue", txtMaximumValue.Text);
-                                    numValueTextDecimals.Value = GetSafeDecimalFromXML(versionNode, "decimals", numValueTextDecimals.Value);
-                                    tbMeterToGameUnit.Text = GetSafeStringValueFromXML(versionNode, "unitConverter", tbMeterToGameUnit.Text);
+                                    txtMaximumValue.Text = GetSafeStringValueFromXML(optionNode, "maximumValue", txtMaximumValue.Text);
+                                    numValueTextDecimals.Value = GetSafeDecimalFromXML(optionNode, "decimals", numValueTextDecimals.Value);
+                                    tbMeterToGameUnit.Text = GetSafeStringValueFromXML(optionNode, "unitConverter", tbMeterToGameUnit.Text);
                                 }
                             }
                         }

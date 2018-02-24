@@ -78,37 +78,37 @@
 	<module>client.dll</module>
 	<offsets></offsets>
 	<type>FloatVec2</type>
-  <versions>
-    <version name="V1.0">
+  <options>
+    <option name="V1.0">
       <base>4F0478</base>
-    </version>
-    <version name="Steam Version">
+    </option>
+    <option name="Steam option">
       <base>512208</base>
-    </version>
-  </versions>
+    </option>
+  </options>
 </game>
 <game name="Left 4 Dead 2">
 	<process>left4dead2</process>
 	<module>client.dll</module>
 	<offsets></offsets>
 	<type>FloatVec2</type>
-  <versions>
-    <version name="v2.0.0.0">
+  <options>
+    <option name="v2.0.0.0">
       <base>626588</base>
-    </version>
-    <version name="v2.0.1.2 and v2.0.2.7">
+    </option>
+    <option name="v2.0.1.2 and v2.0.2.7">
       <base>62F850</base>
-    </version>
-    <version name="v2.0.4.5">
+    </option>
+    <option name="v2.0.4.5">
       <base>63FA28</base>
-    </version>
-    <version name="v2.0.7.5 and v2.0.9.1">
+    </option>
+    <option name="v2.0.7.5 and v2.0.9.1">
       <base>6419F0</base>
-    </version>
-    <version name="v2.1.5.0">
+    </option>
+    <option name="v2.1.5.0">
       <base>6BADC0</base>
-    </version>
-  </versions>
+    </option>
+  </options>
 </game>
 <game name="Mirror's Edge Catalyst">
 	<process>MirrorsEdgeCatalyst</process>
@@ -154,14 +154,14 @@
 	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>800</maximumValue>
-  <versions>
-    <version name="Q2PRO 2014-12-03">
+  <options>
+    <option name="Q2PRO 2014-12-03">
       <base>15574C</base>
-    </version>
-    <version name="Q2PRO 2016-01-12">
+    </option>
+    <option name="Q2PRO 2016-01-12">
       <base>15674C</base>
-    </version>
-  </versions>
+    </option>
+  </options>
 </game>
 <game name="RBDoom3BFG (1.1.0)">
 	<process>RBDoom3BFG</process>
@@ -186,14 +186,14 @@
 	<type>FloatVec2</type>
 	<maximumValue>600</maximumValue>
 	<unitConverter>45.00</unitConverter>
-  <versions>
-    <version name="v1.1">
+  <options>
+    <option name="v1.1">
       <base>C6C60</base>
-    </version>
-    <version name="v1.2">
+    </option>
+    <option name="v1.2">
       <base>BB800</base>
-    </version>
-  </versions>
+    </option>
+  </options>
 </game>
 <game name="Star Wars Jedi Knight: Jedi Academy">
 	<process>jasp</process>

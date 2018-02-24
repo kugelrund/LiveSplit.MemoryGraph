@@ -104,7 +104,7 @@ namespace LiveSplit.MemoryGraph
         CultureInfo ci = new CultureInfo(System.Threading.Thread.CurrentThread.CurrentCulture.Name);
         List<string> gamesOnTheList = new List<string>();
         static string componentsFolder = "Components";
-        static string listsFile = "LiveSplit.MemoryGraphList.xml";
+        static string listsFile = "LiveSplit.MemoryGraph.Games.xml";
 
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }

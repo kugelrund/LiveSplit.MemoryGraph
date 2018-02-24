@@ -667,7 +667,7 @@ namespace LiveSplit.MemoryGraph
                         txtOffsets.Text = GetSafeStringValueFromXML(gameNode, "offsets");
                         cmbType.SelectedIndex = GetSafeTypeFromXML(gameNode, "type");
                         txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue");
-                        numValueTextDecimals.Value = GetSafeUIntFromXML(gameNode, "decimals");
+                        numValueTextDecimals.Value = GetSafeDecimalFromXML(gameNode, "decimals");
                         tbMeterToGameUnit.Text = GetSafeStringValueFromXML(gameNode, "unitConverter");
 
                         var versions = gameNode.SelectSingleNode("versions");
@@ -691,7 +691,20 @@ namespace LiveSplit.MemoryGraph
                                 var versionName = versionNode.Attributes[0].Value;
                                 if (versionName == (string)ComboBox_GameVersion.SelectedValue)
                                 {
-                                    // TODO: Parse values, but only the valid ones.
+                                    ProcessName = GetSafeStringValueFromXML(versionNode, "process", ProcessName);
+                                    txtProcessName.Text = ProcessName;
+                                    AdditionalRequirement = GetSafeStringValueFromXML(versionNode, "additional_requirement_url", AdditionalRequirement);
+
+                                    txtModule.Text = GetSafeStringValueFromXML(versionNode, "module", txtModule.Text);
+                                    txtBase.Text = GetSafeStringValueFromXML(versionNode, "base", txtBase.Text);
+                                    txtOffsets.Text = GetSafeStringValueFromXML(versionNode, "offsets", txtOffsets.Text);
+                                    if (versionNode.SelectSingleNode("type") != null)
+                                    {
+                                        cmbType.SelectedIndex = GetSafeTypeFromXML(versionNode, "type");
+                                    }
+                                    txtMaximumValue.Text = GetSafeStringValueFromXML(versionNode, "maximumValue", txtMaximumValue.Text);
+                                    numValueTextDecimals.Value = GetSafeDecimalFromXML(versionNode, "decimals", numValueTextDecimals.Value);
+                                    tbMeterToGameUnit.Text = GetSafeStringValueFromXML(versionNode, "unitConverter", tbMeterToGameUnit.Text);
                                 }
                             }
                         }
@@ -712,14 +725,14 @@ namespace LiveSplit.MemoryGraph
         }
 
         #region GetSafeValuesFunctions
-        private string GetSafeStringValueFromXML(XmlNode docNode, string nodeName)
+        private string GetSafeStringValueFromXML(XmlNode docNode, string nodeName, string defaultValue = "")
         {
             if (docNode.SelectSingleNode(nodeName) != null)
             {
                 return docNode.SelectSingleNode(nodeName).InnerText;
             }
             else
-                return "";
+                return defaultValue;
         }
 
         private int GetSafeTypeFromXML(XmlNode docNode, string nodeName)
@@ -765,20 +778,20 @@ namespace LiveSplit.MemoryGraph
             return (int)MemoryType.Float;
         }
 
-        private uint GetSafeUIntFromXML(XmlNode docNode, string nodeName)
+        private decimal GetSafeDecimalFromXML(XmlNode docNode, string nodeName, decimal defaultValue = 0m)
         {
             if (docNode.SelectSingleNode(nodeName) != null)
             {
                 string text = docNode.SelectSingleNode(nodeName).InnerText;
-                uint value;
-                if (uint.TryParse(text, out value))
+                decimal value;
+                if (decimal.TryParse(text, out value))
                 {
                     return value;
                 }
                 else
-                    return 0;
+                    return defaultValue;
             }
-            return 0;
+            return defaultValue;
         }
         #endregion
 

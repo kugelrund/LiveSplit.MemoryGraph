@@ -658,8 +658,8 @@ namespace LiveSplit.MemoryGraph
                     string name = gameNode.Attributes[0].Value;
                     if (name == (string)ComboBox_ListOfGames.SelectedValue)
                     {
-                        txtProcessName.Text = GetSafeStringValueFromXML(gameNode, "process");
                         ProcessName = GetSafeStringValueFromXML(gameNode, "process");
+                        txtProcessName.Text = ProcessName;
                         AdditionalRequirement = GetSafeStringValueFromXML(gameNode, "additional_requirement_url");
 
                         txtModule.Text = GetSafeStringValueFromXML(gameNode, "module");
@@ -669,6 +669,32 @@ namespace LiveSplit.MemoryGraph
                         txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue");
                         numValueTextDecimals.Value = GetSafeUIntFromXML(gameNode, "decimals");
                         tbMeterToGameUnit.Text = GetSafeStringValueFromXML(gameNode, "unitConverter");
+
+                        var versions = gameNode.SelectSingleNode("versions");
+                        if (versions != null)
+                        {
+                            // Update the versions drop down to include the verisons.
+                            var versionNames = new List<string>();
+                            foreach (XmlNode versionNode in versions.ChildNodes)
+                            {
+                                versionNames.Add(versionNode.Attributes[0].Value);
+                            }
+                            var prevSource = ComboBox_GameVersion.DataSource as List<string>;
+                            if (prevSource == null || !prevSource.SequenceEqual(versionNames))
+                            {
+                                ComboBox_GameVersion.DataSource = versionNames;
+                            }
+                            ComboBox_GameVersion.Enabled = versionNames.Any();
+
+                            foreach (XmlNode versionNode in versions.ChildNodes)
+                            {
+                                var versionName = versionNode.Attributes[0].Value;
+                                if (versionName == (string)ComboBox_GameVersion.SelectedValue)
+                                {
+                                    // TODO: Parse values, but only the valid ones.
+                                }
+                            }
+                        }
 
                         break;
                     }

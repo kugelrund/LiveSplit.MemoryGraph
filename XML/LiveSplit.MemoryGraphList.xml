@@ -122,6 +122,14 @@
 	<offsets></offsets>
 	<type>FloatVec2</type>
 </game>
+<game name="Mirror's Edge Catalyst">
+	<process>MirrorsEdgeCatalyst</process>
+	<base>23E29B8</base>
+	<offsets>2378, 10, 438</offsets>
+	<type>FloatVec2</type>
+	<maximumValue>20</maximumValue>
+	<decimals>2</decimals>
+</game>
 <game name="OpenJK-Speed (no mounts)">
 	<process>openjk_sp.x86</process>
 	<base>407B00</base>

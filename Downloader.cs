@@ -14,7 +14,7 @@ namespace LiveSplit.MemoryGraph
         public bool DownloadNew()
         {
             string uriToSource = "https://raw.githubusercontent.com/kugelrund/LiveSplit.MemoryGraph/master/XML/";
-            string xmlFileName = "LiveSplit.MemoryGraph.Games.xml";
+            string xmlFileName = Settings.listsFile;
             bool result = false;
             string downloadedFileLocation = "";
             if (CheckIfXMLExists(uriToSource+ xmlFileName))

@@ -86,12 +86,12 @@
 	<process>left4dead</process>
 	<module>client.dll</module>
 	<type>FloatVec2</type>
-	<unitConverter>52.493438320209973753280839895013</unitConverter>
+	<unitConverter>52.49344</unitConverter>
 	<options>
 		<option name="V1.0">
 			<base>4F0478</base>
 		</option>
-		<option name="Steam option">
+		<option name="Steam Version">
 			<base>512208</base>
 		</option>
 	</options>
@@ -100,7 +100,7 @@
 	<process>left4dead2</process>
 	<module>client.dll</module>
 	<type>FloatVec2</type>
-	<unitConverter>52.493438320209973753280839895013</unitConverter>
+	<unitConverter>52.49344</unitConverter>
 	<options>
 		<option name="v2.0.0.0">
 			<base>626588</base>
@@ -138,7 +138,7 @@
 	<offsets>100</offsets>
 	<type>FloatVec2</type>
 	<maximumValue>500</maximumValue>
-	<unitConverter>52.493438320209973753280839895013</unitConverter>
+	<unitConverter>52.49344</unitConverter>
 	<options>
 		<option name="Single Player">
 			<base>09C4B24</base>

@@ -380,6 +380,26 @@ namespace LiveSplit.MemoryGraph
             ProcessName = SettingsHelper.ParseString(element["ProcessName"]);
             DescriptiveText = SettingsHelper.ParseString(element["DescriptiveText"]);
 
+            var selectedGame = SettingsHelper.ParseString(element["SelectedGame"]);
+            if (selectedGame != null)
+            {
+                var games = ComboBox_ListOfGames.DataSource as List<string>;
+                if (games != null && games.Contains(selectedGame))
+                {
+                    ComboBox_ListOfGames.SelectedItem = selectedGame;
+
+                    var selectedOption = SettingsHelper.ParseString(element["SelectedGameOption"]);
+                    if (selectedOption != null)
+                    {
+                        var options = ComboBox_GameOption.DataSource as List<string>;
+                        if (options != null && options.Contains(selectedOption))
+                        {
+                            ComboBox_GameOption.SelectedItem = selectedOption;
+                        }
+                    }
+                }
+            }
+
             txtModule.Text = SettingsHelper.ParseString(element["Module"]);
             txtBase.Text = SettingsHelper.ParseString(element["Base"]);
             txtOffsets.Text = SettingsHelper.ParseString(element["Offsets"]);
@@ -470,6 +490,9 @@ namespace LiveSplit.MemoryGraph
             SettingsHelper.CreateSetting(document, parent, "LocalMax", LocalMax) ^
             SettingsHelper.CreateSetting(document, parent, "ProcessName", ProcessName) ^
             SettingsHelper.CreateSetting(document, parent, "DescriptiveText", DescriptiveText) ^
+            
+            SettingsHelper.CreateSetting(document, parent, "SelectedGame", ComboBox_ListOfGames.SelectedValue) ^
+            SettingsHelper.CreateSetting(document, parent, "SelectedGameOption", ComboBox_GameOption.SelectedValue) ^
 
             SettingsHelper.CreateSetting(document, parent, "Module", txtModule.Text) ^
             SettingsHelper.CreateSetting(document, parent, "Base", txtBase.Text) ^

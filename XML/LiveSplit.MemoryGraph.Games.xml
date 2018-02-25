@@ -2,6 +2,7 @@
 <!--
 <game name="Common name of the game">
 	<process>The process which has the variable needed.</process>
+	<additional_requirement_url>The process which has the variable needed.</additional_requirement_url>
 	<module>The dll which has the variable needed.</module>
 	<base>The base address which points to the variable.</base>
 	<offsets>The offset for the pointer.</offsets>

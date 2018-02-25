@@ -490,7 +490,7 @@ namespace LiveSplit.MemoryGraph
             SettingsHelper.CreateSetting(document, parent, "LocalMax", LocalMax) ^
             SettingsHelper.CreateSetting(document, parent, "ProcessName", ProcessName) ^
             SettingsHelper.CreateSetting(document, parent, "DescriptiveText", DescriptiveText) ^
-            
+
             SettingsHelper.CreateSetting(document, parent, "SelectedGame", ComboBox_ListOfGames.SelectedValue) ^
             SettingsHelper.CreateSetting(document, parent, "SelectedGameOption", ComboBox_GameOption.SelectedValue) ^
 
@@ -671,6 +671,8 @@ namespace LiveSplit.MemoryGraph
         {
             if ((string)ComboBox_ListOfGames.SelectedValue == "-None-")
             {
+                ComboBox_GameOption.DataSource = null;
+                ComboBox_GameOption.Enabled = false;
             }
             else
             {
@@ -707,7 +709,7 @@ namespace LiveSplit.MemoryGraph
                             {
                                 ComboBox_GameOption.DataSource = optionNames;
                             }
-                            ComboBox_GameOption.Enabled = optionNames.Any();
+                            ComboBox_GameOption.Enabled = true;
 
                             foreach (XmlNode optionNode in options.ChildNodes)
                             {
@@ -729,6 +731,11 @@ namespace LiveSplit.MemoryGraph
                                     tbMeterToGameUnit.Text = GetSafeStringValueFromXML(optionNode, "unitConverter", tbMeterToGameUnit.Text);
                                 }
                             }
+                        }
+                        else
+                        {
+                            ComboBox_GameOption.DataSource = null;
+                            ComboBox_GameOption.Enabled = false;
                         }
 
                         break;

@@ -631,7 +631,7 @@ namespace LiveSplit.MemoryGraph
                     }
                 case Units.FeetPerSecond:
                     {
-                        float returnValue = (currentValue / multiplier) * 196.850394f;
+                        float returnValue = (currentValue / multiplier) * 3.2808399f;
                         return returnValue.ToString("n" + valueTextDecimals) + " (fps)";
                     }
                 default:

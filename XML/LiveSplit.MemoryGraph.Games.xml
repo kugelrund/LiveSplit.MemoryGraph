@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!--
+<game name="Common name of the game">
+	<process>The process which has the variable needed.</process>
+	<module>The dll which has the variable needed.</module>
+	<base>The base address which points to the variable.</base>
+	<offsets>The offset for the pointer.</offsets>
+	<type>The structure used to store the value in game.</type>
+	<maximumValue>The maximum value the variable can be.</maximumValue>
+	<decimals>The number of decimal places needed to express the variable. Defaults to 0.</decimals>
+	<unitConverter>The number of game units in a meter.</unitConverter>
+	Options articulate when there's difference in a game that might need to be switched regularly. This is often a version. Options override the values provided above. An option must always be selected if any are available.
+	<options>
+		<option name="Option name 1">
+			Any of the above tags are valid here.
+		</option>
+		<option name="Option name 2">
+			Any of the above tags are valid here.
+		</option>
+	</options>
+</game>
+-->
 <games>
 <game name="Arabian Nights (3dfx)">
 	<process>_st_3dfx</process>
-	<module></module>
 	<base>9CCD8</base>
 	<offsets>460,490</offsets>
 	<type>IntVec3</type>
 	<maximumValue>2200</maximumValue>
-	<decimals>0</decimals>
 </game>
 <game name="Deus Ex: Human Revolution">
 	<process>dxhr</process>
-	<module></module>
 	<base>14DFA90</base>
-	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>50</maximumValue>
 	<decimals>1</decimals>
 </game>
 <game name="Crysis 2">
 	<process>Crysis2</process>
-	<module></module>
 	<base>01770484</base>
 	<offsets>1b8,28,EC</offsets>
 	<type>FloatVec2</type>
@@ -29,7 +45,6 @@
 </game>
 <game name="DUSK">
 	<process>DUSK</process>
-	<module></module>
 	<base>10B8660</base>
 	<offsets>780,50,78</offsets>
 	<type>FloatVec2XZY</type>
@@ -41,7 +56,6 @@
 	<module>ElMatadorGraphWrapper.dll</module>
 	<additional_requirement_url>https://github.com/SuiMachine/LiveSplit.ElMatador</additional_requirement_url>
 	<base>3024</base>
-	<offsets></offsets>
 	<type>FloatVec3</type>
 	<maximumValue>400</maximumValue>
 	<decimals>1</decimals>
@@ -49,9 +63,7 @@
 </game>
 <game name="Hellforces">
 	<process>hell</process>
-	<module></module>
 	<base>11E0D2C</base>
-	<offsets></offsets>
 	<type>FloatVec3</type>
 	<maximumValue>100</maximumValue>
 	<decimals>1</decimals>
@@ -59,25 +71,22 @@
 </game>
 <game name="Hitman: Absolution">
 	<process>HMA</process>
-	<module></module>
 	<base>00D4E510</base>
 	<offsets>80,1A0</offsets>
 	<type>Float</type>
 </game>
 <game name="Judge Dredd: Dredd vs. Death">
 	<process>Dredd</process>
-	<module></module>
 	<base>0023BE80</base>
 	<offsets>0,90,50,58</offsets>
 	<type>Float</type>
 	<maximumValue>120</maximumValue>
-	<decimals>0</decimals>
 </game>
 <game name="Left 4 Dead">
 	<process>left4dead</process>
 	<module>client.dll</module>
-	<offsets></offsets>
 	<type>FloatVec2</type>
+	<unitConverter>52.493438320209973753280839895013</unitConverter>
 	<options>
 		<option name="V1.0">
 			<base>4F0478</base>
@@ -90,8 +99,8 @@
 <game name="Left 4 Dead 2">
 	<process>left4dead2</process>
 	<module>client.dll</module>
-	<offsets></offsets>
 	<type>FloatVec2</type>
+	<unitConverter>52.493438320209973753280839895013</unitConverter>
 	<options>
 		<option name="v2.0.0.0">
 			<base>626588</base>
@@ -119,10 +128,8 @@
 <game name="OpenJK-Speed (no mounts)">
 	<process>openjk_sp.x86</process>
 	<base>407B00</base>
-	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>800</maximumValue>
-	<decimals>0</decimals>
 </game>
 <game name="Portal 2">
 	<process>portal2</process>
@@ -131,6 +138,7 @@
 	<offsets>100</offsets>
 	<type>FloatVec2</type>
 	<maximumValue>500</maximumValue>
+	<unitConverter>52.493438320209973753280839895013</unitConverter>
 	<options>
 		<option name="Single Player">
 			<base>09C4B24</base>
@@ -146,13 +154,11 @@
 <game name="Quake (JoeQuake)">
 	<process>joequake-gl</process>
 	<base>64F608</base>
-	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>800</maximumValue>
 </game>
 <game name="Quake II">
 	<process>q2pro</process>
-	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>800</maximumValue>
 	<options>
@@ -175,15 +181,12 @@
 	<process>SinEpisodes</process>
 	<module>server.dll</module>
 	<base>527C20</base>
-	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>350</maximumValue>
-	<decimals>0</decimals>
 </game>
 <game name="Star Trek: Voyager Elite Force">
 	<process>stvoy</process>
 	<base>C6C60</base>
-	<offsets></offsets>
 	<type>FloatVec2</type>
 	<maximumValue>600</maximumValue>
 	<unitConverter>45.00</unitConverter>
@@ -206,10 +209,8 @@
 		</option>
 		<option name="vectors, no mounts">
 			<base>43FD48</base>
-			<offsets></offsets>
 			<type>FloatVec2</type>
 			<maximumValue>800</maximumValue>
-			<decimals>0</decimals>
 		</option>
 	</options>
 </game>
@@ -229,16 +230,13 @@
 </game>
 <game name="The Elder Scrolls V: Skyrim">
 	<process>TESV</process>
-	<module></module>
 	<base>00ED3DE4</base>
 	<offsets>148</offsets>
 	<type>FloatVec3</type>
 	<maximumValue>1000</maximumValue>
-	<decimals>0</decimals>
 </game>
 <game name="Thief 2: The Metal Age (NewDark 1.24)">
 	<process>thief2</process>
-	<module></module>
 	<base>4C8528</base>
 	<offsets>128</offsets>
 	<type>FloatVec2</type>
@@ -247,12 +245,10 @@
 </game>
 <game name="Valley">
 	<process>Valley</process>
-	<module></module>
 	<base>128D940</base>
 	<offsets>918,18,0,840,C4</offsets>
 	<type>FloatVec2XZY</type>
 	<maximumValue>50</maximumValue>
-	<decimals>0</decimals>
 </game>
 <game name="Wheel of Time">
 	<process>WoT</process>
@@ -261,11 +257,9 @@
 	<offsets>80, 30, 100</offsets>
 	<type>FloatVec3</type>
 	<maximumValue>1000</maximumValue>
-	<decimals>0</decimals>
 </game>
 <game name="Wrack">
 	<process>Wrack_steam</process>
-	<module></module>
 	<base>1A001C</base>
 	<offsets>595</offsets>
 	<type>FloatVec3</type>

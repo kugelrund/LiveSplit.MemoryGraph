@@ -1,4 +1,13 @@
 <updates>
+    <update version="1.4.7">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Clean up XML game list by introducing different variations for games (by TravisDaily).</change>
+            <change>Fix wrong conversion to feet (by TravisDaily).</change>
+        </changelog>
+    </update>
     <update version="1.4.6">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!--
+	Do not add new games to this file! Add them to LiveSplit.MemoryGraph.Games.xml instead.
+-->
 <games>
 <game name="Arabian Nights (3dfx)">
 	<process>_st_3dfx</process>

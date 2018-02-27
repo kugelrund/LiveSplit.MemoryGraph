@@ -48,6 +48,7 @@ namespace LiveSplit.MemoryGraph
             this.cmbUnitsUsed = new System.Windows.Forms.ComboBox();
             this.unitConversionCB = new System.Windows.Forms.CheckBox();
             this.grpPointerPath = new System.Windows.Forms.GroupBox();
+            this.ComboBox_GameOption = new System.Windows.Forms.ComboBox();
             this.L_Requires = new System.Windows.Forms.Label();
             this.linkLabel_AdditionalFiles = new System.Windows.Forms.LinkLabel();
             this.ComboBox_ListOfGames = new System.Windows.Forms.ComboBox();
@@ -272,6 +273,7 @@ namespace LiveSplit.MemoryGraph
             // 
             this.grpPointerPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpPointerPath.Controls.Add(this.ComboBox_GameOption);
             this.grpPointerPath.Controls.Add(this.L_Requires);
             this.grpPointerPath.Controls.Add(this.linkLabel_AdditionalFiles);
             this.grpPointerPath.Controls.Add(this.ComboBox_ListOfGames);
@@ -288,6 +290,18 @@ namespace LiveSplit.MemoryGraph
             this.grpPointerPath.TabIndex = 0;
             this.grpPointerPath.TabStop = false;
             this.grpPointerPath.Text = "Pointer path";
+            // 
+            // ComboBox_GameOption
+            // 
+            this.ComboBox_GameOption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBox_GameOption.FormattingEnabled = true;
+            this.ComboBox_GameOption.Location = new System.Drawing.Point(330, 18);
+            this.ComboBox_GameOption.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ComboBox_GameOption.Name = "ComboBox_GameOption";
+            this.ComboBox_GameOption.Size = new System.Drawing.Size(100, 21);
+            this.ComboBox_GameOption.TabIndex = 12;
+            this.ComboBox_GameOption.SelectedIndexChanged += new System.EventHandler(this.ComboBox_ListOfGames_SelectedIndexChanged);
             // 
             // L_Requires
             // 
@@ -319,7 +333,7 @@ namespace LiveSplit.MemoryGraph
             this.ComboBox_ListOfGames.Location = new System.Drawing.Point(84, 18);
             this.ComboBox_ListOfGames.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBox_ListOfGames.Name = "ComboBox_ListOfGames";
-            this.ComboBox_ListOfGames.Size = new System.Drawing.Size(345, 21);
+            this.ComboBox_ListOfGames.Size = new System.Drawing.Size(240, 21);
             this.ComboBox_ListOfGames.TabIndex = 9;
             this.ComboBox_ListOfGames.SelectedIndexChanged += new System.EventHandler(this.ComboBox_ListOfGames_SelectedIndexChanged);
             // 
@@ -1068,5 +1082,6 @@ namespace LiveSplit.MemoryGraph
         private System.Windows.Forms.CheckBox localMaxCB;
         private System.Windows.Forms.Button btnAddColor;
         private System.Windows.Forms.Button btnDeleteColor;
+        private System.Windows.Forms.ComboBox ComboBox_GameOption;
     }
 }

@@ -104,7 +104,23 @@ namespace LiveSplit.MemoryGraph
         CultureInfo ci = new CultureInfo(System.Threading.Thread.CurrentThread.CurrentCulture.Name);
         List<string> gamesOnTheList = new List<string>();
         static string componentsFolder = "Components";
-        static string listsFile = "LiveSplit.MemoryGraphList.xml";
+        public static string listsFile = "LiveSplit.MemoryGraph.Games.xml";
+        public static string ListsFilePath
+        {
+            get
+            {
+                var listsFilePath = Path.Combine(componentsFolder, listsFile);
+                if (File.Exists(listsFilePath))
+                {
+                    return listsFilePath;
+                }
+                else
+                {
+                    // If the new file hasn't been downloaded, keep using the old one as a fallback.
+                    return Path.Combine(componentsFolder, "LiveSplit.MemoryGraphList.xml");
+                }
+            }
+        }
 
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }
@@ -156,7 +172,7 @@ namespace LiveSplit.MemoryGraph
         {
             InitializeComponent();
 
-            if (File.Exists(Path.Combine(componentsFolder, listsFile)))
+            if (File.Exists(ListsFilePath))
             {
                 loadXML();
             }
@@ -380,6 +396,26 @@ namespace LiveSplit.MemoryGraph
             ProcessName = SettingsHelper.ParseString(element["ProcessName"]);
             DescriptiveText = SettingsHelper.ParseString(element["DescriptiveText"]);
 
+            var selectedGame = SettingsHelper.ParseString(element["SelectedGame"]);
+            if (selectedGame != null)
+            {
+                var games = ComboBox_ListOfGames.DataSource as List<string>;
+                if (games != null && games.Contains(selectedGame))
+                {
+                    ComboBox_ListOfGames.SelectedItem = selectedGame;
+
+                    var selectedOption = SettingsHelper.ParseString(element["SelectedGameOption"]);
+                    if (selectedOption != null)
+                    {
+                        var options = ComboBox_GameOption.DataSource as List<string>;
+                        if (options != null && options.Contains(selectedOption))
+                        {
+                            ComboBox_GameOption.SelectedItem = selectedOption;
+                        }
+                    }
+                }
+            }
+
             txtModule.Text = SettingsHelper.ParseString(element["Module"]);
             txtBase.Text = SettingsHelper.ParseString(element["Base"]);
             txtOffsets.Text = SettingsHelper.ParseString(element["Offsets"]);
@@ -470,6 +506,9 @@ namespace LiveSplit.MemoryGraph
             SettingsHelper.CreateSetting(document, parent, "LocalMax", LocalMax) ^
             SettingsHelper.CreateSetting(document, parent, "ProcessName", ProcessName) ^
             SettingsHelper.CreateSetting(document, parent, "DescriptiveText", DescriptiveText) ^
+
+            SettingsHelper.CreateSetting(document, parent, "SelectedGame", ComboBox_ListOfGames.SelectedValue) ^
+            SettingsHelper.CreateSetting(document, parent, "SelectedGameOption", ComboBox_GameOption.SelectedValue) ^
 
             SettingsHelper.CreateSetting(document, parent, "Module", txtModule.Text) ^
             SettingsHelper.CreateSetting(document, parent, "Base", txtBase.Text) ^
@@ -632,7 +671,7 @@ namespace LiveSplit.MemoryGraph
             ComboBox_ListOfGames.DataSource = null;
             gamesOnTheList.Clear();
             XmlDocument XmlGames = new XmlDocument();
-            XmlGames.Load(Path.Combine(componentsFolder, listsFile));
+            XmlGames.Load(ListsFilePath);
             gamesOnTheList.Add("-None-");
             foreach (XmlNode gameNode in XmlGames.DocumentElement)
             {
@@ -648,27 +687,72 @@ namespace LiveSplit.MemoryGraph
         {
             if ((string)ComboBox_ListOfGames.SelectedValue == "-None-")
             {
+                ComboBox_GameOption.DataSource = null;
+                ComboBox_GameOption.Enabled = false;
             }
             else
             {
                 XmlDocument XmlGames = new XmlDocument();
-                XmlGames.Load(Path.Combine(componentsFolder, listsFile));
+                XmlGames.Load(ListsFilePath);
                 foreach (XmlNode gameNode in XmlGames.DocumentElement)
                 {
                     string name = gameNode.Attributes[0].Value;
                     if (name == (string)ComboBox_ListOfGames.SelectedValue)
                     {
-                        txtProcessName.Text = GetSafeStringValueFromXML(gameNode, "process");
                         ProcessName = GetSafeStringValueFromXML(gameNode, "process");
+                        txtProcessName.Text = ProcessName;
                         AdditionalRequirement = GetSafeStringValueFromXML(gameNode, "additional_requirement_url");
 
                         txtModule.Text = GetSafeStringValueFromXML(gameNode, "module");
                         txtBase.Text = GetSafeStringValueFromXML(gameNode, "base");
                         txtOffsets.Text = GetSafeStringValueFromXML(gameNode, "offsets");
                         cmbType.SelectedIndex = GetSafeTypeFromXML(gameNode, "type");
-                        txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue");
-                        numValueTextDecimals.Value = GetSafeUIntFromXML(gameNode, "decimals");
+                        txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue", txtMaximumValue.Text);
+                        numValueTextDecimals.Value = GetSafeDecimalFromXML(gameNode, "decimals");
                         tbMeterToGameUnit.Text = GetSafeStringValueFromXML(gameNode, "unitConverter");
+
+                        var options = gameNode.SelectSingleNode("options");
+                        if (options != null)
+                        {
+                            // Update the options drop down to include the verisons.
+                            var optionNames = new List<string>();
+                            foreach (XmlNode optionNode in options.ChildNodes)
+                            {
+                                optionNames.Add(optionNode.Attributes[0].Value);
+                            }
+                            var prevSource = ComboBox_GameOption.DataSource as List<string>;
+                            if (prevSource == null || !prevSource.SequenceEqual(optionNames))
+                            {
+                                ComboBox_GameOption.DataSource = optionNames;
+                            }
+                            ComboBox_GameOption.Enabled = true;
+
+                            foreach (XmlNode optionNode in options.ChildNodes)
+                            {
+                                if (optionNode.Attributes[0].Value == (string)ComboBox_GameOption.SelectedValue)
+                                {
+                                    ProcessName = GetSafeStringValueFromXML(optionNode, "process", ProcessName);
+                                    txtProcessName.Text = ProcessName;
+                                    AdditionalRequirement = GetSafeStringValueFromXML(optionNode, "additional_requirement_url", AdditionalRequirement);
+
+                                    txtModule.Text = GetSafeStringValueFromXML(optionNode, "module", txtModule.Text);
+                                    txtBase.Text = GetSafeStringValueFromXML(optionNode, "base", txtBase.Text);
+                                    txtOffsets.Text = GetSafeStringValueFromXML(optionNode, "offsets", txtOffsets.Text);
+                                    if (optionNode.SelectSingleNode("type") != null)
+                                    {
+                                        cmbType.SelectedIndex = GetSafeTypeFromXML(optionNode, "type");
+                                    }
+                                    txtMaximumValue.Text = GetSafeStringValueFromXML(optionNode, "maximumValue", txtMaximumValue.Text);
+                                    numValueTextDecimals.Value = GetSafeDecimalFromXML(optionNode, "decimals", numValueTextDecimals.Value);
+                                    tbMeterToGameUnit.Text = GetSafeStringValueFromXML(optionNode, "unitConverter", tbMeterToGameUnit.Text);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            ComboBox_GameOption.DataSource = null;
+                            ComboBox_GameOption.Enabled = false;
+                        }
 
                         break;
                     }
@@ -686,14 +770,14 @@ namespace LiveSplit.MemoryGraph
         }
 
         #region GetSafeValuesFunctions
-        private string GetSafeStringValueFromXML(XmlNode docNode, string nodeName)
+        private string GetSafeStringValueFromXML(XmlNode docNode, string nodeName, string defaultValue = "")
         {
             if (docNode.SelectSingleNode(nodeName) != null)
             {
                 return docNode.SelectSingleNode(nodeName).InnerText;
             }
             else
-                return "";
+                return defaultValue;
         }
 
         private int GetSafeTypeFromXML(XmlNode docNode, string nodeName)
@@ -739,20 +823,20 @@ namespace LiveSplit.MemoryGraph
             return (int)MemoryType.Float;
         }
 
-        private uint GetSafeUIntFromXML(XmlNode docNode, string nodeName)
+        private decimal GetSafeDecimalFromXML(XmlNode docNode, string nodeName, decimal defaultValue = 0m)
         {
             if (docNode.SelectSingleNode(nodeName) != null)
             {
                 string text = docNode.SelectSingleNode(nodeName).InnerText;
-                uint value;
-                if (uint.TryParse(text, out value))
+                decimal value;
+                if (decimal.TryParse(text, out value))
                 {
                     return value;
                 }
                 else
-                    return 0;
+                    return defaultValue;
             }
-            return 0;
+            return defaultValue;
         }
         #endregion
 

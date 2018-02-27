@@ -105,6 +105,22 @@ namespace LiveSplit.MemoryGraph
         List<string> gamesOnTheList = new List<string>();
         static string componentsFolder = "Components";
         public static string listsFile = "LiveSplit.MemoryGraph.Games.xml";
+        public static string ListsFilePath
+        {
+            get
+            {
+                var listsFilePath = Path.Combine(componentsFolder, listsFile);
+                if (File.Exists(listsFilePath))
+                {
+                    return listsFilePath;
+                }
+                else
+                {
+                    // If the new file hasn't been downloaded, keep using the old one as a fallback.
+                    return Path.Combine(componentsFolder, "LiveSplit.MemoryGraphList.xml");
+                }
+            }
+        }
 
         public Color BackgroundColor { get; set; }
         public Color BackgroundColor2 { get; set; }
@@ -156,7 +172,7 @@ namespace LiveSplit.MemoryGraph
         {
             InitializeComponent();
 
-            if (File.Exists(Path.Combine(componentsFolder, listsFile)))
+            if (File.Exists(ListsFilePath))
             {
                 loadXML();
             }
@@ -655,7 +671,7 @@ namespace LiveSplit.MemoryGraph
             ComboBox_ListOfGames.DataSource = null;
             gamesOnTheList.Clear();
             XmlDocument XmlGames = new XmlDocument();
-            XmlGames.Load(Path.Combine(componentsFolder, listsFile));
+            XmlGames.Load(ListsFilePath);
             gamesOnTheList.Add("-None-");
             foreach (XmlNode gameNode in XmlGames.DocumentElement)
             {
@@ -677,7 +693,7 @@ namespace LiveSplit.MemoryGraph
             else
             {
                 XmlDocument XmlGames = new XmlDocument();
-                XmlGames.Load(Path.Combine(componentsFolder, listsFile));
+                XmlGames.Load(ListsFilePath);
                 foreach (XmlNode gameNode in XmlGames.DocumentElement)
                 {
                     string name = gameNode.Attributes[0].Value;

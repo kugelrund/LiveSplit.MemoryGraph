@@ -312,35 +312,27 @@ namespace LiveSplit.MemoryGraph
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.Horizontal:
-                    var cb1 = new ColorBlend
-                    {
-                        Colors = settings.GraphColorsEnumeration.Reverse().ToArray()
-                    };
-                    var pos1 = 0;
-                    cb1.Positions = cb1.Colors.Select(x => pos1++ / (cb1.Colors.Length - 1f)).ToArray();
-                    graphBrush = new LinearGradientBrush(graphRect,
-                                                         Color.Black,
-                                                         Color.Black,
-                                                         LinearGradientMode.Horizontal)
-                    {
-                        InterpolationColors = cb1
-                    };
-                    graphPen.Brush = graphBrush;
-                    break;
                 case GraphGradientType.Vertical:
-                    var cb2 = new ColorBlend
+                    var color_blend = new ColorBlend
                     {
                         Colors = settings.GraphColorsEnumeration.Reverse().ToArray()
                     };
-                    var pos2 = 0;
-                    cb2.Positions = cb2.Colors.Select(x => pos2++ / (cb2.Colors.Length - 1f)).ToArray();
-                    graphBrush = new LinearGradientBrush(new Point(0, 0),
-                                                         new Point(0, graphHeight),
-                                                         Color.Black,
-                                                         Color.Black)
+                    int position = 0;
+                    color_blend.Positions = color_blend.Colors.Select(
+                        x => position++ / (color_blend.Colors.Length - 1f)).ToArray();
+
+                    LinearGradientBrush gradient_graph_brush;
+                    if (settings.GraphGradient == GraphGradientType.Horizontal)
                     {
-                        InterpolationColors = cb2
-                    };
+                        gradient_graph_brush = new LinearGradientBrush(
+                            graphRect, Color.Black, Color.Black, LinearGradientMode.Horizontal);
+                    }
+                    else
+                    {
+                        gradient_graph_brush = new LinearGradientBrush(
+                            new Point(0, 0), new Point(0, graphHeight), Color.Black, Color.Black);
+                    }
+                    graphBrush = gradient_graph_brush;
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.ByValue:
@@ -360,8 +352,8 @@ namespace LiveSplit.MemoryGraph
 
                     if (currentValue > settings.MinimumValue)
                     {
-                        gBuffer.FillRectangle(graphBrush, 
-                                              graphWidth - 1, (1 - relativeValue) * graphHeight, 
+                        gBuffer.FillRectangle(graphBrush,
+                                              graphWidth - 1, (1 - relativeValue) * graphHeight,
                                               1, relativeValue * graphHeight);
                     }
 
@@ -371,7 +363,7 @@ namespace LiveSplit.MemoryGraph
                     }
                     else
                     {
-                        g.DrawImage(bmpBuffer, settings.HorizontalMargins, settings.VerticalMargins, 
+                        g.DrawImage(bmpBuffer, settings.HorizontalMargins, settings.VerticalMargins,
                                     width - 2 * settings.HorizontalMargins, height - 2 * settings.VerticalMargins);
                     }
                     break;
@@ -489,7 +481,7 @@ namespace LiveSplit.MemoryGraph
                         else
                             gBuffer.DrawImage(sonic.getBitmap(relativeValue), 0, 0, graphHeight/1.27f, graphHeight);
 
-                        
+
                         gBuffer.DrawLine(graphPen, fake_particles[0] - 10 * avaragedValue, graphHeight * 0.44f, fake_particles[0], graphHeight * 0.44f);
                         gBuffer.DrawLine(graphPen, fake_particles[1] - 10 * avaragedValue, graphHeight * 0.76f, fake_particles[1], graphHeight * 0.76f);
                         gBuffer.DrawLine(graphPen, fake_particles[2] - 10 * avaragedValue, graphHeight * 0.67f, fake_particles[2], graphHeight * 0.67f);
@@ -544,7 +536,7 @@ namespace LiveSplit.MemoryGraph
                         break;
                 }
 
-                Font font = (settings.DescriptiveTextOverrideFont ? 
+                Font font = (settings.DescriptiveTextOverrideFont ?
                              settings.DescriptiveTextFont :
                              state.LayoutSettings.TextFont);
                 Brush brush = new SolidBrush(settings.DescriptiveTextOverrideColor ?
@@ -555,7 +547,7 @@ namespace LiveSplit.MemoryGraph
                 rect.Width -= 10;
                 g.DrawString(settings.DescriptiveText, font, brush, rect, descriptiveTextFormat);
             }
-            
+
             // draw value text
             if (settings.ValueTextPosition != Position.None)
             {
@@ -574,7 +566,7 @@ namespace LiveSplit.MemoryGraph
                         break;
                 }
 
-                Font font = (settings.ValueTextOverrideFont ? 
+                Font font = (settings.ValueTextOverrideFont ?
                              settings.ValueTextFont :
                              state.LayoutSettings.TextFont);
                 Brush brush = new SolidBrush(settings.ValueTextOverrideColor ?
@@ -667,10 +659,10 @@ namespace LiveSplit.MemoryGraph
             DrawBackground(g, state, HorizontalWidth, height);
             DrawGraph(g, state, HorizontalWidth, height);
         }
-        
+
         public void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode)
         {
-            if (process != null && settings.Pointer != null && !process.HasExited && 
+            if (process != null && settings.Pointer != null && !process.HasExited &&
                 process.ProcessName == settings.ProcessName)
             {
                 switch (settings.ValueType)
@@ -757,7 +749,7 @@ namespace LiveSplit.MemoryGraph
             else
             {
                 process = System.Diagnostics.Process.GetProcessesByName(settings.ProcessName).FirstOrDefault();
-            }            
+            }
         }
 
         public System.Windows.Forms.Control GetSettingsControl(LayoutMode mode)

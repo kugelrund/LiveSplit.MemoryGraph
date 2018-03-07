@@ -313,26 +313,33 @@ namespace LiveSplit.MemoryGraph
                     break;
                 case GraphGradientType.Horizontal:
                 case GraphGradientType.Vertical:
-                    var color_blend = new ColorBlend
+                    if (settings.GraphColorsEnumeration.Count() <= 1)
                     {
-                        Colors = settings.GraphColorsEnumeration.Reverse().ToArray()
-                    };
-                    int position = 0;
-                    color_blend.Positions = color_blend.Colors.Select(
-                        x => position++ / (color_blend.Colors.Length - 1f)).ToArray();
-
-                    LinearGradientBrush gradient_graph_brush;
-                    if (settings.GraphGradient == GraphGradientType.Horizontal)
-                    {
-                        gradient_graph_brush = new LinearGradientBrush(
-                            graphRect, Color.Black, Color.Black, LinearGradientMode.Horizontal);
+                        graphBrush = new SolidBrush(settings.GraphColorsEnumeration.First());
                     }
                     else
                     {
-                        gradient_graph_brush = new LinearGradientBrush(
-                            new Point(0, 0), new Point(0, graphHeight), Color.Black, Color.Black);
+                        var color_blend = new ColorBlend
+                        {
+                            Colors = settings.GraphColorsEnumeration.Reverse().ToArray()
+                        };
+                        int position = 0;
+                        color_blend.Positions = color_blend.Colors.Select(
+                            x => position++ / (color_blend.Colors.Length - 1f)).ToArray();
+
+                        LinearGradientBrush gradient_graph_brush;
+                        if (settings.GraphGradient == GraphGradientType.Horizontal)
+                        {
+                            gradient_graph_brush = new LinearGradientBrush(
+                                graphRect, Color.Black, Color.Black, LinearGradientMode.Horizontal);
+                        }
+                        else
+                        {
+                            gradient_graph_brush = new LinearGradientBrush(
+                                new Point(0, 0), new Point(0, graphHeight), Color.Black, Color.Black);
+                        }
+                        graphBrush = gradient_graph_brush;
                     }
-                    graphBrush = gradient_graph_brush;
                     graphPen.Brush = graphBrush;
                     break;
                 case GraphGradientType.ByValue:

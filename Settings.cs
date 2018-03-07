@@ -376,7 +376,11 @@ namespace LiveSplit.MemoryGraph
             // Regular parsing of GraphColors. We can't use a default Parser since it's a list and needs to be comma seperated.
             if (element[nameof(GraphColors)] != null)
             {
-                GraphColors.AddRange(element[nameof(GraphColors)].InnerText.Split(',').Select(x => Color.FromArgb(int.Parse(x, NumberStyles.HexNumber))));
+                var colorString = element[nameof(GraphColors)].InnerText;
+                if (!string.IsNullOrWhiteSpace(colorString))
+                {
+                    GraphColors.AddRange(colorString.Split(',').Select(x => Color.FromArgb(int.Parse(x, NumberStyles.HexNumber))));
+                }
             }
             // The trigger that occurs when GraphGradientType is Plain fires too early. Redo it!
             cmbGraphGradientType_SelectedValueChanged(null, null);

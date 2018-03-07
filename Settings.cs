@@ -239,15 +239,15 @@ namespace LiveSplit.MemoryGraph
             txtDescriptiveText.DataBindings.Add("Text", this, "DescriptiveText");
             linkLabel_AdditionalFiles.DataBindings.Add("Text", this, "AdditionalRequirement");
 
-            overrideControlDescriptiveText.DataBindings.Add("OverridingColor", this, "DescriptiveTextColor");
-            overrideControlDescriptiveText.DataBindings.Add("OverridingFont", this, "DescriptiveTextFont");
-            overrideControlDescriptiveText.DataBindings.Add("OverrideColor", this, "DescriptiveTextOverrideColor");
-            overrideControlDescriptiveText.DataBindings.Add("OverrideFont", this, "DescriptiveTextOverrideFont");
+            overrideControlDescriptiveText.DataBindings.Add("OverridingColor", this, "DescriptiveTextColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlDescriptiveText.DataBindings.Add("OverridingFont", this, "DescriptiveTextFont", false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlDescriptiveText.DataBindings.Add("OverrideColor", this, "DescriptiveTextOverrideColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlDescriptiveText.DataBindings.Add("OverrideFont", this, "DescriptiveTextOverrideFont", false, DataSourceUpdateMode.OnPropertyChanged);
 
-            overrideControlValueText.DataBindings.Add("OverridingColor", this, "ValueTextColor");
-            overrideControlValueText.DataBindings.Add("OverridingFont", this, "ValueTextFont");
-            overrideControlValueText.DataBindings.Add("OverrideColor", this, "ValueTextOverrideColor");
-            overrideControlValueText.DataBindings.Add("OverrideFont", this, "ValueTextOverrideFont");
+            overrideControlValueText.DataBindings.Add("OverridingColor", this, "ValueTextColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlValueText.DataBindings.Add("OverridingFont", this, "ValueTextFont", false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlValueText.DataBindings.Add("OverrideColor", this, "ValueTextOverrideColor", false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlValueText.DataBindings.Add("OverrideFont", this, "ValueTextOverrideFont", false, DataSourceUpdateMode.OnPropertyChanged);
 
             AddComboboxDataSources();
         }

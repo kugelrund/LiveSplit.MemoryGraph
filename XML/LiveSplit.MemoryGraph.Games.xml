@@ -156,9 +156,17 @@
 			</option>
 		</options>
 	</game>
-	<game name="Quake (JoeQuake)">
-		<process>joequake-gl</process>
-		<base>64F608</base>
+	<game name="Quake">
+		<options>
+			<option name="JoeQuake">
+				<process>joequake-gl</process>
+				<base>64F608</base>
+			</option>
+			<option name="NeaQuake">
+				<process>NeaQuakeGL</process>
+				<base>B6AA28</base>
+			</option>		
+		</options>
 		<type>FloatVec2</type>
 		<maximumValue>800</maximumValue>
 	</game>

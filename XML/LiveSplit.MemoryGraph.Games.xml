@@ -70,6 +70,12 @@
 		<decimals>1</decimals>
 		<unitConverter>1.62</unitConverter>
 	</game>
+	<game name="Hexen II">
+		<process>glh2</process>
+		<base>A6C1DC</base>
+		<type>FloatVec2</type>
+		<maximumValue>1000</maximumValue>
+	</game>
 	<game name="Hitman: Absolution">
 		<process>HMA</process>
 		<base>00D4E510</base>

@@ -31,9 +31,16 @@
 	</game>
 	<game name="Daikatana">
 		<process>daikatana</process>
-		<base>10AFC5C</base>
 		<type>FloatVec2</type>
 		<maximumValue>1000</maximumValue>
+		<options>
+			<option name="v1.3, 2016 Oct 6">
+				<base>12CE10C</base>
+			</option>
+			<option name="v1.3, 2018 Mar 22">
+				<base>10AFC5C</base>
+			</option>
+		</options>
 	</game>
 	<game name="Deus Ex: Human Revolution">
 		<process>dxhr</process>

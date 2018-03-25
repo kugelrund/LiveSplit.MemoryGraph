@@ -29,6 +29,12 @@
 		<type>IntVec3</type>
 		<maximumValue>2200</maximumValue>
 	</game>
+	<game name="Daikatana">
+		<process>daikatana</process>
+		<base>10AFC5C</base>
+		<type>FloatVec2</type>
+		<maximumValue>1000</maximumValue>
+	</game>
 	<game name="Deus Ex: Human Revolution">
 		<process>dxhr</process>
 		<base>14DFA90</base>

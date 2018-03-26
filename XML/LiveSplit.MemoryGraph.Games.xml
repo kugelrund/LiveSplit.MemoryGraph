@@ -29,6 +29,14 @@
 		<type>IntVec3</type>
 		<maximumValue>2200</maximumValue>
 	</game>
+	<game name="Crysis 2">
+		<process>Crysis2</process>
+		<base>01770484</base>
+		<offsets>1b8,28,EC</offsets>
+		<type>FloatVec2</type>
+		<maximumValue>20</maximumValue>
+		<decimals>2</decimals>
+	</game>
 	<game name="Daikatana">
 		<process>daikatana</process>
 		<type>FloatVec2</type>
@@ -48,14 +56,6 @@
 		<type>FloatVec2</type>
 		<maximumValue>50</maximumValue>
 		<decimals>1</decimals>
-	</game>
-	<game name="Crysis 2">
-		<process>Crysis2</process>
-		<base>01770484</base>
-		<offsets>1b8,28,EC</offsets>
-		<type>FloatVec2</type>
-		<maximumValue>20</maximumValue>
-		<decimals>2</decimals>
 	</game>
 	<game name="DUSK">
 		<process>DUSK</process>

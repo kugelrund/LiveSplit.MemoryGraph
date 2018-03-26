@@ -29,6 +29,12 @@
 		<type>IntVec3</type>
 		<maximumValue>2200</maximumValue>
 	</game>
+	<game name="Call of Duty 4 - Modern Warfare">
+		<process>iw3sp</process>
+		<base>314BD0</base>
+		<type>FloatVec2</type>
+		<maximumValue>500</maximumValue>
+	</game>
 	<game name="Crysis 2">
 		<process>Crysis2</process>
 		<base>01770484</base>

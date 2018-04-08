@@ -48,6 +48,9 @@
 		<type>FloatVec2</type>
 		<maximumValue>1000</maximumValue>
 		<options>
+			<option name="v1.3, 2016 Sept 6">
+				<base>12CD0A4</base>
+			</option>
 			<option name="v1.3, 2016 Oct 6">
 				<base>12CE10C</base>
 			</option>

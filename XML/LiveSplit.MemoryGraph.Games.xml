@@ -252,13 +252,8 @@
 				<type>FloatVec2</type>
 				<maximumValue>800</maximumValue>
 			</option>
-			<option name="Speed Academy v0.3">
-				<base>187270</base>
-				<type>FloatVec2</type>
-				<maximumValue>800</maximumValue>
-			</option>
-			<option name="Speed Academy v0.4">
-				<base>188270</base>
+			<option name="Speed Academy v0.5">
+				<base>186D80</base>
 				<type>FloatVec2</type>
 				<maximumValue>800</maximumValue>
 			</option>

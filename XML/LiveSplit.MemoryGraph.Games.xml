@@ -209,6 +209,12 @@
 			<option name="Q2PRO 2016-01-12">
 				<base>15674C</base>
 			</option>
+			<option name="Q2PRO Speed 2018-04-22">
+				<base>16158C</base>
+			</option>
+			<option name="Q2PRO Speed 2018-10-13">
+				<base>1666EC</base>
+			</option>
 		</options>
 	</game>
 	<game name="RBDoom3BFG (1.1.0)">

@@ -359,4 +359,13 @@
 		<maximumValue>15</maximumValue>
 		<decimals>2</decimals>
 	</game>
+	<game name="Mirror's Edge">
+	        <process>MirrorsEdge</process>
+	        <base>01C553D0</base>
+	        <offsets>CC, 1CC, 1C0, 98, 4B8</offsets>
+	        <type>Float</type>
+	        <maximumValue>3500</maximumValue>
+	        <decimals>0</decimals>
+	        <unitConverter>0.10</unitConverter>
+        </game>
 </games>

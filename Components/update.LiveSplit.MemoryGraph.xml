@@ -1,4 +1,12 @@
 <updates>
+    <update version="1.5.0">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Ignore case of process name.</change>
+        </changelog>
+    </update>
     <update version="1.4.9">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

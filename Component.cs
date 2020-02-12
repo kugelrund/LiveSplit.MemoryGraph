@@ -667,7 +667,7 @@ namespace LiveSplit.MemoryGraph
         public void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode)
         {
             if (process != null && settings.Pointer != null && !process.HasExited &&
-                process.ProcessName == settings.ProcessName)
+                string.Equals(process.ProcessName, settings.ProcessName, StringComparison.OrdinalIgnoreCase))
             {
                 switch (settings.ValueType)
                 {

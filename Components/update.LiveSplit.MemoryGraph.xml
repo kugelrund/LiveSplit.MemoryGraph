@@ -1,4 +1,12 @@
 <updates>
+    <update version="1.4.9">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Fix overflow of vector length when using integer types.</change>
+        </changelog>
+    </update>
     <update version="1.4.8">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

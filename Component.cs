@@ -67,7 +67,7 @@ namespace LiveSplit.MemoryGraph
             this.y = y;
         }
 
-        public double Norm => Math.Sqrt(x * x + y * y);
+        public double Norm => Math.Sqrt((double)x * x + (double)y * y);
     }
 
     struct IntVec2XZY
@@ -83,7 +83,7 @@ namespace LiveSplit.MemoryGraph
             this.z = z;
         }
 
-        public double Norm => Math.Sqrt(x * x + z * z);
+        public double Norm => Math.Sqrt((double)x * x + (double)z * z);
     }
 
     struct IntVec3
@@ -99,7 +99,7 @@ namespace LiveSplit.MemoryGraph
             this.z = z;
         }
 
-        public double Norm => Math.Sqrt(x * x + y * y + z * z);
+        public double Norm => Math.Sqrt((double)x * x + (double)y * y + (double)z * z);
     }
 
     public class Component : IComponent

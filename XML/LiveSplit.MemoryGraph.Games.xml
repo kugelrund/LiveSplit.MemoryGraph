@@ -108,6 +108,16 @@
 		<type>Float</type>
 		<maximumValue>500</maximumValue>
 	</game>
+	<game name="Duke Nukem 3D: Megaton Edition">
+		<options>
+			<option name="pkDuke 1.2 (Megaton 1.3)">
+				<process>pkDuke3d</process>
+				<base>1C1234C</base>
+			</option>
+		</options>
+		<type>Int</type>
+		<maximumValue>600</maximumValue>
+	</game>
 	<game name="DUSK">
 		<process>DUSK</process>
 		<base>10B8660</base>
@@ -286,6 +296,18 @@
 				<base>BB800</base>
 			</option>
 		</options>
+	</game>
+	<game name="Star Wars Jedi Knight: Dark Forces II">
+		<options>
+			<option name="Retail 1.0)">
+				<process>JK</process>
+				<base>4319A4</base>
+				<offsets>1D4</offsets>
+			</option>
+		</options>
+		<type>FloatVec2</type>
+		<maximumValue>4</maximumValue>
+		<decimals>4</decimals>
 	</game>
 	<game name="Star Wars Jedi Knight: Jedi Academy">
 		<process>jasp</process>

@@ -29,10 +29,52 @@
 		<type>IntVec3</type>
 		<maximumValue>2200</maximumValue>
 	</game>
-	<game name="Call of Duty 4 - Modern Warfare">
+	<game name="Call of Duty 4: Modern Warfare">
 		<process>iw3sp</process>
 		<base>314BD0</base>
 		<type>FloatVec2</type>
+		<maximumValue>500</maximumValue>
+	</game>
+	<game name="Call of Duty: Black Ops">
+		<process>BlackOps</process>
+		<base>1653900</base>
+		<type>Float</type>
+		<maximumValue>500</maximumValue>
+	</game>
+	<game name="Call of Duty: Black Ops 2">
+		<process>t6sp</process>
+		<base>19FEF08</base>
+		<type>Float</type>
+		<maximumValue>500</maximumValue>
+	</game>
+	<game name="Call of Duty: Ghosts">
+		<process>iw6sp64_ship</process>
+		<base>14C508C</base>
+		<type>Float</type>
+		<maximumValue>500</maximumValue>
+	</game>
+	<game name="Call of Duty: Modern Warfare 2">
+		<process>iw4sp</process>
+		<base>46B04C</base>
+		<type>Float</type>
+		<maximumValue>500</maximumValue>
+	</game>
+	<game name="Call of Duty: Modern Warfare 3">
+		<process>iw5sp</process>
+		<base>595014</base>
+		<type>Float</type>
+		<maximumValue>500</maximumValue>
+	</game>
+	<game name="Call of Duty: Modern Warfare Remastered">
+		<process>h1_sp64_ship</process>
+		<base>21493E4</base>
+		<type>Float</type>
+		<maximumValue>500</maximumValue>
+	</game>
+	<game name="Call of Duty: World at War">
+		<process>CoDWaW</process>
+		<base>42E5EE4</base>
+		<type>Float</type>
 		<maximumValue>500</maximumValue>
 	</game>
 	<game name="Crysis 2">
@@ -65,48 +107,6 @@
 		<type>FloatVec2</type>
 		<maximumValue>50</maximumValue>
 		<decimals>1</decimals>
-	</game>
-	<game name="Call of Duty: Modern Warfare 2">
-		<process>iw4sp</process>
-		<base>46B04C</base>
-		<type>Float</type>
-		<maximumValue>500</maximumValue>
-	</game>
-	<game name="Call of Duty: Black Ops">
-		<process>BlackOps</process>
-		<base>1653900</base>
-		<type>Float</type>
-		<maximumValue>500</maximumValue>
-	</game>
-	<game name="Call of Duty: Ghosts">
-		<process>iw6sp64_ship</process>
-		<base>14C508C</base>
-		<type>Float</type>
-		<maximumValue>500</maximumValue>
-	</game>
-	<game name="Call of Duty: Blackops 2">
-		<process>t6sp</process>
-		<base>19FEF08</base>
-		<type>Float</type>
-		<maximumValue>500</maximumValue>
-	</game>
-	<game name="Call of Duty: Modern Warfare Remastered">
-		<process>h1_sp64_ship</process>
-		<base>21493E4</base>
-		<type>Float</type>
-		<maximumValue>500</maximumValue>
-	</game>
-	<game name="Call of Duty: World at War">
-		<process>CoDWaW</process>
-		<base>42E5EE4</base>
-		<type>Float</type>
-		<maximumValue>500</maximumValue>
-	</game>
-	<game name="Call of Duty: Modern Warfare 3">
-		<process>iw5sp</process>
-		<base>595014</base>
-		<type>Float</type>
-		<maximumValue>500</maximumValue>
 	</game>
 	<game name="Duke Nukem 3D: Megaton Edition">
 		<options>
@@ -206,6 +206,15 @@
 			</option>
 		</options>
 	</game>
+	<game name="Mirror's Edge">
+	        <process>MirrorsEdge</process>
+	        <base>01C553D0</base>
+	        <offsets>CC, 1CC, 1C0, 98, 4B8</offsets>
+	        <type>Float</type>
+	        <maximumValue>3500</maximumValue>
+	        <decimals>0</decimals>
+	        <unitConverter>0.10</unitConverter>
+	</game>
 	<game name="Mirror's Edge Catalyst">
 		<process>MirrorsEdgeCatalyst</process>
 		<base>23E29B8</base>
@@ -297,6 +306,29 @@
 			</option>
 		</options>
 	</game>
+	<game name="Star Wars: Dark Forces">
+		<process>dosbox</process>
+		<type>IntVec2XZY</type>
+		<maximumValue>60000</maximumValue>
+		<options>
+			<option name="0.47">
+				<base>0193A1A0</base>
+				<offsets>29A22C</offsets>
+			</option>
+			<option name="0.47-2">
+				<base>193E370</base>
+				<offsets>29A22C</offsets>
+			</option>
+			<option name="0.43">
+				<base>00351690</base>
+				<offsets>29A22C</offsets>
+			</option>
+			<option name="SVN-Daum">
+				<base>023944CC</base>
+				<offsets>2DA22C</offsets>
+			</option>
+		</options>
+	</game>
 	<game name="Star Wars Jedi Knight: Dark Forces II">
 		<options>
 			<option name="Retail 1.0)">
@@ -329,7 +361,7 @@
 			</option>
 		</options>
 	</game>
-	<game name="Star Wars Jedi Knight: Jedi Outcast">
+	<game name="Star Wars Jedi Knight II: Jedi Outcast">
 		<type>FloatVec2</type>
 		<maximumValue>1000</maximumValue>
 		<options>
@@ -381,13 +413,4 @@
 		<maximumValue>15</maximumValue>
 		<decimals>2</decimals>
 	</game>
-	<game name="Mirror's Edge">
-	        <process>MirrorsEdge</process>
-	        <base>01C553D0</base>
-	        <offsets>CC, 1CC, 1C0, 98, 4B8</offsets>
-	        <type>Float</type>
-	        <maximumValue>3500</maximumValue>
-	        <decimals>0</decimals>
-	        <unitConverter>0.10</unitConverter>
-        </game>
 </games>

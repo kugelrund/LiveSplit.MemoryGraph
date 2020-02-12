@@ -214,7 +214,7 @@
 	        <maximumValue>3500</maximumValue>
 	        <decimals>0</decimals>
 	        <unitConverter>0.10</unitConverter>
-        </game>
+	</game>
 	<game name="Mirror's Edge Catalyst">
 		<process>MirrorsEdgeCatalyst</process>
 		<base>23E29B8</base>
@@ -329,7 +329,7 @@
 			</option>
 		</options>
 	</game>
-	<game name="Star Wars: Jedi Knight: Dark Forces II">
+	<game name="Star Wars Jedi Knight: Dark Forces II">
 		<options>
 			<option name="Retail 1.0)">
 				<process>JK</process>
@@ -341,7 +341,7 @@
 		<maximumValue>4</maximumValue>
 		<decimals>4</decimals>
 	</game>
-	<game name="Star Wars: Jedi Knight: Jedi Academy">
+	<game name="Star Wars Jedi Knight: Jedi Academy">
 		<process>jasp</process>
 		<options>
 			<option name="Normal">
@@ -361,7 +361,7 @@
 			</option>
 		</options>
 	</game>
-	<game name="Star Wars: Jedi Knight: Jedi Outcast">
+	<game name="Star Wars Jedi Knight II: Jedi Outcast">
 		<type>FloatVec2</type>
 		<maximumValue>1000</maximumValue>
 		<options>

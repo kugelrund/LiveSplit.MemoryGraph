@@ -174,9 +174,6 @@ namespace LiveSplit.MemoryGraph
                 _currentValue = value;
             }
         }
-        private float currentValueX;
-        private float currentValueY;
-        private float currentValueZ;
         private System.Diagnostics.Process process;
 
         private Bitmap bmpBuffer;
@@ -676,74 +673,44 @@ namespace LiveSplit.MemoryGraph
                 {
                     case MemoryType.Float:
                         {
-                            currentValueX = 0;
-                            currentValueY = 0;
-                            currentValueZ = 0;
                             currentValue = settings.Pointer.Deref<float>(process);
                         }
                         break;
                     case MemoryType.Int:
                         {
-                            currentValueX = 0;
-                            currentValueY = 0;
-                            currentValueZ = 0;
                             currentValue = settings.Pointer.Deref<int>(process);
                         }
                         break;
                     case MemoryType.FloatVec2:
                         {
-                            FloatVec2 vec = settings.Pointer.Deref<FloatVec2>(process);
-                            currentValueX = vec.x;
-                            currentValueY = vec.y;
-                            currentValueZ = 0;
-                            currentValue = (float)vec.Norm;
+                            currentValue = (float)settings.Pointer.Deref<FloatVec2>(process).Norm;
                         }
                         break;
                     case MemoryType.FloatVec3:
                         {
-                            FloatVec3 vec = settings.Pointer.Deref<FloatVec3>(process);
-                            currentValueX = vec.x;
-                            currentValueY = vec.y;
-                            currentValueZ = vec.z;
-                            currentValue = (float)vec.Norm;
+                            currentValue = (float)settings.Pointer.Deref<FloatVec3>(process).Norm;
                         }
                         break;
                     case MemoryType.IntVec2:
                         {
-                            IntVec2 vec = settings.Pointer.Deref<IntVec2>(process);
-                            currentValueX = vec.x;
-                            currentValueY = vec.y;
-                            currentValueZ = 0;
-                            currentValue = (float)vec.Norm;
+                            currentValue = (float)settings.Pointer.Deref<IntVec2>(process).Norm;
                         }
 
                         break;
                     case MemoryType.IntVec3:
                         {
-                            IntVec3 vec = settings.Pointer.Deref<IntVec3>(process);
-                            currentValueX = vec.x;
-                            currentValueY = vec.y;
-                            currentValueZ = 0;
-                            currentValue = (float)vec.Norm;
+                            currentValue = (float)settings.Pointer.Deref<IntVec3>(process).Norm;
                         }
 
                         break;
                     case MemoryType.FloatVec2XZY:
                         {
-                            FloatVec2XZY vec = settings.Pointer.Deref<FloatVec2XZY>(process);
-                            currentValueX = vec.x;
-                            currentValueY = vec.y;
-                            currentValueZ = 0;
-                            currentValue = (float)vec.Norm;
+                            currentValue = (float)settings.Pointer.Deref<FloatVec2XZY>(process).Norm;
                         }
                         break;
                     case MemoryType.IntVec2XZY:
                         {
-                            IntVec2XZY vec = settings.Pointer.Deref<IntVec2XZY>(process);
-                            currentValueX = vec.x;
-                            currentValueY = vec.y;
-                            currentValueZ = 0;
-                            currentValue = (float)vec.Norm;
+                            currentValue = (float)settings.Pointer.Deref<IntVec2XZY>(process).Norm;
                         }
                         break;
                 }

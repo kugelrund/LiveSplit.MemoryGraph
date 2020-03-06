@@ -413,4 +413,10 @@
 		<maximumValue>15</maximumValue>
 		<decimals>2</decimals>
 	</game>
+	<game name="Titanfall 2">
+		<process>Titanfall2</process>
+		<module>client.dll</module>
+		<base>B34C2C</base>
+		<type>FloatVec2</type>
+	</game>
 </games>

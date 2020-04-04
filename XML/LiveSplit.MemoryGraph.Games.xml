@@ -229,6 +229,22 @@
 		<type>FloatVec2</type>
 		<maximumValue>800</maximumValue>
 	</game>
+	<game name="Portal">
+		<process>hl2</process>
+		<module>server.dll</module>
+		<type>FloatVec2</type>
+		<options>
+			<option name="3420">
+				<base>62D648</base>
+			</option>
+			<option name="5135">
+				<base>68D918</base>
+			</option>
+			<option name="SteamPipe">
+				<base>6C5770</base>
+			</option>
+		</options>
+	</game>
 	<game name="Portal 2">
 		<process>portal2</process>
 		<module>client.dll</module>

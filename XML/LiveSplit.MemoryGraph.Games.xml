@@ -59,6 +59,12 @@
 		<type>Float</type>
 		<maximumValue>500</maximumValue>
 	</game>
+	<game name="Call of Duty 2">
+		<process>CoD2SP_s</process>
+		<base>B797A8</base>
+		<type>Float</type>
+		<maximumValue>500</maximumValue>
+	</game>
 	<game name="Call of Duty: Modern Warfare 3">
 		<process>iw5sp</process>
 		<base>595014</base>

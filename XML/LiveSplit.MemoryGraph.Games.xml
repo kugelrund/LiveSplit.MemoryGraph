@@ -35,6 +35,12 @@
 		<type>FloatVec2</type>
 		<maximumValue>500</maximumValue>
 	</game>
+	<game name="Call of Duty 2">
+		<process>CoDSP</process>
+		<base>102FE70</base>
+		<type>FloatVec2</type>
+		<maximumValue>1000</maximumValue>
+	</game>
 	<game name="Call of Duty: Black Ops">
 		<process>BlackOps</process>
 		<base>1653900</base>

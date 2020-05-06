@@ -49,7 +49,7 @@
 	</game>
 	<game name="Call of Duty: Modern Warfare 2 Remastered">
 		<process>MW2CR</process>
-		<base>1C1A31C</base>
+		<base>1E57628</base>
 		<type>Float</type>
 		<maximumValue>500</maximumValue>
 	</game>

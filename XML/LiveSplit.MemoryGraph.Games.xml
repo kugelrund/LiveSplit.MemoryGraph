@@ -37,7 +37,7 @@
 	</game>
 	<game name="Call of Duty">
 		<process>CoDSP</process>
-		<base>102FE70</base>
+		<base>102FE6C</base>
 		<type>FloatVec2</type>
 		<maximumValue>1000</maximumValue>
 	</game>

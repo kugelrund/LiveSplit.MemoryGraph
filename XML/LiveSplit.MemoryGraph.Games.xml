@@ -393,6 +393,11 @@
 				<type>FloatVec2</type>
 				<maximumValue>800</maximumValue>
 			</option>
+			<option name="Speed Academy v0.9">
+				<base>171D00</base>
+				<type>FloatVec2</type>
+				<maximumValue>800</maximumValue>
+			</option>
 		</options>
 	</game>
 	<game name="Star Wars Jedi Knight II: Jedi Outcast">

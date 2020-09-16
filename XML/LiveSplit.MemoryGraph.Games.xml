@@ -326,6 +326,18 @@
 		<type>FloatVec2</type>
 		<maximumValue>350</maximumValue>
 	</game>
+	<game name="Sly Cooper and the Thievus Racoonus (PS2)">
+		<process>pcsx2</process>
+        <module>pcsx2.exe</module>
+		<options>
+			<option name="NTSC">
+				<base>201E2E10</base>
+			</option>
+		</options>
+		<offsets>20000150</offsets>
+		<type>FloatVec3</type>
+		<maximumValue>1000</maximumValue>
+	</game>
 	<game name="Star Trek: Voyager Elite Force">
 		<process>stvoy</process>
 		<type>FloatVec2</type>

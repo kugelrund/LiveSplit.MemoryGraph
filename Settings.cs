@@ -279,6 +279,10 @@ namespace LiveSplit.MemoryGraph
                 {
                     Pointer = new DeepPointer(baseAddress, offsets);
                 }
+                else if (txtModule.Text == "[absolute_base]")
+                {
+                    Pointer = new DeepPointer(new IntPtr(baseAddress), offsets);
+                }
                 else
                 {
                     Pointer = new DeepPointer(txtModule.Text, baseAddress, offsets);

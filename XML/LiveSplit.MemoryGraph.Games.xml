@@ -328,10 +328,10 @@
 	</game>
 	<game name="Sly Cooper and the Thievus Racoonus (PS2)">
 		<process>pcsx2</process>
-		<module>pcsx2.exe</module>
+		<module>[absolute_base]</module>
 		<options>
 			<option name="NTSC">
-				<base>201E2E10</base>
+				<base>20262E10</base>
 			</option>
 		</options>
 		<offsets>20000150</offsets>

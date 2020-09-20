@@ -333,6 +333,9 @@
 			<option name="NTSC">
 				<base>20262E10</base>
 			</option>
+			<option name="PAL">
+				<base>20264070</base>
+			</option>
 		</options>
 		<offsets>20000150</offsets>
 		<type>FloatVec3</type>

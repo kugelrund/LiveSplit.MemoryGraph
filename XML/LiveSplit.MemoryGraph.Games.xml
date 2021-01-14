@@ -53,6 +53,12 @@
 		<type>Float</type>
 		<maximumValue>500</maximumValue>
 	</game>
+		<game name="Call of Duty: WW2">
+		<process>s2_sp64_ship</process>
+		<base>34BC28C</base>
+		<type>Float</type>
+		<maximumValue>750</maximumValue>
+	</game>
 	<game name="Call of Duty: Black Ops 2">
 		<process>t6sp</process>
 		<base>19FEF08</base>

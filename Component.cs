@@ -300,6 +300,7 @@ namespace LiveSplit.MemoryGraph
 
             // calculate relative value between 0 and 1
             float relativeValue = (currentValue - settings.MinimumValue) / (settings.MaximumValue - settings.MinimumValue);
+            float relativeValueClamped = Math.Min(1.0f, Math.Max(0.0f, relativeValue));
 
             // create brush
             switch (settings.GraphGradient)
@@ -357,8 +358,8 @@ namespace LiveSplit.MemoryGraph
                     if (currentValue > settings.MinimumValue)
                     {
                         gBuffer.FillRectangle(graphBrush,
-                                              graphWidth - 1, (1 - relativeValue) * graphHeight,
-                                              1, relativeValue * graphHeight);
+                                              graphWidth - 1, (1 - relativeValueClamped) * graphHeight,
+                                              1, relativeValueClamped * graphHeight);
                     }
 
                     if (descriptiveNextToGraph || valueNextToGraph)
@@ -390,7 +391,7 @@ namespace LiveSplit.MemoryGraph
                             barRect.Height -= 2 * settings.VerticalMargins;
                         }
 
-                        barRect.Width *= (relativeValue > 1) ? 1 : relativeValue ;
+                        barRect.Width *= relativeValueClamped;
                         g.FillRectangle(graphBrush, barRect);
                     }
                     break;
@@ -400,7 +401,7 @@ namespace LiveSplit.MemoryGraph
                     gBuffer.DrawImageUnscaled(bmpBuffer, -1, 0);
                     gBuffer.FillRectangle(Brushes.Transparent, graphWidth - 1, 0, 1, graphHeight);
 
-                    avaragedValue += relativeValue;
+                    avaragedValue += relativeValueClamped;
 
                     if (drawCounter==10)
                     {
@@ -455,7 +456,7 @@ namespace LiveSplit.MemoryGraph
                     polygon_points[2].Y = graphHeight;
                     polygon_points[3].X = graphWidth;
                     if (currentValue > settings.MinimumValue)
-                        polygon_points[3].Y = graphHeight - (relativeValue * graphHeight);
+                        polygon_points[3].Y = graphHeight - (relativeValueClamped * graphHeight);
                     else
                         polygon_points[3].Y = graphHeight;
                     gBuffer.FillPolygon(graphBrush, polygon_points);

@@ -1,4 +1,12 @@
 <updates>
+    <update version="1.5.2">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Fix crash due to overflow if pointer gives unreasonable values.</change>
+        </changelog>
+    </update>
     <update version="1.5.1">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

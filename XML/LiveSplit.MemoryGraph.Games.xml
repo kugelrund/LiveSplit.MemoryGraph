@@ -504,4 +504,12 @@
 		<base>B34C2C</base>
 		<type>FloatVec2</type>
 	</game>
+	<game name="Risk of Rain 2">
+		<process>Risk of Rain 2</process>
+		<module>mono-2.0-bdwgc.dll</module>
+		<base>491DE8</base>
+		<offsets>A0, CA0, 68, 98, 30, 18, 9C</offsets>
+		<type>FloatVec2XZY</type>
+		<maximumValue>250</maximumValue>
+	</game>
 </games>

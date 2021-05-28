@@ -146,13 +146,13 @@
 	</game>
 	<game name="Duke Nukem 3D: Megaton Edition">
 		<options>
-			<option name="pkDuke 1.2 (Megaton 1.3)">
+			<option name="pkDuke 1.2 (Megaton 1.3.2)">
 				<process>pkDuke3d</process>
-				<base>1C1234C</base>
+				<base>1B195EC</base>
 			</option>
 		</options>
-		<type>Int</type>
-		<maximumValue>600</maximumValue>
+		<type>IntVec2</type>
+		<maximumValue>8600000</maximumValue>
 	</game>
 	<game name="DUSK">
 		<process>DUSK</process>

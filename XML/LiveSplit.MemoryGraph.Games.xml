@@ -152,7 +152,7 @@
 			</option>
 		</options>
 		<type>IntVec2</type>
-		<maximumValue>6000000</maximumValue>
+		<maximumValue>8600000</maximumValue>
 	</game>
 	<game name="DUSK">
 		<process>DUSK</process>

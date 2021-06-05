@@ -22,6 +22,15 @@
 </game>
 -->
 <games>
+	<game name="007: Quantum of Solace">
+		<process>jb_liveengine_s</process>
+		<module>jb_sp_s.dll</module>
+		<base>20B1024</base>
+		<type>FloatVec2</type>
+		<maximumValue>600</maximumValue>
+		<decimals>1</decimals>
+		<unitConverter>65</unitConverter>
+	</game>
 	<game name="Arabian Nights (3dfx)">
 		<process>_st_3dfx</process>
 		<base>9CCD8</base>

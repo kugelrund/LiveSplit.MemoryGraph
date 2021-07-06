@@ -246,8 +246,11 @@
 			<option name="2.0.9.1">
 				<base>6419F0</base>
 			</option>
-			<option name="2.1.5.0">
-				<base>6BADC0</base>
+			<option name="2.1.4.7">
+				<base>6B9DC0</base>
+			</option>
+			<option name="2.2.0.3">
+				<base>6C5E78</base>
 			</option>
 		</options>
 	</game>

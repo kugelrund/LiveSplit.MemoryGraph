@@ -516,6 +516,12 @@
 		<base>B34C2C</base>
 		<type>FloatVec2</type>
 	</game>
+	<game name="Titanfall">
+		<process>Titanfall</process>
+		<module>client.dll</module>
+		<base>B137E0</base>
+		<type>FloatVec2</type>
+	</game>
 	<game name="Risk of Rain 2">
 		<process>Risk of Rain 2</process>
 		<module>mono-2.0-bdwgc.dll</module>

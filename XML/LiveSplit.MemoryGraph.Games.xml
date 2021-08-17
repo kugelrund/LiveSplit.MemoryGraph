@@ -349,6 +349,14 @@
 		<type>FloatVec2</type>
 		<maximumValue>750</maximumValue>
 	</game>
+	<game name="Roboquest (0.6.x)">
+		<process>RoboQuest-Win64-Shipping</process>
+		<base>04978758</base>
+		<offsets>0,20,43E0</offsets>
+		<type>Float</type>
+		<maximumValue>3500</maximumValue>
+		<decimals>2</decimals>
+	</game>
 	<game name="Sin Episodes: Emergance">
 		<process>SinEpisodes</process>
 		<module>server.dll</module>

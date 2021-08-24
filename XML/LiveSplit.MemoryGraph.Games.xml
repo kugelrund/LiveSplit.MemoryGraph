@@ -342,6 +342,13 @@
 			</option>
 		</options>
 	</game>
+	<game name="Quake Remaster">
+		<process>Quake_x64_steam</process>
+		<base>17F5DA8</base>
+		<offsets>0</offsets>
+		<type>FloatVec2</type>
+		<maximumValue>800</maximumValue>
+	</game>
 	<game name="RBDoom3BFG (1.1.0)">
 		<process>RBDoom3BFG</process>
 		<base>014C93A8</base>

@@ -255,13 +255,40 @@
 		</options>
 	</game>
 	<game name="Mirror's Edge">
-	        <process>MirrorsEdge</process>
-	        <base>01C553D0</base>
-	        <offsets>CC, 1CC, 1C0, 98, 4B8</offsets>
-	        <type>Float</type>
-	        <maximumValue>3500</maximumValue>
-	        <decimals>0</decimals>
-	        <unitConverter>0.10</unitConverter>
+		<process>MirrorsEdge</process>
+		<type>Float</type>
+		<maximumValue>3500</maximumValue>
+		<unitConverter>100</unitConverter>
+		<options>
+			<option name="Steam">
+				<base>01C553D0</base>
+				<offsets>CC, 1CC, 2F8, 4B8</offsets>
+			</option>
+			<option name="GoG">
+				<base>01C553D0</base>
+				<offsets>CC, 1CC, 2F8, 4B8</offsets>
+			</option>
+			<option name="Reloaded">
+				<base>01C6E50C</base>
+				<offsets>CC, 1CC, 2F8, 4B8</offsets>
+			</option>
+			<option name="Dvd">
+				<base>01C6E50C</base>
+				<offsets>CC, 1CC, 2F8, 4B8</offsets>
+			</option>
+			<option name="Origin">
+				<base>01C6E50C</base>
+				<offsets>CC, 1CC, 2F8, 4B8</offsets>
+			</option>
+			<option name="Origin DLC">
+				<base>01C7561C</base>
+				<offsets>E4, 1CC, 2F8, 4B8</offsets>
+			</option>
+			<option name="Origin Asia">
+				<base>01B8BE54</base>
+				<offsets>CC, 1CC, 2F8, 4B8</offsets>
+			</option>
+		</options>
 	</game>
 	<game name="Mirror's Edge Catalyst">
 		<process>MirrorsEdgeCatalyst</process>

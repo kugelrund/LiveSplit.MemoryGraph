@@ -385,8 +385,8 @@
 	</game>
 	<game name="Roboquest (0.8.9)">
 		<process>RoboQuest-Win64-Shipping</process>
-		<base>04AADAB8</base>
-		<offsets>0,240,46A0</offsets>
+		<base>04B427F0</base>
+		<offsets>180,38,0,30,260,46A0</offsets>
 		<type>Float</type>
 		<maximumValue>3500</maximumValue>
 		<decimals>2</decimals>

@@ -517,6 +517,10 @@
 				<process>jk2sp</process>
 				<base>4BD9E0</base>
 			</option>
+			<option name="Speed Outcast v0.7">
+				<process>jk2sp</process>
+				<base>4BC9E0</base>
+			</option>
 			<option name="MP">
 				<process>jk2mp</process>
 				<base>4F8F40</base>

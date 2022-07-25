@@ -590,4 +590,18 @@
 		<type>FloatVec2XZY</type>
 		<maximumValue>250</maximumValue>
 	</game>
+	<game name="Call of Duty: Black Ops 3">
+		<process>BlackOps3</process>
+		<type>Float</type>
+			<option name="V-Meter">
+				<base>4D1A90C</base>
+				<maximumValue>1000</maximumValue>
+				<decimals>0</decimals>
+			</option>
+			<option name="TSCID">
+				<base>17AFA628</base>
+				<maximumValue>10</maximumValue>
+				<decimals>7</decimals>
+			</option>
+	</game>
 </games>

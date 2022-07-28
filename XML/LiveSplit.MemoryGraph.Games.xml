@@ -593,6 +593,7 @@
 	<game name="Call of Duty: Black Ops 3">
 		<process>BlackOps3</process>
 		<type>Float</type>
+		<options>
 			<option name="V-Meter">
 				<base>4D1A90C</base>
 				<maximumValue>1000</maximumValue>
@@ -603,5 +604,6 @@
 				<maximumValue>10</maximumValue>
 				<decimals>7</decimals>
 			</option>
+		</options>
 	</game>
 </games>

@@ -539,6 +539,16 @@
 		<type>FloatVec3</type>
 		<maximumValue>1000</maximumValue>
 	</game>
+	<game name="Tom Clancy's Splinter Cell">
+		<process>splintercell</process>
+		<module>Engine.dll</module>
+		<base>002EA024</base>
+		<offsets>30,0,34,454,EC</offsets>
+		<type>FloatVec2</type>
+		<maximumValue>500</maximumValue>
+		<decimals>1</decimals>
+		<unitConverter>175</unitConverter>
+	</game>
 	<game name="Thief 2: The Metal Age (NewDark 1.24)">
 		<process>thief2</process>
 		<base>4C8528</base>

@@ -62,6 +62,22 @@
 		<type>Float</type>
 		<maximumValue>500</maximumValue>
 	</game>
+	<game name="Call of Duty: Black Ops 3">
+		<process>BlackOps3</process>
+		<type>Float</type>
+		<options>
+			<option name="V-Meter">
+				<base>4D1A90C</base>
+				<maximumValue>1000</maximumValue>
+				<decimals>0</decimals>
+			</option>
+			<option name="TSCID">
+				<base>17AFA628</base>
+				<maximumValue>10</maximumValue>
+				<decimals>7</decimals>
+			</option>
+		</options>
+	</game>
 	<game name="Call of Duty: Modern Warfare 2 Remastered">
 		<process>MW2CR</process>
 		<base>1C1B31C</base>
@@ -169,6 +185,14 @@
 		<offsets>780,50,78</offsets>
 		<type>FloatVec2XZY</type>
 		<maximumValue>50</maximumValue>
+		<decimals>2</decimals>
+	</game>
+	<game name="Exodus from the Earth">
+		<process>efte</process>
+		<base>00978CE0</base>
+		<offsets>0, 30c</offsets>
+		<type>FloatVec2XZY</type>
+		<maximumValue>9</maximumValue>
 		<decimals>2</decimals>
 	</game>
 	<game name="El Matador (dll injection required)">
@@ -383,6 +407,14 @@
 		<type>FloatVec2</type>
 		<maximumValue>750</maximumValue>
 	</game>
+	<game name="Risk of Rain 2">
+		<process>Risk of Rain 2</process>
+		<module>mono-2.0-bdwgc.dll</module>
+		<base>491DE8</base>
+		<offsets>A0, CA0, 68, 98, 30, 18, 9C</offsets>
+		<type>FloatVec2XZY</type>
+		<maximumValue>250</maximumValue>
+	</game>
 	<game name="Roboquest (0.8.9)">
 		<process>RoboQuest-Win64-Shipping</process>
 		<base>04B427F0</base>
@@ -591,29 +623,5 @@
 		<module>client.dll</module>
 		<base>B137E0</base>
 		<type>FloatVec2</type>
-	</game>
-	<game name="Risk of Rain 2">
-		<process>Risk of Rain 2</process>
-		<module>mono-2.0-bdwgc.dll</module>
-		<base>491DE8</base>
-		<offsets>A0, CA0, 68, 98, 30, 18, 9C</offsets>
-		<type>FloatVec2XZY</type>
-		<maximumValue>250</maximumValue>
-	</game>
-	<game name="Call of Duty: Black Ops 3">
-		<process>BlackOps3</process>
-		<type>Float</type>
-		<options>
-			<option name="V-Meter">
-				<base>4D1A90C</base>
-				<maximumValue>1000</maximumValue>
-				<decimals>0</decimals>
-			</option>
-			<option name="TSCID">
-				<base>17AFA628</base>
-				<maximumValue>10</maximumValue>
-				<decimals>7</decimals>
-			</option>
-		</options>
 	</game>
 </games>

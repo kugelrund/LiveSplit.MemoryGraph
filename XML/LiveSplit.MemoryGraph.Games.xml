@@ -280,11 +280,11 @@
 	</game>
 	<game name="Liquidator 2: Welcome to Hell">
 		<process>Liquidator2Launcher</process>
-		<module>TMAI.dll</module>
-		<base>004B6514</base>
-		<offsets>548, C, 1B4, 1C0</offsets>
+		<module>TMKernel.dll</module>
+		<base>0014BB90</base>
+		<offsets>0, 30, 8, 44, C, 1B4, 1C0</offsets>
 		<type>FloatVec2</type>
-		<maximumValue>60</maximumValue>
+		<maximumValue>40</maximumValue>
 		<decimals>2</decimals>
 	</game>
 	<game name="Mirror's Edge">

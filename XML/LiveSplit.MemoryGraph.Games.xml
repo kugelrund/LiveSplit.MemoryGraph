@@ -411,8 +411,22 @@
 	</game>
 	<game name="RBDoom3BFG (1.1.0)">
 		<process>RBDoom3BFG</process>
-		<base>014C93A8</base>
+		<base>14C93A8</base>
 		<offsets>3C4,98</offsets>
+		<type>FloatVec2</type>
+		<maximumValue>750</maximumValue>
+	</game>
+	<game name="RBDoom3BFG (1.4.0)">
+		<process>RBDoom3BFG</process>
+		<base>2252E98</base>
+		<offsets>4E0,CC</offsets>
+		<type>FloatVec2</type>
+		<maximumValue>750</maximumValue>
+	</game>
+	<game name="RBDoom3BFG (1.5.1)">
+		<process>RBDoom3BFG</process>
+		<base>2932E88</base>
+		<offsets>4E0,CC</offsets>
 		<type>FloatVec2</type>
 		<maximumValue>750</maximumValue>
 	</game>

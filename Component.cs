@@ -21,7 +21,7 @@ namespace LiveSplit.MemoryGraph
             this.y = y;
         }
 
-        public double Norm => Math.Sqrt(x * x + y * y);
+        public double Norm => Math.Sqrt(x * x) + Math.Sqrt(y * y);
     }
 
     struct FloatVec2XZY
@@ -37,7 +37,7 @@ namespace LiveSplit.MemoryGraph
             this.z = z;
         }
 
-        public double Norm => Math.Sqrt(x * x + z * z);
+        public double Norm => Math.Sqrt(x * x) + Math.Sqrt(z * z);
     }
 
     struct FloatVec3
@@ -53,7 +53,7 @@ namespace LiveSplit.MemoryGraph
             this.z = z;
         }
 
-        public double Norm => Math.Sqrt(x * x + y * y + z * z);
+        public double Norm => Math.Sqrt(x * x) + Math.Sqrt(y * y) + Math.Sqrt(z * z);
     }
 
     struct IntVec2
@@ -67,7 +67,7 @@ namespace LiveSplit.MemoryGraph
             this.y = y;
         }
 
-        public double Norm => Math.Sqrt((double)x * x + (double)y * y);
+        public double Norm => Math.Sqrt((double)x * x) + Math.Sqrt((double)y * y);
     }
 
     struct IntVec2XZY
@@ -83,7 +83,7 @@ namespace LiveSplit.MemoryGraph
             this.z = z;
         }
 
-        public double Norm => Math.Sqrt((double)x * x + (double)z * z);
+        public double Norm => Math.Sqrt((double)x * x) + Math.Sqrt((double)z * z);
     }
 
     struct IntVec3
@@ -99,7 +99,7 @@ namespace LiveSplit.MemoryGraph
             this.z = z;
         }
 
-        public double Norm => Math.Sqrt((double)x * x + (double)y * y + (double)z * z);
+        public double Norm => Math.Sqrt((double)x * x) + Math.Sqrt((double)y * y) + Math.Sqrt((double)z * z);
     }
 
     public class Component : IComponent

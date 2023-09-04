@@ -409,26 +409,24 @@
 		<type>FloatVec2</type>
 		<maximumValue>800</maximumValue>
 	</game>
-	<game name="RBDoom3BFG (1.1.0)">
+	<game name="RBDoom3BFG">
 		<process>RBDoom3BFG</process>
-		<base>14C93A8</base>
-		<offsets>3C4,98</offsets>
 		<type>FloatVec2</type>
-		<maximumValue>750</maximumValue>
-	</game>
-	<game name="RBDoom3BFG (1.4.0)">
-		<process>RBDoom3BFG</process>
-		<base>2252E98</base>
-		<offsets>4E0,CC</offsets>
-		<type>FloatVec2</type>
-		<maximumValue>750</maximumValue>
-	</game>
-	<game name="RBDoom3BFG (1.5.1)">
-		<process>RBDoom3BFG</process>
-		<base>2932E88</base>
-		<offsets>4E0,CC</offsets>
-		<type>FloatVec2</type>
-		<maximumValue>750</maximumValue>
+		<maximumValue>500</maximumValue>
+		<options>
+			<option name="1.5.1">
+				<base>2932E88</base>
+				<offsets>4E0,CC</offsets>
+			</option>
+			<option name="1.4.0">
+				<base>2252E98</base>
+				<offsets>4E0,CC</offsets>
+			</option>
+			<option name="1.1.0">
+				<base>14C93A8</base>
+				<offsets>3C4,98</offsets>
+			</option>
+		</options>
 	</game>
 	<game name="Risk of Rain 2">
 		<process>Risk of Rain 2</process>
@@ -646,5 +644,23 @@
 		<module>client.dll</module>
 		<base>B137E0</base>
 		<type>FloatVec2</type>
+	</game>
+	<game name="Yooka-Laylee and the Impossible Lair">
+		<process>YLILWin64</process>
+		<type>FloatVec2XZY</type>
+		<maximumValue>20</maximumValue>
+		<decimals>1</decimals>
+		<options>
+			<option name="Steam 1.04">
+				<module>mono.dll</module>
+				<base>267758</base>
+				<offsets>10,1D0,8,3F0,1758,108,108,30,100,8,18,0,18,10,20,128,10,60,D0</offsets>
+			</option>
+			<option name="Older">
+				<module>UnityPlayer.dll</module>
+				<base>147A5B0</base>
+				<offsets>70,0,60,70,40</offsets>
+			</option>
+		</options>
 	</game>
 </games>

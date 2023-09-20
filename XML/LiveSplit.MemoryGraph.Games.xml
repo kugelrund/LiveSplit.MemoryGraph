@@ -668,4 +668,15 @@
 			</option>
 		</options>
 	</game>
+	<game name="Escape From Lavender Island">
+		<process>LavenderIsland-Win64-Shipping</process>
+		<type>FloatVec3</type>
+		<maximumValue>1000</maximumValue>
+		<options>
+			<option name="Steam 1.03 Sep13">
+				<base>5B042F0</base>
+				<offsets>180,38,0,30,250,288,25C</offsets>
+			</option>
+		</options>
+	</game>
 </games>

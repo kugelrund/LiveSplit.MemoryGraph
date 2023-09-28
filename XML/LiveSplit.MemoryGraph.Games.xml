@@ -681,6 +681,13 @@
 				<base>5B042F0</base>
 				<offsets>180,38,0,30,250,288,25C</offsets>
 			</option>
+			<option name="Dane Pill">
+				<base>5B05330</base>
+				<offsets>120,228,A20,3E0,1548,278,134</offsets>
+				<maximumValue>3</maximumValue>
+				<type>Float</type>
+				<decimals>3</decimals>
+			</option>
 		</options>
 	</game>
 </games>

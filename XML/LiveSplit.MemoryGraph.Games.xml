@@ -187,14 +187,6 @@
 		<maximumValue>50</maximumValue>
 		<decimals>2</decimals>
 	</game>
-	<game name="Exodus from the Earth">
-		<process>efte</process>
-		<base>00978CE0</base>
-		<offsets>0, 30c</offsets>
-		<type>FloatVec2XZY</type>
-		<maximumValue>9</maximumValue>
-		<decimals>2</decimals>
-	</game>
 	<game name="El Matador (dll injection required)">
 		<process>pc_matador</process>
 		<module>ElMatadorGraphWrapper.dll</module>
@@ -204,6 +196,36 @@
 		<maximumValue>400</maximumValue>
 		<decimals>1</decimals>
 		<unitConverter>12.22</unitConverter>
+	</game>
+	<game name="Escape From Lavender Island">
+		<process>LavenderIsland-Win64-Shipping</process>
+		<type>FloatVec3</type>
+		<maximumValue>1000</maximumValue>
+		<options>
+			<option name="9/23/23">
+				<base>5AED950</base>
+				<offsets>30,260,130,140</offsets>
+			</option>
+			<option name="9/13/23">
+				<base>5B042F0</base>
+				<offsets>180,38,0,30,250,288,25C</offsets>
+			</option>
+			<option name="Dane Pill">
+				<base>5B05330</base>
+				<offsets>120,228,A20,3E0,1548,278,134</offsets>
+				<maximumValue>3</maximumValue>
+				<type>Float</type>
+				<decimals>3</decimals>
+			</option>
+		</options>
+	</game>
+	<game name="Exodus from the Earth">
+		<process>efte</process>
+		<base>00978CE0</base>
+		<offsets>0, 30c</offsets>
+		<type>FloatVec2XZY</type>
+		<maximumValue>9</maximumValue>
+		<decimals>2</decimals>
 	</game>
 	<game name="Hellforces">
 		<process>hell</process>
@@ -336,6 +358,13 @@
 		<base>407B00</base>
 		<type>FloatVec2</type>
 		<maximumValue>800</maximumValue>
+	</game>
+	<game name="Phantom Fury">
+		<process>Phoenix-Win64-Shipping</process>
+		<base>05e04330</base>
+		<offsets>30,260,280,6B0,370,368</offsets>
+		<type>Float</type>
+		<maximumValue>500</maximumValue>
 	</game>
 	<game name="Portal">
 		<process>hl2</process>
@@ -669,28 +698,6 @@
 				<module>UnityPlayer.dll</module>
 				<base>147A5B0</base>
 				<offsets>70,0,60,70,40</offsets>
-			</option>
-		</options>
-	</game>
-	<game name="Escape From Lavender Island">
-		<process>LavenderIsland-Win64-Shipping</process>
-		<type>FloatVec3</type>
-		<maximumValue>1000</maximumValue>
-		<options>
-			<option name="9/23/23">
-				<base>5AED950</base>
-				<offsets>30,260,130,140</offsets>
-			</option>
-			<option name="9/13/23">
-				<base>5B042F0</base>
-				<offsets>180,38,0,30,250,288,25C</offsets>
-			</option>
-			<option name="Dane Pill">
-				<base>5B05330</base>
-				<offsets>120,228,A20,3E0,1548,278,134</offsets>
-				<maximumValue>3</maximumValue>
-				<type>Float</type>
-				<decimals>3</decimals>
 			</option>
 		</options>
 	</game>

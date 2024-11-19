@@ -62,6 +62,48 @@
 		<type>Float</type>
 		<maximumValue>500</maximumValue>
 	</game>
+	<game name="Call of Duty: Black Ops 3">
+		<process>BlackOps3</process>
+		<type>Float</type>
+		<options>
+			<option name="V-Meter">
+				<base>9F43ABC</base>
+				<maximumValue>1000</maximumValue>
+				<decimals>0</decimals>
+			</option>
+			<option name="TSCID">
+				<base>347F100</base>
+				<maximumValue>10</maximumValue>
+				<decimals>7</decimals>
+			</option>
+			<option name="Dif-Meter">
+				<base>17AA1B04</base>
+				<maximumValue>1</maximumValue>
+				<decimals>0</decimals>
+			</option>
+			<option name="V-Meter (BOIII Vanilla)">
+				<process>boiii_vanilla</process>
+				<module>BlackOps3.exe</module>
+				<base>9F43ABC</base>
+				<maximumValue>1000</maximumValue>
+				<decimals>0</decimals>
+			</option>
+			<option name="TSCID (BOIII Vanilla)">
+				<process>boiii_vanilla</process>
+				<module>BlackOps3.exe</module>
+				<base>347F100</base>
+				<maximumValue>10</maximumValue>
+				<decimals>7</decimals>
+			</option>
+			<option name="Dif-Meter (BOIII Vanilla)">
+				<process>boiii_vanilla</process>
+				<module>BlackOps3.exe</module>
+				<base>17AA1B04</base>
+				<maximumValue>1</maximumValue>
+				<decimals>0</decimals>
+			</option>
+		</options>
+	</game>
 	<game name="Call of Duty: Modern Warfare 2 Remastered">
 		<process>MW2CR</process>
 		<base>1C1B31C</base>
@@ -181,6 +223,36 @@
 		<decimals>1</decimals>
 		<unitConverter>12.22</unitConverter>
 	</game>
+	<game name="Escape From Lavender Island">
+		<process>LavenderIsland-Win64-Shipping</process>
+		<type>FloatVec3</type>
+		<maximumValue>1000</maximumValue>
+		<options>
+			<option name="9/23/23">
+				<base>5AED950</base>
+				<offsets>30,260,130,140</offsets>
+			</option>
+			<option name="9/13/23">
+				<base>5B042F0</base>
+				<offsets>180,38,0,30,250,288,25C</offsets>
+			</option>
+			<option name="Dane Pill">
+				<base>5B05330</base>
+				<offsets>120,228,A20,3E0,1548,278,134</offsets>
+				<maximumValue>3</maximumValue>
+				<type>Float</type>
+				<decimals>3</decimals>
+			</option>
+		</options>
+	</game>
+	<game name="Exodus from the Earth">
+		<process>efte</process>
+		<base>00978CE0</base>
+		<offsets>0, 30c</offsets>
+		<type>FloatVec2XZY</type>
+		<maximumValue>9</maximumValue>
+		<decimals>2</decimals>
+	</game>
 	<game name="Hellforces">
 		<process>hell</process>
 		<base>11E0D2C</base>
@@ -254,6 +326,15 @@
 			</option>
 		</options>
 	</game>
+	<game name="Liquidator 2: Welcome to Hell">
+		<process>Liquidator2Launcher</process>
+		<module>TMKernel.dll</module>
+		<base>0014BB90</base>
+		<offsets>0, 30, 8, 44, C, 1B4, 1C0</offsets>
+		<type>FloatVec2</type>
+		<maximumValue>40</maximumValue>
+		<decimals>2</decimals>
+	</game>
 	<game name="Mirror's Edge">
 		<process>MirrorsEdge</process>
 		<type>Float</type>
@@ -303,6 +384,13 @@
 		<base>407B00</base>
 		<type>FloatVec2</type>
 		<maximumValue>800</maximumValue>
+	</game>
+	<game name="Phantom Fury">
+		<process>Phoenix-Win64-Shipping</process>
+		<base>05e04330</base>
+		<offsets>30,260,280,6B0,370,368</offsets>
+		<type>Float</type>
+		<maximumValue>500</maximumValue>
 	</game>
 	<game name="Portal">
 		<process>hl2</process>
@@ -376,12 +464,32 @@
 		<type>FloatVec2</type>
 		<maximumValue>800</maximumValue>
 	</game>
-	<game name="RBDoom3BFG (1.1.0)">
+	<game name="RBDoom3BFG">
 		<process>RBDoom3BFG</process>
-		<base>014C93A8</base>
-		<offsets>3C4,98</offsets>
 		<type>FloatVec2</type>
-		<maximumValue>750</maximumValue>
+		<maximumValue>500</maximumValue>
+		<options>
+			<option name="1.5.1">
+				<base>2932E88</base>
+				<offsets>4E0,CC</offsets>
+			</option>
+			<option name="1.4.0">
+				<base>2252E98</base>
+				<offsets>4E0,CC</offsets>
+			</option>
+			<option name="1.1.0">
+				<base>14C93A8</base>
+				<offsets>3C4,98</offsets>
+			</option>
+		</options>
+	</game>
+	<game name="Risk of Rain 2">
+		<process>Risk of Rain 2</process>
+		<module>mono-2.0-bdwgc.dll</module>
+		<base>491DE8</base>
+		<offsets>A0, CA0, 68, 98, 30, 18, 9C</offsets>
+		<type>FloatVec2XZY</type>
+		<maximumValue>250</maximumValue>
 	</game>
 	<game name="Roboquest (0.8.9)">
 		<process>RoboQuest-Win64-Shipping</process>
@@ -500,6 +608,16 @@
 				<type>FloatVec2</type>
 				<maximumValue>800</maximumValue>
 			</option>
+			<option name="Speed Academy v1.5">
+				<base>174D70</base>
+				<type>FloatVec2</type>
+				<maximumValue>800</maximumValue>
+			</option>
+			<option name="Speed Academy v1.6">
+				<base>175DF0</base>
+				<type>FloatVec2</type>
+				<maximumValue>800</maximumValue>
+			</option>
 		</options>
 	</game>
 	<game name="Star Wars Jedi Knight II: Jedi Outcast">
@@ -526,6 +644,10 @@
 				<process>jk2sp</process>
 				<base>4BC9E0</base>
 			</option>
+			<option name="Speed Outcast v1.0">
+				<process>jk2sp</process>
+				<base>4C29E0</base>
+			</option>
 			<option name="MP">
 				<process>jk2mp</process>
 				<base>4F8F40</base>
@@ -538,6 +660,16 @@
 		<offsets>148</offsets>
 		<type>FloatVec3</type>
 		<maximumValue>1000</maximumValue>
+	</game>
+	<game name="Tom Clancy's Splinter Cell">
+		<process>splintercell</process>
+		<module>Engine.dll</module>
+		<base>002EA024</base>
+		<offsets>30,0,34,454,EC</offsets>
+		<type>FloatVec2</type>
+		<maximumValue>500</maximumValue>
+		<decimals>1</decimals>
+		<unitConverter>175</unitConverter>
 	</game>
 	<game name="Thief 2: The Metal Age (NewDark 1.24)">
 		<process>thief2</process>
@@ -582,12 +714,22 @@
 		<base>B137E0</base>
 		<type>FloatVec2</type>
 	</game>
-	<game name="Risk of Rain 2">
-		<process>Risk of Rain 2</process>
-		<module>mono-2.0-bdwgc.dll</module>
-		<base>491DE8</base>
-		<offsets>A0, CA0, 68, 98, 30, 18, 9C</offsets>
+	<game name="Yooka-Laylee and the Impossible Lair">
+		<process>YLILWin64</process>
 		<type>FloatVec2XZY</type>
-		<maximumValue>250</maximumValue>
+		<maximumValue>20</maximumValue>
+		<decimals>1</decimals>
+		<options>
+			<option name="Steam 1.04">
+				<module>mono.dll</module>
+				<base>267758</base>
+				<offsets>10,1D0,8,3F0,1758,108,108,30,100,8,18,0,18,10,20,128,10,60,D0</offsets>
+			</option>
+			<option name="Older">
+				<module>UnityPlayer.dll</module>
+				<base>147A5B0</base>
+				<offsets>70,0,60,70,40</offsets>
+			</option>
+		</options>
 	</game>
 </games>

@@ -64,22 +64,42 @@
 	</game>
 	<game name="Call of Duty: Black Ops 3">
 		<process>BlackOps3</process>
-		<type>Float</type>
 		<options>
-			<option name="V-Meter">
+			<option name="V-Meter (Steam)">
 				<base>9F43ABC</base>
 				<maximumValue>1000</maximumValue>
 				<decimals>0</decimals>
+				<type>Float</type>
 			</option>
-			<option name="TSCID">
+			<option name="TSCID (Steam)">
 				<base>347F100</base>
 				<maximumValue>10</maximumValue>
 				<decimals>7</decimals>
+				<type>Float</type>
 			</option>
-			<option name="Dif-Meter">
+			<option name="Dif-Meter (Steam)">
 				<base>17AA1B04</base>
-				<maximumValue>1</maximumValue>
+				<maximumValue>5</maximumValue>
 				<decimals>0</decimals>
+				<type>Int</type>
+			</option>
+			<option name="V-Meter (Windows)">
+				<base>A1E27FC</base>
+				<maximumValue>1000</maximumValue>
+				<decimals>0</decimals>
+				<type>Float</type>
+			</option>
+			<option name="TSCID (Windows)">
+				<base>33C0080</base>
+				<maximumValue>10</maximumValue>
+				<decimals>7</decimals>
+				<type>Float</type>
+			</option>
+			<option name="Dif-Meter (Windows)">
+				<base>199E7BCC</base>
+				<maximumValue>5</maximumValue>
+				<decimals>0</decimals>
+				<type>Int</type>
 			</option>
 			<option name="V-Meter (BOIII Vanilla)">
 				<process>boiii_vanilla</process>
@@ -87,6 +107,7 @@
 				<base>9F43ABC</base>
 				<maximumValue>1000</maximumValue>
 				<decimals>0</decimals>
+				<type>Float</type>
 			</option>
 			<option name="TSCID (BOIII Vanilla)">
 				<process>boiii_vanilla</process>
@@ -94,13 +115,15 @@
 				<base>347F100</base>
 				<maximumValue>10</maximumValue>
 				<decimals>7</decimals>
+				<type>Float</type>
 			</option>
 			<option name="Dif-Meter (BOIII Vanilla)">
 				<process>boiii_vanilla</process>
 				<module>BlackOps3.exe</module>
 				<base>17AA1B04</base>
-				<maximumValue>1</maximumValue>
+				<maximumValue>5</maximumValue>
 				<decimals>0</decimals>
+				<type>Int</type>
 			</option>
 		</options>
 	</game>

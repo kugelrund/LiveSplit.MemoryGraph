@@ -299,7 +299,7 @@
 	<game name="HROT">
 		<process>Hrot</process>
 		<base>13CA17C</base>
-		<type>FloatVec3</type>
+		<type>FloatVec2XZY</type>
 		<maximumValue>0.01</maximumValue>
 	</game>
 	<game name="Judge Dredd: Dredd vs. Death">

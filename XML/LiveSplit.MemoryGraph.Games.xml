@@ -300,7 +300,8 @@
 		<process>Hrot</process>
 		<base>13CA17C</base>
 		<type>FloatVec2XZY</type>
-		<maximumValue>0.01</maximumValue>
+		<maximumValue>0.1</maximumValue>
+		<decimals>3</decimals>
 	</game>
 	<game name="Judge Dredd: Dredd vs. Death">
 		<process>Dredd</process>

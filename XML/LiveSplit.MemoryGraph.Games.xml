@@ -296,6 +296,12 @@
 		<offsets>80,1A0</offsets>
 		<type>Float</type>
 	</game>
+	<game name="HROT">
+		<process>Hrot</process>
+		<base>13CA17C</base>
+		<type>FloatVec3</type>
+		<maximumValue>0.01</maximumValue>
+	</game>
 	<game name="Judge Dredd: Dredd vs. Death">
 		<process>Dredd</process>
 		<base>0023BE80</base>

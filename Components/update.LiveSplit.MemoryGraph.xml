@@ -1,4 +1,14 @@
 <updates>
+    <update version="1.5.3">
+        <files>
+            <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>Improved handling of float point decimal seperator for minimum and maximum value of the graph.</change>
+            <change>Corrected typeos, cause Sui is dumb, ok?</change>
+            <change>Minimum value can now be specified in XML by using minimumValue node.</change>
+        </changelog>
+    </update>
     <update version="1.5.2">
         <files>
             <file path="Components/LiveSplit.MemoryGraph.dll" status="changed"/>

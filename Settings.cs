@@ -257,7 +257,7 @@ namespace LiveSplit.MemoryGraph
             int baseAddress;
             int[] offsets;
 
-            if (TryParseHex(txtBase.Text, out baseAddress))
+            if (Utils.TryParseHex(txtBase.Text, out baseAddress))
             {
                 if (!string.IsNullOrWhiteSpace(txtOffsets.Text))
                 {
@@ -266,7 +266,7 @@ namespace LiveSplit.MemoryGraph
                     int j = 0;
                     foreach (string offset in offsetStrings)
                     {
-                        TryParseHex(offset.Trim(), out offsets[j]);
+                        Utils.TryParseHex(offset.Trim(), out offsets[j]);
                         j += 1;
                     }
                 }
@@ -441,33 +441,9 @@ namespace LiveSplit.MemoryGraph
             ValueTextDecimals = SettingsHelper.ParseInt(element["ValueTextDecimals"]);
             UnitsConversionEnabled = SettingsHelper.ParseBool(element["UnitConversionEnabled"]);
             UnitsUsed = SettingsHelper.ParseEnum<Units>(element["UnitsUsed"]);
-            MeterInGameUnits = CultureSafeFloatParse(SettingsHelper.ParseString(element["MeterInGameUnits"]));
+            MeterInGameUnits = Utils.CultureSafeFloatParse(SettingsHelper.ParseString(element["MeterInGameUnits"]));
 
             UpdatePointer(null, null);
-        }
-
-        private float CultureSafeFloatParse(string vstr, float def = 1)
-        {
-            //This is due to Floats being really crappy in XMLs. What I mean is they can be stored as:
-            //#1 - 0.5
-            //#2 - 0,5
-            //So this function use it to parse it properly no matter what culture they were stored in.
-            if (vstr != null)
-            {
-                float value = 0;
-                if (!float.TryParse(vstr, System.Globalization.NumberStyles.Any, CultureInfo.CurrentCulture, out value) &&
-                    //Then try in US english
-                    !float.TryParse(vstr, System.Globalization.NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out value) &&
-                    //Then in neutral language
-                    !float.TryParse(vstr, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
-                    return def;
-                }
-
-                return value;
-            }
-            else
-                return def;
         }
 
         public System.Xml.XmlNode GetSettings(System.Xml.XmlDocument document)
@@ -596,30 +572,28 @@ namespace LiveSplit.MemoryGraph
 
         private void txtBase_Validating(object sender, CancelEventArgs e)
         {
-            int parsed;
-            if (!TryParseHex(txtBase.Text, out parsed))
-            {
-                MessageBox.Show("'Base' has to be a hexadecimal number!", "Invalid value!",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-                return;
-            }
-        }
+			if (!Utils.TryParseHex(txtBase.Text, out int parsed))
+			{
+				MessageBox.Show("'Base' has to be a hexadecimal value!", "Invalid value!",
+								MessageBoxButtons.OK, MessageBoxIcon.Error);
+				e.Cancel = true;
+				return;
+			}
+		}
 
         private void txtOffsets_Validating(object sender, CancelEventArgs e)
         {
-            int parsed;
-            string[] offsets = txtOffsets.Text.Split(',');
-            if (offsets.Length == 1 && string.IsNullOrEmpty(offsets[0]))
+			string[] offsets = txtOffsets.Text.Split(',');
+			if (offsets.Length == 1 && string.IsNullOrEmpty(offsets[0]))
             {
                 return;
             }
 
             foreach (string offset in offsets)
             {
-                if (!TryParseHex(offset, out parsed))
+                if (!Utils.TryParseHex(offset, out int parsed))
                 {
-                    MessageBox.Show("All offsets have to be hexadecimal numbers!", "Invalid value!",
+                    MessageBox.Show("All offsets have to be hexadecimal value!", "Invalid value!",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     e.Cancel = true;
                     return;
@@ -629,247 +603,25 @@ namespace LiveSplit.MemoryGraph
 
         private void txtMinimumValue_Validating(object sender, CancelEventArgs e)
         {
-            float parsed;
-            if (!float.TryParse(txtMinimumValue.Text, out parsed))
-            {
-                MessageBox.Show("Minimum Value has to be a number!", "Invalid value!",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-                return;
-            }
-        }
+			if (!Utils.TryParseEnglishCultureEnforced(txtMinimumValue.Text, out float parsed))
+			{
+				MessageBox.Show("Minimum Value has to be a number!", "Invalid value!",
+								MessageBoxButtons.OK, MessageBoxIcon.Error);
+				e.Cancel = true;
+				return;
+			}
+		}
 
         private void txtMaximumValue_Validating(object sender, CancelEventArgs e)
         {
-            float parsed;
-            if (!float.TryParse(txtMaximumValue.Text, out parsed))
-            {
-                MessageBox.Show("Maximum Value has to be a number!", "Invalid value!",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Cancel = true;
-                return;
-            }
-        }
-
-        public static bool TryParseHex(string str, out int integer)
-        {
-            integer = 0;
-            if (string.IsNullOrEmpty(str))
-            {
-                return false;
-            }
-            else
-            {
-                if (str.StartsWith("0x", StringComparison.CurrentCultureIgnoreCase))
-                {
-                    str = str.Substring(2);
-                }
-
-                return int.TryParse(str, NumberStyles.HexNumber, null, out integer);
-            }
-        }
-
-        #region XML database functions
-        //////////////////////////////////////////
-        /////Related to loading XML, list etc.////
-        //////////////////////////////////////////
-
-        private void loadXML()
-        {
-            ComboBox_ListOfGames.DataSource = null;
-            gamesOnTheList.Clear();
-            XmlDocument XmlGames = new XmlDocument();
-            XmlGames.Load(ListsFilePath);
-            gamesOnTheList.Add("-None-");
-            foreach (XmlNode gameNode in XmlGames.DocumentElement)
-            {
-                string name = gameNode.Attributes[0].Value;
-                gamesOnTheList.Add(name);
-            }
-
-            ComboBox_ListOfGames.DataSource = gamesOnTheList;
-            ComboBox_ListOfGames.Enabled = true;
-        }
-
-        private void ComboBox_ListOfGames_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((string)ComboBox_ListOfGames.SelectedValue == "-None-")
-            {
-                ComboBox_GameOption.DataSource = null;
-                ComboBox_GameOption.Enabled = false;
-            }
-            else
-            {
-                XmlDocument XmlGames = new XmlDocument();
-                XmlGames.Load(ListsFilePath);
-                foreach (XmlNode gameNode in XmlGames.DocumentElement)
-                {
-                    string name = gameNode.Attributes[0].Value;
-                    if (name == (string)ComboBox_ListOfGames.SelectedValue)
-                    {
-                        ProcessName = GetSafeStringValueFromXML(gameNode, "process");
-                        txtProcessName.Text = ProcessName;
-                        AdditionalRequirement = GetSafeStringValueFromXML(gameNode, "additional_requirement_url");
-
-                        txtModule.Text = GetSafeStringValueFromXML(gameNode, "module");
-                        txtBase.Text = GetSafeStringValueFromXML(gameNode, "base");
-                        txtOffsets.Text = GetSafeStringValueFromXML(gameNode, "offsets");
-                        cmbType.SelectedIndex = GetSafeTypeFromXML(gameNode, "type");
-                        txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue", txtMaximumValue.Text);
-                        numValueTextDecimals.Value = GetSafeDecimalFromXML(gameNode, "decimals");
-                        tbMeterToGameUnit.Text = GetSafeStringValueFromXML(gameNode, "unitConverter");
-
-                        var options = gameNode.SelectSingleNode("options");
-                        if (options != null)
-                        {
-                            // Update the options drop down to include the verisons.
-                            var optionNames = new List<string>();
-                            foreach (XmlNode optionNode in options.ChildNodes)
-                            {
-                                optionNames.Add(optionNode.Attributes[0].Value);
-                            }
-                            var prevSource = ComboBox_GameOption.DataSource as List<string>;
-                            if (prevSource == null || !prevSource.SequenceEqual(optionNames))
-                            {
-                                ComboBox_GameOption.DataSource = optionNames;
-                            }
-                            ComboBox_GameOption.Enabled = true;
-
-                            foreach (XmlNode optionNode in options.ChildNodes)
-                            {
-                                if (optionNode.Attributes[0].Value == (string)ComboBox_GameOption.SelectedValue)
-                                {
-                                    ProcessName = GetSafeStringValueFromXML(optionNode, "process", ProcessName);
-                                    txtProcessName.Text = ProcessName;
-                                    AdditionalRequirement = GetSafeStringValueFromXML(optionNode, "additional_requirement_url", AdditionalRequirement);
-
-                                    txtModule.Text = GetSafeStringValueFromXML(optionNode, "module", txtModule.Text);
-                                    txtBase.Text = GetSafeStringValueFromXML(optionNode, "base", txtBase.Text);
-                                    txtOffsets.Text = GetSafeStringValueFromXML(optionNode, "offsets", txtOffsets.Text);
-                                    if (optionNode.SelectSingleNode("type") != null)
-                                    {
-                                        cmbType.SelectedIndex = GetSafeTypeFromXML(optionNode, "type");
-                                    }
-                                    txtMaximumValue.Text = GetSafeStringValueFromXML(optionNode, "maximumValue", txtMaximumValue.Text);
-                                    numValueTextDecimals.Value = GetSafeDecimalFromXML(optionNode, "decimals", numValueTextDecimals.Value);
-                                    tbMeterToGameUnit.Text = GetSafeStringValueFromXML(optionNode, "unitConverter", tbMeterToGameUnit.Text);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            ComboBox_GameOption.DataSource = null;
-                            ComboBox_GameOption.Enabled = false;
-                        }
-
-                        break;
-                    }
-                }
-            }
-        }
-        private void B_UpdateXML_Click(object sender, EventArgs e)
-        {
-            MonkeyDownloadingXML _downloader = new MonkeyDownloadingXML();
-            bool result = _downloader.DownloadNew();
-            if (result)
-            {
-                loadXML();
-            }
-        }
-
-        #region GetSafeValuesFunctions
-        private string GetSafeStringValueFromXML(XmlNode docNode, string nodeName, string defaultValue = "")
-        {
-            if (docNode.SelectSingleNode(nodeName) != null)
-            {
-                return docNode.SelectSingleNode(nodeName).InnerText;
-            }
-            else
-                return defaultValue;
-        }
-
-        private int GetSafeTypeFromXML(XmlNode docNode, string nodeName)
-        {
-            if (docNode.SelectSingleNode(nodeName) != null)
-            {
-                string typeTemp = docNode.SelectSingleNode(nodeName).InnerText.ToLower();
-                if (typeTemp == "float")
-                {
-                    return (int)MemoryType.Float;
-                }
-                else if (typeTemp == "int")
-                {
-                    return (int)MemoryType.Int;
-                }
-                else if (typeTemp == "floatvec2")
-                {
-                    return (int)MemoryType.FloatVec2;
-                }
-                else if (typeTemp == "floatvec3")
-                {
-                    return (int)MemoryType.FloatVec3;
-                }
-                else if (typeTemp == "intvec2")
-                {
-                    return (int)MemoryType.IntVec2;
-                }
-                else if (typeTemp == "intvec3")
-                {
-                    return (int)MemoryType.IntVec3;
-                }
-                else if (typeTemp == "floatvec2xzy")
-                {
-                    return (int)MemoryType.FloatVec2XZY;
-                }
-                else if (typeTemp == "intvec2xzy")
-                {
-                    return (int)MemoryType.IntVec2XZY;
-                }
-                else
-                    return (int)MemoryType.Float;
-            }
-            return (int)MemoryType.Float;
-        }
-
-        private decimal GetSafeDecimalFromXML(XmlNode docNode, string nodeName, decimal defaultValue = 0m)
-        {
-            if (docNode.SelectSingleNode(nodeName) != null)
-            {
-                string text = docNode.SelectSingleNode(nodeName).InnerText;
-                decimal value;
-                if (decimal.TryParse(text, out value))
-                {
-                    return value;
-                }
-                else
-                    return defaultValue;
-            }
-            return defaultValue;
-        }
-        #endregion
-
-        private void linkLabel_AdditionalFiles_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (linkLabel_AdditionalFiles.Text.StartsWith("http"))
-            {
-                Process.Start(linkLabel_AdditionalFiles.Text);
-            }
-        }
-
-        private void linkLabel_AdditionalFiles_TextChanged(object sender, EventArgs e)
-        {
-            if (!linkLabel_AdditionalFiles.Text.StartsWith("http"))
-            {
-                linkLabel_AdditionalFiles.Text = "";
-                L_Requires.Visible = false;
-            }
-            else
-            {
-                L_Requires.Visible = true;
-                linkLabel_AdditionalFiles.LinkArea = new LinkArea(0, linkLabel_AdditionalFiles.Text.Length);
-            }
-        }
-        #endregion
+			if (!Utils.TryParseEnglishCultureEnforced(txtMaximumValue.Text, out float parsed))
+			{
+				MessageBox.Show("Maximum Value has to be a number!", "Invalid value!",
+								MessageBoxButtons.OK, MessageBoxIcon.Error);
+				e.Cancel = true;
+				return;
+			}
+		}
 
         private void cmbUnitsUsed_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -890,5 +642,204 @@ namespace LiveSplit.MemoryGraph
             // Displays tooltip
             toolTip.Show("Shows the largest value which is visible on the graph.", localMaxCB);
         }
-    }
+
+		#region XML database functions
+		//////////////////////////////////////////
+		/////Related to loading XML, list etc.////
+		//////////////////////////////////////////
+
+		private void loadXML()
+		{
+			ComboBox_ListOfGames.DataSource = null;
+			gamesOnTheList.Clear();
+			XmlDocument XmlGames = new XmlDocument();
+			XmlGames.Load(ListsFilePath);
+			gamesOnTheList.Add("-None-");
+			foreach (XmlNode gameNode in XmlGames.DocumentElement)
+			{
+				string name = gameNode.Attributes[0].Value;
+				gamesOnTheList.Add(name);
+			}
+
+			ComboBox_ListOfGames.DataSource = gamesOnTheList;
+			ComboBox_ListOfGames.Enabled = true;
+		}
+
+		private void ComboBox_ListOfGames_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if ((string)ComboBox_ListOfGames.SelectedValue == "-None-")
+			{
+				ComboBox_GameOption.DataSource = null;
+				ComboBox_GameOption.Enabled = false;
+			}
+			else
+			{
+				XmlDocument XmlGames = new XmlDocument();
+				XmlGames.Load(ListsFilePath);
+				foreach (XmlNode gameNode in XmlGames.DocumentElement)
+				{
+					string name = gameNode.Attributes[0].Value;
+					if (name == (string)ComboBox_ListOfGames.SelectedValue)
+					{
+						ProcessName = GetSafeStringValueFromXML(gameNode, "process");
+						txtProcessName.Text = ProcessName;
+						AdditionalRequirement = GetSafeStringValueFromXML(gameNode, "additional_requirement_url");
+
+						txtModule.Text = GetSafeStringValueFromXML(gameNode, "module");
+						txtBase.Text = GetSafeStringValueFromXML(gameNode, "base");
+						txtOffsets.Text = GetSafeStringValueFromXML(gameNode, "offsets");
+						cmbType.SelectedIndex = GetSafeTypeFromXML(gameNode, "type");
+						txtMaximumValue.Text = GetSafeStringValueFromXML(gameNode, "maximumValue", txtMaximumValue.Text);
+						numValueTextDecimals.Value = GetSafeDecimalFromXML(gameNode, "decimals");
+						tbMeterToGameUnit.Text = GetSafeStringValueFromXML(gameNode, "unitConverter");
+
+						var options = gameNode.SelectSingleNode("options");
+						if (options != null)
+						{
+							// Update the options drop down to include the verisons.
+							var optionNames = new List<string>();
+							foreach (XmlNode optionNode in options.ChildNodes)
+							{
+								optionNames.Add(optionNode.Attributes[0].Value);
+							}
+							var prevSource = ComboBox_GameOption.DataSource as List<string>;
+							if (prevSource == null || !prevSource.SequenceEqual(optionNames))
+							{
+								ComboBox_GameOption.DataSource = optionNames;
+							}
+							ComboBox_GameOption.Enabled = true;
+
+							foreach (XmlNode optionNode in options.ChildNodes)
+							{
+								if (optionNode.Attributes[0].Value == (string)ComboBox_GameOption.SelectedValue)
+								{
+									ProcessName = GetSafeStringValueFromXML(optionNode, "process", ProcessName);
+									txtProcessName.Text = ProcessName;
+									AdditionalRequirement = GetSafeStringValueFromXML(optionNode, "additional_requirement_url", AdditionalRequirement);
+
+									txtModule.Text = GetSafeStringValueFromXML(optionNode, "module", txtModule.Text);
+									txtBase.Text = GetSafeStringValueFromXML(optionNode, "base", txtBase.Text);
+									txtOffsets.Text = GetSafeStringValueFromXML(optionNode, "offsets", txtOffsets.Text);
+									if (optionNode.SelectSingleNode("type") != null)
+									{
+										cmbType.SelectedIndex = GetSafeTypeFromXML(optionNode, "type");
+									}
+									txtMaximumValue.Text = GetSafeStringValueFromXML(optionNode, "maximumValue", txtMaximumValue.Text);
+									numValueTextDecimals.Value = GetSafeDecimalFromXML(optionNode, "decimals", numValueTextDecimals.Value);
+									tbMeterToGameUnit.Text = GetSafeStringValueFromXML(optionNode, "unitConverter", tbMeterToGameUnit.Text);
+								}
+							}
+						}
+						else
+						{
+							ComboBox_GameOption.DataSource = null;
+							ComboBox_GameOption.Enabled = false;
+						}
+
+						break;
+					}
+				}
+			}
+		}
+		private void B_UpdateXML_Click(object sender, EventArgs e)
+		{
+			MonkeyDownloadingXML _downloader = new MonkeyDownloadingXML();
+			bool result = _downloader.DownloadNew();
+			if (result)
+			{
+				loadXML();
+			}
+		}
+
+		private string GetSafeStringValueFromXML(XmlNode docNode, string nodeName, string defaultValue = "")
+		{
+			if (docNode.SelectSingleNode(nodeName) != null)
+			{
+				return docNode.SelectSingleNode(nodeName).InnerText;
+			}
+			else
+				return defaultValue;
+		}
+
+		private int GetSafeTypeFromXML(XmlNode docNode, string nodeName)
+		{
+			if (docNode.SelectSingleNode(nodeName) != null)
+			{
+				string typeTemp = docNode.SelectSingleNode(nodeName).InnerText.ToLower();
+				if (typeTemp == "float")
+				{
+					return (int)MemoryType.Float;
+				}
+				else if (typeTemp == "int")
+				{
+					return (int)MemoryType.Int;
+				}
+				else if (typeTemp == "floatvec2")
+				{
+					return (int)MemoryType.FloatVec2;
+				}
+				else if (typeTemp == "floatvec3")
+				{
+					return (int)MemoryType.FloatVec3;
+				}
+				else if (typeTemp == "intvec2")
+				{
+					return (int)MemoryType.IntVec2;
+				}
+				else if (typeTemp == "intvec3")
+				{
+					return (int)MemoryType.IntVec3;
+				}
+				else if (typeTemp == "floatvec2xzy")
+				{
+					return (int)MemoryType.FloatVec2XZY;
+				}
+				else if (typeTemp == "intvec2xzy")
+				{
+					return (int)MemoryType.IntVec2XZY;
+				}
+				else
+					return (int)MemoryType.Float;
+			}
+			return (int)MemoryType.Float;
+		}
+
+		private decimal GetSafeDecimalFromXML(XmlNode docNode, string nodeName, decimal defaultValue = 0m)
+		{
+			if (docNode.SelectSingleNode(nodeName) != null)
+			{
+				string text = docNode.SelectSingleNode(nodeName).InnerText;
+				if (decimal.TryParse(text, out decimal value))
+				{
+					return value;
+				}
+				else
+					return defaultValue;
+			}
+			return defaultValue;
+		}
+		#endregion
+
+		private void linkLabel_AdditionalFiles_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			if (linkLabel_AdditionalFiles.Text.StartsWith("http"))
+			{
+				Process.Start(linkLabel_AdditionalFiles.Text);
+			}
+		}
+
+		private void linkLabel_AdditionalFiles_TextChanged(object sender, EventArgs e)
+		{
+			if (!linkLabel_AdditionalFiles.Text.StartsWith("http"))
+			{
+				linkLabel_AdditionalFiles.Text = "";
+				L_Requires.Visible = false;
+			}
+			else
+			{
+				L_Requires.Visible = true;
+				linkLabel_AdditionalFiles.LinkArea = new LinkArea(0, linkLabel_AdditionalFiles.Text.Length);
+			}
+		}
+	}
 }

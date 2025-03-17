@@ -210,44 +210,44 @@ namespace LiveSplit.MemoryGraph
             DescriptiveTextFont = overrideControlDescriptiveText.OverridingFont;
             ValueTextFont = overrideControlValueText.OverridingFont;
 
-            btnBackgroundColor1.DataBindings.Add("BackColor", this, "BackgroundColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            btnBackgroundColor2.DataBindings.Add("BackColor", this, "BackgroundColor2", false, DataSourceUpdateMode.OnPropertyChanged);
+            btnBackgroundColor1.DataBindings.Add("BackColor", this, nameof(BackgroundColor), false, DataSourceUpdateMode.OnPropertyChanged);
+            btnBackgroundColor2.DataBindings.Add("BackColor", this, nameof(BackgroundColor2), false, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtMinimumValue.DataBindings.Add("Text", this, "MinimumValue", false, DataSourceUpdateMode.OnPropertyChanged);
-            txtMaximumValue.DataBindings.Add("Text", this, "MaximumValue", false, DataSourceUpdateMode.OnPropertyChanged);
-            numWidth.DataBindings.Add("Value", this, "GraphWidth", false, DataSourceUpdateMode.OnPropertyChanged);
-            numHeight.DataBindings.Add("Value", this, "GraphHeight", false, DataSourceUpdateMode.OnPropertyChanged);
-            numHorizontalMargins.DataBindings.Add("Value", this, "HorizontalMargins", false, DataSourceUpdateMode.OnPropertyChanged);
-            numVerticalMargins.DataBindings.Add("Value", this, "VerticalMargins", false, DataSourceUpdateMode.OnPropertyChanged);
-            numValueTextDecimals.DataBindings.Add("Value", this, "ValueTextDecimals", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtMinimumValue.DataBindings.Add("Text", this, nameof(MinimumValue), false, DataSourceUpdateMode.OnPropertyChanged);
+            txtMaximumValue.DataBindings.Add("Text", this, nameof(MaximumSize), false, DataSourceUpdateMode.OnPropertyChanged);
+            numWidth.DataBindings.Add("Value", this, nameof(GraphWidth), false, DataSourceUpdateMode.OnPropertyChanged);
+            numHeight.DataBindings.Add("Value", this, nameof(GraphHeight), false, DataSourceUpdateMode.OnPropertyChanged);
+            numHorizontalMargins.DataBindings.Add("Value", this, nameof(HorizontalMargins), false, DataSourceUpdateMode.OnPropertyChanged);
+            numVerticalMargins.DataBindings.Add("Value", this, nameof(VerticalMargins), false, DataSourceUpdateMode.OnPropertyChanged);
+            numValueTextDecimals.DataBindings.Add("Value", this, nameof(ValueTextDecimals), false, DataSourceUpdateMode.OnPropertyChanged);
 
-            cmbGraphStyle.DataBindings.Add("SelectedValue", this, "GraphStyle", false, DataSourceUpdateMode.OnPropertyChanged);
-            cmbBackgroundGradientType.DataBindings.Add("SelectedValue", this, "BackgroundGradient", false, DataSourceUpdateMode.OnPropertyChanged);
-            cmbGraphGradientType.DataBindings.Add("SelectedValue", this, "GraphGradient", false, DataSourceUpdateMode.OnPropertyChanged);
-            colorsCBSillyColors.DataBindings.Add("Checked", this, "GraphSillyColors", false, DataSourceUpdateMode.OnPropertyChanged);
-            cmbValueTextPosition.DataBindings.Add("SelectedValue", this, "ValueTextPosition", false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbGraphStyle.DataBindings.Add("SelectedValue", this, nameof(GraphStyle), false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbBackgroundGradientType.DataBindings.Add("SelectedValue", this, nameof(BackgroundGradient), false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbGraphGradientType.DataBindings.Add("SelectedValue", this, nameof(GraphGradient), false, DataSourceUpdateMode.OnPropertyChanged);
+            colorsCBSillyColors.DataBindings.Add("Checked", this, nameof(GraphSillyColors), false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbValueTextPosition.DataBindings.Add("SelectedValue", this, nameof(ValueTextPosition), false, DataSourceUpdateMode.OnPropertyChanged);
 
-            unitConversionCB.DataBindings.Add("Checked", this, "UnitsConversionEnabled", false, DataSourceUpdateMode.OnPropertyChanged);
-            cmbUnitsUsed.DataBindings.Add("SelectedValue", this, "UnitsUsed", false, DataSourceUpdateMode.OnPropertyChanged);
-            tbMeterToGameUnit.DataBindings.Add("Text", this, "MeterInGameUnits", true, DataSourceUpdateMode.OnPropertyChanged, null, "f");
+            unitConversionCB.DataBindings.Add("Checked", this, nameof(UnitsConversionEnabled), false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbUnitsUsed.DataBindings.Add("SelectedValue", this, nameof(UnitsUsed), false, DataSourceUpdateMode.OnPropertyChanged);
+            tbMeterToGameUnit.DataBindings.Add("Text", this, nameof(MeterInGameUnits), true, DataSourceUpdateMode.OnPropertyChanged, null, "f");
 
-            cmbDescriptiveTextPosition.DataBindings.Add("SelectedValue", this, "DescriptiveTextPosition", false, DataSourceUpdateMode.OnPropertyChanged);
-            localMaxCB.DataBindings.Add("Checked", this, "LocalMax", false, DataSourceUpdateMode.OnPropertyChanged);
-            cmbType.DataBindings.Add("SelectedValue", this, "ValueType", false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbDescriptiveTextPosition.DataBindings.Add("SelectedValue", this, nameof(DescriptiveTextPosition), false, DataSourceUpdateMode.OnPropertyChanged);
+            localMaxCB.DataBindings.Add("Checked", this, nameof(LocalMax), false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbType.DataBindings.Add("SelectedValue", this, nameof(ValueType), false, DataSourceUpdateMode.OnPropertyChanged);
 
-            txtProcessName.DataBindings.Add("Text", this, "ProcessName");
-            txtDescriptiveText.DataBindings.Add("Text", this, "DescriptiveText");
-            linkLabel_AdditionalFiles.DataBindings.Add("Text", this, "AdditionalRequirement");
+            txtProcessName.DataBindings.Add("Text", this, nameof(ProcessName));
+            txtDescriptiveText.DataBindings.Add("Text", this, nameof(DescriptiveText));
+            linkLabel_AdditionalFiles.DataBindings.Add("Text", this, nameof(AdditionalRequirement));
 
-            overrideControlDescriptiveText.DataBindings.Add("OverridingColor", this, "DescriptiveTextColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            overrideControlDescriptiveText.DataBindings.Add("OverridingFont", this, "DescriptiveTextFont", false, DataSourceUpdateMode.OnPropertyChanged);
-            overrideControlDescriptiveText.DataBindings.Add("OverrideColor", this, "DescriptiveTextOverrideColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            overrideControlDescriptiveText.DataBindings.Add("OverrideFont", this, "DescriptiveTextOverrideFont", false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlDescriptiveText.DataBindings.Add("OverridingColor", this, nameof(DescriptiveTextColor), false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlDescriptiveText.DataBindings.Add("OverridingFont", this, nameof(DescriptiveTextFont), false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlDescriptiveText.DataBindings.Add("OverrideColor", this, nameof(DescriptiveTextOverrideColor), false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlDescriptiveText.DataBindings.Add("OverrideFont", this, nameof(DescriptiveTextOverrideFont), false, DataSourceUpdateMode.OnPropertyChanged);
 
-            overrideControlValueText.DataBindings.Add("OverridingColor", this, "ValueTextColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            overrideControlValueText.DataBindings.Add("OverridingFont", this, "ValueTextFont", false, DataSourceUpdateMode.OnPropertyChanged);
-            overrideControlValueText.DataBindings.Add("OverrideColor", this, "ValueTextOverrideColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            overrideControlValueText.DataBindings.Add("OverrideFont", this, "ValueTextOverrideFont", false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlValueText.DataBindings.Add("OverridingColor", this, nameof(ValueTextColor), false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlValueText.DataBindings.Add("OverridingFont", this, nameof(ValueTextFont), false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlValueText.DataBindings.Add("OverrideColor", this, nameof(ValueTextOverrideColor), false, DataSourceUpdateMode.OnPropertyChanged);
+            overrideControlValueText.DataBindings.Add("OverrideFont", this, nameof(ValueTextOverrideFont), false, DataSourceUpdateMode.OnPropertyChanged);
 
             AddComboboxDataSources();
         }

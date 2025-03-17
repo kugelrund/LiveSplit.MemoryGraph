@@ -214,7 +214,7 @@ namespace LiveSplit.MemoryGraph
             btnBackgroundColor2.DataBindings.Add("BackColor", this, nameof(BackgroundColor2), false, DataSourceUpdateMode.OnPropertyChanged);
 
             txtMinimumValue.DataBindings.Add("Text", this, nameof(MinimumValue), false, DataSourceUpdateMode.OnPropertyChanged);
-            txtMaximumValue.DataBindings.Add("Text", this, nameof(MaximumSize), false, DataSourceUpdateMode.OnPropertyChanged);
+            txtMaximumValue.DataBindings.Add("Text", this, nameof(MaximumValue), false, DataSourceUpdateMode.OnPropertyChanged);
             numWidth.DataBindings.Add("Value", this, nameof(GraphWidth), false, DataSourceUpdateMode.OnPropertyChanged);
             numHeight.DataBindings.Add("Value", this, nameof(GraphHeight), false, DataSourceUpdateMode.OnPropertyChanged);
             numHorizontalMargins.DataBindings.Add("Value", this, nameof(HorizontalMargins), false, DataSourceUpdateMode.OnPropertyChanged);

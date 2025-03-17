@@ -32,7 +32,7 @@ namespace LiveSplit.MemoryGraph
                 string currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 File.Copy(downloadedFileLocation, Path.Combine(currentPath,xmlFileName), true);
                 Debug.WriteLine("COPY: " + downloadedFileLocation + " --> " + Path.Combine(currentPath, xmlFileName));
-                MessageBox.Show("Successfully dowloaded new XML from a server", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Successfully downloaded new XML from a server", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
             else

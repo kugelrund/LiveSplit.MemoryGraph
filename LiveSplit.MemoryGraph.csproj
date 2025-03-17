@@ -81,6 +81,7 @@
       <DependentUpon>TextStyleOverrideControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
+    <Compile Include="VectorStructs.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

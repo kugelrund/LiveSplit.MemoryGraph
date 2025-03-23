@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LiveSplit.MemoryGraph</RootNamespace>
     <AssemblyName>LiveSplit.MemoryGraph</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -80,6 +80,8 @@
     <Compile Include="TextStyleOverrideControl.Designer.cs">
       <DependentUpon>TextStyleOverrideControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
+    <Compile Include="VectorStructs.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

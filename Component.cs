@@ -6,102 +6,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Diagnostics;
 
 namespace LiveSplit.MemoryGraph
 {
-    struct FloatVec2
-    {
-        public float x;
-        public float y;
-
-        public FloatVec2(float x, float y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-
-        public double Norm => Math.Sqrt(x * x + y * y);
-    }
-
-    struct FloatVec2XZY
-    {
-        public float x;
-        public float y;
-        public float z;
-
-        public FloatVec2XZY(float x, float y, float z)
-        {
-            this.x = x;
-            this.y = 1;
-            this.z = z;
-        }
-
-        public double Norm => Math.Sqrt(x * x + z * z);
-    }
-
-    struct FloatVec3
-    {
-        public float x;
-        public float y;
-        public float z;
-
-        public FloatVec3(float x, float y, float z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-
-        public double Norm => Math.Sqrt(x * x + y * y + z * z);
-    }
-
-    struct IntVec2
-    {
-        public int x;
-        public int y;
-
-        public IntVec2(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-
-        public double Norm => Math.Sqrt((double)x * x + (double)y * y);
-    }
-
-    struct IntVec2XZY
-    {
-        public int x;
-        public int y;
-        public int z;
-
-        public IntVec2XZY(int x, int y, int z)
-        {
-            this.x = x;
-            this.y = 1;
-            this.z = z;
-        }
-
-        public double Norm => Math.Sqrt((double)x * x + (double)z * z);
-    }
-
-    struct IntVec3
-    {
-        public int x;
-        public int y;
-        public int z;
-
-        public IntVec3(int x, int y, int z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-
-        public double Norm => Math.Sqrt((double)x * x + (double)y * y + (double)z * z);
-    }
-
     public class Component : IComponent
     {
         private Settings settings;
@@ -126,7 +33,7 @@ namespace LiveSplit.MemoryGraph
         private int graphHeight;
         private int graphWidth;
         private int drawCounter = 0;                                        //For smoothing out
-        private float avaragedValue;                                    //For smoothing out
+        private float averagedValue;                                    //For smoothing out
         private float[] fake_particles;
 
         private Queue<float> pastValues { get; } = new Queue<float>();
@@ -401,11 +308,11 @@ namespace LiveSplit.MemoryGraph
                     gBuffer.DrawImageUnscaled(bmpBuffer, -1, 0);
                     gBuffer.FillRectangle(Brushes.Transparent, graphWidth - 1, 0, 1, graphHeight);
 
-                    avaragedValue += relativeValueClamped;
+                    averagedValue += relativeValueClamped;
 
                     if (drawCounter==10)
                     {
-                        avaragedValue = avaragedValue / 10.0f;
+                        averagedValue = averagedValue / 10.0f;
                         //LU, LL, RB, RU
                         //X,Y, width, height
                         polygon_points[0].X = graphWidth - 11;
@@ -416,11 +323,11 @@ namespace LiveSplit.MemoryGraph
                         polygon_points[2].Y = graphHeight;
                         polygon_points[3].X = graphWidth;
                         if (currentValue > settings.MinimumValue)
-                            polygon_points[3].Y = graphHeight - (avaragedValue * graphHeight);
+                            polygon_points[3].Y = graphHeight - (averagedValue * graphHeight);
                         else
                             polygon_points[3].Y = graphHeight;
                         gBuffer.FillPolygon(graphBrush, polygon_points);
-                        avaragedValue = 0;
+                        averagedValue = 0;
                         drawCounter = 0;
                     }
                     else
@@ -474,11 +381,11 @@ namespace LiveSplit.MemoryGraph
                     #endregion
                 #region Sonic_Graph
                 case GraphStyle.Sonic:
-                    avaragedValue += relativeValue;
+                    averagedValue += relativeValue;
 
                     if (drawCounter==3)
                     {
-                        avaragedValue = avaragedValue / 3;
+                        averagedValue = averagedValue / 3;
                         gBuffer.Clear(Color.Transparent);
 
                         if(graphHeight>graphWidth)
@@ -487,17 +394,17 @@ namespace LiveSplit.MemoryGraph
                             gBuffer.DrawImage(sonic.getBitmap(relativeValue), 0, 0, graphHeight/1.27f, graphHeight);
 
 
-                        gBuffer.DrawLine(graphPen, fake_particles[0] - 10 * avaragedValue, graphHeight * 0.44f, fake_particles[0], graphHeight * 0.44f);
-                        gBuffer.DrawLine(graphPen, fake_particles[1] - 10 * avaragedValue, graphHeight * 0.76f, fake_particles[1], graphHeight * 0.76f);
-                        gBuffer.DrawLine(graphPen, fake_particles[2] - 10 * avaragedValue, graphHeight * 0.67f, fake_particles[2], graphHeight * 0.67f);
-                        gBuffer.DrawLine(graphPen, fake_particles[3] - 10 * avaragedValue, graphHeight * 0.14f, fake_particles[3], graphHeight * 0.14f);
-                        gBuffer.DrawLine(graphPen, fake_particles[4] - 10 * avaragedValue, graphHeight * 0.33f, fake_particles[4], graphHeight * 0.33f);
+                        gBuffer.DrawLine(graphPen, fake_particles[0] - 10 * averagedValue, graphHeight * 0.44f, fake_particles[0], graphHeight * 0.44f);
+                        gBuffer.DrawLine(graphPen, fake_particles[1] - 10 * averagedValue, graphHeight * 0.76f, fake_particles[1], graphHeight * 0.76f);
+                        gBuffer.DrawLine(graphPen, fake_particles[2] - 10 * averagedValue, graphHeight * 0.67f, fake_particles[2], graphHeight * 0.67f);
+                        gBuffer.DrawLine(graphPen, fake_particles[3] - 10 * averagedValue, graphHeight * 0.14f, fake_particles[3], graphHeight * 0.14f);
+                        gBuffer.DrawLine(graphPen, fake_particles[4] - 10 * averagedValue, graphHeight * 0.33f, fake_particles[4], graphHeight * 0.33f);
 
                         drawCounter = 0;
 
                         for (int i = 0; i < fake_particles.Length; i++)
                         {
-                            fake_particles[i] = fake_particles[i] - 15 * avaragedValue;
+                            fake_particles[i] = fake_particles[i] - 15 * averagedValue;
                             if (fake_particles[i] < 0)
                                 fake_particles[i] += graphWidth + 5;
                         }

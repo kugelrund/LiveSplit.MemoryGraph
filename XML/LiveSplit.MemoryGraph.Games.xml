@@ -249,6 +249,15 @@
 		<decimals>1</decimals>
 		<unitConverter>12.22</unitConverter>
 	</game>
+	<game name="ENA: Dream BBQ">
+		<process>ENA-4-DreamBBQ</process>
+		<Module>UnityPlayer.dll</Module>
+        <Base>01AEFBE8</Base>
+        <Offsets>0, 3A0, 8, 60, 60, 15C</Offsets>
+        <ValueType>FloatVec2XZY</ValueType>
+		<maximumValue>20</maximumValue>
+		<decimals>3</decimals>
+	</game>
 	<game name="Escape From Lavender Island">
 		<process>LavenderIsland-Win64-Shipping</process>
 		<type>FloatVec3</type>

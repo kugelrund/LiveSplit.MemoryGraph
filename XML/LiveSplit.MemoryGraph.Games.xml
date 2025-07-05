@@ -84,13 +84,13 @@
 				<type>Int</type>
 			</option>
 			<option name="V-Meter (Windows)">
-				<base>A1E27FC</base>
+				<base>9B37DCC</base>
 				<maximumValue>1000</maximumValue>
 				<decimals>0</decimals>
 				<type>Float</type>
 			</option>
 			<option name="TSCID (Windows)">
-				<base>33C0080</base>
+				<base>33D5E80</base>
 				<maximumValue>10</maximumValue>
 				<decimals>7</decimals>
 				<type>Float</type>

@@ -171,9 +171,16 @@
 	</game>
 	<game name="Call of Duty: Modern Warfare 3">
 		<process>iw5sp</process>
-		<base>595014</base>
 		<type>Float</type>
 		<maximumValue>500</maximumValue>
+		<options>
+			<option name="32-bit">
+				<base>595014</base>
+			</option>
+			<option name="64-bit">
+				<base>53AFD4</base>
+			</option>
+		</options>
 	</game>
 	<game name="Call of Duty: Modern Warfare Remastered">
 		<process>h1_sp64_ship</process>

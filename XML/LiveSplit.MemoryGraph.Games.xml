@@ -159,9 +159,16 @@
 	</game>
 	<game name="Call of Duty: Modern Warfare 2">
 		<process>iw4sp</process>
-		<base>46B04C</base>
 		<type>Float</type>
 		<maximumValue>500</maximumValue>
+		<options>
+			<option name="Updated">
+				<base>46B04C</base>
+			</option>
+			<option name="1.0">
+				<base>38706C</base>
+			</option>
+		</options>
 	</game>
 	<game name="Call of Duty 2">
 		<process>CoD2SP_s</process>
